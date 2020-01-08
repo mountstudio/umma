@@ -1,6 +1,37 @@
 body {
     font-family: 'Ubuntu', sans-serif;
 }
-h1 {
 
+.bg-for-middle-div {
+    text-align: center;
+    text-transform: uppercase;
+    color: #FFF3F3;
+    font-size: 20px;
+    background: linear-gradient(90.63deg, #5D84BF 4.23%, #E90A67 90.84%);
+}
+
+.text-menu {
+    font-size: 20px;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+.text-orange {
+    color: #D57E2A;
+}
+
+.ul-for-menu {
+    list-style: none;
+    justify-content: space-between;
+}
+
+.bg-for-footer {
+    background: #DADADA;
+}
+
+.txt-for-black {
+    color: #000000;
+}
+
+.text-for-footer {
+    list-style: none;
 }

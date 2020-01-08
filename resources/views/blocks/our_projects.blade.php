@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container pb-3">
     <h1>Наши проекты</h1>
     <div class="row text-center">
         <div class="col-12">
