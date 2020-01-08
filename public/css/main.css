@@ -11,6 +11,7 @@ body {
 }
 
 .text-menu {
+  font-size: 20px;
   text-transform: uppercase;
   font-weight: bold;
 }
@@ -35,5 +36,17 @@ body {
 
 .text-for-footer {
   list-style: none;
+}
+
+.title-for-kolumnisti {
+  font-weight: bold;
+  font-size: 24px;
+  color: #000000;
+}
+
+.bg-for-kolumn {
+  border: 2px solid #C4C4C4;
+  box-sizing: border-box;
+  border-radius: 5px;
 }
 
