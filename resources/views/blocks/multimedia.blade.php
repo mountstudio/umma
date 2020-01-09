@@ -1,4 +1,4 @@
 <div class="container-fluid">
-    <p class="h1">Мультимедиа</p>
+    <h2 class="text-uppercase">Мультимедиа</h2>
 
 </div>

@@ -1,5 +1,5 @@
 <div class="container pb-3">
-    <h1>Наши проекты</h1>
+    <h2 class="text-uppercase">Наши проекты</h2>
     <div class="row text-center">
         <div class="col-12">
             <a href="">
