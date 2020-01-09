@@ -3,14 +3,14 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="theme-color" content="#de0">
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>{{ config('app.name', 'Laravel') }}</title>
 
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    <link rel="stylesheet" href="{{ asset('css/owl.carousel.css') }}">
+    <link href="../../../public/css/owl.carousel.min.css">
+    <link href="../../../public/css/owl.theme.default.min.css">
     <link href="{{ asset('css/main.css') }}" rel="stylesheet">
     @stack('styles')
 </head>
@@ -22,8 +22,8 @@
         </main>
         @include('blocks.footer')
     </div>
-    <script src="{{ asset('js/owl.carousel.min.js') }}"></script>
     <script src="{{ asset('js/app.js') }}"></script>
+    <script src="../../../public/js/owl.carousel.min.js"></script>
     @stack('scripts')
 </body>
 </html>

@@ -1,5 +1,5 @@
 <div class="container-fluid">
-    <div class="row justify-content-around" >
+    <div class="row justify-content-around">
         <div class="col-7">
             <div class="col">
                 <h2 class="text-uppercase">Колумнисты</h2>
@@ -27,7 +27,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-4 ">
+        <div class="col-4">
             <div class="col">
                 <h2 class="text-uppercase">Хадис дня</h2>
             </div>
@@ -41,7 +41,7 @@
                     sapofksdofjosdjfoisdjfoijsdofijsdoijf
                     sdlfkjsdojfkosdjfoisdjfojsdofijsdoijfosdf
                     oajsodjaosjdoaisjdojaisodjaosijdaoijsdoiasjdoiajsdoijasdoij
-                             </p>
+                </p>
             </div>
         </div>
     </div>
