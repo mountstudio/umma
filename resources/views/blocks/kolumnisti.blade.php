@@ -1,4 +1,5 @@
 <div class="container-fluid">
+    <hr style="background-color: black;color: black;">
     <div class="row justify-content-around">
         <div class="col-7">
             <div class="col">

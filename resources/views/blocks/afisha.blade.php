@@ -7,10 +7,21 @@
             <div class="col-3 px-3">
                 <div class="card">
                     <img src="{{ asset('img/exmaple-2.jpg') }}" class="card-img-top p-2" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                    <div class="card-body pt-0 text-center">
+                        <div class="row justify-content-center" style="margin-top: -4rem;">
+                            <div class="col-4 border  rounded border-1  bg-white">
+                                <p class="pt-3 h2 mb-0" style="line-height: 92%;"><span class="text-orange">28</span> <br> АПР</p>
+                                <p class="h4 mb-0 pb-2"></p>
+                                <p class="rounded-pill text-white mx-auto " style="background-color: #008500;width: 68%;">10:30</p>
+                            </div>
+                        </div>
+                        <div class="row justify-content-center">
+                           <div class="col-9">
+                               <h6 class="card-title text-orange pt-2">Акция</h6>
+                               <p class="card-text text-uppercase">Праздник для души Встречай  Рамадан!</p>
+                               <p class="card-text">Для детей и взрослых</p>
+                           </div>
+                        </div>
                     </div>
                 </div>
             </div>

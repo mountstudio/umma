@@ -10,13 +10,15 @@ body {
     background: linear-gradient(90.63deg, #5D84BF 4.23%, #E90A67 90.84%);
 }
 
+
+
 .text-menu {
     font-size: 20px;
     text-transform: uppercase;
     font-weight: bold;
 }
 .text-orange {
-    color: #D57E2A;
+    color: $text-orange;
 }
 
 .ul-for-menu {
@@ -29,7 +31,7 @@ body {
 }
 
 .txt-for-black {
-    color: #000000;
+    color: $text-black;
 }
 
 .text-for-footer {
@@ -49,6 +51,7 @@ body {
 
 .border-2 {
     border-width: 2px !important;
+
 }
 .border-3 {
     border-width: 3px !important;
@@ -57,5 +60,5 @@ body {
     border-width: 4px !important;
 }
 .border-orange {
-    border-color: #D57E2A !important;
+    border-color: $text-orange !important;
 }
