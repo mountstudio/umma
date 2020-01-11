@@ -66,3 +66,8 @@ body {
   border-color: #D57E2A !important;
 }
 
+.border-for-news {
+    border: 1px solid #000000;
+    box-sizing: border-box;
+    border-radius: 20px;
+}

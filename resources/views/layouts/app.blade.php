@@ -7,11 +7,12 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>{{ config('app.name', 'Laravel') }}</title>
-
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    <link href="../../../public/css/owl.carousel.min.css">
-    <link href="../../../public/css/owl.theme.default.min.css">
     <link href="{{ asset('css/main.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/owl.carousel.min.css') }}">
+    <link href="{{ asset('css/owl.carousel.css') }}">
+    <link href="{{ asset('css/owl.theme.default.min.css') }}">
+
     @stack('styles')
 </head>
 <body>
@@ -23,7 +24,10 @@
         @include('blocks.footer')
     </div>
     <script src="{{ asset('js/app.js') }}"></script>
-    <script src="../../../public/js/owl.carousel.min.js"></script>
+    <script src="{{ asset('js/owl.carousel.js') }}"></script>
+    <script src="{{ asset('js/owl.carousel.min.js') }}"></script>
+
+
     @stack('scripts')
 </body>
 </html>

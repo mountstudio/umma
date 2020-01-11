@@ -18,10 +18,9 @@
                 <div class="card-body text-center">
                     <img src="{{ asset('img/hello_html_m4e1bf07b.png') }}" style="width: 36%" alt="Узор">
                     <div class="row justify-content-center">
-                        <div class="col-10">
-                            <h5 class="card-title">Card title</h5>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        <div class="col-6">
+                            <h6 class="card-title text-uppercase">Трогательная история</h6>
+                            <p class="card-text text-uppercase">Покаяние малика ИБН Динар</p>
                         </div>
                     </div>
                 </div>
@@ -34,10 +33,9 @@
                 <div class="card-body text-center">
                     <img src="{{ asset('img/hello_html_m4e1bf07b.png') }}" style="width: 36%" alt="Узор">
                     <div class="row justify-content-center">
-                        <div class="col-10">
-                            <h5 class="card-title">Card title</h5>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        <div class="col-6">
+                            <h6 class="card-title text-uppercase">Мнение ученых</h6>
+                            <p class="card-text text-uppercase">Украденное слово "Аллаху Акбар"</p>
                         </div>
                     </div>
                 </div>
@@ -50,10 +48,9 @@
                 <div class="card-body text-center">
                     <img src="{{ asset('img/hello_html_m4e1bf07b.png') }}"  style="width: 36%" alt="Узор">
                     <div class="row justify-content-center">
-                        <div class="col-10">
-                            <h5 class="card-title">Card title</h5>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        <div class="col-6">
+                            <h6 class="text-uppercase">Сахабы</h6>
+                            <p class="card-text text-uppercase">Праведный халиф Умар Ибн Хаттаб</p>
                         </div>
                     </div>
                 </div>
@@ -81,9 +78,8 @@
                         <img src="{{ asset('img/hello_html_m4e1bf07b.png') }}" class="" style="width: 36%" alt="Узор">
                         <div class="row justify-content-center">
                             <div class="col-10">
-                                <h5 class="card-title">Card title</h5>
-                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                <h6 class="text-uppercase">Надо знать</h6>
+                                <p class="card-text text-uppercase">"ИНшаалах"- Когда это слово применить?</p>
                             </div>
                         </div>
                     </div>

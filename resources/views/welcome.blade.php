@@ -13,3 +13,8 @@
         @include('blocks.our_projects')
     </div>
 @endsection
+
+@push('scripts')
+
+
+@endpush
