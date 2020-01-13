@@ -1,9 +1,10 @@
 // Fonts
-@import url('https://fonts.googleapis.com/css?family=Nunito');
 @import url('https://fonts.googleapis.com/css?family=Ubuntu:300,400,500,700&display=swap&subset=cyrillic-ext');
 
 // Variables
 @import 'variables';
+
+@import "~@fortawesome/fontawesome-free/css/all.css";
 
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
