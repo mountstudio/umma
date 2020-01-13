@@ -7,7 +7,7 @@
         @include('blocks.kolumnisti')
         @include('blocks.afisha')
         @include('blocks.different')
-        @include('blocks.multimedia')
+{{--        @include('blocks.multimedia')--}}
     </div>
     <div class="text-center">
         @include('blocks.our_projects')
