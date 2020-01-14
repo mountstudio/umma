@@ -32,7 +32,7 @@
             <div class="col">
                 <h2 class="text-uppercase">Хадис дня</h2>
             </div>
-            <div class="border border-4 border-orange rounded p-3">
+            <div class="border-4 border-orange rounded p-3">
                 <p>oajsodjaosjdoaisjdojaisodjaosijdaoijsdoiasjdoiajsdoijasdoij
                 sdpfkosdjifoijsdfojisdofijsdofjosdijfoisjdf
                 sapofksdofjosdjfoisdjfoijsdofijsdoijf
