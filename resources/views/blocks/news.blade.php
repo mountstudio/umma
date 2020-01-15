@@ -1,6 +1,6 @@
 <div class="container-fluid">
     <div class="row">
-        <div class="col-4">
+        <div class="col-4 ">
             <ul class="nav nav-pills d-flex justify-content-center mb-0" id="pills-tab" role="tablist">
                 <li class="nav-item">
                     <a class="nav-link rounded-0 bg-secondary text-white active" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home" aria-selected="true">Свежее</a>
@@ -53,7 +53,11 @@
                     </div>
                 </div>
             </div>
+            <div class="pt-3">
+                @include('blocks.right-sidebar.animation')
+            </div>
         </div>
+
         <div class="col-8">
           <div class="row">
               @for($i = 0; $i < 6; $i++)

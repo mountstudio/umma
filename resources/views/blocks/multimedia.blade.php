@@ -1,47 +1,58 @@
-<div class="container-fluid">
+<div class="container-fluid px-5">
     <h2 class="text-uppercase">Мультимедиа</h2>
-    <div class="row justify-content-center position-relative ">
-        <div id="multimedia" class="owl-carousel owl-theme col-12 col-md-10 col-lg-8">
-            <div class="item">
-                <img src="{{ asset('img/example-1.jpg') }}" alt="">
-            </div>
-            <div class="item">
-                <img src="{{ asset('img/example-1.jpg') }}" alt="">
-            </div>
-            <div class="item">
-                <img src="{{ asset('img/example-1.jpg') }}" alt="">
-            </div>
-            <div class="item">
-                <img src="{{ asset('img/example-1.jpg') }}" alt="">
-            </div>
-            <div class="item">
-                <img src="{{ asset('img/example-1.jpg') }}" alt="">
-            </div>
-            <div class="item">
-                <img src="{{ asset('img/example-1.jpg) }}" alt="">
+    <div class="row">
+        <div class="col-12" style="background-color: orangered">
+            <div class="multimedia">
+                <div class="item border p-1 mr-1">
+                    <img class="img-fluid" src="{{ asset('img/example-1.jpg') }}" alt="">
+                </div>
+                <div class="item border p-1 mr-1">
+                    <img class="img-fluid" src="{{ asset('img/example-2.jpg') }}" alt="">
+                </div>
+                <div class="item border p-1 mr-1">
+                    <img class="img-fluid" src="{{ asset('img/example-3.jpg') }}" alt="">
+                </div>
+                <div class="item border p-1 mr-1">
+                    <img class="img-fluid" src="{{ asset('img/example-1.jpg') }}" alt="">
+                </div>
+                <div class="item border p-1 mr-1">
+                    <img class="img-fluid" src="{{ asset('img/example-2.jpg') }}" alt="">
+                </div>
+                <div class="item border p-1 mr-1">
+                    <img class="img-fluid" src="{{ asset('img/example-3.jpg') }}" alt="">
+                </div>
+                <div class="item border p-1 mr-1">
+                    <img class="img-fluid" src="{{ asset('img/example-1.jpg') }}" alt="">
+                </div>
+                <div class="item border p-1 mr-1">
+                    <img class="img-fluid" src="{{ asset('img/example-2.jpg') }}" alt="">
+                </div>
+                <div class="item border p-1 mr-1">
+                    <img class="img-fluid" src="{{ asset('img/example-3.jpg') }}" alt="">
+                </div>
             </div>
         </div>
     </div>
 </div>
 
-@push('scripts')
+@push('styles')
+    <link rel="stylesheet" href="{{ asset('css/slick.css') }}">
+@endpush
 
+@push('scripts')
+    <script src="{{ asset('js/slick.min.js') }}"></script>
     <script>
-        $('#multimedia').owlCarousel({
-            loop: true,
-            margin: 10,
-            nav: true,
-            navigation: true,
-            dots: false,
-            touchDrag: true,
-            responsive: {
-                0: {
-                    items: 1
-                },
-            },
-            autoplay: true,
-            autoplayTimeout: 6000,
-            adaptiveHeight: true,
-        })
+
+        $(document).ready(function () {
+            // slick carousel
+            $('.multimedia').slick({
+                autoplay: true,
+                autoplaySpeed: 3000,
+                slidesToShow: 3,
+                slidesToScroll: 1,
+            });
+
+        });
+
     </script>
 @endpush
