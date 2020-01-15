@@ -26,6 +26,9 @@ body {
 .text-orange {
     color: $text-orange;
 }
+.bg-orange {
+    background: $text-orange!important;
+}
 
 .namaz-tabs {
     color: $text-black !important;
@@ -75,4 +78,11 @@ body {
 }
 .border-orange {
     border-color: $text-orange !important;
+}
+.bg-for-image {
+    background: white;
+}
+
+.bg-black-50 {
+    background: #000000AA!important;
 }

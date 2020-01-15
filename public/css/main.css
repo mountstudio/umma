@@ -1,1 +1,95 @@
-body{font-family:Ubuntu,sans-serif}.bg-for-middle-div{text-align:center;text-transform:uppercase;color:#fff3f3;font-size:20px;background:linear-gradient(90.63deg,#5d84bf 4.23%,#e90a67 90.84%)}.border-for-news{border:1px solid #000;box-sizing:border-box;border-radius:20px}.text-menu{font-size:20px;text-transform:uppercase;font-weight:700}.text-orange{color:#d57e2a}.namaz-tabs{color:#000!important;background:transparent!important}.namaz-tabs.active{color:#d57e2a!important}.ul-for-menu{list-style:none;-webkit-box-pack:justify;justify-content:space-between}.bg-for-footer{background:#dadada}.txt-for-black{color:#000}.text-for-footer{list-style:none}.title-for-kolumnisti{font-weight:700;font-size:24px;color:#000}.bg-for-kolumn{border:2px solid #c4c4c4;box-sizing:border-box;border-radius:5px}.border-2{border-width:2px!important}.border-3{border-width:3px!important}.border-4{border-width:4px!important}.border-orange{border-color:#d57e2a!important}
+body {
+  font-family: "Ubuntu", sans-serif;
+}
+
+.bg-for-middle-div {
+  text-align: center;
+  text-transform: uppercase;
+  color: #FFF3F3;
+  font-size: 20px;
+  background: linear-gradient(90.63deg, #5D84BF 4.23%, #E90A67 90.84%);
+}
+
+.border-for-news {
+  border: 1px solid #000000;
+  box-sizing: border-box;
+  border-radius: 20px;
+}
+
+.text-menu {
+  font-size: 20px;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+.text-orange {
+  color: #D57E2A;
+}
+
+.bg-orange {
+  background: #D57E2A !important;
+}
+
+.namaz-tabs {
+  color: #000000 !important;
+  background: transparent !important;
+}
+
+.namaz-tabs.active {
+  color: #D57E2A !important;
+}
+
+.ul-for-menu {
+  list-style: none;
+  -webkit-box-pack: justify;
+          justify-content: space-between;
+}
+
+.bg-for-footer {
+  background: #DADADA;
+}
+
+.txt-for-black {
+  color: #000000;
+}
+
+.text-for-footer {
+  list-style: none;
+}
+
+.title-for-kolumnisti {
+  font-weight: bold;
+  font-size: 24px;
+  color: #000000;
+}
+
+.bg-for-kolumn {
+  border: 2px solid #C4C4C4;
+  box-sizing: border-box;
+  border-radius: 5px;
+}
+
+.border-2 {
+  border-width: 2px !important;
+}
+
+.border-3 {
+  border-width: 3px !important;
+}
+
+.border-4 {
+  border-width: 4px !important;
+}
+
+.border-orange {
+  border-color: #D57E2A !important;
+}
+
+.bg-for-image {
+  background: white;
+}
+
+.bg-black-50 {
+  background: #000000AA !important;
+}
+
