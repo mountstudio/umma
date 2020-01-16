@@ -1,4 +1,4 @@
-<h2>Статьи</h2>
+<h2 class="text-center pt-2">Статьи</h2>
 <div class="tab-content" id="pills-tabContent">
     <div class="tab-pane fade show active" style="color: #1d643b" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
         <div class="row d-flex mx-1 p-3 border-for-news">

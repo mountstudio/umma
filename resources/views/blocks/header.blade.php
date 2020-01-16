@@ -9,10 +9,10 @@
                                                                        class="img-fluid justify-content-center"></a>
         </div>
         <div class="col-5 text-right m-0 p-0">
-            <i class="fab fa-facebook fa-lg text-orange mr-3" ></i>
-            <i class="fab fa-instagram fa-lg text-orange mr-3" ></i>
-            <i class="fab fa-youtube fa-lg text-orange mr-3" ></i>
-            <i class="fas fa-rss fa-lg text-orange" ></i>
+            <a href="https://www.facebook.com/ummamag.kg"><i class="fab fa-facebook fa-lg text-orange mr-3" ></i></a>
+            <a href="https://www.instagram.com/ummamagkg/"><i class="fab fa-instagram fa-lg text-orange mr-3" ></i></a>
+            <a href="https://www.youtube.com/watch?v=pfab0uXYDpY&feature=youtu.be"><i class="fab fa-youtube fa-lg text-orange mr-3" ></i></a>
+            <a href=""><i class="fas fa-rss fa-lg text-orange"></i></a>
         </div>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                 aria-controls="navbarSupportedContent" aria-expanded="false"
