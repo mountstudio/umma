@@ -6,7 +6,7 @@
         @for($i = 0; $i < 4; $i++)
             <div class="col-3 px-3">
                 <div class="card">
-                    <img src="{{ asset('img/exmaple-2.jpg') }}" class="card-img-top p-2" alt="...">
+                    <img src="{{ asset('img/example-2.jpg') }}" class="card-img-top p-2" alt="...">
                     <div class="card-body pt-0 text-center">
                         <div class="row justify-content-center" style="margin-top: -4rem;">
                             <div class="col-4 border  rounded border-1  bg-white">
