@@ -10,7 +10,7 @@
                 <a href="https://www.youtube.com/watch?v=pfab0uXYDpY&feature=youtu.be"><i class="fab fa-youtube fa-lg text-white mr-3" ></i></a>
                 <a href=""><i class="fas fa-rss fa-lg text-white mr-3" ></i></a>
                 <a href=""></a><ul class="nav ml-3">
-                    <li class="text-for-footer nav-item mr-4"><a class="text-white" href="">О нас</a></li>
+                    <li class="text-for-footer nav-item mr-4"><a class="text-white" href="{{ route('magazines') }}">О нас</a></li>
                     <li class="text-for-footer nav-item mr-4"><a class="text-white" href="">Вакансии</a></li>
                     <li class="text-for-footer nav-item mr-4"><a class="text-white" href="">Рекламодателям</a></li>
                     <li class="text-for-footer nav-item mr-4"><a class="text-orange" href="">Подписка</a></li>
