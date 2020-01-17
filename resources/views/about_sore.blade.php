@@ -3,7 +3,7 @@
     <div class="container">
         <div class="row">
             <div class="col-8">
-                <h2 class="text-center">Просвещение</h2>
+                <h2 class="text-center">О наболевшем</h2>
 
             </div>
             <div class="col-4">

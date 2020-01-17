@@ -4,7 +4,7 @@
 
         <div class="row">
             <div class="col-8">
-                <h2 class="text-center">О наболевшем</h2>
+                <h2 class="text-center">Новости</h2>
                 <div class="row">
                     @for($i = 0; $i < 6; $i++)
                         <div class="col-6 pb-4">

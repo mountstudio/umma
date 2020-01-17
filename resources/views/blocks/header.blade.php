@@ -29,10 +29,10 @@
         <a class="nav-link text-dark text-menu" href="{{ route('it_is_interesting') }}" title="" style="">Это интересно</a>
     </li>
     <li class="nav-item">
-        <a class="nav-link text-dark text-menu" href="{{ route('news_page') }}" title="" style="">Просвещение</a>
+        <a class="nav-link text-dark text-menu" href="{{ route('education') }}" title="" style="">Просвещение</a>
     </li>
     <li class="nav-item">
-        <a class="nav-link text-dark text-menu" href="{{ route('news_page') }}" title="" style="">О наболевшем</a>
+        <a class="nav-link text-dark text-menu" href="{{ route('about_sore') }}" title="" style="">О наболевшем</a>
     </li>
     <li class="nav-item">
         <a class="nav-link text-dark text-menu" href="{{ route('interview') }}" title="" style="">Интервью</a>

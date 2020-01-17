@@ -55,3 +55,11 @@ Route::get('/interview',function (){
 Route::get('/news_page',function (){
     return view('news_page');
 })->name('news_page');
+
+Route::get('/about_sore',function (){
+    return view('about_sore');
+})->name('about_sore');
+
+Route::get('/education',function (){
+    return view('education');
+})->name('education');
