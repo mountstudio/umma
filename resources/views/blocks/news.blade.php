@@ -73,16 +73,7 @@
           <div class="row">
               @for($i = 0; $i < 6; $i++)
                   <div class="col-6 pb-4">
-                      <div class="card">
-                          <img src="{{ asset('img/example-1.jpg') }}" class="card-img-top" alt="...">
-                          <div class="card-body">
-                              <div class="col-3 text-white" style="border-bottom-right-radius: 15px;border-top-right-radius: 15px; background-color: #008500;margin-left: -1.3rem;margin-top: -2.10rem;">
-                                  <p style="font-size: 13px">Интересное</p>
-                              </div>
-                              <h6 class="text-left">Драпировка головы:</h6>
-                              <p class="card-text">Манифест и целый мир мусульманки</p>
-                          </div>
-                      </div>
+                      @include('articles.card')
                   </div>
               @endfor
           </div>

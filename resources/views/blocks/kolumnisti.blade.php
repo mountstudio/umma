@@ -33,15 +33,7 @@
                 <h2 class="text-uppercase">Хадис дня</h2>
             </div>
             <div class="border border-4 border-orange rounded p-3">
-                <p>oajsodjaosjdoaisjdojaisodjaosijdaoijsdoiasjdoiajsdoijasdoij
-                sdpfkosdjifoijsdfojisdofijsdofjosdijfoisjdf
-                sapofksdofjosdjfoisdjfoijsdofijsdoijf
-                sdlfkjsdojfkosdjfoisdjfojsdofijsdoijfosdf
-                    oajsodjaosjdoaisjdojaisodjaosijdaoijsdoiasjdoiajsdoijasdoij
-                    sdpfkosdjifoijsdfojisdofijsdofjosdijfoisjdf
-                    sapofksdofjosdjfoisdjfoijsdofijsdoijf
-                    sdlfkjsdojfkosdjfoisdjfojsdofijsdoijfosdf
-                    oajsodjaosjdoaisjdojaisodjaosijdaoijsdoiasjdoiajsdoijasdoij
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur dolore doloribus, ducimus eos facere ipsam laudantium nihil, nisi non nostrum odio odit omnis quas quisquam quod repellendus rerum sunt totam.
                 </p>
                 <div class="col-12 text-right">
                     <a href="" class="" style="color: grey;">Читать далее...</a>
