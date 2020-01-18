@@ -10,6 +10,12 @@ body {
   background: linear-gradient(90.63deg, #5D84BF 4.23%, #E90A67 90.84%);
 }
 
+.border-for-news {
+  border: 1px solid #000000;
+  box-sizing: border-box;
+  border-radius: 20px;
+}
+
 .text-menu {
   font-size: 20px;
   text-transform: uppercase;
@@ -18,6 +24,19 @@ body {
 
 .text-orange {
   color: #D57E2A;
+}
+
+.bg-orange {
+  background: #D57E2A !important;
+}
+
+.namaz-tabs {
+  color: #000000 !important;
+  background: transparent !important;
+}
+
+.namaz-tabs.active {
+  color: #D57E2A !important;
 }
 
 .ul-for-menu {
@@ -66,8 +85,11 @@ body {
   border-color: #D57E2A !important;
 }
 
-.border-for-news {
-    border: 1px solid #000000;
-    box-sizing: border-box;
-    border-radius: 20px;
+.bg-for-image {
+  background: white;
 }
+
+.bg-black-50 {
+  background: #000000AA !important;
+}
+

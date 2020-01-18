@@ -9,10 +9,10 @@
                                                                        class="img-fluid justify-content-center"></a>
         </div>
         <div class="col-5 text-right m-0 p-0">
-            <i class="fab fa-facebook fa-lg text-orange mr-3" ></i>
-            <i class="fab fa-instagram fa-lg text-orange mr-3" ></i>
-            <i class="fab fa-youtube fa-lg text-orange mr-3" ></i>
-            <i class="fas fa-rss fa-lg text-orange" ></i>
+            <a href="https://www.facebook.com/ummamag.kg"><i class="fab fa-facebook fa-lg text-orange mr-3" ></i></a>
+            <a href="https://www.instagram.com/ummamagkg/"><i class="fab fa-instagram fa-lg text-orange mr-3" ></i></a>
+            <a href="https://www.youtube.com/watch?v=pfab0uXYDpY&feature=youtu.be"><i class="fab fa-youtube fa-lg text-orange mr-3" ></i></a>
+            <a href=""><i class="fas fa-rss fa-lg text-orange"></i></a>
         </div>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                 aria-controls="navbarSupportedContent" aria-expanded="false"
@@ -23,28 +23,28 @@
 </div>
 <ul class="d-flex ul-for-menu mb-0">
     <li class="nav-item ">
-        <a class="nav-link text-dark text-menu pl-0" href="" title="" style="">Надо знать</a>
+        <a class="nav-link text-dark text-menu pl-0" href="{{ route('need_to_know') }}" title="" style="">Надо знать</a>
     </li>
     <li class="nav-item">
-        <a class="nav-link text-dark text-menu" href="" title="" style="">Это интересно</a>
+        <a class="nav-link text-dark text-menu" href="{{ route('it_is_interesting') }}" title="" style="">Это интересно</a>
     </li>
     <li class="nav-item">
-        <a class="nav-link text-dark text-menu" href="" title="" style="">Просвещение</a>
+        <a class="nav-link text-dark text-menu" href="{{ route('education') }}" title="" style="">Просвещение</a>
     </li>
     <li class="nav-item">
-        <a class="nav-link text-dark text-menu" href="" title="" style="">О наболевшем</a>
+        <a class="nav-link text-dark text-menu" href="{{ route('about_sore') }}" title="" style="">О наболевшем</a>
     </li>
     <li class="nav-item">
-        <a class="nav-link text-dark text-menu" href="" title="" style="">Интервью</a>
+        <a class="nav-link text-dark text-menu" href="{{ route('interview') }}" title="" style="">Интервью</a>
     </li>
     <li class="nav-item">
-        <a class="nav-link text-dark text-menu" href="" title="" style="">Медиа</a>
+        <a class="nav-link text-dark text-menu" href="{{ route('media') }}" title="" style="">Медиа</a>
     </li>
     <li class="nav-item">
-        <a class="nav-link text-dark text-menu" href="" title="" style="">Новости</a>
+        <a class="nav-link text-dark text-menu" href="{{ route('news_page') }}" title="" style="">Новости</a>
     </li>
     <li class="nav-item">
-        <a class="nav-link text-dark text-menu" href="" title="" style="">Журнал</a>
+        <a class="nav-link text-dark text-menu" href="{{ route('magazines') }}" title="" style="">Журнал</a>
     </li>
 </ul>
 <div class="text-center">

@@ -43,6 +43,9 @@
                     sdlfkjsdojfkosdjfoisdjfojsdofijsdoijfosdf
                     oajsodjaosjdoaisjdojaisodjaosijdaoijsdoiasjdoiajsdoijasdoij
                 </p>
+                <div class="col-12 text-right">
+                    <a href="" class="" style="color: grey;">Читать далее...</a>
+                </div>
             </div>
         </div>
     </div>
