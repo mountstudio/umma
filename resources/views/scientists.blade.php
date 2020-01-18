@@ -7,7 +7,11 @@
 
             </div>
             <div class="col-4">
-
+                @include('blocks.right-sidebar.new')
+                <div class="pt-3">
+                    @include('blocks.right-sidebar.animation')
+                </div>
+                @include('blocks.right-sidebar.articles-bar')
             </div>
         </div>
     </div>

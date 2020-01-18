@@ -1,9 +1,9 @@
 @extends('layouts.app')
 @section('content')
     <div class="container">
-        <h2 class="text-center">Время намаза</h2>
         <div class="row">
             <div class="col-8">
+                <h2 class="text-center">О наболевшем</h2>
 
             </div>
             <div class="col-4">

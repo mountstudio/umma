@@ -7,7 +7,7 @@
                     <h2 class="text-center">Журналы</h2>
                     <hr style="background-color: black;color: black;">
                     <div class="row text-center">
-                        <div class="col-6">
+                        <div class="col-12 col-md-6">
                             <div>
                                 <img src="{{ asset('img/magazine_2017.png') }}" alt="журнал 2017">
                                 <p style="min-height: 52px">№4, Январь, 2017 ищите точки покупок на странице "О журнале"</p>
@@ -17,7 +17,7 @@
                                 <p style="min-height: 52px">№1, Май, 2015</p>
                             </div>
                         </div>
-                        <div class="col-6">
+                        <div class="col-12 col-md-6">
                             <div>
                                 <img src="{{ asset('img/magazine_2016.png') }}" alt="журнал 2016">
                                 <p style="min-height: 52px">№3, Апрель, 2016 Скачивание будет доступно позже</p>
@@ -33,7 +33,7 @@
                     <h3>О журнале</h3>
                     <hr style="background-color: black;color: black;">
                     <div class="row">
-                        <div class="col-6  text-left">
+                        <div class="col-12 col-md-6  text-left">
                             <p>Главный редактор: Элиана-Марьям Сатарова</p>
                             <p>Литературный редактор: Ирина Верченко</p>
                             <p>Адабий редактор, корректор: Мирлан Токтобеков</p>
@@ -50,7 +50,7 @@
                                 +996 (551) 040-264</p>
                             <p>Менеджер по рекламе: Алтынбек Айтматов</p>
                         </div>
-                        <div class="col-6 text-left">
+                        <div class="col-12 col-md-6 text-left">
                             <p>Ежеквартальный исламский журнал "Умма"</p>
                             <p>Издается с марта 2015 года</p>
                             <p>Журнал зарегистрирован в Министерстве Юстиции Кыргызской Республики</p>
