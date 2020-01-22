@@ -93,3 +93,14 @@ body {
   background: #000000AA !important;
 }
 
+.icon-arrow-right {
+    position: absolute;
+    top: 50%;
+    right: -22px;
+}
+
+.icon-arrow-left {
+    position: absolute;
+    top: 50%;
+    left: -22px;
+}

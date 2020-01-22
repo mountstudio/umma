@@ -1,10 +1,36 @@
 @extends('layouts.app')
 @section('content')
     <div class="container">
-        <h2 class="text-center">Ученые</h2>
+
         <div class="row">
             <div class="col-8">
-
+                <h2 class="text-center">Ученые</h2>
+                <hr style="background-color: black;color: black;">
+                <h4 class="text-center">Задайте свой вопрос</h4>
+                <p>Уважаемые посетители сайта, здесь вы можете задать свой вопрос имаму. На вопросы отвечает Кадыр
+                    Маликов.
+                    Перед заполнением формы убедитесь, что данный вопрос еще не публиковался на сайте. Для этого
+                    воспользуйтесь формой поиска вопросов справа. Для вашего удобства все вопросы помечены специальными
+                    тегами. Благодаря тегам вы сможете быстро отыскать вопросы на интересующую вас тему.</p>
+                <form>
+                    <div class="form-group">
+                        <label for="formGroupExampleInput">Ваше имя</label>
+                        <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Имя">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleFormControlInput1">Email</label>
+                        <input type="email" class="form-control" id="exampleFormControlInput1"
+                               placeholder="name@example.com">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleFormControlTextarea1">Ваше сообщение</label>
+                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                    </div>
+                    <button class="button button--nina button--text-thick button--text-upper button--size-s"
+                            data-text="Отправить">
+                        <span>О</span><span>т</span><span>п</span><span>р</span><span>а</span><span>в</span><span>и</span><span>т</span><span>ь</span>
+                    </button>
+                </form>
             </div>
             <div class="col-4">
                 @include('blocks.right-sidebar.new')
@@ -16,3 +42,6 @@
         </div>
     </div>
 @endsection
+@push('styles')
+    <link rel="stylesheet" type="text/css" href="{{asset('css/buttons.css')}}"/>
+@endpush

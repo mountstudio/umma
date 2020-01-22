@@ -63,3 +63,7 @@ Route::get('/about_sore',function (){
 Route::get('/education',function (){
     return view('education');
 })->name('education');
+
+Route::get('/scientists',function (){
+    return view('scientists');
+})->name('scientists');
