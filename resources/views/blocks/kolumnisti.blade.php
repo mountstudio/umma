@@ -1,11 +1,11 @@
 <div class="container-fluid">
     <hr style="background-color: black;color: black;">
     <div class="row justify-content-around">
-        <div class="col-7">
+        <div class="col-12 col-lg-7">
             <div class="col">
                 <h2 class="text-uppercase">Колумнисты</h2>
             </div>
-            <div class="d-flex border border-3 rounded p-3 text-center">
+            <div class="d-lg-flex border border-3 rounded p-3 text-center">
                 <div class="col-12 col-lg-3 col-md-3">
                     <img src="{{ asset('icons/icon-for-kolumn-1.png') }}" alt="">
                     <h3 class="font-weight-bold h5 pt-2" style="min-height: 56px;">Тариэль Малашев</h3>

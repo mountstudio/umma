@@ -8,7 +8,7 @@
             <a class="navbar-brand" href="{{ route('welcome') }}"><img src="{{ asset('img/umma_logo.png') }}" alt=""
                                                                        class="img-fluid justify-content-center"></a>
         </div>
-        <div class="col-12 col-lg-5 text-right m-0 p-0">
+        <div class="col-12 col-lg-5 text-right m-0 p-0 justify-content-lg-between justify-content-sm-center">
             <a href="https://www.facebook.com/ummamag.kg"><i class="fab fa-facebook fa-lg text-orange mr-3" ></i></a>
             <a href="https://www.instagram.com/ummamagkg/"><i class="fab fa-instagram fa-lg text-orange mr-3" ></i></a>
             <a href="https://www.youtube.com/watch?v=pfab0uXYDpY&feature=youtu.be"><i class="fab fa-youtube fa-lg text-orange mr-3" ></i></a>
