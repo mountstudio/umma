@@ -4,7 +4,7 @@
     </div>
     <div class="row">
         @for($i = 0; $i < 4; $i++)
-            <div class="col-3 px-3">
+            <div class="col-12 col-lg-3 col-md-4 px-3">
                 <div class="card">
                     <img src="{{ asset('img/example-2.jpg') }}" class="card-img-top p-2" alt="...">
                     <div class="card-body pt-0 text-center">

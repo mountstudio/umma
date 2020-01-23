@@ -1,7 +1,7 @@
 <div class="container-fluid pt-5 bg-for-footer">
     <div class="row justify-content-around">
         <div class="col-12 col-lg-4 col-md-4">
-            <img src="{{ asset('img/umma_logo.png') }}" alt="">
+            <img src="{{ asset('img/umma_logo.png') }}" class="img-fluid" alt="">
         </div>
         <div class="col-12 col-md-7 text-right ">
             <div class="row align-items-center justify-content-end">

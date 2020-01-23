@@ -67,3 +67,7 @@ Route::get('/education',function (){
 Route::get('/scientists',function (){
     return view('scientists');
 })->name('scientists');
+
+Route::get('/show',function (){
+    return view('show');
+})->name('show');

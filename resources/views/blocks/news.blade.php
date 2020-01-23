@@ -1,6 +1,6 @@
 <div class="container-fluid">
     <div class="row">
-        <div class="col-4 ">
+        <div class="col-12 col-lg-4 ">
             <div class="border-for-news">
                 @for($i = 0; $i < 9; $i++)
                     <div class="row mx-3 py-3">
@@ -24,17 +24,17 @@
         <div class="col-8">
             <div class="row">
                 <div class="col-12">
-                    <ul class="nav nav-pills mb-0" id="pills-tab" role="tablist">
+                    <ul class="nav nav-pills mb-0 text-dark" id="pills-tab" role="tablist">
                         <li class="nav-item">
-                            <a class="nav-link rounded-0 active" id="pills-home-tab" data-toggle="pill"
+                            <a class="nav-link rounded-0 active bg-white border-right text-dark" id="pills-home-tab" data-toggle="pill"
                                href="#pills-home" role="tab" aria-controls="pills-home" aria-selected="true">Свежее</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link rounded-0" id="pills-profile-tab" data-toggle="pill"
+                            <a class="nav-link rounded-0 bg-white text-dark border-right" id="pills-profile-tab" data-toggle="pill"
                                href="#pills-profile" role="tab" aria-controls="pills-profile" aria-selected="false">Актуальное</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link rounded-0" id="pills-contact-tab" data-toggle="pill"
+                            <a class="nav-link rounded-0 bg-white text-dark" id="pills-contact-tab" data-toggle="pill"
                                href="#pills-contact" role="tab" aria-controls="pills-contact" aria-selected="false">Тема
                                 дня</a>
                         </li>
@@ -44,7 +44,7 @@
                     <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="home-tab">
                         <div class="row">
                             @for($i = 0; $i < 6; $i++)
-                                <div class="col-4 pb-4">
+                                <div class="col-12 col-md-4 pb-4">
                                     @include('articles.card')
                                 </div>
                             @endfor

@@ -89,6 +89,7 @@ body {
   background: white;
 }
 
+
 .bg-black-50 {
   background: #000000AA !important;
 }
@@ -103,4 +104,9 @@ body {
     position: absolute;
     top: 50%;
     left: -22px;
+}
+.share_customer{
+    display: flex;
+    flex-wrap: nowrap;
+    padding-top: 25px;
 }
