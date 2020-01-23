@@ -21,7 +21,7 @@
         </button>
     </nav>
 </div>
-<ul class="navbar navbar-collapse  d-flex ul-for-menu mb-0 px-4 ">
+<ul class="nav collapse navbar-collapse mb-0 px-4 " id="navbarSupportedContent">
     <li class="nav-item ">
         <a class="nav-link text-dark text-menu pl-0" href="{{ route('need_to_know') }}" title="" style="">Надо знать</a>
     </li>
