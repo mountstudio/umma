@@ -3,12 +3,12 @@
         <h5 class="mr-2 text-orange">RU</h5>
         <h5 class="text-orange">KG</h5>
     </div>
-    <nav class="navbar navbar-expand-lg navbar-light shadow-none pt-0 col-12">
+    <nav class="navbar navbar-expand-md navbar-light shadow-none pt-0 col-12">
         <div class="col-12 col-lg-7 text-right pr-0">
             <a class="navbar-brand" href="{{ route('welcome') }}"><img src="{{ asset('img/umma_logo.png') }}" alt=""
                                                                        class="img-fluid justify-content-center"></a>
         </div>
-        <div class="col-12 col-lg-5 text-right m-0 p-0 justify-content-lg-between justify-content-sm-center">
+        <div class="col-lg-5 m-0 p-0 justify-content-center justify-content-lg-end">
             <a href="https://www.facebook.com/ummamag.kg"><i class="fab fa-facebook fa-lg text-orange mr-3" ></i></a>
             <a href="https://www.instagram.com/ummamagkg/"><i class="fab fa-instagram fa-lg text-orange mr-3" ></i></a>
             <a href="https://www.youtube.com/watch?v=pfab0uXYDpY&feature=youtu.be"><i class="fab fa-youtube fa-lg text-orange mr-3" ></i></a>
@@ -21,7 +21,7 @@
         </button>
     </nav>
 </div>
-<ul class="nav collapse navbar-collapse mb-0 px-4 " id="navbarSupportedContent">
+<ul class="nav collapse navbar-collapse show mb-0 px-4 justify-content-center" id="navbarSupportedContent">
     <li class="nav-item ">
         <a class="nav-link text-dark text-menu pl-0" href="{{ route('need_to_know') }}" title="" style="">Надо знать</a>
     </li>
@@ -48,7 +48,7 @@
     </li>
 </ul>
 <div class="text-center">
-    <p class="bg-for-middle-div pt-2 pb-2">Трансляция: Текст, Видео, Галерея</p>
+    <p class="bg-for-middle-div h4 pt-2 pb-2">Трансляция: Текст, Видео, Галерея</p>
 </div>
 {{--<nav class="navbar navbar-expand-lg navbar-light bg-light">--}}
 {{--    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">--}}

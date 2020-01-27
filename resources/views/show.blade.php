@@ -2,7 +2,7 @@
 @section('content')
     <div class="container">
         <div class="row">
-            <div class="col-8">
+            <div class="col-12 col-lg-8">
                 <div class="col-8 px-0">
                     <h2 class="">Какой-то заголовок</h2>
                 </div>
@@ -61,7 +61,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-4">
+            <div class="col-12 col-lg-8 pb-3">
                 @include('blocks.right-sidebar.new')
                 <div class="pt-3">
                     @include('blocks.right-sidebar.animation')

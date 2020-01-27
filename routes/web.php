@@ -71,3 +71,7 @@ Route::get('/scientists',function (){
 Route::get('/show',function (){
     return view('show');
 })->name('show');
+
+Route::get('/prayer_time',function (){
+    return view('prayer_time');
+})->name('prayer_time');

@@ -29,69 +29,69 @@
                aria-controls="pills-batken" aria-selected="false">Баткен</a>
         </li>
     </ul>
-        <img src="{{ asset('img/animation.png') }}" class="img-fluid w-100" alt="animation">
+    <a href="{{ route('prayer_time') }}"><img src="{{ asset('img/animation.png') }}" class="img-fluid w-100" alt="animation"></a>
     <div class="tab-content" id="pills-tabContent">
         <div class="tab-pane fade show active" id="pills-bishkek" role="tabpanel" aria-labelledby="pills-bishkek-tab">
             <div class="row justify-content-around">
-                <p class="px-2 text-center"><span>Фаджр</span><br><span class="h5">5:30</span></p>
-                <p class="px-2  text-center"><span>Зухр</span><br><span class="h5">13:10</span></p>
-                <p class="px-2 text-center"><span>Аср</span><br><span class="h5">18:00</span></p>
-                <p class="px-2 text-center"><span>Шам</span><br><span class="h5">19:30</span></p>
-                <p class="px-2 text-center"><span>Ишаа</span><br><span class="h5">21:30</span></p>
+                <p class="mx-auto text-center"><span>Фаджр</span><br><span class="h5">5:30</span></p>
+                <p class="mx-auto text-center"><span>Зухр</span><br><span class="h5">13:10</span></p>
+                <p class="mx-auto text-center"><span>Аср</span><br><span class="h5">18:00</span></p>
+                <p class="mx-auto text-center"><span>Шам</span><br><span class="h5">19:30</span></p>
+                <p class="mx-auto text-center"><span>Ишаа</span><br><span class="h5">21:30</span></p>
             </div>
         </div>
         <div class="tab-pane fade" id="pills-ik" role="tabpanel" aria-labelledby="pills-ik-tab">
-            <div class="d-flex text-center">
-                <p class="px-3"><span>Фаджр</span><br><span class="h4">5:30</span></p>
-                <p class="px-3"><span>Зухр</span><br><span class="h4">13:10</span></p>
-                <p class="px-3"><span>Аср</span><br><span class="h4">18:00</span></p>
-                <p class="px-3"><span>Шам</span><br><span class="h4">19:30</span></p>
-                <p class="px-3"><span>Ишаа</span><br><span class="h4">21:30</span></p>
+            <div class="row justify-content-around">
+                <p class="mx-auto text-center"><span>Фаджр</span><br><span class="h5">5:30</span></p>
+                <p class="mx-auto text-center"><span>Зухр</span><br><span class="h5">13:10</span></p>
+                <p class="mx-auto text-center"><span>Аср</span><br><span class="h5">18:00</span></p>
+                <p class="mx-auto text-center"><span>Шам</span><br><span class="h5">19:30</span></p>
+                <p class="mx-auto text-center"><span>Ишаа</span><br><span class="h5">21:30</span></p>
             </div>
         </div>
         <div class="tab-pane fade" id="pills-talas" role="tabpanel" aria-labelledby="pills-talas-tab">
-            <div class="d-flex text-center">
-                <p class="px-3"><span>Фаджр</span><br><span class="h4">5:30</span></p>
-                <p class="px-3"><span>Зухр</span><br><span class="h4">13:10</span></p>
-                <p class="px-3"><span>Аср</span><br><span class="h4">18:00</span></p>
-                <p class="px-3"><span>Шам</span><br><span class="h4">19:30</span></p>
-                <p class="px-3"><span>Ишаа</span><br><span class="h4">21:30</span></p>
+            <div class="row justify-content-around">
+                <p class="mx-auto text-center"><span>Фаджр</span><br><span class="h5">5:30</span></p>
+                <p class="mx-auto text-center"><span>Зухр</span><br><span class="h5">13:10</span></p>
+                <p class="mx-auto text-center"><span>Аср</span><br><span class="h5">18:00</span></p>
+                <p class="mx-auto text-center"><span>Шам</span><br><span class="h5">19:30</span></p>
+                <p class="mx-auto text-center"><span>Ишаа</span><br><span class="h5">21:30</span></p>
             </div>
         </div>
         <div class="tab-pane fade" id="pills-narin" role="tabpanel" aria-labelledby="pills-narin-tab">
-            <div class="d-flex text-center">
-                <p class="px-3"><span>Фаджр</span><br><span class="h4">5:30</span></p>
-                <p class="px-3"><span>Зухр</span><br><span class="h4">13:10</span></p>
-                <p class="px-3"><span>Аср</span><br><span class="h4">18:00</span></p>
-                <p class="px-3"><span>Шам</span><br><span class="h4">19:30</span></p>
-                <p class="px-3"><span>Ишаа</span><br><span class="h4">21:30</span></p>
+            <div class="row justify-content-around">
+                <p class="mx-auto text-center"><span>Фаджр</span><br><span class="h5">5:30</span></p>
+                <p class="mx-auto text-center"><span>Зухр</span><br><span class="h5">13:10</span></p>
+                <p class="mx-auto text-center"><span>Аср</span><br><span class="h5">18:00</span></p>
+                <p class="mx-auto text-center"><span>Шам</span><br><span class="h5">19:30</span></p>
+                <p class="mx-auto text-center"><span>Ишаа</span><br><span class="h5">21:30</span></p>
             </div>
         </div>
         <div class="tab-pane fade" id="pills-ja" role="tabpanel" aria-labelledby="pills-ja-tab">
-            <div class="d-flex text-center">
-                <p class="px-3"><span>Фаджр</span><br><span class="h4">5:30</span></p>
-                <p class="px-3"><span>Зухр</span><br><span class="h4">13:10</span></p>
-                <p class="px-3"><span>Аср</span><br><span class="h4">18:00</span></p>
-                <p class="px-3"><span>Шам</span><br><span class="h4">19:30</span></p>
-                <p class="px-3"><span>Ишаа</span><br><span class="h4">21:30</span></p>
+            <div class="row justify-content-around">
+                <p class="mx-auto text-center"><span>Фаджр</span><br><span class="h5">5:30</span></p>
+                <p class="mx-auto text-center"><span>Зухр</span><br><span class="h5">13:10</span></p>
+                <p class="mx-auto text-center"><span>Аср</span><br><span class="h5">18:00</span></p>
+                <p class="mx-auto text-center"><span>Шам</span><br><span class="h5">19:30</span></p>
+                <p class="mx-auto text-center"><span>Ишаа</span><br><span class="h5">21:30</span></p>
             </div>
         </div>
         <div class="tab-pane fade" id="pills-osh" role="tabpanel" aria-labelledby="pills-osh-tab">
-            <div class="d-flex text-center">
-                <p class="px-3"><span>Фаджр</span><br><span class="h4">5:30</span></p>
-                <p class="px-3"><span>Зухр</span><br><span class="h4">13:10</span></p>
-                <p class="px-3"><span>Аср</span><br><span class="h4">18:00</span></p>
-                <p class="px-3"><span>Шам</span><br><span class="h4">19:30</span></p>
-                <p class="px-3"><span>Ишаа</span><br><span class="h4">21:30</span></p>
+            <div class="row justify-content-around">
+                <p class="mx-auto text-center"><span>Фаджр</span><br><span class="h5">5:30</span></p>
+                <p class="mx-auto text-center"><span>Зухр</span><br><span class="h5">13:10</span></p>
+                <p class="mx-auto text-center"><span>Аср</span><br><span class="h5">18:00</span></p>
+                <p class="mx-auto text-center"><span>Шам</span><br><span class="h5">19:30</span></p>
+                <p class="mx-auto text-center"><span>Ишаа</span><br><span class="h5">21:30</span></p>
             </div>
         </div>
         <div class="tab-pane fade" id="pills-batken" role="tabpanel" aria-labelledby="pills-batken-tab">
-            <div class="d-flex text-center">
-                <p class="px-3"><span>Фаджр</span><br><span class="h4">5:30</span></p>
-                <p class="px-3"><span>Зухр</span><br><span class="h4">13:10</span></p>
-                <p class="px-3"><span>Аср</span><br><span class="h4">18:00</span></p>
-                <p class="px-3"><span>Шам</span><br><span class="h4">19:30</span></p>
-                <p class="px-3"><span>Ишаа</span><br><span class="h4">21:30</span></p>
+            <div class="row justify-content-around">
+                <p class="mx-auto text-center"><span>Фаджр</span><br><span class="h5">5:30</span></p>
+                <p class="mx-auto text-center"><span>Зухр</span><br><span class="h5">13:10</span></p>
+                <p class="mx-auto text-center"><span>Аср</span><br><span class="h5">18:00</span></p>
+                <p class="mx-auto text-center"><span>Шам</span><br><span class="h5">19:30</span></p>
+                <p class="mx-auto text-center"><span>Ишаа</span><br><span class="h5">21:30</span></p>
             </div>
         </div>
     </div>
