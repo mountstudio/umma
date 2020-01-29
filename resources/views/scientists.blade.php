@@ -16,6 +16,10 @@
                         <label for="formGroupExampleInput">Ваше имя</label>
                         <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Имя">
                     </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
+                        <label class="form-check-label" for="inlineCheckbox1">Скрыть имя</label>
+                    </div>
                     <div class="form-group">
                         <label for="exampleFormControlInput1">Email</label>
                         <input type="email" class="form-control" id="exampleFormControlInput1"

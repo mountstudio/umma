@@ -1,17 +1,28 @@
 <div class="container-fluid">
+    <div id="sb-search" class="sb-search col-6">
+        <form>
+            <input class="sb-search-input" placeholder="Enter your search term..." type="text" value="" name="search"
+                   id="search">
+            <input class="sb-search-submit" type="submit" value="">
+            <span class="sb-icon-search"></span>
+        </form>
+    </div>
     <div class="col-auto d-flex justify-content-end pt-2">
         <h5 class="mr-2 text-orange">RU</h5>
         <h5 class="text-orange">KG</h5>
+
     </div>
+
     <nav class="navbar navbar-expand-md navbar-light shadow-none pt-0 col-12">
         <div class="col-12 col-lg-7 text-right pr-0">
             <a class="navbar-brand" href="{{ route('welcome') }}"><img src="{{ asset('img/umma_logo.png') }}" alt=""
                                                                        class="img-fluid justify-content-center"></a>
         </div>
         <div class="col-lg-5 m-0 p-0 justify-content-center justify-content-lg-end">
-            <a href="https://www.facebook.com/ummamag.kg"><i class="fab fa-facebook fa-lg text-orange mr-3" ></i></a>
-            <a href="https://www.instagram.com/ummamagkg/"><i class="fab fa-instagram fa-lg text-orange mr-3" ></i></a>
-            <a href="https://www.youtube.com/watch?v=pfab0uXYDpY&feature=youtu.be"><i class="fab fa-youtube fa-lg text-orange mr-3" ></i></a>
+            <a href="https://www.facebook.com/ummamag.kg"><i class="fab fa-facebook fa-lg text-orange mr-3"></i></a>
+            <a href="https://www.instagram.com/ummamagkg/"><i class="fab fa-instagram fa-lg text-orange mr-3"></i></a>
+            <a href="https://www.youtube.com/watch?v=pfab0uXYDpY&feature=youtu.be"><i
+                    class="fab fa-youtube fa-lg text-orange mr-3"></i></a>
             <a href=""><i class="fas fa-rss fa-lg text-orange"></i></a>
         </div>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
@@ -26,7 +37,8 @@
         <a class="nav-link text-dark text-menu pl-0" href="{{ route('need_to_know') }}" title="" style="">Надо знать</a>
     </li>
     <li class="nav-item">
-        <a class="nav-link text-dark text-menu" href="{{ route('it_is_interesting') }}" title="" style="">Это интересно</a>
+        <a class="nav-link text-dark text-menu" href="{{ route('it_is_interesting') }}" title="" style="">Это
+            интересно</a>
     </li>
     <li class="nav-item">
         <a class="nav-link text-dark text-menu" href="{{ route('education') }}" title="" style="">Просвещение</a>
@@ -50,6 +62,7 @@
 <div class="text-center">
     <p class="bg-for-middle-div h4 pt-2 pb-2">Трансляция: Текст, Видео, Галерея</p>
 </div>
+
 {{--<nav class="navbar navbar-expand-lg navbar-light bg-light">--}}
 {{--    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">--}}
 {{--        <span class="navbar-toggler-icon"></span>--}}
@@ -88,3 +101,4 @@
 {{--        </form>--}}
 {{--    </div>--}}
 {{--</nav>--}}
+

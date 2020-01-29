@@ -75,3 +75,19 @@ Route::get('/show',function (){
 Route::get('/prayer_time',function (){
     return view('prayer_time');
 })->name('prayer_time');
+
+Route::get('/hadis-dnya',function (){
+    return view('hadisi.hadis-dnya');
+})->name('hadisdnya');
+
+Route::get('/hadis-show',function (){
+    return view('hadisi.hadis-show');
+})->name('hadis-show');
+
+Route::get('/vacancies',function (){
+    return view('vacancies');
+})->name('vacancies');
+
+Route::get('/advertisers',function (){
+    return view('advertisers');
+})->name('advertisers');

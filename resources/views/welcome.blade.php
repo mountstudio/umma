@@ -13,7 +13,10 @@
     </div>
 @endsection
 
-@push('scripts')
+@push('styles')
+    {{--    <link rel="stylesheet" type="text/css" href="{{ asset('css/default.css') }}"/>--}}
 
+@endpush
+@push('scripts')
 
 @endpush

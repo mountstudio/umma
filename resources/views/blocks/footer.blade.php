@@ -11,8 +11,9 @@
                 <a href=""><i class="fas fa-rss fa-lg text-white mr-3" ></i></a>
                 <a href=""></a><ul class="nav ml-3">
                     <li class="text-for-footer nav-item mr-4"><a class="text-white" href="{{ route('magazines') }}">О нас</a></li>
-                    <li class="text-for-footer nav-item mr-4"><a class="text-white" href="">Вакансии</a></li>
-                    <li class="text-for-footer nav-item mr-4"><a class="text-white" href="">Рекламодателям</a></li>
+                    <li class="text-for-footer nav-item mr-4"><a class="text-white" href="{{ route('vacancies') }}">Вакансии</a></li>
+                    <li class="text-for-footer nav-item mr-4"><a class="text-white" href="{{ route('scientists') }}">Задать вопрос ученому</a></li>
+                    <li class="text-for-footer nav-item mr-4"><a class="text-white" href="{{ route('advertisers') }}">Рекламодателям</a></li>
                     <li class="text-for-footer nav-item mr-4"><a class="text-orange" href="">Подписка</a></li>
                 </ul>
             </div>
@@ -31,7 +32,6 @@
             <a href="tel:+996 777 505 005 "><p class="p-0 m-0 txt-for-black">Тел: +996 777 505 005</p></a>
             <a href="mailto:"><p class="p-0 m-0 txt-for-black"> Эл.адрес: ummamagkg@gmail.com</p></a>
             <p class="p-0 m-0 txt-for-black"> Почтовый адрес: г. Бишкек, ул. Грибоедова, 16</p>
-            </a>
         </div>
     </div>
     <div class="row">
