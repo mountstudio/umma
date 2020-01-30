@@ -1,18 +1,19 @@
 <div class="container-fluid pt-5 bg-for-footer">
     <div class="row justify-content-around">
         <div class="col-12 col-lg-4 col-md-4">
-            <img src="{{ asset('img/umma_logo.png') }}" alt="">
+            <img src="{{ asset('img/umma_logo.png') }}" class="img-fluid" alt="">
         </div>
-        <div class="col-12 col-md-7 text-right ">
-            <div class="row align-items-center justify-content-end">
+        <div class="col-12 col-md-7 pt-2 ">
+            <div class="row align-items-center justify-content-center justify-content-lg-end">
                 <a href="https://www.facebook.com/ummamag.kg"><i class="fab fa-facebook fa-lg text-white mr-3" ></i></a>
                 <a href="https://www.instagram.com/ummamagkg/"><i class="fab fa-instagram fa-lg text-white mr-3" ></i></a>
                 <a href="https://www.youtube.com/watch?v=pfab0uXYDpY&feature=youtu.be"><i class="fab fa-youtube fa-lg text-white mr-3" ></i></a>
                 <a href=""><i class="fas fa-rss fa-lg text-white mr-3" ></i></a>
                 <a href=""></a><ul class="nav ml-3">
                     <li class="text-for-footer nav-item mr-4"><a class="text-white" href="{{ route('magazines') }}">О нас</a></li>
-                    <li class="text-for-footer nav-item mr-4"><a class="text-white" href="">Вакансии</a></li>
-                    <li class="text-for-footer nav-item mr-4"><a class="text-white" href="">Рекламодателям</a></li>
+                    <li class="text-for-footer nav-item mr-4"><a class="text-white" href="{{ route('vacancies') }}">Вакансии</a></li>
+                    <li class="text-for-footer nav-item mr-4"><a class="text-white" href="{{ route('scientists') }}">Задать вопрос ученому</a></li>
+                    <li class="text-for-footer nav-item mr-4"><a class="text-white" href="{{ route('advertisers') }}">Рекламодателям</a></li>
                     <li class="text-for-footer nav-item mr-4"><a class="text-orange" href="">Подписка</a></li>
                 </ul>
             </div>
@@ -26,12 +27,11 @@
                 Редакция не несет ответственности за содержимое перепечатанных материалов
                 и высказывания отдельных лиц.</p>
         </div>
-        <div class="col-12 col-md-6 text-right">
+        <div class="col-12 col-md-6 text-lg-right">
             <p class="">Свяжитесь с нами:</p>
             <a href="tel:+996 777 505 005 "><p class="p-0 m-0 txt-for-black">Тел: +996 777 505 005</p></a>
             <a href="mailto:"><p class="p-0 m-0 txt-for-black"> Эл.адрес: ummamagkg@gmail.com</p></a>
             <p class="p-0 m-0 txt-for-black"> Почтовый адрес: г. Бишкек, ул. Грибоедова, 16</p>
-            </a>
         </div>
     </div>
     <div class="row">

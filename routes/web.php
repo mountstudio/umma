@@ -91,3 +91,30 @@ Route::get('/articles/category/{id}', function ($id) {
 
 //router for send prayer time to today
 Route::get('/time_prayer', 'TimePrayersController@prayerForToday');
+Route::get('/scientists',function (){
+    return view('scientists');
+})->name('scientists');
+
+Route::get('/show',function (){
+    return view('show');
+})->name('show');
+
+Route::get('/prayer_time',function (){
+    return view('prayer_time');
+})->name('prayer_time');
+
+Route::get('/hadis-dnya',function (){
+    return view('hadisi.hadis-dnya');
+})->name('hadisdnya');
+
+Route::get('/hadis-show',function (){
+    return view('hadisi.hadis-show');
+})->name('hadis-show');
+
+Route::get('/vacancies',function (){
+    return view('vacancies');
+})->name('vacancies');
+
+Route::get('/advertisers',function (){
+    return view('advertisers');
+})->name('advertisers');

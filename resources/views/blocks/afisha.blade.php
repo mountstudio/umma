@@ -4,13 +4,13 @@
     </div>
     <div class="row">
         @for($i = 0; $i < 4; $i++)
-            <div class="col-3 px-3">
+            <div class="col-12 col-lg-3 col-md-6 px-3 py-2">
                 <div class="card">
                     <img src="{{ asset('img/example-2.jpg') }}" class="card-img-top p-2" alt="...">
                     <div class="card-body pt-0 text-center">
                         <div class="row justify-content-center" style="margin-top: -4rem;">
                             <div class="col-4 border  rounded border-1  bg-white">
-                                <p class="pt-3 h2 mb-0" style="line-height: 92%;"><span class="text-orange">28</span> <br> АПР</p>
+                                <p class="pt-3 h4 mb-0" style="line-height: 92%;"><span class="text-orange">28</span> <br> АПР</p>
                                 <p class="h4 mb-0 pb-2"></p>
                                 <p class="rounded-pill text-white mx-auto " style="background-color: #008500;width: 68%;">10:30</p>
                             </div>

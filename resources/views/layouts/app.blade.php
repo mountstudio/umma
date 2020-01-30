@@ -9,6 +9,7 @@
     <title>{{ config('app.name', 'Laravel') }}</title>
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/main.css') }}" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/component.css') }}"/>
 
     @stack('styles')
 </head>
@@ -21,6 +22,12 @@
         @include('blocks.footer')
     </div>
     <script src="{{ asset('js/app.js') }}"></script>
+    <script src="{{ asset('js/modernizr.custom.js') }}"></script>
+    <script src="{{ asset('js/classie.js') }}"></script>
+    <script src="{{ asset('js/uisearch.js') }}"></script>
+    <script>
+        new UISearch( document.getElementById( 'sb-search' ) );
+    </script>
     <script src="{{ asset('js/select_categories.js') }}"></script>
 
 

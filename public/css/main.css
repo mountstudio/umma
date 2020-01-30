@@ -6,7 +6,6 @@ body {
   text-align: center;
   text-transform: uppercase;
   color: #FFF3F3;
-  font-size: 20px;
   background: linear-gradient(90.63deg, #5D84BF 4.23%, #E90A67 90.84%);
 }
 
@@ -17,7 +16,6 @@ body {
 }
 
 .text-menu {
-  font-size: 20px;
   text-transform: uppercase;
   font-weight: bold;
 }
@@ -59,7 +57,6 @@ body {
 
 .title-for-kolumnisti {
   font-weight: bold;
-  font-size: 24px;
   color: #000000;
 }
 
@@ -89,7 +86,24 @@ body {
   background: white;
 }
 
+
 .bg-black-50 {
   background: #000000AA !important;
 }
 
+.icon-arrow-right {
+    position: absolute;
+    top: 50%;
+    right: -22px;
+}
+
+.icon-arrow-left {
+    position: absolute;
+    top: 50%;
+    left: -22px;
+}
+.share_customer{
+    display: flex;
+    flex-wrap: nowrap;
+    padding-top: 25px;
+}
