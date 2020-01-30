@@ -28,6 +28,8 @@
     <script>
         new UISearch( document.getElementById( 'sb-search' ) );
     </script>
+    <script src="{{ asset('js/select_categories.js') }}"></script>
+
 
     @stack('scripts')
 </body>
