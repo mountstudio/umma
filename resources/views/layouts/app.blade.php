@@ -21,6 +21,7 @@
         @include('blocks.footer')
     </div>
     <script src="{{ asset('js/app.js') }}"></script>
+    <script src="{{ asset('js/select_categories.js') }}"></script>
 
 
     @stack('scripts')

@@ -2,7 +2,9 @@
 
 namespace App\Providers;
 
+use App\Http\Controllers\TimePrayersController;
 use Illuminate\Support\ServiceProvider;
+use App\Http\Controllers\Controller;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -23,6 +25,9 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        view()->composer('blocks.right-sidebar.animation', function($view) {
+
+            $view->with('data');
+        });
     }
 }
