@@ -15,9 +15,8 @@ class CreateArticlePhotographerTable extends Migration
     {
         Schema::create('article_photographer', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->integer('article_id');
-            $table->integer('photographer_id');
-            $table->timestamps();
+            $table->unsignedInteger('article_id')->nullable();
+            $table->unsignedInteger('photographer_id')->nullable();
         });
     }
 

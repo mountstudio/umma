@@ -17,7 +17,6 @@ class CreatePhotographersTable extends Migration
             $table->bigIncrements('id');
             $table->string('full_name');
             $table->string('photo');
-            $table->integer('article');
             $table->timestamps();
         });
     }

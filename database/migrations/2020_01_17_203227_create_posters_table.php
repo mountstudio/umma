@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateAffichesTable extends Migration
+class CreatePostersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,10 @@ class CreateAffichesTable extends Migration
      */
     public function up()
     {
-        Schema::create('affiches', function (Blueprint $table) {
+        Schema::create('posters', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->string('name');
+            $table->string('slug');
             $table->string('main_photo');
             $table->longText('content');
             $table->string('phone');
@@ -30,6 +32,6 @@ class CreateAffichesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('affiches');
+        Schema::dropIfExists('posters');
     }
 }

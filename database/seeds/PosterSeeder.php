@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Seeder;
 
-class AffichesSeeder extends Seeder
+class PosterSeeder extends Seeder
 {
     /**
      * Run the database seeds.

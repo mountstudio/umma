@@ -17,12 +17,11 @@ class CreateArticlesTable extends Migration
             $table->bigIncrements('id');
             $table->string('name');
             $table->string('slug');
-            $table->integer('category');
+            $table->unsignedInteger('category_id')->nullable();
             $table->string('logo');
-            $table->boolean('is_active');
-            $table->boolean('view_main');
+            $table->boolean('is_active')->default(false);
+            $table->boolean('view_main')->default(false);
             $table->longText('content');
-            $table->integer( 'tag');
             $table->timestamps();
         });
     }

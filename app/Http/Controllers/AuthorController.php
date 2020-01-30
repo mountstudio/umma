@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Author;
 use Illuminate\Http\Request;
+use App\Helpers\ImageSaver;
 
 class AuthorController extends Controller
 {
@@ -14,7 +15,9 @@ class AuthorController extends Controller
      */
     public function index()
     {
-        //
+        return view('authors.index', [
+            'authors' => Author::all(),
+        ]);
     }
 
     /**
@@ -24,7 +27,7 @@ class AuthorController extends Controller
      */
     public function create()
     {
-        //
+        return view('authors.create');
     }
 
     /**
@@ -35,7 +38,13 @@ class AuthorController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $author = new Author($request->all());
+        if ($image = $request->photo) {
+            $filename = ImageSaver::save($image, "uploads", "my_photo");
+            $author->photo = $filename;
+            $author->save();
+        }
+        return redirect()->back()->with('success','Автор создан!');
     }
 
     /**
@@ -46,7 +55,7 @@ class AuthorController extends Controller
      */
     public function show(Author $author)
     {
-        //
+        return view('authors.show', ['author'=>$author]);
     }
 
     /**
@@ -57,7 +66,7 @@ class AuthorController extends Controller
      */
     public function edit(Author $author)
     {
-        //
+        return view('authors.edit', ['author'=>$author]);
     }
 
     /**
@@ -80,6 +89,7 @@ class AuthorController extends Controller
      */
     public function destroy(Author $author)
     {
-        //
+        $author->delete();
+        return redirect()->back();
     }
 }

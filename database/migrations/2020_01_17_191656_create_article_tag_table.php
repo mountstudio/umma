@@ -15,9 +15,8 @@ class CreateArticleTagTable extends Migration
     {
         Schema::create('article_tag', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->integer('article_id');
-            $table->integer('tag_id');
-            $table->timestamps();
+            $table->unsignedInteger('article_id')->nullable();
+            $table->unsignedInteger('tag_id')->nullable();
         });
     }
 

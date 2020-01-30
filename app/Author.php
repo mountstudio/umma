@@ -6,8 +6,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class Author extends Model
 {
+    protected $fillable = ['full_name', 'photo'];
     public function articles()
     {
-        return $this->belongsTo(Article::class);
+        return $this->belongsToMany(Article::class);
     }
 }

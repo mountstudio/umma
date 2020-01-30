@@ -8,11 +8,12 @@ class Article extends Model
 {
     public function category()
     {
-        return $this->belongsTo(Category::class);
+        return $this->morphMany(Category::class, 'categoriable');
     }
+
     public function authors()
     {
-        return $this->belongsTo(Author::class);
+        return $this->belongsToMany(Author::class);
     }
 
     public function tags()

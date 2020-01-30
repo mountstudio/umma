@@ -8,6 +8,6 @@ class QuestionCategory extends Model
 {
     public function questions()
     {
-        return $this->hasMany(Category::class);
+        return $this->hasMany(Category::class, 'category_id');
     }
 }

@@ -33,7 +33,7 @@
     <div class="tab-content" id="pills-tabContent">
         <div class="tab-pane fade show active" id="pills-bishkek" role="tabpanel" aria-labelledby="pills-bishkek-tab">
             <div class="row justify-content-around">
-                <p class="px-2 text-center"><span>Фаджр</span><br><span class="h5">5:30</span></p>
+                <p class="px-2 text-center"><span>Фаджр</span><br><span class="h5"></span></p>
                 <p class="px-2  text-center"><span>Зухр</span><br><span class="h5">13:10</span></p>
                 <p class="px-2 text-center"><span>Аср</span><br><span class="h5">18:00</span></p>
                 <p class="px-2 text-center"><span>Шам</span><br><span class="h5">19:30</span></p>

@@ -6,8 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Question extends Model
 {
-    public function questionCategory()
+    public function category()
     {
-        return $this->belongsTo(QuestionCategory::class);
+        return $this->morphMany(Category::class, 'categoriable');
     }
 }

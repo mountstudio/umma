@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Affiches;
+use App\Poster;
 use Illuminate\Http\Request;
 
-class AffichesController extends Controller
+class PosterController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -41,10 +41,10 @@ class AffichesController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Affiches  $affiches
+     * @param  \App\Poster  $poster
      * @return \Illuminate\Http\Response
      */
-    public function show(Affiches $affiches)
+    public function show(Poster $poster)
     {
         //
     }
@@ -52,10 +52,10 @@ class AffichesController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Affiches  $affiches
+     * @param  \App\Poster  $poster
      * @return \Illuminate\Http\Response
      */
-    public function edit(Affiches $affiches)
+    public function edit(Poster $poster)
     {
         //
     }
@@ -64,10 +64,10 @@ class AffichesController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Affiches  $affiches
+     * @param  \App\Poster  $poster
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Affiches $affiches)
+    public function update(Request $request, Poster $poster)
     {
         //
     }
@@ -75,10 +75,10 @@ class AffichesController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Affiches  $affiches
+     * @param  \App\Poster  $poster
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Affiches $affiches)
+    public function destroy(Poster $poster)
     {
         //
     }

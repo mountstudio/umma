@@ -2,10 +2,10 @@
 
 /** @var \Illuminate\Database\Eloquent\Factory $factory */
 
-use App\Affiches;
+use App\Poster;
 use Faker\Generator as Faker;
 
-$factory->define(Affiches::class, function (Faker $faker) {
+$factory->define(Poster::class, function (Faker $faker) {
     return [
         //
     ];

@@ -15,9 +15,8 @@ class CreateArticleAuthorTable extends Migration
     {
         Schema::create('article_author', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->integer('article_id');
-            $table->integer('author_id');
-            $table->timestamps();
+            $table->unsignedInteger('article_id')->nullable();
+            $table->unsignedInteger('author_id')->nullable();
         });
     }
 
