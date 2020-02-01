@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Author;
 use Illuminate\Http\Request;
 use App\Helpers\ImageSaver;
+use Yajra\DataTables\Facades\DataTables;
 
 class AuthorController extends Controller
 {
@@ -15,9 +16,7 @@ class AuthorController extends Controller
      */
     public function index()
     {
-        return view('authors.index', [
-            'authors' => Author::all(),
-        ]);
+        return view('articles.index');
     }
 
     /**
@@ -57,6 +56,10 @@ class AuthorController extends Controller
     {
         return view('authors.show', ['author'=>$author]);
     }
+    public function adminShow(Author $author)
+    {
+        return view('admin.authors.show', ['author'=>$author]);
+    }
 
     /**
      * Show the form for editing the specified resource.
@@ -91,5 +94,18 @@ class AuthorController extends Controller
     {
         $author->delete();
         return redirect()->back();
+    }
+    public function datatableData()
+    {
+        return DataTables::of(Author::query())
+            ->editColumn('full_name',function (Author $author){
+                return '<a href="' . route('admin.authors.show', $author) . '">'.$author->full_name.'</a>';
+            })
+            ->rawColumns(['full_name'])
+            ->make(true);
+    }
+    public function datatable()
+    {
+        return view('admin.authors.index');
     }
 }
