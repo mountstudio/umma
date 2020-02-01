@@ -68,7 +68,7 @@ Route::get('/education', function () {
 })->name('education');
 
 
-Route::prefix('admin')->name('admin.')->middleware('admin')->group(function () {
+Route::prefix('admin')->name('admin.')/*->middleware('admin')*/->group(function () {
     Route::get('/', 'AdminController@index')->name('admin');
     Route::get('/dashboard', 'AdminController@dashboard')->name('dashboard');
 //  CRUD for articles
@@ -77,14 +77,59 @@ Route::prefix('admin')->name('admin.')->middleware('admin')->group(function () {
     Route::get('/article/datatable', 'ArticleController@datatableData')->name('articles.datatable.data');
     Route::get('/article/{article}', 'ArticleController@adminShow')->name('articles.show');
     Route::resource('articles', 'ArticleController')->except(['index', 'show']);
+//Crud for authors
+    Route::get('/author', 'AuthorController@datatable')->name('author.datatable');
+    Route::get('/author/author', 'AuthorController@datatableData')->name('author.datatable.data');
+    Route::get('/author/{author}', 'AuthorController@adminShow')->name('author.show');
+    Route::resource('author', 'AuthorController')->except(['index', 'show']);
+//Crud for category
+    Route::get('/category', 'CategoryController@datatable')->name('category.datatable');
+    Route::get('/category/category', 'CategoryController@datatableData')->name('category.datatable.data');
+    Route::get('/category/{category}', 'CategoryController@adminShow')->name('category.show');
+    Route::resource('category', 'CategoryController')->except(['index', 'show']);
+// Crud for multimedia
+    Route::get('/hadisi', 'HadisiController@datatable')->name('hadisi.datatable');
+    Route::get('/hadisi/hadisi', 'HadisiController@datatableData')->name('hadisi.datatable.data');
+    Route::get('/hadisi/{hadisi}', 'HadisiController@adminShow')->name('hadisi.show');
+    Route::resource('hadisi', 'HadisiController')->except(['index', 'show']);
+// Crud for multimedia
+    Route::get('/multimedia', 'MultimediaController@datatable')->name('multimedia.datatable');
+    Route::get('/multimedia/datatable', 'MultimediaController@datatableData')->name('multimedia.datatable.data');
+    Route::get('/multimedia/{multimedia}', 'MultimediaController@adminShow')->name('multimedia.show');
+    Route::resource('multimedia', 'MultimediaController')->except(['index', 'show']);
+// Crud for magazines
+    Route::get('/magazines', 'MagazinesController@datatable')->name('magazines.datatable');
+    Route::get('/magazines/datatable', 'MagazinesController@datatableData')->name('magazines.datatable.data');
+    Route::get('/magazines/{magazines}', 'MagazinesController@adminShow')->name('magazines.show');
+    Route::resource('magazines', 'MagazinesController')->except(['index', 'show']);
+// Crud for project
+    Route::get('/project', 'ProjectController@datatable')->name('project.datatable');
+    Route::get('/project/datatable', 'ProjectController@datatableData')->name('project.datatable.data');
+    Route::get('/project/{project}', 'ProjectController@adminShow')->name('project.show');
+    Route::resource('project', 'ProjectController')->except(['index', 'show']);
+// Crud for photograph
+    Route::get('/photograph', 'PhotographController@datatable')->name('photograph.datatable');
+    Route::get('/photograph/datatable', 'PhotographController@datatableData')->name('photograph.datatable.data');
+    Route::get('/photograph/{photograph}', 'PhotographController@adminShow')->name('photograph.show');
+    Route::resource('photograph', 'PhotographController')->except(['index', 'show']);
+// Crud for tags
+    Route::get('/tags', 'TagsController@datatable')->name('tags.datatable');
+    Route::get('/tags/datatable', 'TagsController@datatableData')->name('tags.datatable.data');
+    Route::get('/tags/{tags}', 'TagsController@adminShow')->name('tags.show');
+    Route::resource('tags', 'TagsController')->except(['index', 'show']);
 //  CRUD for Authors
-    Route::resource('authors', 'AuthorController');
+
 });
 
 
 
 //router for send subcategories
 Route::get('/articles/category/{id}', function ($id) {
+    $subcategories = Category::where('parent_id', $id)->get();
+    return json_encode($subcategories);
+});
+
+Route::get('/multimedia/category/{id}', function ($id) {
     $subcategories = Category::where('parent_id', $id)->get();
     return json_encode($subcategories);
 });

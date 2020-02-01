@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Article;
 use App\Category;
 use Illuminate\Http\Request;
+use Yajra\DataTables\Facades\DataTables;
 
 class CategoryController extends Controller
 {
@@ -81,5 +83,25 @@ class CategoryController extends Controller
     public function destroy(Category $category)
     {
         //
+    }
+
+    public function datatableData()
+    {
+
+//        return DataTables::eloquent($model)
+//            ->editColumn('name', function(User $user) {
+//                return 'Hi ' . $user->name . '!';
+//            })
+//            ->toJson();
+        return DataTables::of(Category::query())
+            ->editColumn('name',function (Article $category){
+                return '<a href="' . route('admin.category.show',$category) . '">'.$category->name.'</a>';
+            })
+            ->rawColumns(['name'])
+            ->make(true);
+    }
+    public function datatable()
+    {
+        return view('admin.category.index');
     }
 }

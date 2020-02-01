@@ -107,3 +107,10 @@ body {
     flex-wrap: nowrap;
     padding-top: 25px;
 }
+.select2-container {
+    display: initial!important;
+}
+
+.tox-notifications-container {
+    display: none;
+}
