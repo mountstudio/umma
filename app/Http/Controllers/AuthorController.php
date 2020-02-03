@@ -17,7 +17,7 @@ class AuthorController extends Controller
      */
     public function index()
     {
-        return view('authors.index', [
+        return view('admin.authors.index', [
             'authors' => Author::all(),
         ]);
     }
@@ -29,7 +29,7 @@ class AuthorController extends Controller
      */
     public function create()
     {
-        return view('authors.create');
+        return view('admin.authors.create');
     }
 
     /**
@@ -111,6 +111,6 @@ class AuthorController extends Controller
     }
     public function datatable()
     {
-        return view('admin.author.index');
+        return view('admin.authors.index');
     }
 }
