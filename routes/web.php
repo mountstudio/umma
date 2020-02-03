@@ -22,11 +22,6 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
-
-
 Route::get('/welcome', function () {
     return view('welcome');
 })->name('welcome');
@@ -71,14 +66,24 @@ Route::get('/education', function () {
 Route::prefix('admin')->name('admin.')->middleware('admin')->group(function () {
     Route::get('/', 'AdminController@index')->name('admin');
     Route::get('/dashboard', 'AdminController@dashboard')->name('dashboard');
-//  CRUD for articles
 
+//  CRUD for articles
     Route::get('/article', 'ArticleController@datatable')->name('articles.datatable');
     Route::get('/article/datatable', 'ArticleController@datatableData')->name('articles.datatable.data');
     Route::get('/article/{article}', 'ArticleController@adminShow')->name('articles.show');
     Route::resource('articles', 'ArticleController')->except(['index', 'show']);
+
 //  CRUD for Authors
-    Route::resource('authors', 'AuthorController');
+    Route::get('/author', 'AuthorController@datatable')->name('authors.datatable');
+    Route::get('/author/datatable', 'AuthorController@datatableData')->name('authors.datatable.data');
+    Route::get('/author/{author}', 'AuthorController@adminShow')->name('authors.show');
+    Route::resource('authors', 'AuthorController')->except(['index', 'show']);
+
+//  CRUD for Categories
+    Route::get('/category', 'CategoryController@datatable')->name('categories.datatable');
+    Route::get('/category/datatable', 'CategoryController@datatableData')->name('categories.datatable.data');
+    Route::get('/category/{category}', 'CategoryController@adminShow')->name('categories.show');
+    Route::resource('categories', 'CategoryController')->except(['index', 'show']);
 });
 
 
@@ -91,6 +96,7 @@ Route::get('/articles/category/{id}', function ($id) {
 
 //router for send prayer time to today
 Route::get('/time_prayer', 'TimePrayersController@prayerForToday');
+
 Route::get('/scientists',function (){
     return view('scientists');
 })->name('scientists');
