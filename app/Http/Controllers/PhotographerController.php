@@ -27,7 +27,7 @@ class PhotographerController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.photographer.create');
     }
 
     /**
@@ -95,7 +95,7 @@ class PhotographerController extends Controller
 //            })
 //            ->toJson();
         return DataTables::of(Photographer::query())
-            ->editColumn('name',function (Article $photographer){
+            ->editColumn('name',function (Photographer $photographer){
                 return '<a href="' . route('admin.photographer.show',$photographer) . '">'.$photographer->name.'</a>';
             })
             ->rawColumns(['name'])

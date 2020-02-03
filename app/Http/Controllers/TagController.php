@@ -27,7 +27,7 @@ class TagController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.tag.create');
     }
 
     /**
@@ -94,8 +94,8 @@ class TagController extends Controller
 //                return 'Hi ' . $user->name . '!';
 //            })
 //            ->toJson();
-        return DataTables::of(Photographer::query())
-            ->editColumn('name',function (Article $tag){
+        return DataTables::of(Tag::query())
+            ->editColumn('name',function (Tag $tag){
                 return '<a href="' . route('admin.tag.show',$tag) . '">'.$tag->name.'</a>';
             })
             ->rawColumns(['name'])

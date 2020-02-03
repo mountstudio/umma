@@ -71,6 +71,10 @@ class AuthorController extends Controller
         return view('authors.edit', ['authors'=>$author]);
     }
 
+    public function adminShow(Author $author)
+    {
+        return view('admin.author.show', ['author'=>$author]);
+    }
     /**
      * Update the specified resource in storage.
      *

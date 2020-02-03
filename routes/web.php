@@ -79,14 +79,14 @@ Route::prefix('admin')->name('admin.')/*->middleware('admin')*/->group(function 
     Route::resource('articles', 'ArticleController')->except(['index', 'show']);
 //Crud for authors
     Route::get('/author', 'AuthorController@datatable')->name('author.datatable');
-    Route::get('/author/author', 'AuthorController@datatableData')->name('author.datatable.data');
+    Route::get('/author/datatable', 'AuthorController@datatableData')->name('author.datatable.data');
     Route::get('/author/{author}', 'AuthorController@adminShow')->name('author.show');
-    Route::resource('author', 'AuthorController')->except(['index', 'show']);
+    Route::resource('authors', 'AuthorController')->except(['index', 'show']);
 //Crud for category
     Route::get('/category', 'CategoryController@datatable')->name('category.datatable');
-    Route::get('/category/category', 'CategoryController@datatableData')->name('category.datatable.data');
+    Route::get('/category/datatable', 'CategoryController@datatableData')->name('category.datatable.data');
     Route::get('/category/{category}', 'CategoryController@adminShow')->name('category.show');
-    Route::resource('category', 'CategoryController')->except(['index', 'show']);
+    Route::resource('categories', 'CategoryController')->except(['index', 'show']);
 // Crud for multimedia
     Route::get('/hadisi', 'HadisiController@datatable')->name('hadisi.datatable');
     Route::get('/hadisi/hadisi', 'HadisiController@datatableData')->name('hadisi.datatable.data');
@@ -111,12 +111,12 @@ Route::prefix('admin')->name('admin.')/*->middleware('admin')*/->group(function 
     Route::get('/photograph', 'PhotographerController@datatable')->name('photograph.datatable');
     Route::get('/photograph/datatable', 'PhotographerController@datatableData')->name('photograph.datatable.data');
     Route::get('/photograph/{photograph}', 'PhotographerController@adminShow')->name('photograph.show');
-    Route::resource('photograph', 'PhotographerController')->except(['index', 'show']);
+    Route::resource('photographer', 'PhotographerController')->except(['index', 'show']);
 // Crud for tags
     Route::get('/tag', 'TagController@datatable')->name('tag.datatable');
     Route::get('/tag/datatable', 'TagController@datatableData')->name('tag.datatable.data');
     Route::get('/tag/{tag}', 'TagController@adminShow')->name('tag.show');
-    Route::resource('tag', 'TagController')->except(['index', 'show']);
+    Route::resource('tags', 'TagController')->except(['index', 'show']);
 //  CRUD for Authors
 
 });
