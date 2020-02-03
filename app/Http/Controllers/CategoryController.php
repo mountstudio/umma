@@ -95,7 +95,7 @@ class CategoryController extends Controller
 //            ->toJson();
         return DataTables::of(Category::query())
             ->editColumn('name',function (Article $category){
-                return '<a href="' . route('admin.category.show',$category) . '">'.$category->name.'</a>';
+                return '<a href="' . route('admin.categories.show',$category) . '">'.$category->name.'</a>';
             })
             ->rawColumns(['name'])
             ->make(true);

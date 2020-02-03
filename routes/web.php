@@ -78,10 +78,10 @@ Route::prefix('admin')->name('admin.')/*->middleware('admin')*/->group(function 
     Route::get('/article/{article}', 'ArticleController@adminShow')->name('articles.show');
     Route::resource('articles', 'ArticleController')->except(['index', 'show']);
 //Crud for authors
-    Route::get('/authors', 'AuthorController@datatable')->name('authors.datatable');
-    Route::get('/authors/authors', 'AuthorController@datatableData')->name('authors.datatable.data');
-    Route::get('/authors/{authors}', 'AuthorController@adminShow')->name('authors.show');
-    Route::resource('authors', 'AuthorController')->except(['index', 'show']);
+    Route::get('/author', 'AuthorController@datatable')->name('author.datatable');
+    Route::get('/author/author', 'AuthorController@datatableData')->name('author.datatable.data');
+    Route::get('/author/{author}', 'AuthorController@adminShow')->name('author.show');
+    Route::resource('author', 'AuthorController')->except(['index', 'show']);
 //Crud for category
     Route::get('/category', 'CategoryController@datatable')->name('category.datatable');
     Route::get('/category/category', 'CategoryController@datatableData')->name('category.datatable.data');
@@ -107,7 +107,7 @@ Route::prefix('admin')->name('admin.')/*->middleware('admin')*/->group(function 
     Route::get('/project/datatable', 'ProjectController@datatableData')->name('project.datatable.data');
     Route::get('/project/{project}', 'ProjectController@adminShow')->name('project.show');
     Route::resource('project', 'ProjectController')->except(['index', 'show']);
-// Crud for photograph
+// Crud for photographer
     Route::get('/photograph', 'PhotographerController@datatable')->name('photograph.datatable');
     Route::get('/photograph/datatable', 'PhotographerController@datatableData')->name('photograph.datatable.data');
     Route::get('/photograph/{photograph}', 'PhotographerController@adminShow')->name('photograph.show');
