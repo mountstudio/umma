@@ -1,27 +1,32 @@
-@extends('layouts.app')
-@section('content')
-    <div class="container">
-        <nav class="navbar navbar-inverse">
-            <ul class="nav navbar-nav">
-                <li><a href="{{ URL::to('authors') }}">View all authors</a></li>
-                <li><a href="{{ URL::to('authors/create') }}">Create author</a></li>
-            </ul>
-        </nav>
-    </div>
-    <div class="navbar navbar-inverse">
-        <form enctype="multipart/form-data" method="post" action="{{ route('authors.store') }}">
-            @csrf
-            <div>
-                <label for="fullName">Полное имя:</label>
-                <input type="text" name="full_name" id="fullName">
-            </div>
-            <div class="form-group">
-                <label for="imageInput">File input</label>
-                <input data-preview="#preview" name="photo" type="file" id="imageInput" accept="image/*">
-            </div>
-            <div class="form-group">
-                <input class="form-control" type="submit">
-            </div>
-        </form>
+@extends('admin.dashboard')
+
+@section('dashboard_content')
+    <div class="row">
+        <div class="col-12 col-sm-10 col-lg-10 col-md-10">
+            <form>
+                <button type="submit" title="{{ __('Добавить') }}" class="btn n btn-success">{{ __('Добавить') }}</button>
+            </form>
+        </div>
     </div>
 @endsection
+
+@push('styles')
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/css/select2.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="{{ asset('css/main.css') }}">
+@endpush
+@push('scripts')
+    <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/js/select2.min.js"></script>
+    <script src="{{ asset('js/select_categories.js') }}"></script>
+    <script>
+        tinymce.init({
+            selector: '#mytextarea'
+        });
+    </script>
+    <script>
+        $(document).ready(function() {
+            $('.js-example-basic-multiple').select2();
+        });
+    </script>
+@endpush
+

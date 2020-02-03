@@ -25,7 +25,7 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.categories.create');
     }
 
     /**
@@ -88,11 +88,18 @@ class CategoryController extends Controller
     {
         //
     }
+
     public function datatableData()
     {
+
+//        return DataTables::eloquent($model)
+//            ->editColumn('name', function(User $user) {
+//                return 'Hi ' . $user->name . '!';
+//            })
+//            ->toJson();
         return DataTables::of(Category::query())
-            ->editColumn('name',function (Category $category){
-                return '<a href="' . route('admin.categories.show', $category) . '">'.$category->name.'</a>';
+            ->editColumn('name',function (Article $category){
+                return '<a href="' . route('admin.categories.show',$category) . '">'.$category->name.'</a>';
             })
             ->rawColumns(['name'])
             ->make(true);
