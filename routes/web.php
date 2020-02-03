@@ -63,7 +63,7 @@ Route::get('/education', function () {
 })->name('education');
 
 
-Route::prefix('admin')->name('admin.')->middleware('admin')->group(function () {
+Route::prefix('admin')->name('admin.')/*->middleware('admin')*/->group(function () {
     Route::get('/', 'AdminController@index')->name('admin');
     Route::get('/dashboard', 'AdminController@dashboard')->name('dashboard');
 
@@ -72,18 +72,48 @@ Route::prefix('admin')->name('admin.')->middleware('admin')->group(function () {
     Route::get('/article/datatable', 'ArticleController@datatableData')->name('articles.datatable.data');
     Route::get('/article/{article}', 'ArticleController@adminShow')->name('articles.show');
     Route::resource('articles', 'ArticleController')->except(['index', 'show']);
-
-//  CRUD for Authors
-    Route::get('/author', 'AuthorController@datatable')->name('authors.datatable');
-    Route::get('/author/datatable', 'AuthorController@datatableData')->name('authors.datatable.data');
-    Route::get('/author/{author}', 'AuthorController@adminShow')->name('authors.show');
+//Crud for authors
+    Route::get('/author', 'AuthorController@datatable')->name('author.datatable');
+    Route::get('/author/datatable', 'AuthorController@datatableData')->name('author.datatable.data');
+    Route::get('/author/{author}', 'AuthorController@adminShow')->name('author.show');
     Route::resource('authors', 'AuthorController')->except(['index', 'show']);
-
-//  CRUD for Categories
-    Route::get('/category', 'CategoryController@datatable')->name('categories.datatable');
-    Route::get('/category/datatable', 'CategoryController@datatableData')->name('categories.datatable.data');
-    Route::get('/category/{category}', 'CategoryController@adminShow')->name('categories.show');
+//Crud for category
+    Route::get('/category', 'CategoryController@datatable')->name('category.datatable');
+    Route::get('/category/datatable', 'CategoryController@datatableData')->name('category.datatable.data');
+    Route::get('/category/{category}', 'CategoryController@adminShow')->name('category.show');
     Route::resource('categories', 'CategoryController')->except(['index', 'show']);
+// Crud for multimedia
+    Route::get('/hadisi', 'HadisiController@datatable')->name('hadisi.datatable');
+    Route::get('/hadisi/hadisi', 'HadisiController@datatableData')->name('hadisi.datatable.data');
+    Route::get('/hadisi/{hadisi}', 'HadisiController@adminShow')->name('hadisi.show');
+    Route::resource('hadisi', 'HadisiController')->except(['index', 'show']);
+// Crud for multimedia
+    Route::get('/multimedia', 'MultimediaController@datatable')->name('multimedia.datatable');
+    Route::get('/multimedia/datatable', 'MultimediaController@datatableData')->name('multimedia.datatable.data');
+    Route::get('/multimedia/{multimedia}', 'MultimediaController@adminShow')->name('multimedia.show');
+    Route::resource('multimedia', 'MultimediaController')->except(['index', 'show']);
+// Crud for magazines
+    Route::get('/magazines', 'MagazinesController@datatable')->name('magazines.datatable');
+    Route::get('/magazines/datatable', 'MagazinesController@datatableData')->name('magazines.datatable.data');
+    Route::get('/magazines/{magazines}', 'MagazinesController@adminShow')->name('magazines.show');
+    Route::resource('magazines', 'MagazinesController')->except(['index', 'show']);
+// Crud for project
+    Route::get('/project', 'ProjectController@datatable')->name('project.datatable');
+    Route::get('/project/datatable', 'ProjectController@datatableData')->name('project.datatable.data');
+    Route::get('/project/{project}', 'ProjectController@adminShow')->name('project.show');
+    Route::resource('project', 'ProjectController')->except(['index', 'show']);
+// Crud for photographer
+    Route::get('/photograph', 'PhotographerController@datatable')->name('photograph.datatable');
+    Route::get('/photograph/datatable', 'PhotographerController@datatableData')->name('photograph.datatable.data');
+    Route::get('/photograph/{photograph}', 'PhotographerController@adminShow')->name('photograph.show');
+    Route::resource('photographer', 'PhotographerController')->except(['index', 'show']);
+// Crud for tags
+    Route::get('/tag', 'TagController@datatable')->name('tag.datatable');
+    Route::get('/tag/datatable', 'TagController@datatableData')->name('tag.datatable.data');
+    Route::get('/tag/{tag}', 'TagController@adminShow')->name('tag.show');
+    Route::resource('tags', 'TagController')->except(['index', 'show']);
+//  CRUD for Authors
+
 });
 
 
@@ -94,9 +124,37 @@ Route::get('/articles/category/{id}', function ($id) {
     return json_encode($subcategories);
 });
 
+Route::get('/multimedia/category/{id}', function ($id) {
+    $subcategories = Category::where('parent_id', $id)->get();
+    return json_encode($subcategories);
+});
+
+Route::get('/photograph/category/{id}', function ($id) {
+    $subcategories = Category::where('parent_id', $id)->get();
+    return json_encode($subcategories);
+});
+
+Route::get('/tag/category/{id}', function ($id) {
+    $subcategories = Category::where('parent_id', $id)->get();
+    return json_encode($subcategories);
+});
+
+Route::get('/project/category/{id}', function ($id) {
+    $subcategories = Category::where('parent_id', $id)->get();
+    return json_encode($subcategories);
+});
+
+Route::get('/hadisi/category/{id}', function ($id) {
+    $subcategories = Category::where('parent_id', $id)->get();
+    return json_encode($subcategories);
+});
+
+Route::get('/magazines/category/{id}', function ($id) {
+    $subcategories = Category::where('parent_id', $id)->get();
+    return json_encode($subcategories);
+});
 //router for send prayer time to today
 Route::get('/time_prayer', 'TimePrayersController@prayerForToday');
-
 Route::get('/scientists',function (){
     return view('scientists');
 })->name('scientists');

@@ -16,7 +16,9 @@ class AuthorController extends Controller
      */
     public function index()
     {
-        return view('articles.index');
+        return view('admin.authors.index', [
+            'authors' => Author::all(),
+        ]);
     }
 
     /**
@@ -26,7 +28,7 @@ class AuthorController extends Controller
      */
     public function create()
     {
-        return view('authors.create');
+        return view('admin.authors.create');
     }
 
     /**
@@ -72,6 +74,10 @@ class AuthorController extends Controller
         return view('authors.edit', ['author'=>$author]);
     }
 
+    public function adminShow(Author $author)
+    {
+        return view('admin.author.show', ['author'=>$author]);
+    }
     /**
      * Update the specified resource in storage.
      *
@@ -97,11 +103,17 @@ class AuthorController extends Controller
     }
     public function datatableData()
     {
+
+//        return DataTables::eloquent($model)
+//            ->editColumn('name', function(User $user) {
+//                return 'Hi ' . $user->name . '!';
+//            })
+//            ->toJson();
         return DataTables::of(Author::query())
-            ->editColumn('full_name',function (Author $author){
-                return '<a href="' . route('admin.authors.show', $author) . '">'.$author->full_name.'</a>';
+            ->editColumn('name',function (Article $author){
+                return '<a href="' . route('admin.authors.show',$author) . '">'.$author->name.'</a>';
             })
-            ->rawColumns(['full_name'])
+            ->rawColumns(['name'])
             ->make(true);
     }
     public function datatable()

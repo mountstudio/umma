@@ -3,15 +3,19 @@
 @section('dashboard_content')
     <div class="row justify-content-end mb-4">
         <div class="col-auto">
-            <a href="{{ route('admin.authors.create') }}" class="btn btn-success">{{ __('Создать') }}</a>
+            <a href="{{ route('admin.tag.create') }}" class="btn btn-success">{{ __('Создать') }}</a>
         </div>
     </div>
-    <table class="table table-bordered" id="categories-table">
+    <table class="table table-bordered" id="products-table">
         <thead>
         <tr>
-            <th>id</th>
             <th>name</th>
-            <th>parent_id</th>
+            <th>slug</th>
+            <th>category_id</th>
+            <th>logo</th>
+            <th>is_active</th>
+            <th>view_main</th>
+            <th>content</th>
             <th>created_at</th>
             <th>updated_at</th>
         </tr>
