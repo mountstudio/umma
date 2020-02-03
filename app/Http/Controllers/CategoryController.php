@@ -102,6 +102,6 @@ class CategoryController extends Controller
     }
     public function datatable()
     {
-        return view('admin.category.index');
+        return view('admin.categories.index');
     }
 }

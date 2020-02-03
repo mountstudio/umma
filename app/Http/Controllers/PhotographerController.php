@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Article;
+use App\Multimedia;
 use App\Photographer;
 use Illuminate\Http\Request;
+use Yajra\DataTables\Facades\DataTables;
 
 class PhotographerController extends Controller
 {
@@ -81,5 +84,25 @@ class PhotographerController extends Controller
     public function destroy(Photographer $photographer)
     {
         //
+    }
+
+    public function datatableData()
+    {
+
+//        return DataTables::eloquent($model)
+//            ->editColumn('name', function(User $user) {
+//                return 'Hi ' . $user->name . '!';
+//            })
+//            ->toJson();
+        return DataTables::of(Photographer::query())
+            ->editColumn('name',function (Article $photographer){
+                return '<a href="' . route('admin.photographer.show',$photographer) . '">'.$photographer->name.'</a>';
+            })
+            ->rawColumns(['name'])
+            ->make(true);
+    }
+    public function datatable()
+    {
+        return view('admin.photographer.index');
     }
 }

@@ -78,10 +78,10 @@ Route::prefix('admin')->name('admin.')/*->middleware('admin')*/->group(function 
     Route::get('/article/{article}', 'ArticleController@adminShow')->name('articles.show');
     Route::resource('articles', 'ArticleController')->except(['index', 'show']);
 //Crud for authors
-    Route::get('/author', 'AuthorController@datatable')->name('author.datatable');
-    Route::get('/author/author', 'AuthorController@datatableData')->name('author.datatable.data');
-    Route::get('/author/{author}', 'AuthorController@adminShow')->name('author.show');
-    Route::resource('author', 'AuthorController')->except(['index', 'show']);
+    Route::get('/authors', 'AuthorController@datatable')->name('authors.datatable');
+    Route::get('/authors/authors', 'AuthorController@datatableData')->name('authors.datatable.data');
+    Route::get('/authors/{authors}', 'AuthorController@adminShow')->name('authors.show');
+    Route::resource('authors', 'AuthorController')->except(['index', 'show']);
 //Crud for category
     Route::get('/category', 'CategoryController@datatable')->name('category.datatable');
     Route::get('/category/category', 'CategoryController@datatableData')->name('category.datatable.data');
@@ -108,15 +108,15 @@ Route::prefix('admin')->name('admin.')/*->middleware('admin')*/->group(function 
     Route::get('/project/{project}', 'ProjectController@adminShow')->name('project.show');
     Route::resource('project', 'ProjectController')->except(['index', 'show']);
 // Crud for photograph
-    Route::get('/photograph', 'PhotographController@datatable')->name('photograph.datatable');
-    Route::get('/photograph/datatable', 'PhotographController@datatableData')->name('photograph.datatable.data');
-    Route::get('/photograph/{photograph}', 'PhotographController@adminShow')->name('photograph.show');
-    Route::resource('photograph', 'PhotographController')->except(['index', 'show']);
+    Route::get('/photograph', 'PhotographerController@datatable')->name('photograph.datatable');
+    Route::get('/photograph/datatable', 'PhotographerController@datatableData')->name('photograph.datatable.data');
+    Route::get('/photograph/{photograph}', 'PhotographerController@adminShow')->name('photograph.show');
+    Route::resource('photograph', 'PhotographerController')->except(['index', 'show']);
 // Crud for tags
-    Route::get('/tags', 'TagsController@datatable')->name('tags.datatable');
-    Route::get('/tags/datatable', 'TagsController@datatableData')->name('tags.datatable.data');
-    Route::get('/tags/{tags}', 'TagsController@adminShow')->name('tags.show');
-    Route::resource('tags', 'TagsController')->except(['index', 'show']);
+    Route::get('/tag', 'TagController@datatable')->name('tag.datatable');
+    Route::get('/tag/datatable', 'TagController@datatableData')->name('tag.datatable.data');
+    Route::get('/tag/{tag}', 'TagController@adminShow')->name('tag.show');
+    Route::resource('tag', 'TagController')->except(['index', 'show']);
 //  CRUD for Authors
 
 });
@@ -134,6 +134,30 @@ Route::get('/multimedia/category/{id}', function ($id) {
     return json_encode($subcategories);
 });
 
+Route::get('/photograph/category/{id}', function ($id) {
+    $subcategories = Category::where('parent_id', $id)->get();
+    return json_encode($subcategories);
+});
+
+Route::get('/tag/category/{id}', function ($id) {
+    $subcategories = Category::where('parent_id', $id)->get();
+    return json_encode($subcategories);
+});
+
+Route::get('/project/category/{id}', function ($id) {
+    $subcategories = Category::where('parent_id', $id)->get();
+    return json_encode($subcategories);
+});
+
+Route::get('/hadisi/category/{id}', function ($id) {
+    $subcategories = Category::where('parent_id', $id)->get();
+    return json_encode($subcategories);
+});
+
+Route::get('/magazines/category/{id}', function ($id) {
+    $subcategories = Category::where('parent_id', $id)->get();
+    return json_encode($subcategories);
+});
 //router for send prayer time to today
 Route::get('/time_prayer', 'TimePrayersController@prayerForToday');
 Route::get('/scientists',function (){

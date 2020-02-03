@@ -4,7 +4,7 @@
         <nav class="navbar navbar-inverse">
             <ul class="nav navbar-nav">
                 <li><a href="{{ URL::to('authors') }}">View all authors</a></li>
-                <li><a href="{{ URL::to('authors/create') }}">Create author</a></li>
+                <li><a href="{{ URL::to('authors') }}">Create author</a></li>
             </ul>
         </nav>
     </div>

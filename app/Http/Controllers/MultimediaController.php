@@ -94,7 +94,7 @@ class MultimediaController extends Controller
 //            })
 //            ->toJson();
         return DataTables::of(Multimedia::query())
-            ->editColumn('name',function (Article $article){
+            ->editColumn('name',function (Article $multimedia){
                 return '<a href="' . route('admin.multimedia.show',$multimedia) . '">'.$multimedia->name.'</a>';
             })
             ->rawColumns(['name'])
