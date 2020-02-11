@@ -26,7 +26,7 @@ class MultimediaController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.multimedia.create');
     }
 
     /**
@@ -37,7 +37,9 @@ class MultimediaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $multimedia = Multimedia::create($request->all());
+
+        return redirect()->route('admin.multimedia.datatable');
     }
 
     /**
@@ -95,7 +97,7 @@ class MultimediaController extends Controller
                 return '<a href='.$multimedia->url_video.'>'.$multimedia->url_video.'</a>';
             })
             ->editColumn('url_photo', function (Multimedia $multimedia){
-                return '<img src="'.asset('/storage/multimedia/'.$multimedia->url_photo).'" height="100">';
+                return '<img src="'.asset('/storage/small/'.$multimedia->url_photo).'" height="100">';
             })
             ->rawColumns(['title','url_video','url_photo'])
             ->make(true);

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Category;
+use App\Services\ImageUploader;
 use Illuminate\Http\Request;
 use Yajra\DataTables\Facades\DataTables;
 

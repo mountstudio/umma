@@ -3,6 +3,8 @@
 namespace App\Providers;
 
 use App\Http\Controllers\TimePrayersController;
+use App\Multimedia;
+use App\Observers\MultimediaObserver;
 use Illuminate\Support\ServiceProvider;
 use App\Http\Controllers\Controller;
 
@@ -29,5 +31,7 @@ class AppServiceProvider extends ServiceProvider
 
             $view->with('data');
         });
+
+        Multimedia::observe(MultimediaObserver::class);
     }
 }
