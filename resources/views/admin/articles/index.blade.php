@@ -33,7 +33,7 @@
             $('#articles-table').DataTable({
                 processing: true,
                 serverSide: true,
-                ajax: '{!! route('admin.articles.datatable.data') !!}',
+                ajax: '{!! route('admin.article.datatable.data') !!}',
                 columns: [
                     { data: 'id', name: 'id' },
                     { data: 'name', name: 'name' },

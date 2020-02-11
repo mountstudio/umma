@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Poster;
 use Illuminate\Http\Request;
+use Yajra\DataTables\Facades\DataTables;
 
 class PosterController extends Controller
 {
@@ -48,6 +49,10 @@ class PosterController extends Controller
     {
         //
     }
+    public function adminShow(Poster $poster)
+    {
+        return view('admin.posters.show', ['poster'=>$poster]);
+    }
 
     /**
      * Show the form for editing the specified resource.
@@ -81,5 +86,21 @@ class PosterController extends Controller
     public function destroy(Poster $poster)
     {
         //
+    }
+    public function datatableData()
+    {
+        return DataTables::of(Poster::query())
+            ->editColumn('name',function (Poster $poster){
+                return '<a href="' . route('admin.poster.show',$poster) . '">'.$poster->name.'</a>';
+            })
+            ->editColumn('main_photo',function (Poster $poster){
+                return '<img src="'.asset('/storage/posters/'.$poster->main_photo).'" height="100">';
+            })
+            ->rawColumns(['name','main_photo'])
+            ->make(true);
+    }
+    public function datatable()
+    {
+        return view('admin.posters.index');
     }
 }

@@ -87,17 +87,17 @@ class MultimediaController extends Controller
 
     public function datatableData()
     {
-
-//        return DataTables::eloquent($model)
-//            ->editColumn('name', function(User $user) {
-//                return 'Hi ' . $user->name . '!';
-//            })
-//            ->toJson();
         return DataTables::of(Multimedia::query())
-            ->editColumn('name',function (Article $multimedia){
-                return '<a href="' . route('admin.multimedia.show',$multimedia) . '">'.$multimedia->name.'</a>';
+            ->editColumn('title',function (Multimedia $multimedia){
+                return '<a href="' . route('admin.multimedia.show',$multimedia) . '">'.$multimedia->title.'</a>';
             })
-            ->rawColumns(['name'])
+            ->editColumn('url_video',function (Multimedia $multimedia){
+                return '<a href='.$multimedia->url_video.'>'.$multimedia->url_video.'</a>';
+            })
+            ->editColumn('url_photo', function (Multimedia $multimedia){
+                return '<img src="'.asset('/storage/multimedia/'.$multimedia->url_photo).'" height="100">';
+            })
+            ->rawColumns(['title','url_video','url_photo'])
             ->make(true);
     }
     public function datatable()

@@ -13,7 +13,7 @@ class DeleteColumnsInCategoryTable extends Migration
      */
     public function up()
     {
-        Schema::table('category', function (Blueprint $table) {
+        Schema::table('categories', function (Blueprint $table) {
             $table->dropColumn(['parent_id', 'categoriable_id', 'categoriable_type']);
         });
     }
@@ -25,7 +25,7 @@ class DeleteColumnsInCategoryTable extends Migration
      */
     public function down()
     {
-        Schema::table('category', function (Blueprint $table) {
+        Schema::table('categories', function (Blueprint $table) {
             $table->unsignedInteger('categoriable_id');
             $table->string('categoriable_type');
             $table->unsignedInteger('parent_id');

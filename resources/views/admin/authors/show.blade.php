@@ -11,5 +11,5 @@
     <label for="fullName">Полной имя</label>
     <p id="fullName">{{ $author->full_name }}</p>
     <label for="photo">Фотография</label>
-    <img id="photo" src="{{ asset('uploads/'.$author->photo) }}">
+    <img id="photo" src="{{ asset('/storage/authors/'.$author->photo) }}">
 @endsection

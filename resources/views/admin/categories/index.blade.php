@@ -3,19 +3,14 @@
 @section('dashboard_content')
     <div class="row justify-content-end mb-4">
         <div class="col-auto">
-            <a href="{{ route('admin.tag.create') }}" class="btn btn-success">{{ __('Создать') }}</a>
+            <a href="{{ route('admin.multimedia.create') }}" class="btn btn-success">{{ __('Создать') }}</a>
         </div>
     </div>
-    <table class="table table-bordered" id="products-table">
+    <table class="table table-bordered" id="categories-table">
         <thead>
         <tr>
+            <th>id</th>
             <th>name</th>
-            <th>slug</th>
-            <th>category_id</th>
-            <th>logo</th>
-            <th>is_active</th>
-            <th>view_main</th>
-            <th>content</th>
             <th>created_at</th>
             <th>updated_at</th>
         </tr>
@@ -31,17 +26,16 @@
 @push('scripts')
     <script src="//cdn.datatables.net/1.10.7/js/jquery.dataTables.min.js"></script>
     <script>
-        $(function() {
+        $(function () {
             $('#categories-table').DataTable({
                 processing: true,
                 serverSide: true,
-                ajax: '{!! route('admin.categories.datatable.data') !!}',
+                ajax: '{!! route('admin.category.datatable.data') !!}',
                 columns: [
-                    { data: 'id', name: 'id' },
-                    { data: 'name', name: 'name' },
-                    { data: 'parent_id', name: 'parent_id' },
-                    { data: 'created_at', name: 'created_at' },
-                    { data: 'updated_at', name: 'updated_at' },
+                    {data: 'id', name: 'id'},
+                    {data: 'name', name: 'name'},
+                    {data: 'created_at', name: 'created_at'},
+                    {data: 'updated_at', name: 'updated_at'},
                 ]
             });
         });

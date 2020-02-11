@@ -8,7 +8,7 @@ class Article extends Model
 {
     public function category()
     {
-        return $this->morphMany(Category::class, 'categoriable');
+
     }
 
     public function authors()

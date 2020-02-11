@@ -12,7 +12,7 @@
                     <p>Что значит “интеллектуальный ислам”?</p>
                 </div>
                 <div class="col-12 col-lg-3 col-md-12">
-                    <img src="{{ asset('icons/icon-forkolumn-2.png') }}" alt="">
+                    <img src="{{ asset('icons/icon-for-kolum-3.png') }}" alt="">
                     <h3 class="font-weight-bold h5 pt-2" style="min-height: 56px;">Саид Ибраимов</h3>
                     <p>Искусство—как призыв. Когда настанет рассвет творчества в КР?</p>
                 </div>

@@ -51,7 +51,10 @@ class PhotographerController extends Controller
     {
         //
     }
-
+    public function adminShow(Photographer $photographer)
+    {
+        return view('admin.photographer.show', ['photographer'=>$photographer]);
+    }
     /**
      * Show the form for editing the specified resource.
      *
@@ -83,22 +86,20 @@ class PhotographerController extends Controller
      */
     public function destroy(Photographer $photographer)
     {
-        //
+        $photographer->delete();
+        return redirect()->back();
     }
 
     public function datatableData()
     {
-
-//        return DataTables::eloquent($model)
-//            ->editColumn('name', function(User $user) {
-//                return 'Hi ' . $user->name . '!';
-//            })
-//            ->toJson();
         return DataTables::of(Photographer::query())
-            ->editColumn('name',function (Photographer $photographer){
-                return '<a href="' . route('admin.photographer.show',$photographer) . '">'.$photographer->name.'</a>';
+            ->editColumn('full_name',function (Photographer $photographer){
+                return '<a href="' . route('admin.photographer.show',$photographer) . '">'.$photographer->full_name.'</a>';
             })
-            ->rawColumns(['name'])
+            ->editColumn('photo', function (Photographer $photographer){
+                return '<img src="'.asset('/storage/photographers/'.$photographer->photo).'" height="100">';
+            })
+            ->rawColumns(['full_name','photo'])
             ->make(true);
     }
     public function datatable()

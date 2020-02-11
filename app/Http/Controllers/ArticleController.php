@@ -29,12 +29,7 @@ class ArticleController extends Controller
      */
     public function create()
     {
-        return view('admin.articles.create',[
-            'parent_categories' => Category::where('categoriable_type','article')->where('parent_id',null)->get(),
-            'authors' => Author::all(),
-            'tags' => Tag::all(),
-            'photographers' => Photographer::all(),
-        ]);
+
     }
 
     /**
@@ -106,15 +101,9 @@ class ArticleController extends Controller
 
     public function datatableData()
     {
-
-//        return DataTables::eloquent($model)
-//            ->editColumn('name', function(User $user) {
-//                return 'Hi ' . $user->name . '!';
-//            })
-//            ->toJson();
         return DataTables::of(Article::query())
             ->editColumn('name',function (Article $article){
-                return '<a href="' . route('admin.articles.show',$article) . '">'.$article->name.'</a>';
+                return '<a href="' . route('admin.article.show',$article) . '">'.$article->name.'</a>';
             })
             ->rawColumns(['name'])
             ->make(true);

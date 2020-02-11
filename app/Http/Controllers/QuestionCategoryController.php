@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\QuestionCategory;
 use Illuminate\Http\Request;
+use Yajra\DataTables\Facades\DataTables;
 
 class QuestionCategoryController extends Controller
 {
@@ -49,6 +50,11 @@ class QuestionCategoryController extends Controller
         //
     }
 
+    public function adminShow(QuestionCategory $questionCategory)
+    {
+        return view('admin.questionCategories.show', ['questionCategory' => $questionCategory]);
+    }
+
     /**
      * Show the form for editing the specified resource.
      *
@@ -81,5 +87,18 @@ class QuestionCategoryController extends Controller
     public function destroy(QuestionCategory $questionCategory)
     {
         //
+    }
+    public function datatableData()
+    {
+        return DataTables::of(QuestionCategory::query())
+            ->editColumn('name',function (QuestionCategory $category){
+                return '<a href="' . route('admin.questionCategory.show',$category) . '">'.$category->name.'</a>';
+            })
+            ->rawColumns(['name'])
+            ->make(true);
+    }
+    public function datatable()
+    {
+        return view('admin.questionCategories.index');
     }
 }

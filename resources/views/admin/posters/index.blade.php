@@ -5,11 +5,14 @@
             <a href="{{ route('admin.tags.create') }}" class="btn btn-success">{{ __('Создать') }}</a>
         </div>
     </div>
-    <table class="table table-bordered" id="tags-table">
+    <table class="table table-bordered" id="posters-table">
         <thead>
         <tr>
             <th>id</th>
             <th>name</th>
+            <th>main_photo</th>
+            <th>phone</th>
+            <th>mail</th>
             <th>created_at</th>
             <th>updated_at</th>
         </tr>
@@ -26,13 +29,16 @@
     <script src="//cdn.datatables.net/1.10.7/js/jquery.dataTables.min.js"></script>
     <script>
         $(function() {
-            $('#tags-table').DataTable({
+            $('#posters-table').DataTable({
                 processing: true,
                 serverSide: true,
-                ajax: '{!! route('admin.tag.datatable.data') !!}',
+                ajax: '{!! route('admin.poster.datatable.data') !!}',
                 columns: [
                     { data: 'id', name: 'id' },
                     { data: 'name', name: 'name' },
+                    { data: 'main_photo', name: 'main_photo' },
+                    { data: 'phone', name: 'phone' },
+                    { data: 'mail', name: 'mail' },
                     { data: 'created_at', name: 'created_at' },
                     { data: 'updated_at', name: 'updated_at' },
                 ]

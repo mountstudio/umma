@@ -1,7 +1,23 @@
 @extends('admin.dashboard')
 
 @section('dashboard_content')
-
+    <div class="row justify-content-end mb-4">
+        <div class="col-auto">
+            <a href="{{ route('admin.multimedia.create') }}" class="btn btn-success">{{ __('Создать') }}</a>
+        </div>
+    </div>
+    <table class="table table-bordered" id="multimedia-table">
+        <thead>
+        <tr>
+            <th>id</th>
+            <th>title</th>
+            <th>url_photo</th>
+            <th>url_video</th>
+            <th>created_at</th>
+            <th>updated_at</th>
+        </tr>
+        </thead>
+    </table>
 
 @endsection
 
@@ -11,5 +27,21 @@
 
 @push('scripts')
     <script src="//cdn.datatables.net/1.10.7/js/jquery.dataTables.min.js"></script>
-
+    <script>
+        $(function() {
+            $('#multimedia-table').DataTable({
+                processing: true,
+                serverSide: true,
+                ajax: '{!! route('admin.multimedia.datatable.data') !!}',
+                columns: [
+                    { data: 'id', name: 'id' },
+                    { data: 'title', name: 'title' },
+                    { data: 'url_photo', name: 'url_photo' },
+                    { data: 'url_video', name: 'url_video' },
+                    { data: 'created_at', name: 'created_at' },
+                    { data: 'updated_at', name: 'updated_at' },
+                ]
+            });
+        });
+    </script>
 @endpush

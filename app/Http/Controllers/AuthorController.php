@@ -34,7 +34,7 @@ class AuthorController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
@@ -45,44 +45,41 @@ class AuthorController extends Controller
             $author->photo = $filename;
             $author->save();
         }
-        return redirect()->back()->with('success','Автор создан!');
+        return redirect()->back()->with('success', 'Автор создан!');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Author  $author
+     * @param  \App\Author $author
      * @return \Illuminate\Http\Response
      */
     public function show(Author $author)
     {
-        return view('authors.show', ['author'=>$author]);
+        return view('authors.show', ['author' => $author]);
     }
+
     public function adminShow(Author $author)
     {
-        return view('admin.authors.show', ['author'=>$author]);
+        return view('admin.authors.show', ['author' => $author]);
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Author  $author
+     * @param  \App\Author $author
      * @return \Illuminate\Http\Response
      */
     public function edit(Author $author)
     {
-        return view('authors.edit', ['author'=>$author]);
+        return view('authors.edit', ['author' => $author]);
     }
 
-    public function adminShow(Author $author)
-    {
-        return view('admin.author.show', ['author'=>$author]);
-    }
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Author  $author
+     * @param  \Illuminate\Http\Request $request
+     * @param  \App\Author $author
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, Author $author)
@@ -93,7 +90,7 @@ class AuthorController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Author  $author
+     * @param  \App\Author $author
      * @return \Illuminate\Http\Response
      */
     public function destroy(Author $author)
@@ -101,21 +98,22 @@ class AuthorController extends Controller
         $author->delete();
         return redirect()->back();
     }
+
     public function datatableData()
     {
 
-//        return DataTables::eloquent($model)
-//            ->editColumn('name', function(User $user) {
-//                return 'Hi ' . $user->name . '!';
-//            })
-//            ->toJson();
         return DataTables::of(Author::query())
-            ->editColumn('name',function (Article $author){
-                return '<a href="' . route('admin.authors.show',$author) . '">'.$author->name.'</a>';
+            ->editColumn('full_name', function (Author $author) {
+                return '<a href="' . route('admin.author.show', $author) . '">' . $author->full_name . '</a>';
             })
-            ->rawColumns(['name'])
+            ->editColumn('photo', function (Author $author){
+                return '<img src="'.asset('/storage/authors/'.$author->photo).'" height="100">';
+            })
+            ->rawColumns(['full_name', 'photo'])
             ->make(true);
+
     }
+
     public function datatable()
     {
         return view('admin.authors.index');
