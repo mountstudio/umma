@@ -49,4 +49,5 @@ class ImageUploader
             $constraint->aspectRatio();
         });
     }
+
 }

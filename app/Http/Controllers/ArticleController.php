@@ -29,46 +29,44 @@ class ArticleController extends Controller
      */
     public function create()
     {
-        return view('admin.articles.create');
+
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
     {
-        //
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Article  $article
+     * @param  \App\Article $article
      * @return \Illuminate\Http\Response
      */
     public function show(Article $article)
     {
-        return view('articles.show', ['article'=>$article]);
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Article  $article
+     * @param  \App\Article $article
      * @return \Illuminate\Http\Response
      */
     public function adminShow(Article $article)
     {
-        return view('admin.articles.show', ['article'=>$article]);
+        return view('admin.articles.show', ['article' => $article]);
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Article  $article
+     * @param  \App\Article $article
      * @return \Illuminate\Http\Response
      */
     public function edit(Article $article)
@@ -79,8 +77,8 @@ class ArticleController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Article  $article
+     * @param  \Illuminate\Http\Request $request
+     * @param  \App\Article $article
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, Article $article)
@@ -91,23 +89,29 @@ class ArticleController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Article  $article
+     * @param  \App\Article $article
      * @return \Illuminate\Http\Response
      */
     public function destroy(Article $article)
     {
-        $article->delete();
     }
 
     public function datatableData()
     {
         return DataTables::of(Article::query())
-            ->editColumn('name',function (Article $article){
-                return '<a href="' . route('admin.article.show',$article) . '">'.$article->name.'</a>';
+            ->editColumn('name', function (Article $article) {
+                return '<a href="' . route('admin.article.show', $article) . '">' . $article->name . '</a>';
+            })
+            ->addColumn('actions', function (Article $article) {
+                return view('admin.actions', [
+                    'type' => 'articles',
+                    'model' => $article
+                ]);
             })
             ->rawColumns(['name'])
             ->make(true);
     }
+
     public function datatable()
     {
         return view('admin.articles.index');

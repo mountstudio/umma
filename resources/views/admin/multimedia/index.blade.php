@@ -15,6 +15,7 @@
             <th>url_video</th>
             <th>created_at</th>
             <th>updated_at</th>
+            <th>actions</th>
         </tr>
         </thead>
     </table>
@@ -28,18 +29,19 @@
 @push('scripts')
     <script src="//cdn.datatables.net/1.10.7/js/jquery.dataTables.min.js"></script>
     <script>
-        $(function() {
+        $(function () {
             $('#multimedia-table').DataTable({
                 processing: true,
                 serverSide: true,
                 ajax: '{!! route('admin.multimedia.datatable.data') !!}',
                 columns: [
-                    { data: 'id', name: 'id' },
-                    { data: 'title', name: 'title' },
-                    { data: 'url_photo', name: 'url_photo' },
-                    { data: 'url_video', name: 'url_video' },
-                    { data: 'created_at', name: 'created_at' },
-                    { data: 'updated_at', name: 'updated_at' },
+                    {data: 'id', name: 'id'},
+                    {data: 'title', name: 'title'},
+                    {data: 'url_photo', name: 'url_photo'},
+                    {data: 'url_video', name: 'url_video'},
+                    {data: 'created_at', name: 'created_at'},
+                    {data: 'updated_at', name: 'updated_at'},
+                    {data: 'actions', name: 'actions', searchable: false, orderable: false},
                 ]
             });
         });

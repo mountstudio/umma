@@ -3,8 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Author;
+use App\Http\Requests\StoreAuthorRequest;
+use App\Http\Requests\UpdateAuthorRequest;
+use App\Services\ImageUploader;
 use Illuminate\Http\Request;
-use App\Helpers\ImageSaver;
+use Illuminate\Support\Facades\Storage;
 use Yajra\DataTables\Facades\DataTables;
 
 class AuthorController extends Controller
@@ -37,15 +40,13 @@ class AuthorController extends Controller
      * @param  \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreAuthorRequest $request)
     {
-        $author = new Author($request->all());
-        if ($image = $request->photo) {
-            $filename = ImageSaver::save($image, "uploads", "my_photo");
-            $author->photo = $filename;
-            $author->save();
-        }
-        return redirect()->back()->with('success', 'Автор создан!');
+        $request->validated();
+        $author = Author::create($request->all());
+        $author->photo = ImageUploader::upload(request('photo'), 'authors', 'authors', 40);
+        $author->save();
+        return redirect()->route('admin.author.datatable');
     }
 
     /**
@@ -72,7 +73,7 @@ class AuthorController extends Controller
      */
     public function edit(Author $author)
     {
-        return view('authors.edit', ['author' => $author]);
+        return view('admin.authors.edit', ['author' => $author]);
     }
 
     /**
@@ -82,9 +83,20 @@ class AuthorController extends Controller
      * @param  \App\Author $author
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Author $author)
+    public function update(UpdateAuthorRequest $request, Author $author)
     {
-        //
+        $request->validated();
+        if (!$request->hasFile('photo')) {
+            $author->update($request->all());
+        } else {
+            Storage::disk('public')->delete("/large/" . $author->photo);
+            Storage::disk('public')->delete("/medium/" . $author->photo);
+            Storage::disk('public')->delete("/small/" . $author->photo);
+            $author->update($request->all());
+            $author->photo = ImageUploader::upload(request('photo'), 'authors', 'authors', 40);
+            $author->save();
+        }
+        return redirect()->route('admin.author.datatable');
     }
 
     /**
@@ -96,7 +108,7 @@ class AuthorController extends Controller
     public function destroy(Author $author)
     {
         $author->delete();
-        return redirect()->back();
+        return redirect()->route('admin.author.datatable');
     }
 
     public function datatableData()
@@ -106,8 +118,11 @@ class AuthorController extends Controller
             ->editColumn('full_name', function (Author $author) {
                 return '<a href="' . route('admin.author.show', $author) . '">' . $author->full_name . '</a>';
             })
-            ->editColumn('photo', function (Author $author){
-                return '<img src="'.asset('/storage/authors/'.$author->photo).'" height="100">';
+            ->editColumn('photo', function (Author $author) {
+                return '<img src="' . asset('/storage/small/' . $author->photo) . '" height="100">';
+            })
+            ->addColumn('actions', function (Author $author) {
+                return view('admin.actions', ['type' => 'authors', 'model' => $author]);
             })
             ->rawColumns(['full_name', 'photo'])
             ->make(true);

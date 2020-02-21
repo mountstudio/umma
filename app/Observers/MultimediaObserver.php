@@ -29,9 +29,8 @@ class MultimediaObserver
      * @param  \App\Multimedia  $multimedia
      * @return void
      */
-    public function updated(Multimedia $multimedia)
+    public function updating(Multimedia $multimedia)
     {
-        //
     }
 
     /**
@@ -53,7 +52,7 @@ class MultimediaObserver
      */
     public function restored(Multimedia $multimedia)
     {
-        //
+
     }
 
     /**

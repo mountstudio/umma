@@ -4,10 +4,12 @@ namespace App;
 
 use Cviebrock\EloquentSluggable\Sluggable;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Multimedia extends Model
 {
     use Sluggable;
+    use SoftDeletes;
 
     protected $fillable = ['title', 'slug', 'url_video'];
 

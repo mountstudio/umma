@@ -19,19 +19,25 @@
                     <br>
                     <select id="parent_category">
                         <option value="0">Выберите категорию</option>
-                        @foreach($parent_categories as $parent_category)
-                            <option value="{{ $parent_category->id }}">{{ $parent_category->name }}</option>
+                        @foreach($categories as $category)
+                            <option value="{{ $category->id }}">{{ $category->name }}</option>
                         @endforeach
                     </select>
                 </div>
                 <br>
-                <div id="authors">
-                    <label for="authors">Выберите автора:<span class="text-danger">*</span></label>
-                    <br>
-                    <select id="authors">
-                        <option value="0">Выберите категорию</option>
+                <div class="form-group">
+                    <label for="add_authors">Добавить теги:</label>
+                    <select class="js-example-basic-multiple" name="states[]" multiple="multiple">
                         @foreach($authors as $author)
-                            <option>{{ $author->full_name }}</option>
+                        <option>{{ $author->name }}</option>
+                        @endforeach
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="add_photographers">Добавить теги:</label>
+                    <select class="js-example-basic-multiple" name="states[]" multiple="multiple">
+                        @foreach($photographers as $photographer)
+                            <option>{{ $photographer->name }}</option>
                         @endforeach
                     </select>
                 </div>
@@ -44,7 +50,6 @@
                     <label for="add_tegs">Добавить теги:</label>
                     <select class="js-example-basic-multiple" name="states[]" multiple="multiple">
                         <option value="AL">Alabama</option>
-                        ...
                         <option value="WY">Wyoming</option>
                     </select>
                 </div>
@@ -77,6 +82,10 @@
         $(document).ready(function() {
             $('.js-example-basic-multiple').select2();
         });
+        $(document).ready(function() {
+            $('.js-example-basic-multiple').select2();
+        });
     </script>
+
 @endpush
 
