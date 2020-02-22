@@ -19,7 +19,7 @@ class ArticleController extends Controller
      */
     public function index()
     {
-        return view('articles.index');
+
     }
 
     /**
@@ -29,7 +29,21 @@ class ArticleController extends Controller
      */
     public function create()
     {
-
+        if (request()->route()->named('admin.articles.create')) {
+            $type = 'article';
+        } else if (request()->route()->named('admin.longreads.create')) {
+            $type = 'longread';
+        } else {
+            $type = 'digest';
+        }
+        return view('admin.articles.create',
+            [
+                'categories' => Category::all(),
+                'authors' => Author::all(),
+                'photographers' => Photographer::all(),
+                'tags' => Tag::all(),
+                'type' => $type,
+            ]);
     }
 
     /**
@@ -40,6 +54,7 @@ class ArticleController extends Controller
      */
     public function store(Request $request)
     {
+        dd($request);
     }
 
     /**
@@ -71,7 +86,7 @@ class ArticleController extends Controller
      */
     public function edit(Article $article)
     {
-        //
+      return view('admin.articles.edit',['article'=>$article]);
     }
 
     /**
@@ -94,26 +109,41 @@ class ArticleController extends Controller
      */
     public function destroy(Article $article)
     {
+        $article->delete();
+        return redirect()->route('admin.article.datatable');
     }
 
     public function datatableData()
     {
-        return DataTables::of(Article::query())
-            ->editColumn('name', function (Article $article) {
-                return '<a href="' . route('admin.article.show', $article) . '">' . $article->name . '</a>';
-            })
-            ->addColumn('actions', function (Article $article) {
-                return view('admin.actions', [
-                    'type' => 'articles',
-                    'model' => $article
-                ]);
-            })
-            ->rawColumns(['name'])
-            ->make(true);
+        if (request()->route()->getName() == 'admin.article.datatable.data') {
+            $type = 'article';
+        } else if (request()->route()->getName() == 'admin.longread.datatable.data'){
+            $type = 'longread';
+        } else {
+            $type = 'digest';
+        }
+            return DataTables::of(Article::where('type', $type))
+                ->editColumn('name', function (Article $article) {
+                    return '<a href="' . route('admin.article.show', $article) . '">' . $article->name . '</a>';
+                })
+                ->addColumn('actions', function (Article $article) {
+                    return view('admin.actions', [
+                        'type' => 'articles',
+                        'model' => $article
+                    ]);
+                })
+                ->rawColumns(['name'])
+                ->make(true);
     }
 
     public function datatable()
     {
-        return view('admin.articles.index');
+        if (request()->route()->getName() == "admin.article.datatable") {
+            return view('admin.articles.index', ['type' => 'article']);
+        } else if (request()->route()->getName() == 'admin.longread.datatable') {
+            return view('admin.articles.index', ['type' => 'longread']);
+        } else {
+            return view('admin.articles.index', ['type' => 'digest']);
+        }
     }
 }

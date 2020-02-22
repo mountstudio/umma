@@ -20,14 +20,14 @@ class main_image implements Rule
     /**
      * Determine if the validation rule passes.
      *
-     * @param  string  $attribute
-     * @param  mixed  $value
+     * @param  string $attribute
+     * @param  mixed $value
      * @return bool
      */
     public function passes($attribute, $value)
     {
         $img = Image::make($value);
-        return $img->width()>$img->height();
+        return $img->width() > $img->height();
     }
 
     /**
