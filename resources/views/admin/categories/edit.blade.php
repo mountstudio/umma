@@ -16,7 +16,7 @@
                     <input id="name_field" type="text" class="form-control" name="name" value="{{ $category->name }}" required>
                 </div>
 
-                <button type="submit" title="{{ __('Изменить') }}" class="btn n btn-success">{{ __('Добавить') }}</button>
+                <button type="submit" title="{{ __('Изменить') }}" class="btn n btn-success">{{ __('Изменить') }}</button>
             </form>
         </div>
     </div>

@@ -11,7 +11,7 @@ class QuestionCategory extends Model
     use Sluggable;
     use SoftDeletes;
 
-    protected $fillable = ['id', 'name', 'slug'];
+    protected $fillable = [ 'name', 'slug'];
 
     /**
      * Return the sluggable configuration array for this model.

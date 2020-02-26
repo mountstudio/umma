@@ -25,7 +25,7 @@ class UpdateMultimediaRequest extends FormRequest
     {
         return [
             'title'=>'required|max:255',
-            'url_photo'=>'required|image|max:2000|dimensions:min_width=500',
+            'url_photo'=>'nullable|image|max:2000|dimensions:min_width=500',
             'url_video'=>'required|max:255',
         ];
     }

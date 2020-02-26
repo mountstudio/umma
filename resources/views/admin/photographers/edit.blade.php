@@ -14,7 +14,7 @@
                 <div class="form-group">
                     <label for="full_name_field">ФИО фотографа<span class="text-danger">*</span></label>
                     <input id="full_name_field" value="{{ $photographer->full_name }}" type="text" class="form-control"
-                           name="full_name" required>
+                           name="full_name" accept="image/jpeg, image/png" required>
                 </div>
                 <div class="form-group">
                     <label for="photo_input">Выберите фото:</label>

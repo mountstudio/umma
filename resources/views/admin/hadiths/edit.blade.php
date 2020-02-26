@@ -20,8 +20,7 @@
                     <textarea id="content_area" class="form-control richTextBox is-invalid"
                               name="content">{{ $hadith->content }}</textarea>
                 </div>
-                <button type="submit" title="{{ __('Добавить') }}"
-                        class="btn n btn-success">{{ __('Добавить') }}</button>
+                <button type="submit" title="{{ __('Изменить') }}" class="btn n btn-success">{{ __('Изменить') }}</button>
             </form>
         </div>
     </div>

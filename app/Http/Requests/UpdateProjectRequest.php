@@ -25,7 +25,7 @@ class UpdateProjectRequest extends FormRequest
     {
         return [
             'name' => 'required|max:255',
-            'image' => ' required|image|max:2000|dimensions:min_width=500',
+            'image' => ' nullable|image|max:2000|dimensions:min_width=500',
             'description' => 'nullable',
         ];
     }

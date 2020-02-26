@@ -24,8 +24,7 @@
                     <label for="pdf_input">pdf</label>
                     <input id="pdf_input" type="file" class="form-control" name="pdf" accept="application/pdf">
                 </div>
-                <button type="submit" title="{{ __('Добавить') }}"
-                        class="btn n btn-success">{{ __('Добавить') }}</button>
+                <button type="submit" title="{{ __('Изменить') }}" class="btn n btn-success">{{ __('Изменить') }}</button>
             </form>
         </div>
     </div>

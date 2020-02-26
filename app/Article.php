@@ -2,12 +2,34 @@
 
 namespace App;
 
+use Cviebrock\EloquentSluggable\Sluggable;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Article extends Model
 {
     use SoftDeletes;
+    use Sluggable;
+
+    protected $fillable = [
+            'name',
+            'slug',
+            'category_id',
+            'logo',
+            'is_active',
+            'view_main',
+            'content',
+            'type'
+        ];
+
+    public function sluggable(): array
+    {
+        return [
+            'slug' => [
+                'source' => 'name',
+            ]
+        ];
+    }
 
     public function category()
     {

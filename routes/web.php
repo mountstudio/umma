@@ -75,21 +75,17 @@ Route::prefix('admin')->name('admin.')/*->middleware('admin')*/->group(function 
 //CRUD for longreads
     Route::get('/longread', 'ArticleController@datatable')->name('longread.datatable');
     Route::get('/longread/datatable', 'ArticleController@datatableData')->name('longread.datatable.data');
-    Route::get('/longread/{longread}', 'ArticleController@adminShow')->name('longread.show');
-    Route::resource('longreads','ArticleController')->except(['index', 'show']);
+    Route::get('/longread/{article}', 'ArticleController@adminShow')->name('longread.show');
+    Route::resource('longreads','ArticleController')->except(['index', 'show'])->parameters([
+        'longreads' => 'article'
+    ]);;;
 //CRUD for digest
     Route::get('/digest', 'ArticleController@datatable')->name('digest.datatable');
     Route::get('/digest/datatable', 'ArticleController@datatableData')->name('digest.datatable.data');
-    Route::get('/digest/{digest}', 'ArticleController@adminShow')->name('digest.show');
-    Route::resource('digests', 'ArticleController')->except(['index', 'show']);
-
-
-
-//CRUD for digests
-    Route::get('/digest', 'ArticleController@datatable')->name('digest.datatable');
-    Route::get('/digest/datatable', 'ArticleController@datatableData')->name('digest.datatable.data');
-    Route::get('/digest/{digest}', 'ArticleController@adminShow')->name('digest.show');
-    Route::resource('digests', 'ArticleController')->except(['index', 'show']);
+    Route::get('/digest/{article}', 'ArticleController@adminShow')->name('digest.show');
+    Route::resource('digests', 'ArticleController')->except(['index', 'show'])->parameters([
+        'digests' => 'article'
+    ]);
 
 //CRUD for authors
     Route::get('/author', 'AuthorController@datatable')->name('author.datatable');

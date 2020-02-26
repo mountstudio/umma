@@ -23,8 +23,7 @@
                     <label for="main_photo_input">Главное фото:<span class="text-danger">*</span></label>
                     <input id="main_photo_input" type="file" class="form-control" name="image" accept="image/*" required>
                 </div>
-                <button type="submit" title="{{ __('Добавить') }}"
-                        class="btn n btn-success">{{ __('Добавить') }}</button>
+                <button type="submit" title="{{ __('Добавить') }}" class="btn n btn-success">{{ __('Добавить') }}</button>
             </form>
         </div>
     </div>

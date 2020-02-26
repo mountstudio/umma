@@ -32,7 +32,7 @@ class UpdateArticleRequest extends FormRequest
             'photographers'=>'nullable',
             'tags'=>'nullable',
             'type'=>'required',
-            'logo' => ['required','image','max:2000','dimensions:min_width=500', new Main_image],
+            'logo' => ['nullable','image','max:2000','dimensions:min_width=500', new Main_image],
         ];
     }
 }
