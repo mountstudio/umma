@@ -3,11 +3,27 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
+use Cviebrock\EloquentSluggable\Sluggable;
 
 class Question extends Model
 {
-    public function category()
+    use SoftDeletes;
+    use Sluggable;
+
+    protected $fillable = ['name', 'slug', 'content', 'category_id', 'phone', 'full_name'];
+
+    public function sluggable(): array
     {
-        return $this->morphMany(Category::class, 'categoriable');
+        return [
+            'slug' => [
+                'source' => 'name',
+            ]
+        ];
+    }
+
+    public function questionCategory()
+    {
+        return $this->belongsTo(QuestionCategory::class, 'category_id');
     }
 }

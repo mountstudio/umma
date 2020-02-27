@@ -13,6 +13,7 @@
             <th>photo</th>
             <th>created_at</th>
             <th>updated_at</th>
+            <th>actions</th>
         </tr>
         </thead>
     </table>
@@ -36,6 +37,7 @@
                     { data: 'photo', name: 'photo' },
                     { data: 'created_at', name: 'created_at' },
                     { data: 'updated_at', name: 'updated_at' },
+                    { data: 'actions', name: 'actions', searchable: false, orderable: false},
                 ]
             });
         });
