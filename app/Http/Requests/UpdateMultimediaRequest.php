@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests;
 
+use App\Rules\main_image;
 use Illuminate\Foundation\Http\FormRequest;
 
 class UpdateMultimediaRequest extends FormRequest
@@ -24,9 +25,9 @@ class UpdateMultimediaRequest extends FormRequest
     public function rules()
     {
         return [
-            'title'=>'required|max:255',
-            'url_photo'=>'nullable|image|max:2000|dimensions:min_width=500',
-            'url_video'=>'required|max:255',
+            'title' => 'required|max:255',
+            'url_photo' => ['nullable', 'image', 'max:2000', 'dimensions:min_width=500', new Main_image],
+            'url_video' => 'required|max:255',
         ];
     }
 }

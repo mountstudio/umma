@@ -33,8 +33,7 @@
                 <a href="{{ route('hadisdnya') }}"><h2 class="text-uppercase text-dark">Хадис дня</h2></a>
             </div>
             <div class="border border-4 border-orange rounded p-3">
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur dolore doloribus, ducimus eos facere ipsam laudantium nihil, nisi non nostrum odio odit omnis quas quisquam quod repellendus rerum sunt totam.
-                </p>
+                <p>{!! $hadith->content !!}</p>
                 <div class="col-12 text-right">
                     <a href="{{ route('hadisdnya') }}" class="" style="color: grey;">Читать далее...</a>
                 </div>

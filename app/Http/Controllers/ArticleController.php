@@ -5,12 +5,15 @@ namespace App\Http\Controllers;
 use App\Article;
 use App\Author;
 use App\Category;
+use App\hadith;
 use App\Http\Requests\StoreArticleRequest;
 use App\Http\Requests\UpdateArticleRequest;
+use App\Multimedia;
 use App\Photographer;
+use App\Poster;
+use App\Project;
 use App\Services\ImageUploader;
 use App\Tag;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Yajra\DataTables\Facades\DataTables;
 
@@ -53,7 +56,7 @@ class ArticleController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request $request
+     * @param StoreArticleRequest $request
      * @return \Illuminate\Http\Response
      */
     public function store(StoreArticleRequest $request)
@@ -114,7 +117,7 @@ class ArticleController extends Controller
 
     /**
      * Update the specified resource in storage.
-     * @param  \Illuminate\Http\Request $request
+     * @param UpdateArticleRequest $request
      * @param  \App\Article $article
      * @return \Illuminate\Http\Response
      */
@@ -141,7 +144,7 @@ class ArticleController extends Controller
             $article->photographers()->sync($request->photographers);
             $article->tags()->sync($request->tags);
         }
-        return redirect()->route('admin.'.$article->type.'.datatable');
+        return redirect()->route('admin.' . $article->type . '.datatable');
     }
 
     /**
@@ -167,8 +170,8 @@ class ArticleController extends Controller
             $type = 'digest';
         }
         return DataTables::of(Article::where('type', $type))
-            ->editColumn('name', function (Article $article) use ($type){
-                return '<a href="' . route('admin.'.$type.'.show', $article) . '">' . $article->name . '</a>';
+            ->editColumn('name', function (Article $article) use ($type) {
+                return '<a href="' . route('admin.' . $type . '.show', $article) . '">' . $article->name . '</a>';
             })
             ->addColumn('actions', function (Article $article) use ($type) {
                 return view('admin.actions', [
@@ -190,4 +193,20 @@ class ArticleController extends Controller
             return view('admin.articles.index', ['type' => 'digest']);
         }
     }
+
+    public function welcome()
+    {
+        $articles = Article::where('view_main', true)->inRandomOrder()->take(18)->get();
+        $hadith = Hadith::latest()->first();
+//        dd($articles);
+        $posters = Poster::latest()->take(6)->get();
+        $multimedia = Multimedia::latest()->take(10)->get();
+        $projects = Project::All();
+        return view('welcome', [
+            'posters' => $posters,
+            'multimedia' => $multimedia,
+            'hadith' => $hadith,
+            'projects'=>$projects]);
+    }
+
 }

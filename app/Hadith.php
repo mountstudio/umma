@@ -6,7 +6,7 @@ use Cviebrock\EloquentSluggable\Sluggable;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class hadith extends Model
+class Hadith extends Model
 {
     use SoftDeletes;
     use Sluggable;

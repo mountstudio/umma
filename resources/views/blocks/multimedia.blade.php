@@ -3,42 +3,13 @@
     <div class="row">
         <div class="col-12 p-4 bg-orange">
             <div class="multimedia">
-                <div class="item border bg-for-image p-1 mr-1 position-relative">
-                    <img class="img-fluid position-relative" src="{{ asset('img/example-1.jpg') }}" alt="">
-                    <img src="{{ asset('img/ui.png') }}" class="img-fluid position-absolute" style="left: 50%; top: 50%; transform: translate(-50%, -50%);" alt="">
-                </div>
-                <div class="item border bg-for-image p-1 mr-1 position-relative">
-                    <img class="img-fluid position-relative" src="{{ asset('img/example-1.jpg') }}" alt="">
-                    <img src="{{ asset('img/ui.png') }}" class="img-fluid position-absolute" style="left: 50%; top: 50%; transform: translate(-50%, -50%);" alt="">
-                </div>
-                <div class="item border bg-for-image p-1 mr-1 position-relative">
-                    <img class="img-fluid position-relative" src="{{ asset('img/example-1.jpg') }}" alt="">
-                    <img src="{{ asset('img/ui.png') }}" class="img-fluid position-absolute" style="left: 50%; top: 50%; transform: translate(-50%, -50%);" alt="">
-                </div>
-                <div class="item border bg-for-image p-1 mr-1 position-relative">
-                    <img class="img-fluid position-relative" src="{{ asset('img/example-1.jpg') }}" alt="">
-                    <img src="{{ asset('img/ui.png') }}" class="img-fluid position-absolute" style="left: 50%; top: 50%; transform: translate(-50%, -50%);" alt="">
-                </div>
-                <div class="item border bg-for-image p-1 mr-1 position-relative">
-                    <img class="img-fluid position-relative" src="{{ asset('img/example-1.jpg') }}" alt="">
-                    <img src="{{ asset('img/ui.png') }}" class="img-fluid position-absolute" style="left: 50%; top: 50%; transform: translate(-50%, -50%);" alt="">
-                </div>
-                <div class="item border bg-for-image p-1 mr-1 position-relative">
-                    <img class="img-fluid position-relative" src="{{ asset('img/example-1.jpg') }}" alt="">
-                    <img src="{{ asset('img/ui.png') }}" class="img-fluid position-absolute" style="left: 50%; top: 50%; transform: translate(-50%, -50%);" alt="">
-                </div>
-                <div class="item border bg-for-image  p-1 mr-1">
-                    <img class="img-fluid" src="{{ asset('img/example-1.jpg') }}" alt="">
-                    <img src="{{ asset('img/ui.png') }}" class="img-fluid position-absolute" style="left: 50%; top: 50%; transform: translate(-50%, -50%);" alt="">
-                </div>
-                <div class="item border  bg-for-image p-1 mr-1">
-                    <img class="img-fluid" src="{{ asset('img/example-2.jpg') }}" alt="">
-                    <img src="{{ asset('img/ui.png') }}" class="img-fluid position-absolute" style="left: 50%; top: 50%; transform: translate(-50%, -50%);" alt="">
-                </div>
-                <div class="item border bg-for-image  p-1 mr-1">
-                    <img class="img-fluid" src="{{ asset('img/example-3.jpg') }}" alt="">
-                    <img src="{{ asset('img/ui.png') }}" class="img-fluid position-absolute" style="left: 50%; top: 50%; transform: translate(-50%, -50%);" alt="">
-                </div>
+                @foreach($multimedia as $media)
+                    <div class="item border bg-for-image p-1 mr-1 position-relative">
+                        <img class="img-fluid position-relative" src="{{ asset('storage/medium/' . $media->url_photo) }}" alt="">
+                        <img src="{{ asset('img/ui.png') }}" class="img-fluid position-absolute"
+                             style="left: 50%; top: 50%; transform: translate(-50%, -50%);" alt="">
+                    </div>
+                @endforeach
             </div>
         </div>
     </div>
@@ -64,7 +35,7 @@
                 slidesToShow: 3,
                 slidesToScroll: 1,
                 arrows: true,
-                responsive:{
+                responsive: {
                     breakpoint: 500,
                     settings: {
                         centerMode: true,

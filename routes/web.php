@@ -13,9 +13,11 @@
 
 use App\Category;
 
-Route::get('/', function () {
-    return view('welcome');
-});
+//Route::get('/', function () {
+//    return view('welcome');
+//});
+
+Route::get('/', 'ArticleController@welcome')->name('welcome');
 
 Auth::routes();
 
