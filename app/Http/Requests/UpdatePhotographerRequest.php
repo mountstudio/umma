@@ -25,7 +25,7 @@ class UpdatePhotographerRequest extends FormRequest
     {
         return [
             'full_name' => 'required|max:255',
-            'photo' => 'required|image|max:2000|dimensions:ratio=1/1,min_width=500'
+            'photo' => 'nullable|image|max:2000|dimensions:ratio=1/1,min_width=500'
         ];
     }
 }

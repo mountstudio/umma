@@ -6,7 +6,7 @@ use Cviebrock\EloquentSluggable\Sluggable;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class magazine extends Model
+class Magazine extends Model
 {
     use Sluggable;
     use SoftDeletes;

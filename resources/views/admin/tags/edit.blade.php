@@ -14,7 +14,7 @@
                         <li>{{ $error }}</li>
                     @endforeach
                 </ul>
-                <button type="submit" title="{{ __('Добавить') }}" class="btn n btn-success">{{ __('Добавить') }}</button>
+                <button type="submit" title="{{ __('Изменить') }}" class="btn n btn-success">{{ __('Изменить') }}</button>
             </form>
         </div>
     </div>

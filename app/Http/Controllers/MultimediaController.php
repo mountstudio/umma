@@ -6,7 +6,6 @@ use App\Http\Requests\StoreMultimediaRequest;
 use App\Http\Requests\UpdateMultimediaRequest;
 use App\Multimedia;
 use App\Services\ImageUploader;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Yajra\DataTables\Facades\DataTables;
 
@@ -41,8 +40,9 @@ class MultimediaController extends Controller
     public function store(StoreMultimediaRequest $request)
     {
         $request->validated();
-        Multimedia::create($request->all());
-
+        $multimedia = Multimedia::create($request->all());
+        $multimedia->url_photo = ImageUploader::upload(request('url_photo'), 'multimedia', 'multimedia', 40);
+        $multimedia->save();
         return redirect()->route('admin.multimedia.datatable');
     }
 

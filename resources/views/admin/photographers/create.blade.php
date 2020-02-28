@@ -17,10 +17,9 @@
                 </div>
                 <div class="form-group">
                     <label for="photo_input">Фотография</label>
-                    <input id="photo_input" type="file" class="form-control" name="photo" required>
+                    <input id="photo_input" type="file" class="form-control" name="photo" accept="image/jpeg, image/png" required>
                 </div>
-                <button type="submit" title="{{ __('Добавить') }}"
-                        class="btn n btn-success">{{ __('Добавить') }}</button>
+                <button type="submit" title="{{ __('Добавить') }}" class="btn n btn-success">{{ __('Добавить') }}</button>
             </form>
         </div>
     </div>

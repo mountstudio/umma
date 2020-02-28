@@ -35,8 +35,7 @@
                            name="main_photo" accept="image/jpeg, image/png">
                     <img id="photo" src="{{ asset('storage/medium/' . $poster->main_photo) }}"/>
                 </div>
-                <button type="submit" title="{{ __('Добавить') }}"
-                        class="btn n btn-success">{{ __('Добавить') }}</button>
+                <button type="submit" title="{{ __('Изменить') }}" class="btn n btn-success">{{ __('Изменить') }}</button>
             </form>
         </div>
     </div>
