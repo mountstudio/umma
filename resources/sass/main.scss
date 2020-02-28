@@ -1,0 +1,87 @@
+@import "variables";
+body {
+    font-family: 'Ubuntu', sans-serif;
+}
+
+.bg-for-middle-div {
+    text-align: center;
+    text-transform: uppercase;
+    color: #FFF3F3;
+    font-size: 20px;
+    background: linear-gradient(90.63deg, #5D84BF 4.23%, #E90A67 90.84%);
+}
+
+.border-for-news {
+    border: 1px solid #000000;
+    box-sizing: border-box;
+    border-radius: 20px;
+}
+
+.text-menu {
+    font-size: 20px;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+.text-orange {
+    color: $text-orange;
+}
+.bg-orange {
+    background: $text-orange!important;
+}
+
+.namaz-tabs {
+    color: $text-black !important;
+    background: transparent !important;
+}
+.namaz-tabs.active {
+    color: $text-orange !important;
+}
+
+.ul-for-menu {
+    list-style: none;
+    justify-content: space-between;
+}
+
+.bg-for-footer {
+    background: #DADADA;
+}
+
+.txt-for-black {
+    color: $text-black;
+}
+
+.text-for-footer {
+    list-style: none;
+}
+
+.title-for-kolumnisti {
+    font-weight: bold;
+    font-size: 24px;
+    color: #000000;
+}
+.bg-for-kolumn {
+    border: 2px solid #C4C4C4;
+    box-sizing: border-box;
+    border-radius: 5px;
+}
+
+.border-2 {
+    border-width: 2px !important;
+
+}
+.border-3 {
+    border-width: 3px !important;
+}
+.border-4 {
+    border-width: 4px !important;
+}
+.border-orange {
+    border-color: $text-orange !important;
+}
+.bg-for-image {
+    background: white;
+}
+
+.bg-black-50 {
+    background: #000000AA!important;
+}
