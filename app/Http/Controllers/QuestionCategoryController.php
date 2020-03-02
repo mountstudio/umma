@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StoreQuestionsCategoryRequest;
+use App\Http\Requests\UpdateQuestionsCategoryRequest;
 use App\QuestionCategory;
 use Illuminate\Http\Request;
+use Yajra\DataTables\Facades\DataTables;
 
 class QuestionCategoryController extends Controller
 {
@@ -24,7 +27,7 @@ class QuestionCategoryController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.questionCategories.create');
     }
 
     /**
@@ -33,9 +36,11 @@ class QuestionCategoryController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreQuestionsCategoryRequest $request)
     {
-        //
+        $request->validated();
+        QuestionCategory::create($request->all());
+        return redirect()->route('admin.questionCategory.datatable');
     }
 
     /**
@@ -49,6 +54,11 @@ class QuestionCategoryController extends Controller
         //
     }
 
+    public function adminShow(QuestionCategory $questionCategory)
+    {
+        return view('admin.questionCategories.show', ['questionCategory' => $questionCategory]);
+    }
+
     /**
      * Show the form for editing the specified resource.
      *
@@ -57,7 +67,7 @@ class QuestionCategoryController extends Controller
      */
     public function edit(QuestionCategory $questionCategory)
     {
-        //
+        return view('admin.questionCategories.edit',['questionCategory'=>$questionCategory]);
     }
 
     /**
@@ -67,9 +77,11 @@ class QuestionCategoryController extends Controller
      * @param  \App\QuestionCategory  $questionCategory
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, QuestionCategory $questionCategory)
+    public function update(UpdateQuestionsCategoryRequest $request, QuestionCategory $questionCategory)
     {
-        //
+        $request->validated();
+        $questionCategory->update($request->all());
+        return redirect()->route('admin.questionCategory.datatable');
     }
 
     /**
@@ -80,6 +92,23 @@ class QuestionCategoryController extends Controller
      */
     public function destroy(QuestionCategory $questionCategory)
     {
-        //
+        $questionCategory->delete();
+        return redirect()->route('admin.questionCategory.datatable');
+    }
+    public function datatableData()
+    {
+        return DataTables::of(QuestionCategory::query())
+            ->editColumn('name',function (QuestionCategory $questionCategory){
+                return '<a href="' . route('admin.questionCategory.show', $questionCategory) . '">'.$questionCategory->name.'</a>';
+            })
+            ->addColumn('actions', function (QuestionCategory $questionCategory){
+                return view('admin.actions',['type'=>'questionCategories', 'model'=>$questionCategory]);
+            })
+            ->rawColumns(['name'])
+            ->make(true);
+    }
+    public function datatable()
+    {
+        return view('admin.questionCategories.index');
     }
 }

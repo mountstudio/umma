@@ -9,28 +9,80 @@ class TimePrayersController extends Controller
 {
     public function prayerForToday()
     {
-        $client = new Client();
-        $array_city = [
-            'bishkek'=>'1538652/bishkek/',
-            'osh'=>'1346798/osh/',
-            'jalal-abad'=>'1529778/jalal-abad/',
-            'cholpon-ata'=>'1528260/cholpon-ata/',
-            'naryn'=>'1527590/naryn/',
-            'talas'=>'1527297/talas/',
-            'batken'=>'1463580/batken/'
+        $cities = [
+            'bishkek' => '1538652/bishkek/',
+            'ik' => '1528260/cholpon-ata/',
+            'talas' => '1527297/talas/',
+            'naryn' => '1527590/naryn/',
+            'ja' => '1529778/jalal-abad/',
+            'osh' => '1346798/osh/',
+            'batken' => '1463580/batken/'
         ];
+        $client = new Client();
         $array_city_time = array();
-        foreach ($array_city as $key => $city){
+        foreach ($cities as $key => $city) {
 
             $crawler = $client->request('GET', "http://xn--80aavsd.xn--p1acf/geo/kg/{$city}");
-            $timePrayer = $crawler->filter('span.h5')->each(function ($node)
-            {
+            $timePrayer = $crawler->filter('span.h5')->each(function ($node) {
                 return $node->text();
             });
             $array_city_time[$key] = $timePrayer;
         }
+
         return json_encode($array_city_time);
     }
 
+    public function prayerForMonthly()
+    {
+        $cities = [
+            'bishkek' => '/1528675/',
+            'ik' => '/1528512/',
+            'talas' => '/1527299/',
+            'naryn' => '/1527592/',
+            'ja' => '/1528249/',
+            'osh' => '/1527534/',
+            'batken' => '/1528735/'
+        ];
+        $client = new Client();
+        $table = array();
+        foreach ($cities as $key => $part_url) {
+            $crawler = $client->request('GET',
+                'http://xn--80aavsd.xn--p1acf/monthly/'
+                . date('F') //возвращает какой месяц парсить
+                . $part_url);       //часть url для определения для какого города парсить
+            $time_namaz = $crawler->filter('time')->each(function ($node) {
+                return $node->text();
+            });
+            $counter_type = 0;
+            $raw_table = array(array());
+            $counter_day = 0;
+            for ($i = 0; $i < count($time_namaz); $i++) {
+                if($counter_type == 6){
+                    $counter_day++;
+                    $counter_type = 0;
+                }
+                $raw_table[strval($counter_day)][$counter_type] = $time_namaz[$i];
+                $counter_type++;
+            }
+            $table[$key] = $raw_table;
 
+        }
+        return $table;
+    }
+
+    public static function getAllDay()
+    {
+        setlocale(LC_TIME, 'ru_RU.UTF-8', 'Rus');
+        $month = date('n');
+        $year = date('Y');
+        $list = array();
+
+        for ($d = 1; $d <= 31; $d++) {
+            $time = mktime(12, 0, 0, $month, $d, $year);
+            if (date('n', $time) == $month)
+                $list[] = strftime('%A', $time);
+
+        }
+        return $list;
+    }
 }

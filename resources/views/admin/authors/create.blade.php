@@ -3,7 +3,26 @@
 @section('dashboard_content')
     <div class="row">
         <div class="col-12 col-sm-10 col-lg-10 col-md-10">
-            <form>
+            <ul>
+                @foreach($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+            <form action="{{ route('admin.authors.store') }}" method="POST" enctype="multipart/form-data">
+                @csrf
+                <div class="form-group">
+                    <label for="full_name_field">ФИО автора<span class="text-danger">*</span></label>
+                    <input id="full_name_field" type="text" class="form-control"
+                           name="full_name" required>
+                </div>
+                <div class="form-group">
+                    <label for="photo_input">Фотография</label>
+                    <input id="photo_input" type="file" class="form-control" name="photo" accept="image/jpeg, image/png" required>
+                </div>
+                <div class="form-check">
+                    <input type="checkbox" name="view_main" class="form-check-input" id="viewMain_check">
+                    <label class="form-check-label" for="viewMain_check">На главный экран</label>
+                </div>
                 <button type="submit" title="{{ __('Добавить') }}" class="btn n btn-success">{{ __('Добавить') }}</button>
             </form>
         </div>
@@ -11,22 +30,7 @@
 @endsection
 
 @push('styles')
-    <link href="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/css/select2.min.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/css/select2.min.css" rel="stylesheet"/>
     <link rel="stylesheet" href="{{ asset('css/main.css') }}">
-@endpush
-@push('scripts')
-    <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
-    <script src="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/js/select2.min.js"></script>
-    <script src="{{ asset('js/select_categories.js') }}"></script>
-    <script>
-        tinymce.init({
-            selector: '#mytextarea'
-        });
-    </script>
-    <script>
-        $(document).ready(function() {
-            $('.js-example-basic-multiple').select2();
-        });
-    </script>
 @endpush
 

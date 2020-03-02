@@ -3,12 +3,37 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Cviebrock\EloquentSluggable\Sluggable;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Article extends Model
 {
+    use SoftDeletes;
+    use Sluggable;
+
+    protected $fillable = [
+            'name',
+            'slug',
+            'category_id',
+            'logo',
+            'is_active',
+            'view_main',
+            'content',
+            'type'
+        ];
+
+    public function sluggable(): array
+    {
+        return [
+            'slug' => [
+                'source' => 'name',
+            ]
+        ];
+    }
+
     public function category()
     {
-        return $this->morphMany(Category::class, 'categoriable');
+        return $this->belongsTo(Category::class);
     }
 
     public function authors()
@@ -24,5 +49,10 @@ class Article extends Model
     public function photographers()
     {
         return $this->belongsToMany(Photographer::class);
+    }
+
+    public function comments()
+    {
+        return $this->hasMany(Comment::class);
     }
 }

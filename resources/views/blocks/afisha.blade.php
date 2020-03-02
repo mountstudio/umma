@@ -3,10 +3,10 @@
         <h2 class="text-uppercase">Афиша</h2>
     </div>
     <div class="row">
-        @for($i = 0; $i < 4; $i++)
+        @foreach($posters as $poster)
             <div class="col-12 col-lg-3 col-md-6 px-3 py-2">
                 <div class="card">
-                    <img src="{{ asset('img/example-2.jpg') }}" class="card-img-top p-2" alt="...">
+                    <img src="{{ asset('storage/medium/' . $poster->main_photo) }}" class="card-img-top p-2" alt="...">
                     <div class="card-body pt-0 text-center">
                         <div class="row justify-content-center" style="margin-top: -4rem;">
                             <div class="col-4 border  rounded border-1  bg-white">
@@ -17,14 +17,14 @@
                         </div>
                         <div class="row justify-content-center">
                            <div class="col-9">
-                               <h6 class="card-title text-orange pt-2">Акция</h6>
-                               <p class="card-text text-uppercase">Праздник для души Встречай  Рамадан!</p>
-                               <p class="card-text">Для детей и взрослых</p>
+                               <h6 class="card-title text-orange pt-2">{{ $poster->type->name }}</h6>
+                               <p class="card-text text-uppercase">{{ $poster->name }}</p>
+                               <p class="card-text">{{ $poster->content }}</p>
                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        @endfor
+        @endforeach
     </div>
 </div>

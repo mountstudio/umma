@@ -2,22 +2,35 @@
 
 namespace App;
 
+use Cviebrock\EloquentSluggable\Sluggable;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Category extends Model
 {
-    public function categoriable()
+    use Sluggable;
+    use SoftDeletes;
+
+    protected $fillable = ['name', 'slug'];
+
+    /**
+     * Return the sluggable configuration array for this model.
+     *
+     * @return array
+     */
+
+    public function sluggable(): array
     {
-        return $this->morphTo();
+        return [
+            'slug' => [
+                'source' => 'name',
+            ]
+        ];
     }
 
-    public function children()
-    {
-        return $this->hasMany(Category::class, 'parent_id');
-    }
 
-    public function parent()
+    public function articles()
     {
-        return $this->belongsTo(Category::class, 'parent_id');
+        return $this->hasMany(Article::class);
     }
 }

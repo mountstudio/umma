@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Article;
 use App\Author;
-use Illuminate\Http\Request;
-use App\Helpers\ImageSaver;
+use App\Http\Requests\StoreAuthorRequest;
+use App\Http\Requests\UpdateAuthorRequest;
+use App\Services\ImageUploader;
+use Illuminate\Support\Facades\Storage;
 use Yajra\DataTables\Facades\DataTables;
 
 class AuthorController extends Controller
@@ -35,84 +36,98 @@ class AuthorController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreAuthorRequest $request)
     {
-        $author = new Author($request->all());
-        if ($image = $request->photo) {
-            $filename = ImageSaver::save($image, "uploads", "my_photo");
-            $author->photo = $filename;
-            $author->save();
-        }
-        return redirect()->back()->with('success','Автор создан!');
+        $request->validated();
+        $author = Author::create($request->all());
+        $author->view_main = $request->exists('view_main');
+        $author->photo = ImageUploader::upload(request('photo'), 'authors', 'authors', 40);
+        $author->save();
+        return redirect()->route('admin.author.datatable');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Author  $author
+     * @param  \App\Author $author
      * @return \Illuminate\Http\Response
      */
     public function show(Author $author)
     {
-        return view('authors.show', ['authors'=>$author]);
+        return view('authors.show', ['author' => $author]);
+    }
+
+    public function adminShow(Author $author)
+    {
+        return view('admin.authors.show', ['author' => $author]);
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Author  $author
+     * @param  \App\Author $author
      * @return \Illuminate\Http\Response
      */
     public function edit(Author $author)
     {
-        return view('authors.edit', ['authors'=>$author]);
+        return view('admin.authors.edit', ['author' => $author]);
     }
 
-    public function adminShow(Author $author)
-    {
-        return view('admin.author.show', ['author'=>$author]);
-    }
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Author  $author
+     * @param  \Illuminate\Http\Request $request
+     * @param  \App\Author $author
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Author $author)
+    public function update(UpdateAuthorRequest $request, Author $author)
     {
-        //
+        $request->validated();
+        if ($request->hasFile('photo')) {
+            Storage::disk('public')->delete("/large/" . $author->photo);
+            Storage::disk('public')->delete("/medium/" . $author->photo);
+            Storage::disk('public')->delete("/small/" . $author->photo);
+            $author->photo = ImageUploader::upload(request('photo'), 'authors', 'authors', 40);
+        }
+        $author->update($request->except('photo'));
+        $author->view_main = $request->exists('view_main');
+        $author->save();
+        return redirect()->route('admin.author.datatable');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Author  $author
+     * @param  \App\Author $author
      * @return \Illuminate\Http\Response
      */
     public function destroy(Author $author)
     {
         $author->delete();
-        return redirect()->back();
+        return redirect()->route('admin.author.datatable');
     }
+
     public function datatableData()
     {
 
-//        return DataTables::eloquent($model)
-//            ->editColumn('name', function(User $user) {
-//                return 'Hi ' . $user->name . '!';
-//            })
-//            ->toJson();
         return DataTables::of(Author::query())
-            ->editColumn('name',function (Article $author){
-                return '<a href="' . route('admin.authors.show',$author) . '">'.$author->name.'</a>';
+            ->editColumn('full_name', function (Author $author) {
+                return '<a href="' . route('admin.author.show', $author) . '">' . $author->full_name . '</a>';
             })
-            ->rawColumns(['name'])
+            ->editColumn('photo', function (Author $author) {
+                return '<img src="' . asset('/storage/small/' . $author->photo) . '" height="100">';
+            })
+            ->addColumn('actions', function (Author $author) {
+                return view('admin.actions', ['type' => 'authors', 'model' => $author]);
+            })
+            ->rawColumns(['full_name', 'photo'])
             ->make(true);
+
     }
+
     public function datatable()
     {
         return view('admin.authors.index');

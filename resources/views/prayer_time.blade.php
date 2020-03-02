@@ -1,5 +1,9 @@
 @extends('layouts.app')
 @section('content')
+    <?php
+    setlocale(LC_TIME, 'ru_RU.UTF-8', 'Rus')
+
+    ?>
     <div class="container">
         <h2 class="text-center">Время намаза</h2>
         <div class="row">
@@ -33,7 +37,7 @@
                         <table class="table table-striped table-responsive-sm">
                             <thead>
                             <tr>
-                                <th scope="col">Дата</th>
+                                <th scope="col">{{ strftime('%b') }}</th>
                                 <th scope="col">Д/н</th>
                                 <th scope="col">Last</th>
                                 <th scope="col">Фаджр</th>
@@ -78,7 +82,52 @@
                         </table>
                     </div>
                     <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">
-                        ...
+                        <table class="table table-striped table-responsive-sm">
+                            <thead>
+                            <tr>
+                                <th scope="col">{{ strftime('%b') }}</th>
+                                <th scope="col">Д/н</th>
+                                <th scope="col">Last</th>
+                                <th scope="col">Фаджр</th>
+                                <th scope="col">Шурук</th>
+                                <th scope="col">Зухр</th>
+                                <th scope="col">Магриб</th>
+                                <th scope="col">Иша</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <th scope="row">1</th>
+                                <td>йцуйцуйцуйц</td>
+                                <td>06:59</td>
+                                <td>08:59</td>
+                                <td>12:33</td>
+                                <td>14:18</td>
+                                <td>16:07</td>
+                                <td>16:07</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">2</th>
+                                <td>Вторник</td>
+                                <td>06:59</td>
+                                <td>08:59</td>
+                                <td>12:33</td>
+                                <td>14:18</td>
+                                <td>16:07</td>
+                                <td>16:07</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">3</th>
+                                <td>Среда</td>
+                                <td>06:59</td>
+                                <td>08:59</td>
+                                <td>12:33</td>
+                                <td>14:18</td>
+                                <td>16:07</td>
+                                <td>16:07</td>
+                            </tr>
+                            </tbody>
+                        </table>
                     </div>
                 </div>
 
@@ -88,7 +137,8 @@
                 <div class="pt-3">
                     @include('blocks.right-sidebar.animation')
                 </div>
-                @include('blocks.right-sidebar.articles-bar')
+                <h2 class="text-center py-2">Статьи</h2>
+                @include('blocks.right-sidebar.new')
             </div>
         </div>
     </div>
