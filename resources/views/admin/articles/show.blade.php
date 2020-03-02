@@ -10,6 +10,10 @@
                     <p>{{ $article->name }}</p>
                     <label>Категория:</label>
                     <p>{{ $article->category_id }}</p>
+                    <label>Просмотры:</label>
+                    <p>{{ $article->impressions }}</p>
+                    <label>Комментарии:</label>
+                    <p>{{ $article->comments->count() }}</p>
                     <label>Главное фото:</label>
                     <img src="{{ asset('storage/medium/' .$article->logo) }}">
                     @if($article->is_active)
@@ -27,7 +31,6 @@
                     <label>контент:</label>
                     {!! $article->content  !!}
                 </div>
-
                 <p>{{ $article->created_at }}</p>
                 <p>{{ $article->updated_at }}</p>
             </div>

@@ -17,9 +17,9 @@
                         </div>
                         <div class="row justify-content-center">
                            <div class="col-9">
-                               <h6 class="card-title text-orange pt-2">Акция</h6>
+                               <h6 class="card-title text-orange pt-2">{{ $poster->type->name }}</h6>
                                <p class="card-text text-uppercase">{{ $poster->name }}</p>
-                               <p class="card-text">Для детей и взрослых</p>
+                               <p class="card-text">{{ $poster->content }}</p>
                            </div>
                         </div>
                     </div>

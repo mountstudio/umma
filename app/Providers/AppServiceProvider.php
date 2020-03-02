@@ -2,9 +2,8 @@
 
 namespace App\Providers;
 
-use App\Http\Controllers\TimePrayersController;
+use App\Article;
 use Illuminate\Support\ServiceProvider;
-use App\Http\Controllers\Controller;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -25,8 +24,10 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        view()->composer('blocks.right-sidebar.animation', function($view) {
+        $articles_for_subblock = Article::where('is_active', true)->latest()->take(9)->get();
+        view()->share('articles_for_subblock', $articles_for_subblock);
 
+        view()->composer('blocks.right-sidebar.animation', function($view) {
             $view->with('data');
         });
     }

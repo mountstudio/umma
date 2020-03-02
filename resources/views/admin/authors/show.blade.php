@@ -8,6 +8,12 @@
                     <p>{{ $author->id }}</p>
                     <label>Заголовок:</label>
                     <p>{{ $author->full_name }}</p>
+                    @if($author->view_main)
+                        <label>На главной странице: Да</label>
+                    @else
+                        <label>На главной странице: Нет</label>
+                    @endif
+                    <br>
                     <label>Ссылка к видео:</label>
                 </div>
                 <img src="{{ asset('storage/medium/' . $author->photo) }}">

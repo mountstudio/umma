@@ -10,7 +10,7 @@ class Poster extends Model
 {
     use Sluggable;
     use SoftDeletes;
-    protected $fillable = ['name', 'slug', 'main_photo', 'content', 'phone', 'mail'];
+    protected $fillable = ['name', 'slug', 'main_photo', 'content', 'phone', 'mail', 'type_id'];
 
     /**
      * Return the sluggable configuration array for this model.
@@ -24,5 +24,10 @@ class Poster extends Model
                 'source' => 'name',
             ]
         ];
+    }
+
+    public function type()
+    {
+        return $this->belongsTo(PosterType::class,'type_id');
     }
 }

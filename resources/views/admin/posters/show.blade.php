@@ -10,6 +10,8 @@
                     <p>{{ $poster->name }}</p>
                     <label>контент</label>
                     {!! $poster->content  !!}
+                    <label>тип:</label>
+                    <p>{{ $poster->type_id }}</p>
                     <label>телефон</label>
                     <p>{{ $poster->phone }}</p>
                     <label>mail</label>

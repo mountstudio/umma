@@ -13,7 +13,8 @@
                 @method('PUT')
                 <div class="form-group">
                     <label for="full_name_field">ФИО автора<span class="text-danger">*</span></label>
-                    <input id="full_name_field" value="{{ $author->full_name }}" type="text" class="form-control" name="full_name" required>
+                    <input id="full_name_field" value="{{ $author->full_name }}" type="text" class="form-control"
+                           name="full_name" required>
                 </div>
                 <div class="form-group">
                     <label for="photo_input">Выберите фото:</label>
@@ -21,14 +22,20 @@
                            name="photo" accept="image/jpeg, image/png">
                     <img id="photo" src="{{ asset('storage/medium/' . $author->photo) }}"/>
                 </div>
-                <button type="submit" title="{{ __('Изменить') }}" class="btn n btn-success">{{ __('Изменить') }}</button>
+                <div class="form-check">
+                    <input {{ $author->view_main ? 'checked' : '' }} type="checkbox" name="view_main"
+                           class="form-check-input" id="viewMain_check">
+                    <label class="form-check-label" for="viewMain_check">На главный экран</label>
+                </div>
+                <button type="submit" title="{{ __('Изменить') }}"
+                        class="btn n btn-success">{{ __('Изменить') }}</button>
             </form>
         </div>
     </div>
 @endsection
 
 @push('styles')
-    <link href="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/css/select2.min.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/css/select2.min.css" rel="stylesheet"/>
     <link rel="stylesheet" href="{{ asset('css/main.css') }}">
 @endpush
 @push('scripts')

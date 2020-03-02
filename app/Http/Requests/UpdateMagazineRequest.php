@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests;
 
+use App\Rules\Journal_image;
 use Illuminate\Foundation\Http\FormRequest;
 
 class UpdateMagazineRequest extends FormRequest
@@ -25,8 +26,8 @@ class UpdateMagazineRequest extends FormRequest
     {
         return [
             'name' => 'required|max:255',
-            'image' => 'nullable|image|max:2000|dimensions:min_width=500',
-            'pdf' => 'required|mimes:pdf|max:50000'
+            'image' => ['nullable', 'image', 'max:2000', 'dimensions:min_width=500', new Journal_image],
+            'pdf' => 'nullable|mimes:pdf|max:50000'
         ];
     }
 }

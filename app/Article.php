@@ -2,8 +2,8 @@
 
 namespace App;
 
-use Cviebrock\EloquentSluggable\Sluggable;
 use Illuminate\Database\Eloquent\Model;
+use Cviebrock\EloquentSluggable\Sluggable;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Article extends Model
@@ -49,5 +49,10 @@ class Article extends Model
     public function photographers()
     {
         return $this->belongsToMany(Photographer::class);
+    }
+
+    public function comments()
+    {
+        return $this->hasMany(Comment::class);
     }
 }

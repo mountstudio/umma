@@ -14,6 +14,7 @@
             <th>category_id</th>
             <th>is_active</th>
             <th>view_main</th>
+            <th>impressions</th>
             <th>created_at</th>
             <th>updated_at</th>
             <th>actions</th>
@@ -41,6 +42,7 @@
                     {data: 'category_id', name: 'category_id'},
                     {data: 'is_active', name: 'is_active'},
                     {data: 'view_main', name: 'view_main'},
+                    {data: 'impressions', name: 'impressions'},
                     {data: 'created_at', name: 'created_at'},
                     {data: 'updated_at', name: 'updated_at'},
                     {data: 'actions', name: 'actions', searchable:false, orderable: false },
