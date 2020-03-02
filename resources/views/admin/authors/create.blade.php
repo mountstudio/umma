@@ -19,6 +19,10 @@
                     <label for="photo_input">Фотография</label>
                     <input id="photo_input" type="file" class="form-control" name="photo" accept="image/jpeg, image/png" required>
                 </div>
+                <div class="form-check">
+                    <input type="checkbox" name="view_main" class="form-check-input" id="viewMain_check">
+                    <label class="form-check-label" for="viewMain_check">На главный экран</label>
+                </div>
                 <button type="submit" title="{{ __('Добавить') }}" class="btn n btn-success">{{ __('Добавить') }}</button>
             </form>
         </div>

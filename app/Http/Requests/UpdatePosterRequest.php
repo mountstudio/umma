@@ -29,7 +29,8 @@ class UpdatePosterRequest extends FormRequest
             'main_photo' => ['nullable','image','max:2000','dimensions:min_width=500', new Main_image],
             'content' => 'required',
             'phone' => 'required',
-            'mail' => 'required|email'
+            'mail' => 'required|email',
+            'type_id' =>'required|numeric',
         ];
     }
 }

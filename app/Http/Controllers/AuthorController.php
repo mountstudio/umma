@@ -6,7 +6,6 @@ use App\Author;
 use App\Http\Requests\StoreAuthorRequest;
 use App\Http\Requests\UpdateAuthorRequest;
 use App\Services\ImageUploader;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Yajra\DataTables\Facades\DataTables;
 
@@ -44,6 +43,7 @@ class AuthorController extends Controller
     {
         $request->validated();
         $author = Author::create($request->all());
+        $author->view_main = $request->exists('view_main');
         $author->photo = ImageUploader::upload(request('photo'), 'authors', 'authors', 40);
         $author->save();
         return redirect()->route('admin.author.datatable');
@@ -86,16 +86,15 @@ class AuthorController extends Controller
     public function update(UpdateAuthorRequest $request, Author $author)
     {
         $request->validated();
-        if (!$request->hasFile('photo')) {
-            $author->update($request->all());
-        } else {
+        if ($request->hasFile('photo')) {
             Storage::disk('public')->delete("/large/" . $author->photo);
             Storage::disk('public')->delete("/medium/" . $author->photo);
             Storage::disk('public')->delete("/small/" . $author->photo);
-            $author->update($request->all());
             $author->photo = ImageUploader::upload(request('photo'), 'authors', 'authors', 40);
-            $author->save();
         }
+        $author->update($request->except('photo'));
+        $author->view_main = $request->exists('view_main');
+        $author->save();
         return redirect()->route('admin.author.datatable');
     }
 

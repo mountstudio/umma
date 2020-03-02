@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StorePosterRequest;
 use App\Http\Requests\UpdatePosterRequest;
 use App\Poster;
+use App\PosterType;
 use App\Services\ImageUploader;
 use Illuminate\Support\Facades\Storage;
 use Yajra\DataTables\Facades\DataTables;
@@ -28,7 +29,7 @@ class PosterController extends Controller
      */
     public function create()
     {
-        return view('admin.posters.create');
+        return view('admin.posters.create', ['types' => PosterType::all()]);
     }
 
     /**
@@ -70,7 +71,11 @@ class PosterController extends Controller
      */
     public function edit(Poster $poster)
     {
-        return view('admin.posters.edit', ['poster' => $poster]);
+        return view('admin.posters.edit',
+            [
+                'poster' => $poster,
+                'types' => PosterType::all(),
+            ]);
     }
 
     /**
@@ -83,16 +88,14 @@ class PosterController extends Controller
     public function update(UpdatePosterRequest $request, Poster $poster)
     {
         $request->validated();
-        if (!$request->hasFile('main_photo')) {
-            $poster->update($request->all());
-        } else {
+        if ($request->hasFile('main_photo')) {
             Storage::disk('public')->delete("/large/" . $poster->main_photo);
             Storage::disk('public')->delete("/medium/" . $poster->main_photo);
             Storage::disk('public')->delete("/small/" . $poster->main_photo);
-            $poster->update($request->all());
             $poster->main_photo = ImageUploader::upload(request('main_photo'), 'posters', 'posters', 40);
-            $poster->save();
         }
+        $poster->update($request->except('main_photo'));
+        $poster->save();
         return redirect()->route('admin.poster.datatable');
     }
 

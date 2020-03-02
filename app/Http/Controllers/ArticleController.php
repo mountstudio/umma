@@ -8,6 +8,7 @@ use App\Category;
 use App\hadith;
 use App\Http\Requests\StoreArticleRequest;
 use App\Http\Requests\UpdateArticleRequest;
+use App\Magazine;
 use App\Multimedia;
 use App\Photographer;
 use App\Poster;
@@ -15,6 +16,7 @@ use App\Project;
 use App\Services\ImageUploader;
 use App\Tag;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\View;
 use Yajra\DataTables\Facades\DataTables;
 
 class ArticleController extends Controller
@@ -123,27 +125,19 @@ class ArticleController extends Controller
      */
     public function update(UpdateArticleRequest $request, Article $article)
     {
-        if (!$request->hasFile('logo')) {
-            $article->update($request->except(['is_active', 'view_main'])); //Обновляем все кроме is_active, view_main
-            $article->is_active = $request->exists('is_active'); // Записываем is_active
-            $article->view_main = $request->exists('view_main'); // Записываем view_main
-            $article->save();
-            $article->authors()->sync($request->authors);
-            $article->photographers()->sync($request->photographers);
-            $article->tags()->sync($request->tags);
-        } else {
+        if ($request->hasFile('logo')) {
             Storage::disk('public')->delete("/large/" . $article->logo);
             Storage::disk('public')->delete("/medium/" . $article->logo);
             Storage::disk('public')->delete("/small/" . $article->logo);
-            $article->update($request->except(['is_active', 'view_main']));
-            $article->is_active = $request->exists('is_active');
-            $article->view_main = $request->exists('view_main');
             $article->logo = ImageUploader::upload(request('logo'), 'articles', 'articles', 40);
-            $article->save();
-            $article->authors()->sync($request->authors);
-            $article->photographers()->sync($request->photographers);
-            $article->tags()->sync($request->tags);
         }
+        $article->update($request->except(['is_active', 'view_main','logo']));
+        $article->is_active = $request->exists('is_active');
+        $article->view_main = $request->exists('view_main');
+        $article->save();
+        $article->authors()->sync($request->authors);
+        $article->photographers()->sync($request->photographers);
+        $article->tags()->sync($request->tags);
         return redirect()->route('admin.' . $article->type . '.datatable');
     }
 
@@ -196,17 +190,40 @@ class ArticleController extends Controller
 
     public function welcome()
     {
-        $articles = Article::where('view_main', true)->inRandomOrder()->take(18)->get();
+//        $articles = Article::where('view_main', true)->inRandomOrder()->take(18)->get();
         $hadith = Hadith::latest()->first();
-//        dd($articles);
-        $posters = Poster::latest()->take(6)->get();
         $multimedia = Multimedia::latest()->take(10)->get();
         $projects = Project::All();
-        return view('welcome', [
-            'posters' => $posters,
-            'multimedia' => $multimedia,
-            'hadith' => $hadith,
-            'projects'=>$projects]);
+        $magazines = Magazine::latest()->take(2)->get();
+        $posters = Poster::latest()->take(6)->get();
+
+        foreach ($posters as $poster) {
+            $content = strip_tags($poster->content);
+            $poster->content = self::get_words($content, 10);
+        }
+
+        return view('welcome',
+            [
+                'posters' => $posters,
+                'multimedia' => $multimedia,
+                'hadith' => $hadith,
+                'projects' => $projects,
+                'magazines' => $magazines,
+            ]);
+    }
+
+    public static function get_words($sentence, $count)
+    {
+        if(strlen($sentence) < 39){
+           return $sentence . '...';
+        }
+        preg_match("/(?:\w+(?:\W+|$)){0,$count}/", $sentence, $matches);
+        $result_str = substr($matches[0], 0, -1);
+        $result_str = $result_str . '...';
+        if (strlen($result_str) > 42) {
+            $result_str = self::get_words($result_str, --$count);
+        }
+        return $result_str;
     }
 
 }

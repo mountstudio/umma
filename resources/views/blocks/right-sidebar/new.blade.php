@@ -1,15 +1,15 @@
 <div class="border-for-news">
-    @for($i = 0; $i < 9; $i++)
-        <div class="row mx-3 py-1 {{ $i == 8 ? '' : 'border-bottom' }}">
+    @foreach($articles_for_subblock as $key=>$article)
+        <div class="row mx-3 py-1 {{ $key == $articles_for_subblock->count()-1 ? '' : 'border-bottom' }}">
             <div class="col-3">
-                <p class="mb-0 font-weight-bold">Мечети</p>
-                <p class="mb-0 font-weight-bold">02.04</p>
+                <p class="mb-0 font-weight-bold">{{ $article->category->name }}</p>
+                <p class="mb-0 font-weight-bold">{{ $article->created_at->format('d.m') }}</p>
             </div>
             <div class="col-9">
-                <p class="mb-0 ">Открылась самая большая мечеть в Турции</p>
+                <p class="mb-0 ">{{ $article->name }}</p>
             </div>
         </div>
-    @endfor
+    @endforeach
     <div class="row justify-content-end pr-5">
         <a href="" class="text-dark">aрхив...</a>
     </div>

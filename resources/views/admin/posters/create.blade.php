@@ -19,6 +19,15 @@
                     <textarea id="content_area" class="form-control richTextBox is-invalid"
                               name="content"></textarea>
                 </div>
+                <div id="form-group">
+                    <label for="type">Выберите тип:<span class="text-danger">*</span></label>
+                    <br>
+                    <select id="type" name="type_id">
+                        @foreach($types as $type)
+                            <option value="{{ $type->id }}">{{ $type->name }}</option>
+                        @endforeach
+                    </select>
+                </div>
                 <div class="form-group">
                     <label for="phone_field">Телефон:<span class="text-danger">*</span></label>
                     <input id="phone_field" type="text" class="form-control" name="phone" required>

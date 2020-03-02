@@ -137,7 +137,8 @@
                 <div class="pt-3">
                     @include('blocks.right-sidebar.animation')
                 </div>
-                @include('blocks.right-sidebar.articles-bar')
+                <h2 class="text-center py-2">Статьи</h2>
+                @include('blocks.right-sidebar.new')
             </div>
         </div>
     </div>
