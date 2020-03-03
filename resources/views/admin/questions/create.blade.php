@@ -24,6 +24,7 @@
                         @endforeach
                     </select>
                 </div>
+                <label for="content_area">Вопрос:<span class="text-danger">*</span></label>
                 <div id="editorjs" class="border"></div>
                 <div class="form-group pt-2">
                     <label for="content_area">Вопрос:<span class="text-danger">*</span></label>

@@ -14,11 +14,13 @@
                     <label for="name_field">Наименование<span class="text-danger">*</span></label>
                     <input id="name_field" type="text" class="form-control" name="name" required>
                 </div>
-                <div class="form-group pt-2">
-                    <label for="content_area">Описание:<span class="text-danger">*</span></label>
-                    <textarea id="content_area" class="form-control richTextBox is-invalid"
-                              name="content"></textarea>
-                </div>
+                <label for="content_area">Описание:<span class="text-danger">*</span></label>
+                <div id="editorjs" class="border"></div>
+{{--                <div class="form-group pt-2">--}}
+{{--                    <label for="content_area">Описание:<span class="text-danger">*</span></label>--}}
+{{--                    <textarea id="content_area" class="form-control richTextBox is-invalid"--}}
+{{--                              name="content"></textarea>--}}
+{{--                </div>--}}
                 <div id="form-group">
                     <label for="type">Выберите тип:<span class="text-danger">*</span></label>
                     <br>
@@ -52,6 +54,7 @@
 @endpush
 @push('scripts')
     <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+    <script src="{{ asset('js/editor-conf.js') }}"></script>
     <script>
         tinymce.init({
             selector: '#content_area'
