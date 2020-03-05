@@ -69,20 +69,4 @@ class TimePrayersController extends Controller
         }
         return $table;
     }
-
-    public static function getAllDay()
-    {
-        setlocale(LC_TIME, 'ru_RU.UTF-8', 'Rus');
-        $month = date('n');
-        $year = date('Y');
-        $list = array();
-
-        for ($d = 1; $d <= 31; $d++) {
-            $time = mktime(12, 0, 0, $month, $d, $year);
-            if (date('n', $time) == $month)
-                $list[] = strftime('%A', $time);
-
-        }
-        return $list;
-    }
 }

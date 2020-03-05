@@ -17,10 +17,10 @@
                     <label>slug article</label>
                     <p>{{ $comment->article->slug }}</p>
                     <label>контент:</label>
-                    {!! $article->content  !!}
+                    {!! $comment->content  !!}
                 </div>
-                <p>{{ $article->created_at }}</p>
-                <p>{{ $article->updated_at }}</p>
+                <p>{{ $comment->created_at }}</p>
+                <p>{{ $comment->updated_at }}</p>
             </div>
         </div>
     </div>

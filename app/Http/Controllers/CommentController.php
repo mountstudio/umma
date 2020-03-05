@@ -4,9 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Article;
 use App\Comment;
+use App\Http\Requests\StoreCommentRequest;
+use App\Http\Requests\UpdateCommentRequest;
 use App\User;
 use Illuminate\Http\Request;
-use PhpParser\Node\Expr\New_;
 use Yajra\DataTables\Facades\DataTables;
 
 class CommentController extends Controller
@@ -32,7 +33,6 @@ class CommentController extends Controller
             [
                 'articles' => Article::all(),
                 'users' => User::all(),
-                'comments' => Comment::all(),
             ]);
     }
 
@@ -42,9 +42,11 @@ class CommentController extends Controller
      * @param  \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreCommentRequest $request)
     {
-        if ($request->user_id != 0) {
+        if ($request->user_id == 0) {
+            Comment::create($request->except('user_id'));
+        } else {
             $comment = New Comment();
             $user = User::find($request->user_id);
             $comment->full_name = $user->name;
@@ -52,10 +54,8 @@ class CommentController extends Controller
             $comment->mail = $user->email;
             $comment->article_id = $request->input('article_id');
             $comment->user_id = $request->input('user_id');
-            $comment->content =$request->input('content');
+            $comment->content = $request->input('content');
             $comment->save();
-        } else {
-           Comment::create($request->except('user_id'));
         }
         return redirect()->route('admin.comment.datatable');
     }
@@ -71,6 +71,11 @@ class CommentController extends Controller
         //
     }
 
+    public function adminShow(Comment $comment)
+    {
+        return view('admin.comments.show', ['comment' => $comment]);
+    }
+
     /**
      * Show the form for editing the specified resource.
      *
@@ -79,7 +84,12 @@ class CommentController extends Controller
      */
     public function edit(Comment $comment)
     {
-        //
+        return view('admin.comments.edit',
+            [
+                'articles' => Article::all(),
+                'users' => User::all(),
+                'comment' => $comment,
+            ]);
     }
 
     /**
@@ -89,9 +99,11 @@ class CommentController extends Controller
      * @param  \App\Comment $comment
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Comment $comment)
+    public function update(UpdateCommentRequest $request, Comment $comment)
     {
-        //
+
+        $comment->update($request->only('content'));
+        return redirect()->route('admin.comment.datatable');
     }
 
     /**
@@ -112,13 +124,23 @@ class CommentController extends Controller
             ->editColumn('id', function (Comment $comment) {
                 return '<a href="' . route('admin.comment.show', $comment) . '">' . $comment->id . '</a>';
             })
+            ->editColumn('article_id', function (Comment $comment) {
+                return $comment->article->name;
+            })
+            ->addColumn('user', function (Comment $comment) {
+                if ($comment->user != null) {
+                    return '<i class="fas fa-check fa-lg"></i>';
+                } else {
+                    return '<i class="fas fa-ban fa-lg"></i>';
+                }
+            })
             ->addColumn('actions', function (Comment $comment) {
                 return view('admin.actions', [
                     'type' => 'comments',
                     'model' => $comment
                 ]);
             })
-            ->rawColumns(['id'])
+            ->rawColumns(['id', 'user'])
             ->make(true);
     }
 

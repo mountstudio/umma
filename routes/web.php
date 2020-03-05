@@ -20,6 +20,10 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
+Route::get('/hadiths','HadithController@showHadiths')->name('show.hadiths');
+
+Route::get('/show_hadith/{hadith}','HadithController@')->name('show.hadith');
+
 Route::get('/media', function () {
     return view('media');
 })->name('media');
@@ -63,14 +67,6 @@ Route::get('/scientists',function (){
 Route::get('/prayer_time',function (){
     return view('prayer_time');
 })->name('prayer_time');
-
-Route::get('/hadis-dnya',function (){
-    return view('hadisi.hadis-dnya');
-})->name('hadisdnya');
-
-Route::get('/hadis-show',function (){
-    return view('hadisi.hadis-show');
-})->name('hadis-show');
 
 Route::get('/vacancies',function (){
     return view('vacancies');

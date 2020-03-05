@@ -11,7 +11,7 @@
                     @endforeach
                 </ul>
                 <div class="form-group">
-                    <label for="article">Выберите категорию:<span class="text-danger">*</span></label>
+                    <label for="article">Выберите статью:<span class="text-danger">*</span></label>
                     <br>
                     <select id="article" name="article_id">
                         @foreach($articles as $article)
