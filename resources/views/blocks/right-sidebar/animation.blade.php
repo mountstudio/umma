@@ -113,18 +113,15 @@
 <script>
     let timeSpans = ["fadjr", "shuruk", "zuhr", "asr", "sham", "isha"]
     window.onload = function () {
-        console.log("qwe");
         $.ajax({
             url: "{{ route('time.prayer') }}",
             dataType: 'json',
             type: "GET",
             success: function (data) {
                 for (let city in data) {
-                    console.log(city);
                     let indexTypePrayer = 0;
                     data[city].forEach(function (item) {
                         let span = document.getElementById(city + "_" + timeSpans[indexTypePrayer]);
-                        console.log(span);
                         span.textContent = item;
                         indexTypePrayer = indexTypePrayer + 1;
                     })

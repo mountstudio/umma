@@ -13,8 +13,8 @@
             <th>full_name</th>
             <th>phone</th>
             <th>mail</th>
-            <th>article_id</th>
-            <th>user_id</th>
+            <th>article</th>
+            <th>registered</th>
             <th>parent_id</th>
             <th>created_at</th>
             <th>updated_at</th>
@@ -43,12 +43,12 @@
                     {data: 'full_name', name: 'full_name'},
                     {data: 'phone', name: 'phone'},
                     {data: 'mail', name: 'mail'},
-                    {data: 'article_id', name: 'article_id'},
-                    {data: 'user_id', name: 'user_id'},
+                    {data: 'article_id', name: 'article'},
+                    {data: 'user', name: 'registered', className: "dt-body-center", searchable: false, orderable: false },
                     {data: 'parent_id', name: 'parent_id'},
                     {data: 'created_at', name: 'created_at'},
                     {data: 'updated_at', name: 'updated_at'},
-                    {data: 'actions', name: 'actions', searchable:false, orderable: false },
+                    {data: 'actions', name: 'actions', searchable: false, orderable: false},
                 ]
             });
         });

@@ -16,7 +16,6 @@ use App\Project;
 use App\Services\ImageUploader;
 use App\Tag;
 use Illuminate\Support\Facades\Storage;
-use Illuminate\Support\Facades\View;
 use Yajra\DataTables\Facades\DataTables;
 
 class ArticleController extends Controller
@@ -131,7 +130,7 @@ class ArticleController extends Controller
             Storage::disk('public')->delete("/small/" . $article->logo);
             $article->logo = ImageUploader::upload(request('logo'), 'articles', 'articles', 40);
         }
-        $article->update($request->except(['is_active', 'view_main','logo']));
+        $article->update($request->except(['is_active', 'view_main', 'logo']));
         $article->is_active = $request->exists('is_active');
         $article->view_main = $request->exists('view_main');
         $article->save();
@@ -190,7 +189,12 @@ class ArticleController extends Controller
 
     public function welcome()
     {
-//        $articles = Article::where('view_main', true)->inRandomOrder()->take(18)->get();
+        $articlesDayTheme = Article::where('view_main', true)->latest()->get();
+        $articlesCommentLatest = Article::orderBy('updated_at', 'DESC')->take(6)->get();
+        $articlesLatest = Article::latest()->take(6)->get();
+//        $articlesByCategory = Article::where('type', 'article')->
+
+        $kolumnisty = Author::where('view_main', true)->latest()->get();
         $hadith = Hadith::latest()->first();
         $multimedia = Multimedia::latest()->take(10)->get();
         $projects = Project::All();
@@ -201,7 +205,6 @@ class ArticleController extends Controller
             $content = strip_tags($poster->content);
             $poster->content = self::get_words($content, 10);
         }
-
         return view('welcome',
             [
                 'posters' => $posters,
@@ -209,13 +212,17 @@ class ArticleController extends Controller
                 'hadith' => $hadith,
                 'projects' => $projects,
                 'magazines' => $magazines,
+                'articlesLatest' => $articlesLatest,
+                'articlesCommentLatest' => $articlesCommentLatest,
+                'articlesDayTheme' => $articlesDayTheme,
+                'kolumnisty' => $kolumnisty,
             ]);
     }
 
     public static function get_words($sentence, $count)
     {
-        if(strlen($sentence) < 39){
-           return $sentence . '...';
+        if (strlen($sentence) < 39) {
+            return $sentence . '...';
         }
         preg_match("/(?:\w+(?:\W+|$)){0,$count}/", $sentence, $matches);
         $result_str = substr($matches[0], 0, -1);

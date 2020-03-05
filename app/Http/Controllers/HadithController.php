@@ -50,7 +50,7 @@ class HadithController extends Controller
      */
     public function show(Hadith $hadith)
     {
-        //
+        return view('hadiths.hadith_show', compact($hadith));
     }
 
     public function adminShow(Hadith $hadith)
@@ -115,5 +115,14 @@ class HadithController extends Controller
         return view('admin.hadiths.index');
     }
 
+    public function showHadiths()
+    {
+        $hadiths = Hadith::take(6)->get();
+        foreach ($hadiths as $hadith) {
+            $hadith->content = strip_tags($hadith->content);
+            $hadith->content = substr($hadith->content, 0, 100) . '...';
+        }
+        return view('hadiths.all_hadith_show', ['hadiths' => $hadiths]);
+    }
 
 }

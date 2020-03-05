@@ -94,7 +94,6 @@
                     <div class="row justify-content-center">
                         <div class="col-12 rounded bg-black-50 py-3 text-white">
                             <h6 class="text-uppercase">{{ $magazine->name }}</h6>
-                            <p class="card-text text-uppercase">Праведный халиф Умар Ибн Хаттаб</p>
                         </div>
                     </div>
                 </div>
