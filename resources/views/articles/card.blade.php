@@ -5,6 +5,5 @@
             <p class=" col-auto small" style="border-bottom-right-radius: 15px;border-top-right-radius: 15px; background-color: #008500;margin-top: -2.10rem;">Интересное</p>
         </div>
         <h6 class="pl-3 text-left">Драпировка головы:</h6>
-        <p class="pl-3 card-text">Манифест и целый мир мусульманки</p>
     </div>
 </div>

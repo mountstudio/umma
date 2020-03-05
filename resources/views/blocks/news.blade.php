@@ -1,6 +1,6 @@
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-12 col-lg-4">
+        <div class="col-12 col-lg-5">
             @include('blocks.right-sidebar.new')
             <div class="pt-3">
                 @include('blocks.right-sidebar.animation')
@@ -9,7 +9,7 @@
         {{--@php(--}}
 
         {{--)--}}
-        <div class="col-12 col-lg-8">
+        <div class="col-12 col-lg-7">
             <div class="row">
                 <div class="col-12">
                     <ul class="nav nav-pills mb-0 text-dark" id="pills-tab" role="tablist">
@@ -32,7 +32,7 @@
                     <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="home-tab">
                         <div class="row">
                             @for($i = 0; $i < 6; $i++)
-                                <div class="col-12 col-md-4 pb-4">
+                                <div class="col-12 col-md-6 pb-4">
                                     @include('articles.card')
                                 </div>
                             @endfor
@@ -41,7 +41,7 @@
                     <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="home-tab">
                         <div class="row">
                             @for($i = 0; $i < 6; $i++)
-                                <div class="col-12 col-md-4 pb-4">
+                                <div class="col-12 col-md-6 pb-4">
                                     @include('articles.card')
                                 </div>
                             @endfor
@@ -50,7 +50,7 @@
                     <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="home-tab">
                         <div class="row">
                             @for($i = 0; $i < 6; $i++)
-                                <div class="col-12 col-md-4 pb-4">
+                                <div class="col-12 col-md-6 pb-4">
                                     @include('articles.card')
                                 </div>
                             @endfor
