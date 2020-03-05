@@ -1,6 +1,6 @@
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-12 col-lg-4">
+        <div class="col-12 col-lg-5">
             @include('blocks.right-sidebar.new')
             <div class="pt-3">
                 @include('blocks.right-sidebar.animation')
@@ -9,7 +9,7 @@
         {{--@php(--}}
 
         {{--)--}}
-        <div class="col-12 col-lg-8">
+        <div class="col-12 col-lg-7">
             <div class="row">
                 <div class="col-12">
                     <ul class="nav nav-pills mb-0 text-dark" id="pills-tab" role="tablist">

@@ -4,11 +4,29 @@
         <div class="row">
             <div class="col-12 col-lg-8">
                 <div class="col-8 px-0">
-                    <h1>{{ $posterType->id }}</h1>
-                    <h2>{{ $posterType->name }}</h2>
+                    <table class="table table-bordered">
+                        <thead>
+                        <tr>
+                            <th scope="col">id</th>
+                            <td>{{ $posterType->id }}</td>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <th> Наименование:</th>
+                            <td scope="row">{{ $posterType->name }}</td>
+                        </tr>
+                        <tr>
+                            <th>Дата создания:</th>
+                            <td>{{ $posterType->created_at }}</td>
+                        </tr>
+                        <tr>
+                            <th>Дата обновления:</th>
+                            <td>{{ $posterType->updated_at }}</td>
+                        </tr>
+                        </tbody>
+                    </table>
                 </div>
-                <p>{{ $posterType->created_at }}</p>
-                <p>{{ $posterType->updated_at }}</p>
             </div>
         </div>
     </div>
