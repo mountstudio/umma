@@ -11,6 +11,8 @@
                         <li>{{ $error }}</li>
                     @endforeach
                 </ul>
+                <label for="content_area">Контент:<span class="text-danger">*</span></label>
+                <div id="editorjs" class="border"></div>
                 <div class="form-group pt-2">
                     <label for="Content_area">Контент:<span class="text-danger">*</span></label>
                     <textarea id="Content_area" class="form-control richTextBox is-invalid"
@@ -29,7 +31,7 @@
 @endpush
 @push('scripts')
     <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
-
+    <script src="{{ asset('js/editor-conf.js') }}"></script>
     <script>
         tinymce.init({
             selector: '#Content_area'

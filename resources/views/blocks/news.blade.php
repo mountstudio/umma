@@ -34,7 +34,7 @@
                     <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="home-tab">
                         <div class="row">
                             @foreach($articlesLatest as $article)
-                                <div class="col-12 col-md-4 pb-4">
+                                <div class="col-12 col-md-6 pb-4">
                                     <div class="card">
                                         <img src="{{ asset('storage/small/' . $article->logo) }}" class="card-img-top" alt="...">
                                         <div class="card-body pl-0">
@@ -55,7 +55,7 @@
                     <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="home-tab">
                         <div class="row">
                             @foreach($articlesCommentLatest as $article)
-                                <div class="col-12 col-md-4 pb-4">
+                                <div class="col-12 col-md-6 pb-4">
                                     <div class="card">
                                         <img src="{{ asset('storage/small/' . $article->logo) }}" class="card-img-top" alt="...">
                                         <div class="card-body pl-0">
@@ -76,13 +76,13 @@
                     <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="home-tab">
                         <div class="row">
                             @foreach($articlesDayTheme as $article)
-                                <div class="col-12 col-md-4 pb-4">
+                                <div class="col-12 col-md-6 pb-4">
                                     <div class="card">
                                         <img src="{{ asset('storage/small/' . $article->logo) }}" class="card-img-top" alt="...">
                                         <div class="card-body pl-0">
                                             @if($article->tags->count())
                                                 <div class="row m-0 text-white">
-                                                    <p class=" col-auto small" style="border-bottom-right-radius: 15px;
+                                                    <p class="col-auto small" style="border-bottom-right-radius: 15px;
                                                 border-top-right-radius: 15px;
                                                 background-color: #008500;margin-top: -2.10rem;">{{ $article->tags->take(2)->implode('name', ', ') }}</p>
                                                 </div>
