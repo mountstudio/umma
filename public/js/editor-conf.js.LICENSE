@@ -1,5 +1,3 @@
-/*! For license information please see editor.js.LICENSE */
-
 /**
  * Header block for the Editor.js.
  *
@@ -75,3 +73,5 @@
  * @copyright CodeX 2018
  * @license The MIT License (MIT)
  */
+
+/*! For license information please see editor.js.LICENSE */
