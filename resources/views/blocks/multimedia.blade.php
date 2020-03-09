@@ -34,16 +34,34 @@
                 autoplaySpeed: 30000,
                 slidesToShow: 3,
                 slidesToScroll: 1,
-                arrows: true,
-                responsive: {
-                    breakpoint: 500,
+
+                responsive: [{
+                    breakpoint: 1024,
                     settings: {
-                        centerMode: true,
-                        slidesToShow: 1
+                        slidesToShow: 3,
+                        slidesToScroll: 1,
+
+
                     }
-                },
-                nextArrow: '<i class="fas fa-chevron-right icon-arrow-right fa-2x"></i>',
-                prevArrow: '<i class="fas fa-chevron-left icon-arrow-left fa-2x"></i>'
+
+                },  {
+                    breakpoint: 600,
+                    settings: {
+                        slidesToShow: 2,
+                        slidesToScroll: 2,
+
+                    }
+                }, {
+                    breakpoint: 480,
+                    settings: {
+                        slidesToShow: 1,
+                        slidesToScroll: 1,
+                    },
+
+                }],
+                    nextArrow: '<i class="fas fa-chevron-right icon-arrow-right fa-2x"></i>',
+                    prevArrow: '<i class="fas fa-chevron-left icon-arrow-left fa-2x"></i>'
+
             });
 
         });
