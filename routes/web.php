@@ -64,6 +64,18 @@ Route::get('/scientists',function (){
     return view('scientists');
 })->name('scientists');
 
+Route::get('/show_for_hadis',function (){
+    return view('show_for_hadis');
+})->name('show_for_hadis');
+
+Route::get('/show_for_news',function (){
+    return view('show_for_news');
+})->name('show_for_news');
+
+Route::get('/show_multimedia',function (){
+    return view('show_multimedia');
+})->name('show_multimedia');
+
 Route::get('/prayer_time',function (){
     return view('prayer_time');
 })->name('prayer_time');
