@@ -19,11 +19,11 @@
 {{--                <div class="tags">--}}
 {{--                    <h3 class="widget-title">Теги:</h3>--}}
 {{--                </div>--}}
-                <div class="d-flex ">
-                    <a href=""><img class="px-3" src="{{ asset('img/instagram-sketched (1).png') }}" alt=""></a>
-                    <p class="p-1">Подписывайтесь на нашу страницу в <a href="">Instagram</a> </p>
+                <div class="d-flex py-2" style="background-color: #FFE8F8">
+                    <a href="https://www.instagram.com/ummamagkg/"><img class="px-3" src="{{ asset('img/instagram-sketched (1).png') }}" alt=""></a>
+                    <p class="p-1 m-0">Подписывайтесь на нашу страницу в <a href="https://www.instagram.com/ummamagkg/">Instagram</a> </p>
                 </div>
-                <div class="post-share" >
+                <div class="post-share py-2 " >
                     <div class="text d-flex">
                         <img src="{{ asset('img/reading (1).png') }}" alt="" >
                         <p >Материал принес пользу? Поделитесь ссылкой с друзьями в социальных сетях.</p>
