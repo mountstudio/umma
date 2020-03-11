@@ -49,7 +49,7 @@
                                             <h6 class="pl-3 text-left">{{ $article->name }}</h6>
                                             <div class="card-footer d-flex justify-content-end bg-white border-0 pt-0 m-0 p-0">
                                                 <div class="ml-auto d-flex align-items-center">
-                                                    <img src="{{ asset('icons/eyes.png') }}" alt="">&nbsp;<span
+                                                    <img src="{{ asset('icons/eyes_iocn.png') }}" alt="">&nbsp;<span
                                                         class="p-1">90</span>
                                                     <img src="{{ asset('icons/comment.png') }}" alt=""><span class="p-1">20</span>
 
