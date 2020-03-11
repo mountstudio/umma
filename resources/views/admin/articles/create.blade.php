@@ -44,11 +44,11 @@
                 </div>
                 <label for="content_area">Контент:<span class="text-danger">*</span></label>
                 <div id="editorjs" class="border"></div>
-                <div class="form-group pt-2">
-                    <label for="Content_area">Контент:<span class="text-danger">*</span></label>
-                    <textarea id="Content_area" class="form-control richTextBox is-invalid"
-                              name="content"></textarea>
-                </div>
+                {{--<div class="form-group pt-2">--}}
+                    {{--<label for="Content_area">Контент:<span class="text-danger">*</span></label>--}}
+                    {{--<textarea id="Content_area" class="form-control richTextBox is-invalid"--}}
+                              {{--name="content"></textarea>--}}
+                {{--</div>--}}
                 <div class="form-group">
                     <label for="add_tegs">теги:</label>
                     <select id="add_tegs" class="js-example-basic-multiple" name="tags[]" multiple="multiple">

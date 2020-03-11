@@ -71,7 +71,7 @@ const editor = new EditorJs({
         linkTool: {
             class: LinkTool,
             config: {
-                endpoint: 'http://localhost:8008/fetchUrl', // Your backend endpoint for url data fetching
+                endpoint: '/editorjs/link', // Your backend endpoint for url data fetching
             }
         },
         warning: {
@@ -87,8 +87,8 @@ const editor = new EditorJs({
             class: ImageTool,
             config: {
                 endpoints: {
-                    byFile: 'stora', // Your backend file uploader endpoint
-                    byUrl: 'http://localhost:8008/fetchUrl', // Your endpoint that provides uploading by Url
+                    byFile: '/editorjs/image/file', // Your backend file uploader endpoint
+                    byUrl: '/editorjs/image/url', // Your endpoint that provides uploading by Url
                 }
             }
         },
