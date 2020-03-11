@@ -21,8 +21,9 @@
             </div>
             <div class="border border-4 border-orange rounded p-3">
                 <p>{!! $hadith->content !!}</p>
-                <div class="col-12 text-right">
-                    <a href="{{ route('show.hadiths') }}" class="" style="color: grey;">Читать далее...</a>
+                <div class="col-12 row">
+                    <a href="{{ route('show.hadiths') }}" class="text-left mr-auto" style="color: grey;">Все хадисы</a>
+                    <a href="{{ route('show.hadith', $hadith) }}" class="text-right ml-auto" style="color: grey;">Читать далее...</a>
                 </div>
             </div>
         </div>
