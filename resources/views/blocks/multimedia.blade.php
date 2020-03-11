@@ -5,9 +5,9 @@
             <div class="multimedia">
                 @foreach($multimedia as $media)
                     <div class="item border bg-for-image p-1 mr-1 position-relative">
-                        <img class="img-fluid position-relative" src="{{ asset('storage/medium/' . $media->url_photo) }}" alt="">
-                        <img src="{{ asset('img/ui.png') }}" class="img-fluid position-absolute"
-                             style="left: 50%; top: 50%; transform: translate(-50%, -50%);" alt="">
+                        <a href=""><img class="img-fluid position-relative" src="{{ asset('storage/medium/' . $media->url_photo) }}" alt=""></a>
+                        <a href=""><img src="{{ asset('img/ui.png') }}" class="img-fluid position-absolute"
+                                        style="left: 50%; top: 50%; transform: translate(-50%, -50%);" alt=""></a>
                     </div>
                 @endforeach
             </div>
