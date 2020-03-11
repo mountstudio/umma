@@ -68,6 +68,10 @@ Route::get('/show_for_hadis',function (){
     return view('show_for_hadis');
 })->name('show_for_hadis');
 
+Route::get('/show_for_authors',function (){
+    return view('show_for_authors');
+})->name('show_for_authors');
+
 Route::get('/show_for_news',function (){
     return view('show_for_news');
 })->name('show_for_news');

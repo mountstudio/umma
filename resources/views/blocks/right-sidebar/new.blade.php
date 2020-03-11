@@ -10,7 +10,7 @@
             </div>
         </div>
     @endforeach
-    <div class="row justify-content-end pr-5">
+    <div class="row justify-content-end no-gutters">
         <a href="" class="text-dark">aрхив...</a>
     </div>
 </div>

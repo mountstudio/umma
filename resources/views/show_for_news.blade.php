@@ -4,7 +4,8 @@
         <div class="row">
             <div class="col-12 col-lg-8">
                 <div class="post-header d-flex">
-                    <img class="mx-2" src="{{ asset('img/news.png') }}" alt="" style="width: 60px;height: 60px;">
+                    <img class="d-none d-md-block mx-2" src="{{ asset('img/news.png') }}" alt=""
+                         style="width: 60px;height: 60px;">
                     <h2 class="title">
                         Более 60 брендов были представлены на осенней ярмарке Family Bazaar 2019
                     </h2>
@@ -13,7 +14,7 @@
                     Автор: <a href="" target="_blank">Кадыр Маликов</a>
                 </div>
                 <div class="py-2">
-                    <img src="{{ asset('img/Group (1).png') }}" alt="">
+                    <img class="img-fluid" src="{{ asset('img/Group (1).png') }}" alt="">
                 </div>
                 <div>
                     <p>Аяты из Корана о Курбан-байраме:
@@ -62,32 +63,34 @@
 
                 <div class="post-share py-2 ">
                     <div class="text d-flex">
-                        <img src="{{ asset('img/reading (1).png') }}" alt="">
+                        <img class="d-none d-lg-block p-2" src="{{ asset('img/reading (1).png') }}" alt="">
                         <p>Материал принес пользу? Поделитесь ссылкой с друзьями в социальных сетях.</p>
+                        <a href="https://www.facebook.com/ummamag.kg"><i
+                                class="fab fa-facebook fa-lg text-orange mr-3"></i></a>
+                        <a href="https://www.instagram.com/ummamagkg/"><i
+                                class="fab fa-instagram fa-lg text-orange mr-3"></i></a>
+                        <a class="" href="/#vk" title="VK" rel="nofollow noopener" target="_blank">
+                            <i class="fab fa-vk fa-lg text-orange mr-3"></i>
+                        </a>
+
+{{--                        <a href="javascript:void(0)" title="vk" class="social-share-btn"--}}
+{{--                           data-url="{{ request()->url() }}" data-social="vk"--}}
+{{--                           data-text="{{ $production->title ?? 'awdawd' }}" style="width: 30px;height: 30px;">--}}
+{{--                            <i class="fab fa-vk mr-3 fa-lg nav-scale"></i>--}}
+{{--                        </a>--}}
+{{--                        <a href="javascript:void(0)" title="instagram" class="social-share-btn"--}}
+{{--                           data-url="{{ request()->url() }}" data-social="instagram"--}}
+{{--                           data-text="{{ $production->title }}" style="width: 30px;height: 30px;">--}}
+{{--                            <i class="fab fa-instagram mr-3 fa-lg nav-scale"></i>--}}
+{{--                        </a>--}}
+{{--                        <a href="javascript:void(0)" title="facebook" class="social-share-btn"--}}
+{{--                           data-url="{{ request()->url() }}" data-social="facebook"--}}
+{{--                           data-text="{{ $production->title ?? 'awdawd' }}" style="width: 30px;height: 30px;">--}}
+{{--                            <i class="fab fa-facebook mr-3 fa-lg nav-scale"></i>--}}
+{{--                        </a>--}}
                     </div>
 
-                    <div class="icons" style="position: relative;right: -9%;margin-top: -25px;">
-                        <div class="">
-                            <a href="https://www.facebook.com/ummamag.kg"><i
-                                    class="fab fa-facebook fa-lg text-orange mr-3"></i></a>
-                            <a href="https://www.instagram.com/ummamagkg/"><i
-                                    class="fab fa-instagram fa-lg text-orange mr-3"></i></a>
-                            <a class="" href="/#vk" title="VK" rel="nofollow noopener" target="_blank">
-                                <i class="fab fa-vk fa-lg text-orange mr-3"></i>
-                            </a>
 
-                            {{--                            <a href="javascript:void(0)" title="vk" class="social-share-btn" data-url="{{ request()->url() }}" data-social="vk" data-text="{{ $production->title ?? 'awdawd' }}" style="width: 30px;height: 30px;">--}}
-                            {{--                                <i class="fab fa-vk mr-3 fa-lg nav-scale"></i>--}}
-                            {{--                            </a>--}}
-                            {{--                            --}}{{--                            <a href="javascript:void(0)" title="instagram" class="social-share-btn" data-url="{{ request()->url() }}" data-social="instagram" data-text="{{ $production->title }}" style="width: 30px;height: 30px;">--}}
-                            {{--                            --}}{{--                                <i class="fab fa-instagram mr-3 fa-lg nav-scale"></i>--}}
-                            {{--                            --}}{{--                            </a>--}}
-                            {{--                            <a href="javascript:void(0)" title="facebook" class="social-share-btn" data-url="{{ request()->url() }}" data-social="facebook" data-text="{{ $production->title ?? 'awdawd' }}" style="width: 30px;height: 30px;">--}}
-                            {{--                                <i class="fab fa-facebook mr-3 fa-lg nav-scale"></i>--}}
-                            {{--                            </a>--}}
-
-                        </div>
-                    </div>
                 </div>
                 <section class="my-5">
                     <div class="card-header border-0 font-weight-bold ">4 comments</div>
@@ -127,6 +130,23 @@
                         </div>
                     </div>
                     <div class="form-group mt-4">
+                        <div class="form-group">
+                            <label for="formGroupExampleInput">Name</label>
+                            <input type="text" class="form-control" id="formGroupExampleInput"
+                                   placeholder="Введите свое имя:">
+                        </div>
+                        <div class="form-group">
+                            <label for="formGroupExampleInput">Your telephone number:</label>
+                            <input type="text" class="form-control" id="formGroupExampleInput"
+                                   placeholder="Введите свой номер телефона:">
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Email address</label>
+                            <input type="email" class="form-control" id="exampleInputEmail1"
+                                   aria-describedby="emailHelp">
+                            <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone
+                                else.</small>
+                        </div>
                         <label for="quickReplyFormComment">Your comment</label>
                         <textarea class="form-control" id="quickReplyFormComment" rows="5"></textarea>
 
@@ -135,90 +155,6 @@
                         </div>
                     </div>
 
-                    <div class="media d-block d-md-flex mt-3">
-                        <img class="card-img-64 d-flex mx-auto mb-3" src=""
-                             alt="Generic placeholder image">
-                        <div class="media-body text-center text-md-left ml-md-3 ml-0">
-                            <h5 class="font-weight-bold mt-0">
-                                <a href="">Sylvester the Cat</a>
-                                <a href="" class="pull-right">
-                                    <i class="fas fa-reply"></i>
-                                </a>
-                            </h5>
-                            Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci
-                            velit, sed
-                            quia non numquam eius modi
-                            tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.
-                        </div>
-                    </div>
-                    <div class="media d-block d-md-flex mt-3">
-                        <img class="card-img-64 d-flex mx-auto mb-3" src=""
-                             alt="Generic placeholder image">
-                        <div class="media-body text-center text-md-left ml-md-3 ml-0">
-                            <h5 class="font-weight-bold mt-0">
-                                <a href="">Caroline Horwitz</a>
-                                <a href="" class="pull-right">
-                                    <i class="fas fa-reply"></i>
-                                </a>
-                            </h5>
-                            At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium
-                            voluptatum deleniti
-                            atque corrupti
-                            quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique
-                            sunt in culpa
-                            officia deserunt mollitia animi, id est laborum et dolorum fuga.
-                        </div>
-                    </div>
-
-                    <!--Pagination -->
-                    <nav class="d-flex justify-content-center mt-5">
-                        <ul class="pagination pg-blue mb-0">
-
-                            <!--First-->
-                            <li class="page-item disabled">
-                                <a class="page-link">First</a>
-                            </li>
-
-                            <!--Arrow left-->
-                            <li class="page-item disabled">
-                                <a class="page-link" aria-label="Previous">
-                                    <span aria-hidden="true">&laquo;</span>
-                                    <span class="sr-only">Previous</span>
-                                </a>
-                            </li>
-
-                            <!--Numbers-->
-                            <li class="page-item active">
-                                <a class="page-link">1</a>
-                            </li>
-                            <li class="page-item">
-                                <a class="page-link">2</a>
-                            </li>
-                            <li class="page-item">
-                                <a class="page-link">3</a>
-                            </li>
-                            <li class="page-item">
-                                <a class="page-link">4</a>
-                            </li>
-                            <li class="page-item">
-                                <a class="page-link">5</a>
-                            </li>
-
-                            <!--Arrow right-->
-                            <li class="page-item">
-                                <a class="page-link" aria-label="Next">
-                                    <span aria-hidden="true">&raquo;</span>
-                                    <span class="sr-only">Next</span>
-                                </a>
-                            </li>
-
-                            <!--Last-->
-                            <li class="page-item">
-                                <a class="page-link">Last</a>
-                            </li>
-
-                        </ul>
-                    </nav>
                 </section>
             </div>
             <div class="col-12 col-lg-4 pb-3">
