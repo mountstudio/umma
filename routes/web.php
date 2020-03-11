@@ -24,6 +24,16 @@ Route::get('/hadiths','HadithController@showHadiths')->name('show.hadiths');
 
 Route::get('/show_hadith/{hadith}','HadithController@')->name('show.hadith');
 
+Route::get('/news_page', 'ArticleController@news_page')->name('all.news');
+
+Route::get('editorjs/link', 'EditorJsController@link');
+
+Route::post('editorjs/image/file', 'EditorJsController@image');
+
+Route::post('editorjs/image/url', 'EditorJsController@image');
+
+
+
 Route::get('/media', function () {
     return view('media');
 })->name('media');
@@ -48,10 +58,6 @@ Route::get('/interview', function () {
     return view('interview');
 })->name('interview');
 
-Route::get('/news_page', function () {
-    return view('news_page');
-})->name('news_page');
-
 Route::get('/about_sore', function () {
     return view('about_sore');
 })->name('about_sore');
@@ -75,6 +81,11 @@ Route::get('/vacancies',function (){
 Route::get('/advertisers',function (){
     return view('advertisers');
 })->name('advertisers');
+
+//router for send prayer time to today
+Route::get('/time_prayer', 'TimePrayersController@prayerForToday')->name('time.prayer');
+
+Route::get('/check_pars','TimePrayersController@prayerForMonthly');
 
 //ADMINKA
 Route::prefix('admin')->name('admin.')/*->middleware('admin')*/->group(function () {
@@ -167,11 +178,4 @@ Route::prefix('admin')->name('admin.')/*->middleware('admin')*/->group(function 
     Route::get('/comment/{comment}', 'CommentController@adminShow')->name('comment.show');
     Route::resource('comments', 'CommentController')->except(['index', 'show']);
 });
-
-
-
-//router for send prayer time to today
-Route::get('/time_prayer', 'TimePrayersController@prayerForToday')->name('time.prayer');
-
-Route::get('/check_pars','TimePrayersController@prayerForMonthly');
 

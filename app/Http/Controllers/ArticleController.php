@@ -16,6 +16,7 @@ use App\Project;
 use App\Services\ImageUploader;
 use App\Tag;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str;
 use Yajra\DataTables\Facades\DataTables;
 
 class ArticleController extends Controller
@@ -62,13 +63,11 @@ class ArticleController extends Controller
      */
     public function store(StoreArticleRequest $request)
     {
-
         $article = Article::create($request->except(['is_active', 'view_main']));
         $article->is_active = $request->exists('is_active');
         $article->view_main = $request->exists('view_main');
 
         $article->logo = ImageUploader::upload(request('logo'), 'articles', 'articles', 40);
-//        $article->category_id = $request->category_id != '0' ? $request->category_id : null;
         $article->save();
         $article->authors()->attach($request->authors);
         $article->photographers()->attach($request->photographers);
@@ -192,7 +191,7 @@ class ArticleController extends Controller
         $articlesDayTheme = Article::where('view_main', true)->latest()->get();
         $articlesCommentLatest = Article::orderBy('updated_at', 'DESC')->take(6)->get();
         $articlesLatest = Article::latest()->take(6)->get();
-//        $articlesByCategory = Article::where('type', 'article')->
+        $categories = self::get_categories();
 
         $kolumnisty = Author::where('view_main', true)->latest()->get();
         $hadith = Hadith::latest()->first();
@@ -201,10 +200,12 @@ class ArticleController extends Controller
         $magazines = Magazine::latest()->take(2)->get();
         $posters = Poster::latest()->take(6)->get();
 
+        $hadith->content = self::cut_contents(strip_tags($hadith->content), 60, 370);
         foreach ($posters as $poster) {
             $content = strip_tags($poster->content);
-            $poster->content = self::get_words($content, 10);
+            $poster->content = self::cut_contents($content, 10, 42);
         }
+
         return view('welcome',
             [
                 'posters' => $posters,
@@ -216,21 +217,52 @@ class ArticleController extends Controller
                 'articlesCommentLatest' => $articlesCommentLatest,
                 'articlesDayTheme' => $articlesDayTheme,
                 'kolumnisty' => $kolumnisty,
+                'articlesByCategory' => $categories,
             ]);
     }
 
-    public static function get_words($sentence, $count)
+    public function news_page()
     {
-        if (strlen($sentence) < 39) {
-            return $sentence . '...';
-        }
-        preg_match("/(?:\w+(?:\W+|$)){0,$count}/", $sentence, $matches);
-        $result_str = substr($matches[0], 0, -1);
-        $result_str = $result_str . '...';
-        if (strlen($result_str) > 42) {
-            $result_str = self::get_words($result_str, --$count);
-        }
-        return $result_str;
+        $articles = Article::all()->paginate(6);
+        return view('news_page', ['articles' => $articles]);
     }
 
+    public static function get_categories()
+    {
+        $categories = Category::has('articles', '>', 1)->inRandomOrder()->take(3)->get();
+        switch ($categories->count()) {
+            case 0:
+                $countNeed = 3;
+                break;
+            case 1:
+                $countNeed = 2;
+                break;
+            case 2:
+                $countNeed = 1;
+                break;
+        }
+        $categories = $categories->merge(Category::has('articles', '=', 1)->inRandomOrder()->take($countNeed)->get());
+        return $categories;
+    }
+
+    public static function cut_contents($content, $countWords, $countSymbols)
+    {
+        if (iconv_strlen($content) < $countSymbols - 3) {
+            return $content;
+        } else {
+            return self::recursive_cut_content($content, $countWords, $countSymbols);
+        }
+    }
+
+    public static function recursive_cut_content($content, $countWords, $countSymbols)
+    {
+        $content = Str::words($content, $countWords, '');
+
+        if (iconv_strlen($content) < $countSymbols - 3) {
+            $strWithoutLastSymbol = preg_replace('/(!|,|\.|\'|\"|\:|\.{2}|\.{3}|\;)$/', '', $content);
+            return $strWithoutLastSymbol . '...';
+        } else {
+            return self::recursive_cut_content($content, --$countWords, $countSymbols);
+        }
+    }
 }
