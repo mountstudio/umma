@@ -35,31 +35,19 @@
                 @include('subscription.subscribe')
                 @include('share.share_buttons')
 
-                <div class="icons" style="position: relative;right: -9%;margin-top: -25px;">
-                    <div class="">
-                        <a href="https://www.facebook.com/ummamag.kg"><i
-                                    class="fab fa-facebook fa-lg text-orange mr-3"></i></a>
-                        <a href="https://www.instagram.com/ummamagkg/"><i
-                                    class="fab fa-instagram fa-lg text-orange mr-3"></i></a>
-                        <a class="" href="/#vk" title="VK" rel="nofollow noopener" target="_blank">
-                            <i class="fab fa-vk fa-lg text-orange mr-3"></i>
-                        </a>
-                    </div>
+                <section class="my-5">
+                    @include('comments.comment')
+                </section>
+            </div>
+            <div class="col-12 col-lg-4 pb-3">
+                @include('blocks.right-sidebar.new')
+                <div class="pt-3">
+                    @include('blocks.right-sidebar.animation')
                 </div>
+                <h2 class="text-center py-2">Статьи</h2>
+                @include('blocks.right-sidebar.new')
             </div>
-            <section class="my-5">
-                @include('comments.comment')
-            </section>
         </div>
-        <div class="col-12 col-lg-4 pb-3">
-            @include('blocks.right-sidebar.new')
-            <div class="pt-3">
-                @include('blocks.right-sidebar.animation')
-            </div>
-            <h2 class="text-center py-2">Статьи</h2>
-            @include('blocks.right-sidebar.new')
-        </div>
-    </div>
     </div>
 @endsection
 
