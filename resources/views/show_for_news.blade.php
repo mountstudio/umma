@@ -3,9 +3,15 @@
     <div class="container">
         <div class="row">
             <div class="col-12 col-lg-8">
-                @include('breadcrumb.bread')
+                <nav aria-label="breadcrumb">
+                </nav>
                 <div class="author d-flex justify-content-between">
-                    <a class="text-dark" href="" target="_blank">Автор: Кадыр Маликов</a> <span>12.03.2020</span>
+                    <p>Автор:
+                        @foreach($article->authors as $author)
+                            <a href="" target="_blank">{{ $author->full_name . ($loop->last ? '' : ',') }} </a>
+                        @endforeach
+                    </p>
+                    <span>{{$article->created_at->format('')}}</span>
                 </div>
                 <div class="post-header d-flex py-2">
                     <img class="d-none d-md-block mx-2" src="{{ asset('img/news.png') }}" alt=""
@@ -29,42 +35,31 @@
                 @include('subscription.subscribe')
                 @include('share.share_buttons')
 
-                    <div class="icons" style="position: relative;right: -9%;margin-top: -25px;">
-                        <div class="">
-                            <a href="https://www.facebook.com/ummamag.kg"><i
+                <div class="icons" style="position: relative;right: -9%;margin-top: -25px;">
+                    <div class="">
+                        <a href="https://www.facebook.com/ummamag.kg"><i
                                     class="fab fa-facebook fa-lg text-orange mr-3"></i></a>
-                            <a href="https://www.instagram.com/ummamagkg/"><i
+                        <a href="https://www.instagram.com/ummamagkg/"><i
                                     class="fab fa-instagram fa-lg text-orange mr-3"></i></a>
-                            <a class="" href="/#vk" title="VK" rel="nofollow noopener" target="_blank">
-                                <i class="fab fa-vk fa-lg text-orange mr-3"></i>
-                            </a>
-
-                            {{--                            <a href="javascript:void(0)" title="vk" class="social-share-btn" data-url="{{ request()->url() }}" data-social="vk" data-text="{{ $production->title ?? 'awdawd' }}" style="width: 30px;height: 30px;">--}}
-                            {{--                                <i class="fab fa-vk mr-3 fa-lg nav-scale"></i>--}}
-                            {{--                            </a>--}}
-                            {{--                            --}}{{--                            <a href="javascript:void(0)" title="instagram" class="social-share-btn" data-url="{{ request()->url() }}" data-social="instagram" data-text="{{ $production->title }}" style="width: 30px;height: 30px;">--}}
-                            {{--                            --}}{{--                                <i class="fab fa-instagram mr-3 fa-lg nav-scale"></i>--}}
-                            {{--                            --}}{{--                            </a>--}}
-                            {{--                            <a href="javascript:void(0)" title="facebook" class="social-share-btn" data-url="{{ request()->url() }}" data-social="facebook" data-text="{{ $production->title ?? 'awdawd' }}" style="width: 30px;height: 30px;">--}}
-                            {{--                                <i class="fab fa-facebook mr-3 fa-lg nav-scale"></i>--}}
-                            {{--                            </a>--}}
-
-                        </div>
+                        <a class="" href="/#vk" title="VK" rel="nofollow noopener" target="_blank">
+                            <i class="fab fa-vk fa-lg text-orange mr-3"></i>
+                        </a>
                     </div>
                 </div>
-                <section class="my-5">
-                    @include('comments.comment')
-                </section>
             </div>
-            <div class="col-12 col-lg-4 pb-3">
-                @include('blocks.right-sidebar.new')
-                <div class="pt-3">
-                    @include('blocks.right-sidebar.animation')
-                </div>
-                <h2 class="text-center py-2">Статьи</h2>
-                @include('blocks.right-sidebar.new')
-            </div>
+            <section class="my-5">
+                @include('comments.comment')
+            </section>
         </div>
+        <div class="col-12 col-lg-4 pb-3">
+            @include('blocks.right-sidebar.new')
+            <div class="pt-3">
+                @include('blocks.right-sidebar.animation')
+            </div>
+            <h2 class="text-center py-2">Статьи</h2>
+            @include('blocks.right-sidebar.new')
+        </div>
+    </div>
     </div>
 @endsection
 
