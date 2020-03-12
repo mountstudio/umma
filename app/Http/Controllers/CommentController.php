@@ -70,6 +70,10 @@ class CommentController extends Controller
     {
         //
     }
+//    public function get_comments(artilce)
+//    {
+//
+//    }
 
     public function adminShow(Comment $comment)
     {

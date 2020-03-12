@@ -136,4 +136,9 @@ class MagazineController extends Controller
     {
         return view('admin.magazines.index');
     }
+
+    public function showMagazines()
+    {
+        return view('magazines',['magazines'=>Magazine::latest()->get()]);
+    }
 }

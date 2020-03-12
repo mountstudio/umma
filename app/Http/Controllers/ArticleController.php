@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Article;
 use App\Author;
 use App\Category;
+use App\Comment;
 use App\hadith;
 use App\Http\Requests\StoreArticleRequest;
 use App\Http\Requests\UpdateArticleRequest;
@@ -83,6 +84,7 @@ class ArticleController extends Controller
      */
     public function show(Article $article)
     {
+        return view('show_for_news', ['article' => $article]);
     }
 
     /**
@@ -189,7 +191,7 @@ class ArticleController extends Controller
     public function welcome()
     {
         $articlesDayTheme = Article::where('view_main', true)->latest()->get();
-        $articlesCommentLatest = Article::orderBy('updated_at', 'DESC')->take(6)->get();
+        $articlesCommentLatest = Article::has('comments')->orderBy('updated_at', 'DESC')->take(6)->get();
         $articlesLatest = Article::latest()->take(6)->get();
         $categories = self::get_categories();
 

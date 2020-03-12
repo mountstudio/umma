@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Hadith;
 use App\Http\Requests\StoreHadithRequest;
 use App\Http\Requests\UpdateHadithRequest;
+use Illuminate\Support\Str;
 use Yajra\DataTables\Facades\DataTables;
 
 class HadithController extends Controller
@@ -50,7 +51,7 @@ class HadithController extends Controller
      */
     public function show(Hadith $hadith)
     {
-        return view('hadiths.hadith_show', compact($hadith));
+        return view('hadiths.show_for_hadith', ['hadith' => $hadith]);
     }
 
     public function adminShow(Hadith $hadith)
@@ -117,12 +118,31 @@ class HadithController extends Controller
 
     public function showHadiths()
     {
-        $hadiths = Hadith::take(6)->get();
+        $hadiths = Hadith::all()->paginate(6);
         foreach ($hadiths as $hadith) {
             $hadith->content = strip_tags($hadith->content);
-            $hadith->content = substr($hadith->content, 0, 100) . '...';
+            $hadith->content = self::cut_contents($hadith->content, 20, 103);
         }
         return view('hadiths.all_hadith_show', ['hadiths' => $hadiths]);
     }
+    public static function cut_contents($content, $countWords, $countSymbols)
+    {
+        if (iconv_strlen($content) < $countSymbols - 3) {
+            return $content;
+        } else {
+            return self::recursive_cut_content($content, $countWords, $countSymbols);
+        }
+    }
 
+    public static function recursive_cut_content($content, $countWords, $countSymbols)
+    {
+        $content = Str::words($content, $countWords, '');
+
+        if (iconv_strlen($content) < $countSymbols - 3) {
+            $strWithoutLastSymbol = preg_replace('/(!|,|\.|\'|\"|\:|\.{2}|\.{3}|\;)$/', '', $content);
+            return $strWithoutLastSymbol . '...';
+        } else {
+            return self::recursive_cut_content($content, --$countWords, $countSymbols);
+        }
+    }
 }
