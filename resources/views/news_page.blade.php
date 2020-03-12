@@ -6,31 +6,52 @@
                 <h2 class="text-center">Новости</h2>
                 <div class="row">
                     @foreach($articles as $article)
-                        <div class="col-12 col-lg-6 col-md-4 pb-4">
+                        <div class="col-12 col-md-6 pb-4">
                             <div class="card">
-                                <img src="{{ asset('storage/small/' . $article->logo) }}" class="card-img-top"
-                                     alt="...">
+                                <a href="{{ route('show.article', $article) }}" title="ссылка">
+                                    <img src="{{ asset('storage/small/' . $article->logo) }}"
+                                         class="card-img-top"
+                                         alt="...">
+                                </a>
                                 <div class="card-body pl-0">
-                                    <div class="row m-0 text-white">
-                                        @if($article->tags->count())
-                                            <div class="row m-0 text-white">
-                                                <p class=" col-auto small" style="border-bottom-right-radius: 15px;
+                                    @if($article->tags->count())
+                                        <div class="row m-0 text-white">
+                                            <p class=" col-auto small" style="border-bottom-right-radius: 15px;
                                                 border-top-right-radius: 15px;
-                                                background-color: #008500;margin-top: -2.10rem;">{{ $article->tags->take(2)->implode('name', ', ') }}</p>
-                                            </div>
-                                        @endif
+                                                background-color: #008500;margin-top: -2.10rem;">
+                                                @foreach($article->tags as $tag)
+                                                    @if($loop->index == 1)
+                                                        <a href="" class="text-white"
+                                                           target="_blank">{{ $tag->name }} </a>
+                                                        @break
+                                                    @endif
+                                                    <a href="" class="text-white"
+                                                       target="_blank">{{ $tag->name . ($loop->last ? '' : ', ') }} </a>
+                                                @endforeach
+                                            </p>
+                                        </div>
+                                    @endif
+                                    <a href="{{ route('show.article', $article) }}" title="ссылка">
+                                        <h6 class="pl-3 text-left">{{ $article->name }}</h6>
+                                    </a>
+                                </div>
+                                <div class="card-footer d-flex justify-content-end bg-white border-0 pt-0 m-0 p-0">
+                                    <div class="ml-auto d-flex align-items-center">
+                                        <img src="{{ asset('icons/eyes_iocn.png') }}" alt="">&nbsp;<span
+                                                class="p-1">{{ $article->impressions }}</span>
+                                        <img src="{{ asset('icons/comment.png') }}" alt=""><span
+                                                class="p-1">{{ $article->comments->count() }}</span>
                                     </div>
-                                    <h6 class="pl-3 text-left">{{ $article->name }}</h6>
                                 </div>
                             </div>
                         </div>
                     @endforeach
-                    @if($articles instanceof \Illuminate\Pagination\LengthAwarePaginator)
-                        <div class="row justify-content-center mt-5">
-                            {{ $articles->appends(request()->query())->links() }}
-                        </div>
-                    @endif
                 </div>
+                @if($articles instanceof \Illuminate\Pagination\LengthAwarePaginator)
+                    <div class="row justify-content-center mt-5">
+                        {{ $articles->appends(request()->query())->links() }}
+                    </div>
+                @endif
             </div>
             <div class="col-12 col-lg-4 pb-3">
                 @include('blocks.right-sidebar.new')

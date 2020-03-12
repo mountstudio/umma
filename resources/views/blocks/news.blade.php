@@ -6,9 +6,6 @@
                 @include('blocks.right-sidebar.animation')
             </div>
         </div>
-        {{--@php(--}}
-
-        {{--)--}}
         <div class="col-12 col-lg-7">
             <div class="row">
                 <div class="col-12">

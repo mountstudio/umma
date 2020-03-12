@@ -20,9 +20,11 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('/hadiths','HadithController@showHadiths')->name('show.hadiths');
+Route::get('/hadiths', 'HadithController@showHadiths')->name('show.hadiths');
 
-Route::get('/show_hadith/{hadith}','HadithController@')->name('show.hadith');
+Route::get('/show_hadith/{hadith}', 'HadithController@show')->name('show.hadith');
+
+Route::get('/show_for_news/{article}', 'ArticleController@show')->name('show.article');
 
 Route::get('/news_page', 'ArticleController@news_page')->name('all.news');
 
@@ -33,14 +35,11 @@ Route::post('editorjs/image/file', 'EditorJsController@image');
 Route::post('editorjs/image/url', 'EditorJsController@image');
 
 
-
 Route::get('/media', function () {
     return view('media');
 })->name('media');
 
-Route::get('/magazines', function () {
-    return view('magazines');
-})->name('magazines');
+Route::get('/magazines', 'MagazineController@showMagazines')->name('all.magazines');
 
 Route::get('/it_is_interesting', function () {
     return view('it_is_interesting');
@@ -66,11 +65,11 @@ Route::get('/education', function () {
     return view('education');
 })->name('education');
 
-Route::get('/scientists',function (){
+Route::get('/scientists', function () {
     return view('scientists');
 })->name('scientists');
 
-Route::get('/show_for_hadis',function (){
+Route::get('/show_for_hadis', function () {
     return view('show_for_hadis');
 })->name('show_for_hadis');
 
@@ -82,29 +81,30 @@ Route::get('/show_for_news',function (){
     return view('show_for_news');
 })->name('show_for_news');
 
-Route::get('/show_multimedia',function (){
+Route::get('/show_multimedia', function () {
     return view('show_multimedia');
 })->name('show_multimedia');
 
-Route::get('/prayer_time',function (){
+Route::get('/prayer_time', function () {
     return view('prayer_time');
 })->name('prayer_time');
 
-Route::get('/vacancies',function (){
+Route::get('/vacancies', function () {
     return view('vacancies');
 })->name('vacancies');
 
-Route::get('/advertisers',function (){
+Route::get('/advertisers', function () {
     return view('advertisers');
 })->name('advertisers');
 
 //router for send prayer time to today
 Route::get('/time_prayer', 'TimePrayersController@prayerForToday')->name('time.prayer');
 
-Route::get('/check_pars','TimePrayersController@prayerForMonthly');
+Route::get('/check_pars', 'TimePrayersController@prayerForMonthly');
 
 //ADMINKA
-Route::prefix('admin')->name('admin.')/*->middleware('admin')*/->group(function () {
+Route::prefix('admin')->name('admin.')/*->middleware('admin')*/
+->group(function () {
     Route::get('/', 'AdminController@index')->name('admin');
     Route::get('/dashboard', 'AdminController@dashboard')->name('dashboard');
 
@@ -118,7 +118,7 @@ Route::prefix('admin')->name('admin.')/*->middleware('admin')*/->group(function 
     Route::get('/longread', 'ArticleController@datatable')->name('longread.datatable');
     Route::get('/longread/datatable', 'ArticleController@datatableData')->name('longread.datatable.data');
     Route::get('/longread/{article}', 'ArticleController@adminShow')->name('longread.show');
-    Route::resource('longreads','ArticleController')->except(['index', 'show'])->parameters([
+    Route::resource('longreads', 'ArticleController')->except(['index', 'show'])->parameters([
         'longreads' => 'article'
     ]);
 //CRUD for digest
