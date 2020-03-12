@@ -2,11 +2,10 @@
     <div class="text d-flex">
         <img class="d-none d-lg-block p-2" src="{{ asset('img/reading (1).png') }}" alt="">
         <p>Материал принес пользу? Поделитесь ссылкой с друзьями в социальных сетях.</p>
-        <a href="https://www.facebook.com/ummamag.kg"><i
+        <a href="https://www.facebook.com/sharer/sharer.php?u={{ request()->fullUrl() }}"><i
                 class="fab fa-facebook fa-lg text-orange mr-3"></i></a>
-        <a href="https://www.instagram.com/ummamagkg/"><i
-                class="fab fa-instagram fa-lg text-orange mr-3"></i></a>
-        <a class="" href="/#vk" title="VK" rel="nofollow noopener" target="_blank">
+
+        <a class="" href="https://vk.com/share.php?url={{ request()->fullUrl() }}" title="VK" rel="nofollow noopener" target="_blank">
             <i class="fab fa-vk fa-lg text-orange mr-3"></i>
         </a>
 

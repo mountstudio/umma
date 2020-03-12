@@ -34,18 +34,6 @@
                 </div>
                 @include('subscription.subscribe')
                 @include('share.share_buttons')
-
-                <div class="icons" style="position: relative;right: -9%;margin-top: -25px;">
-                    <div class="">
-                        <a href="https://www.facebook.com/ummamag.kg"><i
-                                    class="fab fa-facebook fa-lg text-orange mr-3"></i></a>
-                        <a href="https://www.instagram.com/ummamagkg/"><i
-                                    class="fab fa-instagram fa-lg text-orange mr-3"></i></a>
-                        <a class="" href="/#vk" title="VK" rel="nofollow noopener" target="_blank">
-                            <i class="fab fa-vk fa-lg text-orange mr-3"></i>
-                        </a>
-                    </div>
-                </div>
             </div>
             <section class="my-5">
                 @include('comments.comment')
@@ -69,7 +57,6 @@
             let btn = $(e.currentTarget);
             let social = btn.data('social');
             let url = btn.data('url');
-            let text = btn.data('text');
 
             if (social == 'facebook') {
                 url = 'https://facebook.com/sharer/sharer.php?u=' + url;
@@ -79,9 +66,6 @@
                 url = 'https://vk.com/share.php?url=' + url;
                 window.open(url, "popupWindow", "width=600,height=600,scrollbars=yes");
             }
-            // if (social == 'instagram') {
-            //     window.open($(this).attr("href", 'https://vk.com/share.php?url=' + url), "popupWindow", "width=600,height=600,scrollbars=yes");
-            // }
         })
     </script>
 @endpush
