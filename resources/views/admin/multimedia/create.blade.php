@@ -3,6 +3,11 @@
 @section('dashboard_content')
     <div class="row">
         <div class="col-12 col-sm-10 col-lg-10 col-md-10">
+            <ul>
+                @foreach($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
             <form action="{{ route('admin.multimedia.store') }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 <div class="form-group">

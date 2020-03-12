@@ -6,22 +6,22 @@
                aria-controls="pills-bishkek" aria-selected="true">Бишкек/Чуй</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link p-1 small rounded-0 border-right  namaz-tabs" id="pills-ik-tab" data-toggle="pill"
+            <a class="nav-link p-1 small rounded-0  namaz-tabs" id="pills-ik-tab" data-toggle="pill"
                href="#pills-ik" role="tab"
                aria-controls="pills-ik" aria-selected="false">ИК</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link p-1 small rounded-0 border-right  namaz-tabs" id="pills-talas-tab" data-toggle="pill"
+            <a class="nav-link p-1 small rounded-0  namaz-tabs" id="pills-talas-tab" data-toggle="pill"
                href="#pills-talas" role="tab"
                aria-controls="pills-talas" aria-selected="false">Талас</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link p-1 small rounded-0 border-right  namaz-tabs" id="pills-narin-tab" data-toggle="pill"
+            <a class="nav-link p-1 small rounded-0  namaz-tabs" id="pills-narin-tab" data-toggle="pill"
                href="#pills-narin" role="tab"
                aria-controls="pills-narin" aria-selected="false">Нарын</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link p-1 small rounded-0 border-right  namaz-tabs" id="pills-ja-tab" data-toggle="pill"
+            <a class="nav-link p-1 small rounded-0  namaz-tabs" id="pills-ja-tab" data-toggle="pill"
                href="#pills-ja" role="tab"
                aria-controls="pills-ja" aria-selected="false">Ж-А</a>
         </li>
@@ -113,18 +113,15 @@
 <script>
     let timeSpans = ["fadjr", "shuruk", "zuhr", "asr", "sham", "isha"]
     window.onload = function () {
-        console.log("qwe");
         $.ajax({
             url: "{{ route('time.prayer') }}",
             dataType: 'json',
             type: "GET",
             success: function (data) {
                 for (let city in data) {
-                    console.log(city);
                     let indexTypePrayer = 0;
                     data[city].forEach(function (item) {
                         let span = document.getElementById(city + "_" + timeSpans[indexTypePrayer]);
-                        console.log(span);
                         span.textContent = item;
                         indexTypePrayer = indexTypePrayer + 1;
                     })

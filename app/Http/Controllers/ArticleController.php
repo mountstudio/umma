@@ -5,9 +5,11 @@ namespace App\Http\Controllers;
 use App\Article;
 use App\Author;
 use App\Category;
+use App\Comment;
 use App\hadith;
 use App\Http\Requests\StoreArticleRequest;
 use App\Http\Requests\UpdateArticleRequest;
+use App\Magazine;
 use App\Multimedia;
 use App\Photographer;
 use App\Poster;
@@ -15,6 +17,7 @@ use App\Project;
 use App\Services\ImageUploader;
 use App\Tag;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str;
 use Yajra\DataTables\Facades\DataTables;
 
 class ArticleController extends Controller
@@ -61,13 +64,11 @@ class ArticleController extends Controller
      */
     public function store(StoreArticleRequest $request)
     {
-
         $article = Article::create($request->except(['is_active', 'view_main']));
         $article->is_active = $request->exists('is_active');
         $article->view_main = $request->exists('view_main');
 
         $article->logo = ImageUploader::upload(request('logo'), 'articles', 'articles', 40);
-//        $article->category_id = $request->category_id != '0' ? $request->category_id : null;
         $article->save();
         $article->authors()->attach($request->authors);
         $article->photographers()->attach($request->photographers);
@@ -83,6 +84,7 @@ class ArticleController extends Controller
      */
     public function show(Article $article)
     {
+        return view('show_for_news', ['article' => $article]);
     }
 
     /**
@@ -123,27 +125,19 @@ class ArticleController extends Controller
      */
     public function update(UpdateArticleRequest $request, Article $article)
     {
-        if (!$request->hasFile('logo')) {
-            $article->update($request->except(['is_active', 'view_main'])); //Обновляем все кроме is_active, view_main
-            $article->is_active = $request->exists('is_active'); // Записываем is_active
-            $article->view_main = $request->exists('view_main'); // Записываем view_main
-            $article->save();
-            $article->authors()->sync($request->authors);
-            $article->photographers()->sync($request->photographers);
-            $article->tags()->sync($request->tags);
-        } else {
+        if ($request->hasFile('logo')) {
             Storage::disk('public')->delete("/large/" . $article->logo);
             Storage::disk('public')->delete("/medium/" . $article->logo);
             Storage::disk('public')->delete("/small/" . $article->logo);
-            $article->update($request->except(['is_active', 'view_main']));
-            $article->is_active = $request->exists('is_active');
-            $article->view_main = $request->exists('view_main');
             $article->logo = ImageUploader::upload(request('logo'), 'articles', 'articles', 40);
-            $article->save();
-            $article->authors()->sync($request->authors);
-            $article->photographers()->sync($request->photographers);
-            $article->tags()->sync($request->tags);
         }
+        $article->update($request->except(['is_active', 'view_main', 'logo']));
+        $article->is_active = $request->exists('is_active');
+        $article->view_main = $request->exists('view_main');
+        $article->save();
+        $article->authors()->sync($request->authors);
+        $article->photographers()->sync($request->photographers);
+        $article->tags()->sync($request->tags);
         return redirect()->route('admin.' . $article->type . '.datatable');
     }
 
@@ -196,17 +190,81 @@ class ArticleController extends Controller
 
     public function welcome()
     {
-        $articles = Article::where('view_main', true)->inRandomOrder()->take(18)->get();
+        $articlesDayTheme = Article::where('view_main', true)->latest()->get();
+        $articlesCommentLatest = Article::has('comments')->orderBy('updated_at', 'DESC')->take(6)->get();
+        $articlesLatest = Article::latest()->take(6)->get();
+        $categories = self::get_categories();
+
+        $kolumnisty = Author::where('view_main', true)->latest()->get();
         $hadith = Hadith::latest()->first();
-//        dd($articles);
-        $posters = Poster::latest()->take(6)->get();
         $multimedia = Multimedia::latest()->take(10)->get();
         $projects = Project::All();
-        return view('welcome', [
-            'posters' => $posters,
-            'multimedia' => $multimedia,
-            'hadith' => $hadith,
-            'projects'=>$projects]);
+        $magazines = Magazine::latest()->take(2)->get();
+        $posters = Poster::latest()->take(6)->get();
+
+        $hadith->content = self::cut_contents(strip_tags($hadith->content), 60, 370);
+        foreach ($posters as $poster) {
+            $content = strip_tags($poster->content);
+            $poster->content = self::cut_contents($content, 10, 42);
+        }
+
+        return view('welcome',
+            [
+                'posters' => $posters,
+                'multimedia' => $multimedia,
+                'hadith' => $hadith,
+                'projects' => $projects,
+                'magazines' => $magazines,
+                'articlesLatest' => $articlesLatest,
+                'articlesCommentLatest' => $articlesCommentLatest,
+                'articlesDayTheme' => $articlesDayTheme,
+                'kolumnisty' => $kolumnisty,
+                'articlesByCategory' => $categories,
+            ]);
     }
 
+    public function news_page()
+    {
+        $articles = Article::all()->paginate(6);
+        return view('news_page', ['articles' => $articles]);
+    }
+
+    public static function get_categories()
+    {
+        $categories = Category::has('articles', '>', 1)->inRandomOrder()->take(3)->get();
+        switch ($categories->count()) {
+            case 0:
+                $countNeed = 3;
+                break;
+            case 1:
+                $countNeed = 2;
+                break;
+            case 2:
+                $countNeed = 1;
+                break;
+        }
+        $categories = $categories->merge(Category::has('articles', '=', 1)->inRandomOrder()->take($countNeed)->get());
+        return $categories;
+    }
+
+    public static function cut_contents($content, $countWords, $countSymbols)
+    {
+        if (iconv_strlen($content) < $countSymbols - 3) {
+            return $content;
+        } else {
+            return self::recursive_cut_content($content, $countWords, $countSymbols);
+        }
+    }
+
+    public static function recursive_cut_content($content, $countWords, $countSymbols)
+    {
+        $content = Str::words($content, $countWords, '');
+
+        if (iconv_strlen($content) < $countSymbols - 3) {
+            $strWithoutLastSymbol = preg_replace('/(!|,|\.|\'|\"|\:|\.{2}|\.{3}|\;)$/', '', $content);
+            return $strWithoutLastSymbol . '...';
+        } else {
+            return self::recursive_cut_content($content, --$countWords, $countSymbols);
+        }
+    }
 }

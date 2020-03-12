@@ -7,26 +7,14 @@
                     <h2 class="text-center">Журналы</h2>
                     <hr style="background-color: black;color: black;">
                     <div class="row text-center">
-                        <div class="col-12 col-md-6">
-                            <div>
-                                <img src="{{ asset('img/magazine_2017.png') }}" alt="журнал 2017">
-                                <p style="min-height: 52px">№4, Январь, 2017 ищите точки покупок на странице "О журнале"</p>
+                        @foreach($magazines as $magazine)
+                            <div class="col-12 col-md-6">
+                                <div>
+                                    <img class="img-fluid" src="{{ asset('storage/medium/' . $magazine->image) }}" alt="журнал 2017">
+                                    <p style="min-height: 52px">{{ $magazine->name }}</p>
+                                </div>
                             </div>
-                            <div>
-                                <img src="{{ asset('img/magazine_2015.png') }}" alt="журнал 2015">
-                                <p style="min-height: 52px">№1, Май, 2015</p>
-                            </div>
-                        </div>
-                        <div class="col-12 col-md-6">
-                            <div>
-                                <img src="{{ asset('img/magazine_2016.png') }}" alt="журнал 2016">
-                                <p style="min-height: 52px">№3, Апрель, 2016 Скачивание будет доступно позже</p>
-                            </div>
-                            <div>
-                                <img src="{{ asset('img/magazine_2015_2.png') }}" alt="журнад 2015">
-                                <p style="min-height: 52px">№2, Июнь, 2015</p>
-                            </div>
-                        </div>
+                        @endforeach
                     </div>
                 </div>
                 <div>
@@ -39,11 +27,14 @@
                             <p>Адабий редактор, корректор: Мирлан Токтобеков</p>
                             <p>Канонический редактор: д.п.н, доктор Кадыр ажы Маликов</p>
                             <p>Адрес редакции: г. Бишкек, ул. Ахунбаева, 134/309</p>
-                            <a href="tel:+996 (709) 65-36-85"><p class="text-dark">Тел. редакции: +996 (709) 65-36-85, +996 (551) 040-264</p></a>
+                            <a href="tel:+996 (709) 65-36-85"><p class="text-dark">Тел. редакции: +996 (709) 65-36-85,
+                                    +996 (551) 040-264</p></a>
                             <a href="mailto:"><p class="text-dark">E-mail: ummamagkg@gmail.com</p></a>
                             <a href="http://ummamag.kg/"><p class="text-dark">Сайт: www.ummamag.kg</p></a>
-                            <a href="https://www.facebook.com/ummamag.kg"><p class="text-dark">Страница на facebook: www.facebook.com/ummamag.kg</p></a>
-                            <a href="https://www.instagram.com/ummamagkg/"><p class="text-dark">Страница на instagram: ummamagkg</p></a>
+                            <a href="https://www.facebook.com/ummamag.kg"><p class="text-dark">Страница на facebook:
+                                    www.facebook.com/ummamag.kg</p></a>
+                            <a href="https://www.instagram.com/ummamagkg/"><p class="text-dark">Страница на instagram:
+                                    ummamagkg</p></a>
                             <p>Администратор сайта: Асан Талдыбаев</p>
                             <p>По вопросам размещения рекламы:
                                 +996 (554) 50-50-95, +996 (778) 09-76-16, +996 (709) 16-01-15, +996 (709) 65-36-85,
@@ -70,10 +61,9 @@
                 <div class="pt-3">
                     @include('blocks.right-sidebar.animation')
                 </div>
-                @include('blocks.right-sidebar.articles-bar')
+                <h2 class="text-center py-2">Статьи</h2>
+                @include('blocks.right-sidebar.new')
             </div>
         </div>
-
-
     </div>
 @endsection

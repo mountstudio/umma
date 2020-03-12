@@ -85,3 +85,16 @@ body {
 .bg-black-50 {
     background: #000000AA!important;
 }
+
+.multimedia .icon-arrow-left {
+    left: -22px;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+.multimedia .icon-arrow-right {
+    position: absolute;
+    right: -22px;
+    top: 50%;
+    transform: translateY(-50%);
+}

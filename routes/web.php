@@ -10,9 +10,6 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-use App\Category;
-
 //Route::get('/', function () {
 //    return view('welcome');
 //});
@@ -23,17 +20,26 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('/welcome', function () {
-    return view('welcome');
-})->name('welcome');
+Route::get('/hadiths', 'HadithController@showHadiths')->name('show.hadiths');
+
+Route::get('/show_hadith/{hadith}', 'HadithController@show')->name('show.hadith');
+
+Route::get('/show_for_news/{article}', 'ArticleController@show')->name('show.article');
+
+Route::get('/news_page', 'ArticleController@news_page')->name('all.news');
+
+Route::get('editorjs/link', 'EditorJsController@link');
+
+Route::post('editorjs/image/file', 'EditorJsController@image');
+
+Route::post('editorjs/image/url', 'EditorJsController@image');
+
 
 Route::get('/media', function () {
     return view('media');
 })->name('media');
 
-Route::get('/magazines', function () {
-    return view('magazines');
-})->name('magazines');
+Route::get('/magazines', 'MagazineController@showMagazines')->name('all.magazines');
 
 Route::get('/it_is_interesting', function () {
     return view('it_is_interesting');
@@ -51,10 +57,6 @@ Route::get('/interview', function () {
     return view('interview');
 })->name('interview');
 
-Route::get('/news_page', function () {
-    return view('news_page');
-})->name('news_page');
-
 Route::get('/about_sore', function () {
     return view('about_sore');
 })->name('about_sore');
@@ -63,8 +65,46 @@ Route::get('/education', function () {
     return view('education');
 })->name('education');
 
+Route::get('/scientists', function () {
+    return view('scientists');
+})->name('scientists');
 
-Route::prefix('admin')->name('admin.')/*->middleware('admin')*/->group(function () {
+Route::get('/show_for_hadis', function () {
+    return view('show_for_hadis');
+})->name('show_for_hadis');
+
+Route::get('/show_for_authors',function (){
+    return view('show_for_authors');
+})->name('show_for_authors');
+
+Route::get('/show_for_news',function (){
+    return view('show_for_news');
+})->name('show_for_news');
+
+Route::get('/show_multimedia', function () {
+    return view('show_multimedia');
+})->name('show_multimedia');
+
+Route::get('/prayer_time', function () {
+    return view('prayer_time');
+})->name('prayer_time');
+
+Route::get('/vacancies', function () {
+    return view('vacancies');
+})->name('vacancies');
+
+Route::get('/advertisers', function () {
+    return view('advertisers');
+})->name('advertisers');
+
+//router for send prayer time to today
+Route::get('/time_prayer', 'TimePrayersController@prayerForToday')->name('time.prayer');
+
+Route::get('/check_pars', 'TimePrayersController@prayerForMonthly');
+
+//ADMINKA
+Route::prefix('admin')->name('admin.')/*->middleware('admin')*/
+->group(function () {
     Route::get('/', 'AdminController@index')->name('admin');
     Route::get('/dashboard', 'AdminController@dashboard')->name('dashboard');
 
@@ -78,9 +118,9 @@ Route::prefix('admin')->name('admin.')/*->middleware('admin')*/->group(function 
     Route::get('/longread', 'ArticleController@datatable')->name('longread.datatable');
     Route::get('/longread/datatable', 'ArticleController@datatableData')->name('longread.datatable.data');
     Route::get('/longread/{article}', 'ArticleController@adminShow')->name('longread.show');
-    Route::resource('longreads','ArticleController')->except(['index', 'show'])->parameters([
+    Route::resource('longreads', 'ArticleController')->except(['index', 'show'])->parameters([
         'longreads' => 'article'
-    ]);;;
+    ]);
 //CRUD for digest
     Route::get('/digest', 'ArticleController@datatable')->name('digest.datatable');
     Route::get('/digest/datatable', 'ArticleController@datatableData')->name('digest.datatable.data');
@@ -88,7 +128,6 @@ Route::prefix('admin')->name('admin.')/*->middleware('admin')*/->group(function 
     Route::resource('digests', 'ArticleController')->except(['index', 'show'])->parameters([
         'digests' => 'article'
     ]);
-
 //CRUD for authors
     Route::get('/author', 'AuthorController@datatable')->name('author.datatable');
     Route::get('/author/datatable', 'AuthorController@datatableData')->name('author.datatable.data');
@@ -144,74 +183,15 @@ Route::prefix('admin')->name('admin.')/*->middleware('admin')*/->group(function 
     Route::get('/questionCategory/datatable', 'QuestionCategoryController@datatableData')->name('questionCategory.datatable.data');
     Route::get('/questionCategory/{questionCategory}', 'QuestionCategoryController@adminShow')->name('questionCategory.show');
     Route::resource('questionCategories', 'QuestionCategoryController')->except(['index', 'show']);
-
+//CRUD for posterTypes
+    Route::get('/posterType', 'PosterTypeController@datatable')->name('posterType.datatable');
+    Route::get('/posterType/datatable', 'PosterTypeController@datatableData')->name('posterType.datatable.data');
+    Route::get('/posterType/{posterType}', 'PosterTypeController@adminShow')->name('posterType.show');
+    Route::resource('posterTypes', 'PosterTypeController')->except(['index', 'show']);
+//CRUD for comments
+    Route::get('/comment', 'CommentController@datatable')->name('comment.datatable');
+    Route::get('/comment/datatable', 'CommentController@datatableData')->name('comment.datatable.data');
+    Route::get('/comment/{comment}', 'CommentController@adminShow')->name('comment.show');
+    Route::resource('comments', 'CommentController')->except(['index', 'show']);
 });
 
-
-
-//router for send subcategories
-Route::get('/articles/category/{id}', function ($id) {
-    $subcategories = Category::where('parent_id', $id)->get();
-    return json_encode($subcategories);
-});
-
-Route::get('/multimedia/category/{id}', function ($id) {
-    $subcategories = Category::where('parent_id', $id)->get();
-    return json_encode($subcategories);
-});
-
-Route::get('/photograph/category/{id}', function ($id) {
-    $subcategories = Category::where('parent_id', $id)->get();
-    return json_encode($subcategories);
-});
-
-Route::get('/tag/category/{id}', function ($id) {
-    $subcategories = Category::where('parent_id', $id)->get();
-    return json_encode($subcategories);
-});
-
-Route::get('/project/category/{id}', function ($id) {
-    $subcategories = Category::where('parent_id', $id)->get();
-    return json_encode($subcategories);
-});
-
-Route::get('/hadisi/category/{id}', function ($id) {
-    $subcategories = Category::where('parent_id', $id)->get();
-    return json_encode($subcategories);
-});
-
-Route::get('/magazines/category/{id}', function ($id) {
-    $subcategories = Category::where('parent_id', $id)->get();
-    return json_encode($subcategories);
-});
-//router for send prayer time to today
-Route::get('/time_prayer', 'TimePrayersController@prayerForToday')->name('time.prayer');
-
-Route::get('/check_pars','TimePrayersController@prayerForMonthly');
-Route::get('/scientists',function (){
-    return view('scientists');
-})->name('scientists');
-
-Route::get('/show',function (){
-    return view('show');
-})->name('show');
-
-Route::get('/prayer_time',function (){
-    return view('prayer_time');
-})->name('prayer_time');
-
-Route::get('/hadis-dnya',function (){
-    return view('hadisi.hadis-dnya');
-})->name('hadisdnya');
-
-Route::get('/hadis-show',function (){
-    return view('hadisi.hadis-show');
-})->name('hadis-show');
-
-Route::get('/vacancies',function (){
-    return view('vacancies');
-})->name('vacancies');
-
-Route::get('/advertisers',function (){
-    return view('advertisers');
-})->name('advertisers');

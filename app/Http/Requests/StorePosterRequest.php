@@ -26,10 +26,11 @@ class StorePosterRequest extends FormRequest
     {
         return [
             'name' => 'required|max:255',
-            'main_photo' => ['required','image','max:2000','dimensions:min_width=500', new Main_image],
+            'main_photo' => ['required', 'image', 'max:2000', 'dimensions:min_width=500', new Main_image],
             'content' => 'required',
             'phone' => 'required',
-            'mail' => 'required|email'
+            'mail' => 'required|email',
+            'type_id' =>'required|numeric',
         ];
     }
 }

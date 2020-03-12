@@ -16,18 +16,31 @@
                     <input id="name_filed" value="{{ $poster->name }}" type="text" class="form-control" name="name"
                            placeholder="" required>
                 </div>
+                <label for="content_area">Описание:<span class="text-danger">*</span></label>
+                <div id="editorjs" class="border"></div>
                 <div class="form-group pt-2">
                     <label for="content_area">Описание:<span class="text-danger">*</span></label>
                     <textarea id="content_area" class="form-control richTextBox is-invalid"
                               name="content">{{ $poster->content }}</textarea>
                 </div>
+                <div id="form-group">
+                    <label for="type">Выберите тип:<span class="text-danger">*</span></label>
+                    <br>
+                    <select id="type" name="type_id">
+                        @foreach($types as $type)
+                            <option {{ $type->id == $poster->type_id ? 'selected' : '' }} value="{{ $type->id }}">{{ $type->name }}</option>
+                        @endforeach
+                    </select>
+                </div>
                 <div class="form-group">
                     <label for="phone_field">Телефон:<span class="text-danger">*</span></label>
-                    <input id="phone_field" value="{{ $poster->phone }}" type="text" class="form-control" name="phone" required>
+                    <input id="phone_field" value="{{ $poster->phone }}" type="text" class="form-control" name="phone"
+                           required>
                 </div>
                 <div class="form-group">
                     <label for="mail_field">mail:<span class="text-danger">*</span></label>
-                    <input id="mail_field" value="{{ $poster->mail }}" type="text" class="form-control" name="mail" required>
+                    <input id="mail_field" value="{{ $poster->mail }}" type="text" class="form-control" name="mail"
+                           required>
                 </div>
                 <div class="form-group">
                     <label for="main_photo_input">Выберите фото:</label>
@@ -35,7 +48,8 @@
                            name="main_photo" accept="image/jpeg, image/png">
                     <img id="photo" src="{{ asset('storage/medium/' . $poster->main_photo) }}"/>
                 </div>
-                <button type="submit" title="{{ __('Изменить') }}" class="btn n btn-success">{{ __('Изменить') }}</button>
+                <button type="submit" title="{{ __('Изменить') }}"
+                        class="btn n btn-success">{{ __('Изменить') }}</button>
             </form>
         </div>
     </div>
@@ -47,6 +61,7 @@
 @endpush
 @push('scripts')
     <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+    <script src="{{ asset('js/editor-conf.js') }}"></script>
     <script>
         tinymce.init({
             selector: '#content_area'

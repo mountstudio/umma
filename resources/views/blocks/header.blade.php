@@ -53,10 +53,10 @@
         <a class="nav-link text-dark text-menu" href="{{ route('media') }}" title="" style="">Медиа</a>
     </li>
     <li class="nav-item">
-        <a class="nav-link text-dark text-menu" href="{{ route('news_page') }}" title="" style="">Новости</a>
+        <a class="nav-link text-dark text-menu" href="{{ route('all.news') }}" title="" style="">Новости</a>
     </li>
     <li class="nav-item">
-        <a class="nav-link text-dark text-menu" href="{{ route('magazines') }}" title="" style="">Журнал</a>
+        <a class="nav-link text-dark text-menu" href="{{ route('all.magazines') }}" title="" style="">Журнал</a>
     </li>
 </ul>
 <div class="text-center">

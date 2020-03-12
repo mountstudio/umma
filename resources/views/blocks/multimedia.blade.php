@@ -5,9 +5,9 @@
             <div class="multimedia">
                 @foreach($multimedia as $media)
                     <div class="item border bg-for-image p-1 mr-1 position-relative">
-                        <img class="img-fluid position-relative" src="{{ asset('storage/medium/' . $media->url_photo) }}" alt="">
-                        <img src="{{ asset('img/ui.png') }}" class="img-fluid position-absolute"
-                             style="left: 50%; top: 50%; transform: translate(-50%, -50%);" alt="">
+                        <a href="{{ $media->url_video }}"><img class="img-fluid position-relative" src="{{ asset('storage/medium/' . $media->url_photo) }}" alt="">
+                       <img src="{{ asset('img/ui.png') }}" class="img-fluid position-absolute"
+                                        style="left: 50%; top: 50%; transform: translate(-50%, -50%);" alt=""></a>
                     </div>
                 @endforeach
             </div>
@@ -34,16 +34,34 @@
                 autoplaySpeed: 30000,
                 slidesToShow: 3,
                 slidesToScroll: 1,
-                arrows: true,
-                responsive: {
-                    breakpoint: 500,
+
+                responsive: [{
+                    breakpoint: 1024,
                     settings: {
-                        centerMode: true,
-                        slidesToShow: 1
+                        slidesToShow: 3,
+                        slidesToScroll: 1,
+
+
                     }
-                },
-                nextArrow: '<i class="fas fa-chevron-right icon-arrow-right fa-2x"></i>',
-                prevArrow: '<i class="fas fa-chevron-left icon-arrow-left fa-2x"></i>'
+
+                },  {
+                    breakpoint: 600,
+                    settings: {
+                        slidesToShow: 2,
+                        slidesToScroll: 2,
+
+                    }
+                }, {
+                    breakpoint: 480,
+                    settings: {
+                        slidesToShow: 1,
+                        slidesToScroll: 1,
+                    },
+
+                }],
+                    nextArrow: '<i class="fas fa-chevron-right icon-arrow-right fa-2x"></i>',
+                    prevArrow: '<i class="fas fa-chevron-left icon-arrow-left fa-2x"></i>'
+
             });
 
         });
