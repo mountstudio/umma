@@ -4,9 +4,20 @@
         <div class="row">
             <div class="col-12 col-lg-8">
                 <h2 class="text-center">Результаты поиска</h2>
-                <p></p>
-                <p></p>
-                <p></p>
+                <div>
+                    <p>Новости</p>
+                    @for()
+                    @endfor
+                </div>
+                <div>
+                    <p>Лонгриды</p>
+                </div>
+                <div>
+                    <p>Дайджесты</p>
+                </div>
+                <div>
+                    <p>Авторы</p>
+                </div>
             </div>
             <div class="col-12 col-lg-4 pb-3">
                 @include('blocks.right-sidebar.new')

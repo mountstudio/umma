@@ -4,13 +4,13 @@
         <div class="row">
             <div class="col-12 col-lg-8">
                 @include('breadcrumb.bread')
+                <div class="author d-flex justify-content-between">
+                    <a class="text-dark" href="" target="_blank">Автор: Кадыр Маликов</a> <span>12.03.2020</span>
+                </div>
                 <div class="post-header d-flex">
                     <h2 class="title" >
                        Все статьи автора
                     </h2>
-                </div>
-                <div class="author" >
-                    Автор: <a href="" target="_blank">Кадыр Маликов</a>
                 </div>
                 <div class="row">
                     @for($i = 0; $i < 6; $i++)

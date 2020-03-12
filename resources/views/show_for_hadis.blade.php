@@ -4,15 +4,15 @@
         <div class="row">
             <div class="col-12 col-lg-8">
                 @include('breadcrumb.bread')
+                <div class="author d-flex justify-content-between">
+                    <a class="text-dark" href="" target="_blank">Автор: Кадыр Маликов</a> <span>12.03.2020</span>
+                </div>
                 <div class="post-header d-flex">
                     <img class="d-none d-md-block mx-2" src="{{ asset('img/moon (1).png') }}" alt="">
                     <h1 class="title">
                         Хадис №53
                     </h1>
 
-                </div>
-                <div class="author py-2">
-                    Автор: <a href="" target="_blank">Кадыр Маликов</a>
                 </div>
                 <div class="pt-4">
                     <p>Пророк Мухаммад (да благословит его Творец и приветствует) сказал: «Воистину, главной целью моей

@@ -51,8 +51,13 @@
                         Судный День [живым свидетелем совершенного обряда]. И будет кровь его возвеличена пред Господом
                         еще до того, как успеют капли ее упасть на землю. Пусть же души ваши будут спокойны» [5];</p>
                 </div>
-                <div class="tags">
-                    <h5 class="widget-title">Теги:</h5>
+                <div class="tags d-flex py-3 text-center">
+                    <h5 class="widget-title pr-2">Теги:</h5>
+                    <ul>
+                        <li><a href="" class="text-orange px-2">рамадан</a></li>
+                        <li><a href="" class="text-orange px-2">рамадан</a></li>
+                    </ul>
+
                 </div>
                 @include('subscription.subscribe')
                 @include('share.share_buttons')

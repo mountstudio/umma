@@ -3,6 +3,7 @@
     <div class="container">
         <div class="row">
             <div class="col-12 col-lg-8">
+                @include('breadcrumb.bread')
                 <div class="post-header d-flex">
                     <img class="mx-2" src="{{ asset('img/video.png') }}" alt="" style="width: 60px;height: 60px;">
                     <h2 class="title">

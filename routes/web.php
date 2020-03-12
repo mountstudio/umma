@@ -62,6 +62,18 @@ Route::get('/about_sore', function () {
     return view('about_sore');
 })->name('about_sore');
 
+Route::get('/show_magazines', function () {
+    return view('magazines.show_magazines');
+})->name('show_magazines');
+
+Route::get('/show_poster', function () {
+    return view('poster.show_poster');
+})->name('show_poster');
+
+Route::get('/show_search', function () {
+    return view('search.show_search');
+})->name('show_search');
+
 Route::get('/education', function () {
     return view('education');
 })->name('education');
