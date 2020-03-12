@@ -5,12 +5,14 @@
                 <p class="mb-0 font-weight-bold">{{ $article->category->name }}</p>
                 <p class="mb-0 font-weight-bold">{{ $article->created_at->format('d.m') }}</p>
             </div>
-            <div class="col-8">
-                <p class="mb-0 ">{{ $article->name }}</p>
-            </div>
+            <a href="{{ route('show.article', $article) }}">
+                <div class="col-8">
+                    <p class="mb-0 ">{{ $article->name }}</p>
+                </div>
+            </a>
         </div>
     @endforeach
     <div class="row justify-content-end no-gutters">
-        <a href="" class="text-dark">aрхив...</a>
+        <a href="{{ route('all.news') }}" class="text-dark">aрхив...</a>
     </div>
 </div>

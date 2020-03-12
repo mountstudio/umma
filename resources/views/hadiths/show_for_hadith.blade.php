@@ -10,13 +10,15 @@
                 <div class="post-header d-flex">
                     <img class="d-none d-md-block mx-2" src="{{ asset('img/moon (1).png') }}" alt="">
                     <h1 class="title">
-                        Хадис №53
+                        {{ $hadith->name }}
                     </h1>
 
                 </div>
+                <div class="author py-2">
+                    Автор: <a href="" target="_blank">Кадыр Маликов</a>
+                </div>
                 <div class="pt-4">
-                    <p>Пророк Мухаммад (да благословит его Творец и приветствует) сказал: «Воистину, главной целью моей
-                        пророческой миссии является доведение высоких нравов до полноты и совершенства»</p>
+                    <p>{!! $hadith->content !!}</p>
                 </div>
                 {{--                <div class="tags">--}}
                 {{--                    <h3 class="widget-title">Теги:</h3>--}}

@@ -11,11 +11,16 @@
                                 <h4>{{ $hadith->name }}</h4></a>
                             <hr>
                             <div class="desc">
-                                <p>{{ $hadith->content }}</p>
+                                <p>{!! $hadith->content  !!}</p>
                             </div>
                         </div>
                     @endforeach
                 </div>
+                @if($hadiths instanceof \Illuminate\Pagination\LengthAwarePaginator)
+                    <div class="row justify-content-center mt-5">
+                        {{ $hadiths->appends(request()->query())->links() }}
+                    </div>
+                @endif
             </div>
             <div class="col-12 col-lg-4 pb-3">
                 @include('blocks.right-sidebar.new')
