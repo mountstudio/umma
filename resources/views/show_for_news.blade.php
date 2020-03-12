@@ -3,15 +3,16 @@
     <div class="container">
         <div class="row">
             <div class="col-12 col-lg-8">
-                <div class="post-header d-flex">
+                @include('breadcrumb.bread')
+                <div class="author d-flex justify-content-between">
+                    <a class="text-dark" href="" target="_blank">Автор: Кадыр Маликов</a> <span>12.03.2020</span>
+                </div>
+                <div class="post-header d-flex py-2">
                     <img class="d-none d-md-block mx-2" src="{{ asset('img/news.png') }}" alt=""
                          style="width: 60px;height: 60px;">
                     <h2 class="title">
                         Более 60 брендов были представлены на осенней ярмарке Family Bazaar 2019
                     </h2>
-                </div>
-                <div class="author">
-                    Автор: <a href="" target="_blank">Кадыр Маликов</a>
                 </div>
                 <div class="py-2">
                     <img class="img-fluid" src="{{ asset('img/Group (1).png') }}" alt="">

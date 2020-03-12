@@ -3,6 +3,7 @@
     <div class="container">
         <div class="row">
             <div class="col-12 col-lg-8">
+                @include('breadcrumb.bread')
                 <div class="post-header d-flex">
                     <h2 class="title" >
                        Все статьи автора

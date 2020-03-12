@@ -3,6 +3,7 @@
     <div class="container">
         <div class="row">
             <div class="col-12 col-lg-8">
+                @include('breadcrumb.bread')
                 <div class="post-header d-flex">
                     <img class="d-none d-md-block mx-2" src="{{ asset('img/moon (1).png') }}" alt="">
                     <h1 class="title">
