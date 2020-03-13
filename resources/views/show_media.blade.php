@@ -6,9 +6,6 @@
                 <nav aria-label="breadcrumb">
                 </nav>
                 <div class="author d-flex justify-content-between">
-                    <p>Автор:
-                        sdfsdfsdfsdf
-                    </p>
                     <span>345345</span>
                 </div>
                 <div class="post-header d-flex py-2">

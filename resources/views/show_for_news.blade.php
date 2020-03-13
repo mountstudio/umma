@@ -12,7 +12,7 @@
                             <a href="{{ route('show.author', $author) }}">{{ $author->full_name . ($loop->last ? '' : ',') }} </a>
                         @endforeach
                     </p>
-                    <span>{{$article->created_at->format('')}}</span>
+                    <span>{{$article->created_at->format('d.m.y')}}</span>
                 </div>
                 <div class="post-header d-flex py-2">
                     <img class="d-none d-md-block mx-2" src="{{ asset('img/news.png') }}" alt=""

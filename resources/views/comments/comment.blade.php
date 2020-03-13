@@ -38,13 +38,13 @@
                    placeholder="Введите свое имя:">
         </div>
         <div class="form-group">
-            <label for="formGroupExampleInput">Your telephone number:</label>
-            <input type="text" class="form-control" id="formGroupExampleInput"
+            <label for="exampleInputPhone">Your telephone number:</label>
+            <input type="text" class="form-control" id="exampleInputPhone"
                    placeholder="Введите свой номер телефона:">
         </div>
         <div class="form-group">
-            <label for="exampleInputEmail1">Email address</label>
-            <input type="email" class="form-control" id="exampleInputEmail1"
+            <label for="exampleInputEmail">Email address</label>
+            <input type="email" class="form-control" id="exampleInputEmail"
                    aria-describedby="emailHelp">
             <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone
                 else.
