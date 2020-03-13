@@ -11,7 +11,9 @@
                             <div class="col-12 col-md-6">
                                 <div>
                                     <img class="img-fluid" src="{{ asset('storage/medium/' . $magazine->image) }}" alt="журнал 2017">
-                                    <p style="min-height: 52px">{{ $magazine->name }}</p>
+                                    <p class="m-0">{{ $magazine->name }}</p>
+                                    <a href="{{ route('show_magazines') }}">Просмотреть журнал в PDF</a>
+                                    <a href="" download=""><p>Скачать журнал</p></a>
                                 </div>
                             </div>
                         @endforeach

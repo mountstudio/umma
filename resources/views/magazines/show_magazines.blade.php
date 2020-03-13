@@ -3,7 +3,7 @@
     <div class="container">
         <div class="row">
             <div class="col-12 col-lg-8">
-                <h2></h2>
+                <h2>Журнал</h2>
                 <iframe src="{{ asset('/img/Khusan\'s Resume.pdf') }}" height="700" width="700"></iframe>
             </div>
             <div class="col-12 col-lg-4 pb-3">
