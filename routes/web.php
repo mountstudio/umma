@@ -97,9 +97,18 @@ Route::get('/scientists', function () {
 //    return view('show_for_news');
 //})->name('show_for_news');
 
+
+Route::get('/show_media',function (){
+    return view('show_media');
+})->name('show_media');
+
 Route::get('/show_multimedia', function () {
     return view('show_multimedia');
 })->name('show_multimedia');
+
+Route::get('/show_magazines', function () {
+    return view('magazines.show_magazines');
+})->name('show_magazines');
 
 Route::get('/prayer_time', function () {
     return view('prayer_time');

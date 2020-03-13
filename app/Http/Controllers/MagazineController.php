@@ -64,7 +64,6 @@ class MagazineController extends Controller
 
         return view('admin.magazines.show', ['magazine' => $magazine]);
     }
-
     /**
      * Show the form for editing the specified resource.
      *
