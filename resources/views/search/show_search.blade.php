@@ -5,18 +5,37 @@
             <div class="col-12 col-lg-8">
                 <h2 class="text-center">Результаты поиска</h2>
                 <div>
-                    <p>Новости</p>
-                    @for()
+                    <p>Статьи</p>
+                    @for($i = 0; $i < 1; $i++)
+                        <div class="col">
+                            @include('articles.card')
+                        </div>
                     @endfor
                 </div>
                 <div>
                     <p>Лонгриды</p>
+                    @for($i = 0; $i < 1; $i++)
+                        <div class="col">
+                            @include('articles.card')
+                        </div>
+                    @endfor
                 </div>
                 <div>
                     <p>Дайджесты</p>
+                    @for($i = 0; $i < 1; $i++)
+                        <div class="col">
+                            @include('articles.card')
+                        </div>
+                    @endfor
                 </div>
                 <div>
                     <p>Авторы</p>
+                    @for($i = 0; $i < 1; $i++)
+                        <div class="col">
+                           <p>Имена</p>
+                           <p>Заголовок</p>
+                        </div>
+                    @endfor
                 </div>
             </div>
             <div class="col-12 col-lg-4 pb-3">

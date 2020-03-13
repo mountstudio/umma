@@ -93,6 +93,11 @@ Route::get('/show_for_news',function (){
     return view('show_for_news');
 })->name('show_for_news');
 
+
+Route::get('/show_media',function (){
+    return view('show_media');
+})->name('show_media');
+
 Route::get('/show_multimedia', function () {
     return view('show_multimedia');
 })->name('show_multimedia');
