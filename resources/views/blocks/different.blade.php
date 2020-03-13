@@ -3,9 +3,7 @@
 
         @foreach($articlesByCategory as $category)
             <div class="col-12 col-md-6 col-lg-3 px-3 pb-2">
-                {{--<a href="{{ }}">--}}
                     <h4 class="pl-3">{{ $category->name }}</h4>
-                {{--</a>--}}
                 @foreach($category->articles->take(2) as $article)
                     <a href="{{ route('show.article', $article) }}">
                         <div class="card mb-2">

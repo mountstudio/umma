@@ -84,7 +84,12 @@ class ArticleController extends Controller
      */
     public function show(Article $article)
     {
-        return view('show_for_news', ['article' => $article]);
+        $comments = $article->comments()->get();
+        return view('show_for_news',
+            [
+                'article' => $article,
+                'comments' => $comments,
+            ]);
     }
 
     /**
@@ -223,7 +228,7 @@ class ArticleController extends Controller
             ]);
     }
 
-    public function news_page()
+    public function showNews()
     {
         $articles = Article::all()->paginate(6);
         return view('news_page', ['articles' => $articles]);

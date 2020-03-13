@@ -2,6 +2,7 @@
 
 @section('content')
     <div class="">
+        {{ Breadcrumbs::render('home') }}
         @include('blocks.news')
         @include('blocks.kolumnisti')
         @include('blocks.afisha')

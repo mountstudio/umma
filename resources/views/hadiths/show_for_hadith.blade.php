@@ -1,9 +1,10 @@
 @extends('layouts.app')
 @section('content')
+    {{ Breadcrumbs::render('hadith', $hadith) }}
     <div class="container">
         <div class="row">
             <div class="col-12 col-lg-8">
-                @include('breadcrumb.bread')
+                {{--@include('breadcrumb.bread')--}}
                 <div class="author d-flex justify-content-between">
                     <a class="text-dark" href="" target="_blank">Автор: Кадыр Маликов</a> <span>12.03.2020</span>
                 </div>
@@ -30,7 +31,6 @@
                     <p class="p-1 m-0">Подписывайтесь на нашу страницу в <a href="https://www.instagram.com/ummamagkg/">Instagram</a>
                     </p>
                 </div>
-                @include('')
             </div>
             <div class="col-12 col-lg-4 pb-3">
                 @include('blocks.right-sidebar.new')

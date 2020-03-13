@@ -20,13 +20,10 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('/hadiths', 'HadithController@showHadiths')->name('show.hadiths');
 
 Route::get('/show_hadith/{hadith}', 'HadithController@show')->name('show.hadith');
 
-Route::get('/show_for_news/{article}', 'ArticleController@show')->name('show.article');
 
-Route::get('/news_page', 'ArticleController@news_page')->name('all.news');
 
 Route::get('editorjs/link', 'EditorJsController@link');
 
@@ -34,12 +31,22 @@ Route::post('editorjs/image/file', 'EditorJsController@image');
 
 Route::post('editorjs/image/url', 'EditorJsController@image');
 
+Route::get('/show_for_news/{article}', 'ArticleController@show')->name('show.article');
 
-Route::get('/media', function () {
-    return view('media');
-})->name('media');
+Route::get('/show_for_authors/{author}', 'AuthorController@show')->name('show.author');
+
+Route::get('/show_for_tags/{tag}', 'TagController@show')->name('show.tag');
+
+Route::get('/hadiths', 'HadithController@showHadiths')->name('all.hadiths');
+
+Route::get('/news_page', 'ArticleController@showNews')->name('all.news');
 
 Route::get('/magazines', 'MagazineController@showMagazines')->name('all.magazines');
+
+Route::get('/multimedia', function () {
+    return view('multimedia');
+})->name('all.media');
+
 
 Route::get('/it_is_interesting', function () {
     return view('it_is_interesting');
@@ -81,17 +88,14 @@ Route::get('/scientists', function () {
     return view('scientists');
 })->name('scientists');
 
-Route::get('/show_for_hadis', function () {
-    return view('show_for_hadis');
-})->name('show_for_hadis');
+//Route::get('/show_for_hadis', function () {
+//    return view('show_for_hadis');
+//})->name('show_for_hadis');
 
-Route::get('/show_for_authors',function (){
-    return view('show_for_authors');
-})->name('show_for_authors');
 
-Route::get('/show_for_news',function (){
-    return view('show_for_news');
-})->name('show_for_news');
+//Route::get('/show_for_news',function (){
+//    return view('show_for_news');
+//})->name('show_for_news');
 
 Route::get('/show_multimedia', function () {
     return view('show_multimedia');

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Article;
 use App\Author;
 use App\Http\Requests\StoreAuthorRequest;
 use App\Http\Requests\UpdateAuthorRequest;
@@ -57,7 +58,12 @@ class AuthorController extends Controller
      */
     public function show(Author $author)
     {
-        return view('authors.show', ['author' => $author]);
+        $articlesByAuthor = $author->articles()->paginate(6);
+        return view('show_for_authors',
+            [
+                'author' => $author,
+                'articlesByAuthor' => $articlesByAuthor,
+            ]);
     }
 
     public function adminShow(Author $author)

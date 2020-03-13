@@ -6,17 +6,18 @@
                 <h2 class="text-center">Результаты поиска</h2>
                 <div>
                     <p>Новости</p>
-                    @for()
-                    @endfor
+
                 </div>
                 <div>
                     <p>Лонгриды</p>
+
                 </div>
                 <div>
                     <p>Дайджесты</p>
                 </div>
                 <div>
                     <p>Авторы</p>
+
                 </div>
             </div>
             <div class="col-12 col-lg-4 pb-3">

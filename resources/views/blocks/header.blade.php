@@ -50,7 +50,7 @@
         <a class="nav-link text-dark text-menu" href="{{ route('interview') }}" title="" style="">Интервью</a>
     </li>
     <li class="nav-item">
-        <a class="nav-link text-dark text-menu" href="{{ route('media') }}" title="" style="">Медиа</a>
+        <a class="nav-link text-dark text-menu" href="{{ route('all.media') }}" title="" style="">Медиа</a>
     </li>
     <li class="nav-item">
         <a class="nav-link text-dark text-menu" href="{{ route('all.news') }}" title="" style="">Новости</a>

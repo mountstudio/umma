@@ -1,9 +1,6 @@
 @extends('layouts.app')
 @section('content')
-    <?php
-    setlocale(LC_TIME, 'ru_RU.UTF-8', 'Rus')
-
-    ?>
+    {{ Breadcrumbs::render('prayer_time') }}
     <div class="container">
         <h2 class="text-center">Время намаза</h2>
         <div class="row">

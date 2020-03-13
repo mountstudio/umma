@@ -1,6 +1,7 @@
 @extends('layouts.app')
 @section('content')
     <div class="container">
+    {{ Breadcrumbs::render('article', $article) }}
         <div class="row">
             <div class="col-12 col-lg-8">
                 <nav aria-label="breadcrumb">
@@ -8,7 +9,7 @@
                 <div class="author d-flex justify-content-between">
                     <p>Автор:
                         @foreach($article->authors as $author)
-                            <a href="" target="_blank">{{ $author->full_name . ($loop->last ? '' : ',') }} </a>
+                            <a href="{{ route('show.author', $author) }}">{{ $author->full_name . ($loop->last ? '' : ',') }} </a>
                         @endforeach
                     </p>
                     <span>{{$article->created_at->format('')}}</span>
@@ -29,7 +30,7 @@
                 <div class="tags">
                     <h5 class="widget-title">Теги:</h5>
                     @foreach($article->tags as $tag)
-                        <a href="" target="_blank">{{  $tag->name . ($loop->last ? '' : ',') }} </a>
+                        <a href="{{ route('show.tag', $tag) }}">{{  $tag->name . ($loop->last ? '' : ',') }} </a>
                     @endforeach
                 </div>
                 @include('subscription.subscribe')

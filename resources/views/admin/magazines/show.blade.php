@@ -8,37 +8,29 @@
                         <thead>
                         <tr>
                             <th scope="col">id</th>
-                            <td>{{ $author->id }}</td>
+                            <td>{{ $magazine->id }}</td>
                         </tr>
                         </thead>
                         <tbody>
                         <tr>
                             <th> Заголовок:</th>
-                            <td scope="row">{{ $author->full_name }}</td>
+                            <td scope="row">{{ $magazine->name }}</td>
                         </tr>
                         <tr>
                             <th> Ссылка к видео:</th>
-                            <td><img src="{{ asset('storage/medium/' . $author->photo) }}"></td>
+                            <td><img src="{{ asset('storage/medium/' . $magazine->image) }}"></td>
                         </tr>
                         <tr>
                             <th>Дата создания:</th>
-                            <td>{{ $author->created_at }}</td>
+                            <td>{{ $magazine->created_at }}</td>
                         </tr>
                         <tr>
                             <th>Дата обновления:</th>
-                            <td>{{ $author->updated_at }}</td>
+                            <td>{{ $magazine->updated_at }}</td>
                         </tr>
                         </tbody>
                     </table>
-{{--                    <label>id:</label>--}}
-{{--                    <p>{{ $author->id }}</p>--}}
-{{--                    <label>Заголовок:</label>--}}
-{{--                    <p>{{ $author->full_name }}</p>--}}
-{{--                    <label>Ссылка к видео:</label>--}}
                 </div>
-{{--                <img src="{{ asset('storage/medium/' . $author->photo) }}">--}}
-{{--                <p>{{ $author->created_at }}</p>--}}
-{{--                <p>{{ $author->updated_at }}</p>--}}
             </div>
         </div>
     </div>
