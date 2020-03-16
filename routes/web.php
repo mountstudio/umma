@@ -110,6 +110,10 @@ Route::get('/show_magazines', function () {
     return view('magazines.show_magazines');
 })->name('show_magazines');
 
+Route::get('/authors_list', function () {
+    return view('authors.authors_list');
+})->name('authors_list');
+
 Route::get('/prayer_time', function () {
     return view('prayer_time');
 })->name('prayer_time');
