@@ -13,8 +13,8 @@
                                 <div>
                                     <img class="img-fluid" src="{{ asset('storage/medium/' . $magazine->image) }}" alt="журнал 2017">
                                     <p class="m-0">{{ $magazine->name }}</p>
-                                    <a href="{{ route('show_magazines') }}">Просмотреть журнал в PDF</a>
-                                    <a href="" download=""><p>Скачать журнал</p></a>
+                                    <a href="{{ route('show.magazine', $magazine) }}">Просмотреть журнал в PDF</a>
+                                    <a href="{{ asset('storage/pdf/' . $magazine->pdf) }}" download><p>Скачать журнал</p></a>
                                 </div>
                             </div>
                         @endforeach

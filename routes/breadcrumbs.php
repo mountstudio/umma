@@ -2,6 +2,7 @@
 
 use DaveJamesMiller\Breadcrumbs\Facades\Breadcrumbs;
 
+//Static register
 Breadcrumbs::register('home', function ($breadcrumbs) {
     $breadcrumbs->push('Главное', route('welcome'));
 });
@@ -15,7 +16,7 @@ Breadcrumbs::register('magazines', function ($breadcrumbs) {
 });
 Breadcrumbs::register('multimedia', function ($breadcrumbs) {
     $breadcrumbs->parent('home');
-    $breadcrumbs->push('Мультимедия', route('show_multimedia'));
+    $breadcrumbs->push('Мультимедия', route('all.media'));
 });
 Breadcrumbs::register('hadiths', function ($breadcrumbs) {
     $breadcrumbs->parent('home');
@@ -33,7 +34,38 @@ Breadcrumbs::register('vacancies', function ($breadcrumbs) {
     $breadcrumbs->parent('home');
     $breadcrumbs->push('Вакансии', route('vacancies'));
 });
+Breadcrumbs::register('interview', function ($breadcrumbs) {
+    $breadcrumbs->parent('home');
+    $breadcrumbs->push('Интервью', route('interview'));
+});
+Breadcrumbs::register('need_to_know', function ($breadcrumbs) {
+    $breadcrumbs->parent('home');
+    $breadcrumbs->push('Надо знать', route('need_to_know'));
+});
+Breadcrumbs::register('it_is_interesting', function ($breadcrumbs) {
+    $breadcrumbs->parent('home');
+    $breadcrumbs->push('Это интерестно', route('it_is_interesting'));
+});
+Breadcrumbs::register('education', function ($breadcrumbs) {
+    $breadcrumbs->parent('home');
+    $breadcrumbs->push('Просвящение', route('education'));
+});
+Breadcrumbs::register('about_sore', function ($breadcrumbs) {
+    $breadcrumbs->parent('home');
+    $breadcrumbs->push('О наболевшем', route('about_sore'));
+});
 
+
+
+
+Breadcrumbs::register('media', function ($breadcrumbs, $media) {
+    $breadcrumbs->parent('multimedia');
+    $breadcrumbs->push($media->title, route('show.media', $media));
+});
+Breadcrumbs::register('magazine', function ($breadcrumbs, $magazine) {
+    $breadcrumbs->parent('magazines');
+    $breadcrumbs->push($magazine->name, route('show.magazine', $magazine));
+});
 
 Breadcrumbs::register('author', function ($breadcrumbs, $author) {
     $breadcrumbs->parent('home');
@@ -52,5 +84,5 @@ Breadcrumbs::register('hadith', function ($breadcrumbs, $hadith) {
 
 Breadcrumbs::register('tag', function ($breadcrumbs, $tag) {
     $breadcrumbs->parent('home');
-    $breadcrumbs->push($tag->name, route('show.hadith', $tag));
+    $breadcrumbs->push($tag->name, route('show.tag', $tag));
 });

@@ -12,6 +12,7 @@ class Tag extends Model
     use SoftDeletes;
 
     protected $fillable = ['name', 'slug'];
+
     public function articles()
     {
         return $this->belongsToMany(Article::class);
@@ -29,5 +30,10 @@ class Tag extends Model
                 'source' => 'name',
             ]
         ];
+    }
+
+    public function getRouteKeyName()
+    {
+        return 'slug';
     }
 }

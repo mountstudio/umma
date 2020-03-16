@@ -1,24 +1,25 @@
 @extends('layouts.app')
 @section('content')
+    {{ Breadcrumbs::render('media', $media) }}
     <div class="container">
         <div class="row">
             <div class="col-12 col-lg-8">
                 <nav aria-label="breadcrumb">
                 </nav>
                 <div class="author d-flex justify-content-between">
-                    <span>345345</span>
+                    <span>{{ $media->created_at->format('d.m.y') }}</span>
                 </div>
                 <div class="post-header d-flex py-2">
-                    <img class="d-none d-md-block mx-2" src="{{ asset('img/youtube (3).png') }}" alt=""
+                    <img class="d-none d-md-block mx-2" src="{{ asset('storage/medium/' . $media->url_photo) }}" alt=""
                          style="width: 60px;height: 60px;">
                     <h2 class="title">
                         sdfsdfsdfsdf
                     </h2>
                 </div>
                 <div class=" bg-img pb-5">
-                    <a class="fancybox-media" href="https://www.youtube.com/watch?time_continue=3&v=xTYkmWnwLvg">
+                    <a class="fancybox-media" href="{{ $media->url_video }}">
                         <div class="position-relative">
-                            <img src="{{ asset('img/example-2.jpg') }}" class="img-fluid  w-100 position-relative" alt="">
+                            <img src="{{ asset('storage/large/' . $media->url_photo) }}" class="img-fluid  w-100 position-relative" alt="">
                             <img src="{{asset('img/youtube (3).png')}}" class="youtube  position-absolute"
                                  style="left: 50%; top: 50%; transform: translate(-50%, -50%); " alt="">
                         </div>

@@ -54,6 +54,8 @@ class MultimediaController extends Controller
      */
     public function show(Multimedia $multimedia)
     {
+//        dd($multimedia);
+        return view('show_media', ['media' => $multimedia]);
     }
 
     public function adminShow(Multimedia $multimedia)
@@ -129,5 +131,10 @@ class MultimediaController extends Controller
     public function datatable()
     {
         return view('admin.multimedia.index');
+    }
+
+    public function showMultimedia()
+    {
+        return view('multimedia', ['multimedia' => Multimedia::latest()->take(12)->get()]);
     }
 }
