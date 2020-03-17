@@ -24,7 +24,7 @@ Breadcrumbs::register('hadiths', function ($breadcrumbs) {
 });
 Breadcrumbs::register('prayer_time', function ($breadcrumbs) {
     $breadcrumbs->parent('home');
-    $breadcrumbs->push('Время намаза', route('prayer_time'));
+    $breadcrumbs->push('Время намаза', route('monthly.time.prayer'));
 });
 Breadcrumbs::register('advertisers', function ($breadcrumbs) {
     $breadcrumbs->parent('home');

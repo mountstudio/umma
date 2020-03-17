@@ -83,10 +83,6 @@ Route::get('/show_magazines', function () {
     return view('magazines.show_magazines');
 })->name('show_magazines');
 
-Route::get('/prayer_time', function () {
-    return view('prayer_time');
-})->name('prayer_time');
-
 Route::get('/vacancies', function () {
     return view('vacancies');
 })->name('vacancies');
@@ -98,7 +94,8 @@ Route::get('/advertisers', function () {
 //router for send prayer time to today
 Route::get('/time_prayer', 'TimePrayersController@prayerForToday')->name('time.prayer');
 
-Route::get('/check_pars', 'TimePrayersController@prayerForMonthly');
+Route::get('/prayer_time_for_monthly', 'TimePrayersController@prayerForMonthly')->name('monthly.time.prayer');
+
 
 //ADMINKA
 Route::prefix('admin')->name('admin.')/*->middleware('admin')*/
