@@ -28,15 +28,6 @@
                         </div>
                     @endfor
                 </div>
-                <div>
-                    <p>Авторы</p>
-                    @for($i = 0; $i < 1; $i++)
-                        <div class="col">
-                           <p>Имена</p>
-                           <p>Заголовок</p>
-                        </div>
-                    @endfor
-                </div>
             </div>
             <div class="col-12 col-lg-4 pb-3">
                 @include('blocks.right-sidebar.new')

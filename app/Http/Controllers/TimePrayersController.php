@@ -21,14 +21,12 @@ class TimePrayersController extends Controller
         $client = new Client();
         $array_city_time = array();
         foreach ($cities as $key => $city) {
-
             $crawler = $client->request('GET', "http://xn--80aavsd.xn--p1acf/geo/kg/{$city}");
             $timePrayer = $crawler->filter('span.h5')->each(function ($node) {
                 return $node->text();
             });
             $array_city_time[$key] = $timePrayer;
         }
-
         return json_encode($array_city_time);
     }
 
@@ -57,7 +55,7 @@ class TimePrayersController extends Controller
             $raw_table = array(array());
             $counter_day = 0;
             for ($i = 0; $i < count($time_namaz); $i++) {
-                if($counter_type == 6){
+                if ($counter_type == 6) {
                     $counter_day++;
                     $counter_type = 0;
                 }
@@ -65,8 +63,21 @@ class TimePrayersController extends Controller
                 $counter_type++;
             }
             $table[$key] = $raw_table;
-
         }
-        return $table;
+        $cities = [
+            'Бишкек',
+            'Иссык-куль',
+            'Талас',
+            'Нарын',
+            'Джалал-абад',
+            'Ош',
+            'Баткен'
+        ];
+
+        return view('prayer_time',
+            [
+                'table' => $table,
+                'cities' => $cities,
+            ]);
     }
 }

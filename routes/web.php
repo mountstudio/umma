@@ -21,7 +21,6 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 
-Route::get('/show_hadith/{hadith}', 'HadithController@show')->name('show.hadith');
 
 
 
@@ -31,11 +30,19 @@ Route::post('editorjs/image/file', 'EditorJsController@image');
 
 Route::post('editorjs/image/url', 'EditorJsController@image');
 
+
+Route::get('/show_hadith/{hadith}', 'HadithController@show')->name('show.hadith');
+
 Route::get('/show_for_news/{article}', 'ArticleController@show')->name('show.article');
 
 Route::get('/show_for_authors/{author}', 'AuthorController@show')->name('show.author');
 
 Route::get('/show_for_tags/{tag}', 'TagController@show')->name('show.tag');
+
+Route::get('/show_media/{multimedia}', 'MultimediaController@show')->name('show.media');
+
+Route::get('/show_magazines/{magazine}', 'MagazineController@show')->name('show.magazine');
+
 
 Route::get('/hadiths', 'HadithController@showHadiths')->name('all.hadiths');
 
@@ -43,34 +50,18 @@ Route::get('/news_page', 'ArticleController@showNews')->name('all.news');
 
 Route::get('/magazines', 'MagazineController@showMagazines')->name('all.magazines');
 
-Route::get('/multimedia', function () {
-    return view('multimedia');
-})->name('all.media');
+Route::get('/multimedia', 'MultimediaController@showMultimedia')->name('all.media');
 
 
-Route::get('/it_is_interesting', function () {
-    return view('it_is_interesting');
-})->name('it_is_interesting');
+Route::get('/it_is_interesting', 'ArticleController@it_is_interesting')->name('it_is_interesting');
 
-Route::get('/need_to_know', function () {
-    return view('need_to_know');
-})->name('need_to_know');
+Route::get('/need_to_know', 'ArticleController@need_to_know')->name('need_to_know');
 
-Route::get('/need_to_know', function () {
-    return view('need_to_know');
-})->name('need_to_know');
+Route::get('/interview', 'ArticleController@interview')->name('interview');
 
-Route::get('/interview', function () {
-    return view('interview');
-})->name('interview');
+Route::get('/about_sore', 'ArticleController@about_sore')->name('about_sore');
 
-Route::get('/about_sore', function () {
-    return view('about_sore');
-})->name('about_sore');
-
-Route::get('/show_magazines', function () {
-    return view('magazines.show_magazines');
-})->name('show_magazines');
+Route::get('/education', 'ArticleController@education')->name('education');
 
 Route::get('/show_poster', function () {
     return view('poster.show_poster');
@@ -80,31 +71,13 @@ Route::get('/show_search', function () {
     return view('search.show_search');
 })->name('show_search');
 
-Route::get('/education', function () {
-    return view('education');
-})->name('education');
-
 Route::get('/scientists', function () {
     return view('scientists');
 })->name('scientists');
 
-//Route::get('/show_for_hadis', function () {
-//    return view('show_for_hadis');
-//})->name('show_for_hadis');
 
 
-//Route::get('/show_for_news',function (){
-//    return view('show_for_news');
-//})->name('show_for_news');
 
-
-Route::get('/show_media',function (){
-    return view('show_media');
-})->name('show_media');
-
-Route::get('/show_multimedia', function () {
-    return view('show_multimedia');
-})->name('show_multimedia');
 
 Route::get('/questions_show', function () {
     return view('questions.show');
@@ -138,7 +111,8 @@ Route::get('/advertisers', function () {
 //router for send prayer time to today
 Route::get('/time_prayer', 'TimePrayersController@prayerForToday')->name('time.prayer');
 
-Route::get('/check_pars', 'TimePrayersController@prayerForMonthly');
+Route::get('/prayer_time_for_monthly', 'TimePrayersController@prayerForMonthly')->name('monthly.time.prayer');
+
 
 //ADMINKA
 Route::prefix('admin')->name('admin.')/*->middleware('admin')*/

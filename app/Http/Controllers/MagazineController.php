@@ -57,6 +57,8 @@ class MagazineController extends Controller
      */
     public function show(Magazine $magazine)
     {
+//        dd($magazine);
+        return view('magazines.show_magazines', ['magazine' => $magazine]);
     }
 
     public function adminShow(Magazine $magazine)

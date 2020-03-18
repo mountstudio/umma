@@ -5,22 +5,22 @@
         <div class="row">
             <div class="col-12 col-lg-8">
                 <div class="row">
-                    @for($i=0;$i<6;$i++)
+                    @foreach($multimedia as $media)
                         <div class="col-12 col-lg-4 py-2">
                             <div class="card">
-                                <a href="" title="ссылка">
-                                    <img src="{{ asset('img/example-2.jpg' ) }}"
+                                <a href="{{ route('show.media', $media) }}" title="ссылка">
+                                    <img src="{{ asset('storage/medium/' . $media->url_photo ) }}"
                                          class="card-img-top"
                                          alt="...">
                                 </a>
                                 <div class="card-body ">
                                     <a href="" title="ссылка">
-                                        <h6 class="text-left">dfgdfgdfgdfg</h6>
+                                        <h6 class="text-left">{{ $media->title }}</h6>
                                     </a>
                                 </div>
                             </div>
                         </div>
-                    @endfor
+                    @endforeach
                 </div>
             </div>
             <div class="col-12 col-lg-4 pb-3">

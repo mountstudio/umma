@@ -4,139 +4,75 @@
     <div class="container">
         <h2 class="text-center">Время намаза</h2>
         <div class="row">
-            <div class="col-12 col-lg-8">
-                <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
-                    <li class="nav-item">
-                        <a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab"
-                           aria-controls="pills-home" aria-selected="true">Сегодня</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab"
-                           aria-controls="pills-profile" aria-selected="false">На месяц</a>
-                    </li>
-                    <div class="btn-group" role="group">
-                        <button id="btnGroupDrop1" type="button" class="btn btn-secondary dropdown-toggle"
-                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Выбрать город
-                        </button>
-                        <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
-                            <a class="dropdown-item" href="#">Бишкек</a>
-                            <a class="dropdown-item" href="#">Dropdown link</a>
-                        </div>
-                    </div>
-                </ul>
-                <div class="tab-content" id="pills-tabContent">
-                    <div class="tab-pane fade show active" id="pills-home" role="tabpanel"
-                         aria-labelledby="pills-home-tab">
-                        @include('blocks.right-sidebar.animation')
-                    </div>
-                    <div class="tab-pane fade " id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
-                        <table class="table table-striped table-responsive-sm">
-                            <thead>
-                            <tr>
-                                <th scope="col">{{ strftime('%b') }}</th>
-                                <th scope="col">Д/н</th>
-                                <th scope="col">Last</th>
-                                <th scope="col">Фаджр</th>
-                                <th scope="col">Шурук</th>
-                                <th scope="col">Зухр</th>
-                                <th scope="col">Магриб</th>
-                                <th scope="col">Иша</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            <tr>
-                                <th scope="row">1</th>
-                                <td>Понедельник</td>
-                                <td>06:59</td>
-                                <td>08:59</td>
-                                <td>12:33</td>
-                                <td>14:18</td>
-                                <td>16:07</td>
-                                <td>16:07</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">2</th>
-                                <td>Вторник</td>
-                                <td>06:59</td>
-                                <td>08:59</td>
-                                <td>12:33</td>
-                                <td>14:18</td>
-                                <td>16:07</td>
-                                <td>16:07</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">3</th>
-                                <td>Среда</td>
-                                <td>06:59</td>
-                                <td>08:59</td>
-                                <td>12:33</td>
-                                <td>14:18</td>
-                                <td>16:07</td>
-                                <td>16:07</td>
-                            </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">
-                        <table class="table table-striped table-responsive-sm">
-                            <thead>
-                            <tr>
-                                <th scope="col">{{ strftime('%b') }}</th>
-                                <th scope="col">Д/н</th>
-                                <th scope="col">Last</th>
-                                <th scope="col">Фаджр</th>
-                                <th scope="col">Шурук</th>
-                                <th scope="col">Зухр</th>
-                                <th scope="col">Магриб</th>
-                                <th scope="col">Иша</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            <tr>
-                                <th scope="row">1</th>
-                                <td>йцуйцуйцуйц</td>
-                                <td>06jbjnjnj:59</td>
-                                <td>08:59</td>
-                                <td>12:33</td>
-                                <td>14:18</td>
-                                <td>16:07</td>
-                                <td>16:07</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">2</th>
-                                <td>Вторник</td>
-                                <td>06:59</td>
-                                <td>08:59</td>
-                                <td>12:33</td>
-                                <td>14:18</td>
-                                <td>16:07</td>
-                                <td>16:07</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">3</th>
-                                <td>Среда</td>
-                                <td>06:59</td>
-                                <td>08:59</td>
-                                <td>12:33</td>
-                                <td>14:18</td>
-                                <td>16:07</td>
-                                <td>16:07</td>
-                            </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
+            <div class="col-12 col-lg-2">
+                <button id="btnGroupDrop1" type="button" class="btn btn-secondary dropdown-toggle"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Выбрать город
+                </button>
 
-            </div>
-            <div class="col-12 col-lg-4 pb-3">
-                @include('blocks.right-sidebar.new')
-                <div class="pt-3">
-                    @include('blocks.right-sidebar.animation')
+                <div class="dropdown-menu pb-0" aria-labelledby="btnGroupDrop1">
+                    <div class="nav nav-tabs" id="myTab">
+                        <a class="dropdown-item active" id="bishkek-tab" data-toggle="tab" role="tab"
+                           aria-controls="bishkek" aria-selected="false" href="#bishkek">Бишкек</a>
+                        <a class="dropdown-item" id="ik-tab" data-toggle="tab" role="tab" aria-controls="ik"
+                           aria-selected="false" href="#ik">Иссык-куль</a>
+                        <a class="dropdown-item" id="talas-tab" data-toggle="tab" role="tab"
+                           aria-controls="talas" aria-selected="false" href="#talas">Талас</a>
+                        <a class="dropdown-item" id="naryn-tab" data-toggle="tab" role="tab"
+                           aria-controls="naryn" aria-selected="false" href="#naryn">Нарын</a>
+                        <a class="dropdown-item" id="ja-tab" data-toggle="tab" role="tab" aria-controls="ja"
+                           aria-selected="false" href="#ja">Джалал-абад</a>
+                        <a class="dropdown-item" id="osh-tab" data-toggle="tab" role="tab" aria-controls="osh"
+                           aria-selected="false" href="#osh">Ош</a>
+                        <a class="dropdown-item" id="batken-tab" data-toggle="tab" role="tab"
+                           aria-controls="batken" aria-selected="false" href="#batken">Баткен</a>
+                    </div>
                 </div>
-                <h2 class="text-center py-2">Статьи</h2>
-                @include('blocks.right-sidebar.new')
             </div>
+            <div class="col-12 col-lg-8">
+                <div class="tab-content" id="myTabContent">
+                    @foreach($table as $key=>$city)
+                        <div class="tab-pane fade {{$loop->index == 0 ? 'show active':''}}" id="{{ $key }}"
+                             role="tabpanel"
+                             aria-labelledby="{{ $key }}-tab">
+                            <h3>{{ $cities[$loop->index] }}</h3>
+                            <table class="table table-striped table-responsive-sm">
+                                <thead>
+                                <tr>
+                                    <th scope="col">{{ strftime('%b') }}</th>
+                                    <th scope="col">Д/н</th>
+                                    <th scope="col">Фаджр</th>
+                                    <th scope="col">Шурук</th>
+                                    <th scope="col">Зухр</th>
+                                    <th scope="col">Аср</th>
+                                    <th scope="col">Магриб</th>
+                                    <th scope="col">Иша</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                @foreach($city as $key => $day)
+                                    <tr>
+                                        <th scope="row">{{ $key+1 }}</th>
+                                        <td>{{ strftime('%A', strtotime(date('Y-m-' . ($key + 1)))) }}</td>
+                                        @foreach($day as $time)
+                                            <td>{{ $time }}</td>
+                                        @endforeach
+                                    </tr>
+                                @endforeach
+                                </tbody>
+                            </table>
+                        </div>
+                    @endforeach
+                </div>
+            </div>
+        </div>
+        <div class="col-12 col-lg-4 pb-3">
+            @include('blocks.right-sidebar.new')
+            <div class="pt-3">
+                @include('blocks.right-sidebar.animation')
+            </div>
+            <h2 class="text-center py-2">Статьи</h2>
+            @include('blocks.right-sidebar.new')
         </div>
     </div>
 @endsection

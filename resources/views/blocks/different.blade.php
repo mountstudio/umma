@@ -3,7 +3,7 @@
 
         @foreach($articlesByCategory as $category)
             <div class="col-12 col-md-6 col-lg-3 px-3 pb-2">
-                    <h4 class="pl-3">{{ $category->name }}</h4>
+                <h4 class="pl-3">{{ $category->name }}</h4>
                 @foreach($category->articles->take(2) as $article)
                     <a href="{{ route('show.article', $article) }}">
                         <div class="card mb-2">
@@ -25,20 +25,22 @@
         <div class="col-12 col-md-6 col-lg-2 px-3 pb-2">
             <h4 class="pl-3">Журналы</h4>
             @foreach($magazines as $magazine)
-                <div class="card mb-3">
-                    <img src="{{ asset('storage/small/'. $magazine->image) }}" class="card-img" alt="...">
-                    <div class="card-img-overlay row m-0 align-items-end text-center ">
-                        <div class="row justify-content-center">
-                            <div class="col-12 rounded bg-black-50 py-3 text-white">
-                                <h6 class="text-uppercase">{{ $magazine->name }}</h6>
+                <a href="{{ route('show.magazine', $magazine) }}">
+                    <div class="card mb-3">
+                        <img src="{{ asset('storage/small/'. $magazine->image) }}" class="card-img" alt="...">
+                        <div class="card-img-overlay row m-0 align-items-end text-center ">
+                            <div class="row justify-content-center">
+                                <div class="col-12 rounded bg-black-50 py-3 text-white">
+                                    <h6 class="text-uppercase">{{ $magazine->name }}</h6>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
+                </a>
             @endforeach
         </div>
     </div>
 </div>
 <div class="col-12 text-center  py-4">
-    <a href="" class="text-black-50 rounded btn-lg border">Читать еще</a>
+    <a href="{{ route('all.news') }}" class="text-black-50 rounded btn-lg border">Читать еще</a>
 </div>
