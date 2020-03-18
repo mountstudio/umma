@@ -25,7 +25,10 @@ class Poster extends Model
             ]
         ];
     }
-
+    public function getRouteKeyName()
+    {
+        return 'slug';
+    }
     public function type()
     {
         return $this->belongsTo(PosterType::class,'type_id');

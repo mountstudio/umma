@@ -21,7 +21,10 @@ class Question extends Model
             ]
         ];
     }
-
+    public function getRouteKeyName()
+    {
+        return 'slug';
+    }
     public function questionCategory()
     {
         return $this->belongsTo(QuestionCategory::class, 'category_id');

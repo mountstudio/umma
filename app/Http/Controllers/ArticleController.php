@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Article;
 use App\Author;
 use App\Category;
-use App\Comment;
 use App\hadith;
 use App\Http\Requests\StoreArticleRequest;
 use App\Http\Requests\UpdateArticleRequest;
@@ -233,6 +232,37 @@ class ArticleController extends Controller
         $articles = Article::all()->paginate(6);
         return view('news_page', ['articles' => $articles]);
     }
+
+    public function it_is_interesting()
+    {
+        $articles = Article::where('category_id', 3)->paginate(6);
+        return view('it_is_interesting', ['articles' => $articles]);
+    }
+
+    public function need_to_know()
+    {
+        $articles = Article::where('category_id', 2)->paginate(6);
+        return view('need_to_know', ['articles' => $articles]);
+    }
+
+    public function interview()
+    {
+        $articles = Article::where('category_id', 5)->paginate(6);
+        return view('interview', ['articles' => $articles]);
+    }
+
+    public function education()
+    {
+        $articles = Article::where('category_id', 4)->paginate(6);
+        return view('education', ['articles' => $articles]);
+    }
+    public function about_sore()
+    {
+        $articles = Article::where('category_id', 1)->paginate(6);
+        return view('about_sore', ['articles' => $articles]);
+    }
+
+
 
     public static function get_categories()
     {

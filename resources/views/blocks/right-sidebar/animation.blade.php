@@ -35,7 +35,7 @@
                aria-controls="pills-batken" aria-selected="false">Баткен</a>
         </li>
     </ul>
-    <a href="{{ route('prayer_time') }}"><img src="{{ asset('img/animation.png') }}" class="img-fluid w-100"
+    <a href="{{ route('monthly.time.prayer') }}"><img src="{{ asset('img/animation.png') }}" class="img-fluid w-100"
                                               alt="animation"></a>
     <div class="tab-content" id="pills-tabContent">
         <div class="tab-pane fade show active" id="pills-bishkek" role="tabpanel" aria-labelledby="pills-bishkek-tab">
@@ -111,7 +111,7 @@
     </div>
 </div>
 <script>
-    let timeSpans = ["fadjr", "shuruk", "zuhr", "asr", "sham", "isha"]
+    let timeSpans = ["fadjr", "shuruk", "zuhr", "asr", "sham", "isha"];
     window.onload = function () {
         $.ajax({
             url: "{{ route('time.prayer') }}",
