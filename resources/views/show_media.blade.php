@@ -10,7 +10,7 @@
                     <span>{{ $media->created_at->format('d.m.y') }}</span>
                 </div>
                 <div class="post-header d-flex py-2">
-                    <img class="d-none d-md-block mx-2" src="{{ asset('storage/medium/' . $media->url_photo) }}" alt=""
+                    <img class="d-none d-md-block mx-2" src="{{ asset('img/video.png') }}" alt=""
                          style="width: 60px;height: 60px;">
                     <h2 class="title">
                         sdfsdfsdfsdf
