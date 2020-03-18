@@ -26,6 +26,17 @@
                                placeholder="name@example.com">
                     </div>
                     <div class="form-group">
+                        <label for="formGroupExampleInput">Телефонный номер:</label>
+                        <input type="text" class="form-control" id="formGroupExampleInput" placeholder="+996220433443">
+                    </div>
+                    <div class="form-group">
+                        <label for="formGroupExampleInput">Категория вопроса:</label>
+                        <select class="form-control">
+                            <option>Пункт 1</option>
+                            <option>Пункт 2</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
                         <label for="exampleFormControlTextarea1">Ваше сообщение</label>
                         <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
                     </div>
@@ -33,6 +44,7 @@
                             data-text="Отправить">
                         <span>О</span><span>т</span><span>п</span><span>р</span><span>а</span><span>в</span><span>и</span><span>т</span><span>ь</span>
                     </button>
+
                 </form>
             </div>
             <div class="col-12 col-lg-4 pb-3">

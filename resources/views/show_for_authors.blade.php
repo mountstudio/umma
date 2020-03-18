@@ -4,19 +4,26 @@
     <div class="container">
         <div class="row">
             <div class="col-12 col-lg-8">
-                <div class="author d-flex justify-content-between">
-                    <p class="text-dark">Автор: {{ $author->full_name }}</p>
-                </div>
                 <div class="post-header d-flex">
                     <h2 class="title">
                         Все статьи автора
                     </h2>
+                </div>
+                <div class="d-flex">
+                    <div class="pr-2">
+                        <img class="rounded-circle" style="width: 122px;height: 122px;"
+                             src="{{ asset('img/example-2.jpg') }}" alt="">
+                    </div>
+                    <div class="author pt-5 ">
+                        <p class="text-dark font-weight-bold">{{ $author->full_name }}</p>
+                    </div>
                 </div>
                 <div class="row">
                     @foreach($articlesByAuthor as $article)
                         @include('articles.card')
                     @endforeach
                 </div>
+
                 @if($articlesByAuthor instanceof \Illuminate\Pagination\LengthAwarePaginator)
                     <div class="row justify-content-center mt-5">
                         {{ $articlesByAuthor->appends(request()->query())->links() }}

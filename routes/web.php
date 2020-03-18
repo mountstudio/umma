@@ -79,9 +79,26 @@ Route::get('/scientists', function () {
 
 
 
+Route::get('/questions_show', function () {
+    return view('questions.show');
+})->name('questions_show');
+
+Route::get('/questions_index', function () {
+    return view('questions.index');
+})->name('questions_index');
+
+
 Route::get('/show_magazines', function () {
     return view('magazines.show_magazines');
 })->name('show_magazines');
+
+Route::get('/authors_list', function () {
+    return view('authors.authors_list');
+})->name('authors_list');
+
+Route::get('/prayer_time', function () {
+    return view('prayer_time');
+})->name('prayer_time');
 
 Route::get('/vacancies', function () {
     return view('vacancies');
