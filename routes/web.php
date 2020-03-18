@@ -106,6 +106,15 @@ Route::get('/show_multimedia', function () {
     return view('show_multimedia');
 })->name('show_multimedia');
 
+Route::get('/questions_show', function () {
+    return view('questions.show');
+})->name('questions_show');
+
+Route::get('/questions_index', function () {
+    return view('questions.index');
+})->name('questions_index');
+
+
 Route::get('/show_magazines', function () {
     return view('magazines.show_magazines');
 })->name('show_magazines');

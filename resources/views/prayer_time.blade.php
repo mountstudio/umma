@@ -96,7 +96,7 @@
                             <tr>
                                 <th scope="row">1</th>
                                 <td>йцуйцуйцуйц</td>
-                                <td>06:59</td>
+                                <td>06jbjnjnj:59</td>
                                 <td>08:59</td>
                                 <td>12:33</td>
                                 <td>14:18</td>

@@ -109,3 +109,7 @@ body {
           transform: translateY(-50%);
 }
 
+.border-question {
+    border: 1px solid;
+    border-radius: 30px;
+}
