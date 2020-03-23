@@ -82,13 +82,3 @@ window.Editor = new EditorJs({
 //         console.log('Saving failed: ',error)
 //     });
 // });
-
-$('form').find('button').click(e => {
-    e.preventDefault();
-
-    Editor.save().then((out) => {
-        console.log(out);
-    }).catch(error => {
-        console.log(error)
-    })
-})

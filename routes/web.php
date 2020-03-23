@@ -1,26 +1,11 @@
 <?php
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
-//Route::get('/', function () {
-//    return view('welcome');
-//});
 
 Route::get('/', 'ArticleController@welcome')->name('welcome');
 
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
-
-
 
 
 
@@ -52,6 +37,8 @@ Route::get('/magazines', 'MagazineController@showMagazines')->name('all.magazine
 
 Route::get('/multimedia', 'MultimediaController@showMultimedia')->name('all.media');
 
+Route::get('/authors', 'AuthorController@showAuthors')->name('all.authors');
+
 
 Route::get('/it_is_interesting', 'ArticleController@it_is_interesting')->name('it_is_interesting');
 
@@ -62,6 +49,8 @@ Route::get('/interview', 'ArticleController@interview')->name('interview');
 Route::get('/about_sore', 'ArticleController@about_sore')->name('about_sore');
 
 Route::get('/education', 'ArticleController@education')->name('education');
+
+Route::post('/create_comment', 'CommentController@userStore')->name('user.comment.store');
 
 Route::get('/show_poster', function () {
     return view('poster.show_poster');
@@ -78,6 +67,7 @@ Route::get('/scientists', function () {
 
 
 
+Route::get('/prayer_time_for_monthly', 'TimePrayersController@prayerForMonthly')->name('monthly.time.prayer');
 
 Route::get('/questions_show', function () {
     return view('questions.show');
@@ -87,19 +77,6 @@ Route::get('/questions_index', function () {
     return view('questions.index');
 })->name('questions_index');
 
-
-Route::get('/show_magazines', function () {
-    return view('magazines.show_magazines');
-})->name('show_magazines');
-
-Route::get('/authors_list', function () {
-    return view('authors.authors_list');
-})->name('authors_list');
-
-Route::get('/prayer_time', function () {
-    return view('prayer_time');
-})->name('prayer_time');
-
 Route::get('/vacancies', function () {
     return view('vacancies');
 })->name('vacancies');
@@ -108,10 +85,9 @@ Route::get('/advertisers', function () {
     return view('advertisers');
 })->name('advertisers');
 
-//router for send prayer time to today
+//for ajax query
 Route::get('/time_prayer', 'TimePrayersController@prayerForToday')->name('time.prayer');
 
-Route::get('/prayer_time_for_monthly', 'TimePrayersController@prayerForMonthly')->name('monthly.time.prayer');
 
 
 //ADMINKA

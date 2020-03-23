@@ -1,61 +1,111 @@
-<div class="card-header border-0 font-weight-bold ">4 comments</div>
-@foreach($comments as $comment)
-    <div class="media mt-4">
-        <div class="media-body">
-            <h5 class="font-weight-bold mt-0">
-                <p>{{ $comment->full_name }}</p>
-                @if(Auth::check())
-                    @if(Auth::admin() == 1)
-                        <a href="" class="pull-right">
-                            <i class="fas fa-reply"></i>
-                        </a>
-                    @endif
-                @endif
-            </h5>
-            {!! $comment->content !!}
-            @if($comment->children->count())
-                <div class="media mt-3">
-                    <a class="mr-3" href="#">
-                    </a>
-                    <div class="media-body">
-                        <h5 class="font-weight-bold mt-0">
-                            <a href="">{{ $comment->children->full_name }}</a>
-                            <i class="fas fa-reply"></i>
-                            </a>
-                        </h5>
-                        {!! $comment->children->content !!}
+<section>
+    <div class="container">
+        <button type="button" class="btn btn-primary modal-open" data-toggle="modal" data-target="#modalForComment">
+            Оставить отзыв
+        </button>
+        <div class="row">
+            <div class="col-12">
+                <div class="modal fade" id="modalForComment" tabindex="-1" role="dialog"
+                     aria-labelledby="modalForComment" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <form action="{{ route('user.comment.store') }}" id="comment_form" method="POST">
+                                <div class="modal-body">
+                                    @csrf
+                                    @if(!Auth::user())
+                                        <div class="form-group">
+                                            <label for="phone-input">Телефон:</label>
+                                            <input name="phone" class="form-control" id="phone-input" type="text"
+                                                   placeholder="Телефон">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="mail-input">mail:</label>
+                                            <input name="mail" class="form-control" id="mail-input" type="text" placeholder="Почта">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="name-input">ФИО:</label>
+                                            <input name="full_name" class="form-control" id="name-input" type="text" placeholder="Имя">
+                                        </div>
+                                        <input hidden name="user_id" value="0">
+                                    @else
+                                        <input hidden name="user_id" value="{{ Auth::user()->id }}">
+                                    @endif
+                                    <div class="form-group">
+                                        <label for="content-area">Коментарии:</label>
+                                        <textarea class="form-control" name="content"
+                                                  placeholder="Коментарии"
+                                                  id="content-area"></textarea>
+                                    </div>
+                                    <input hidden name="article_id" value="{{ $article->id }}">
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Закрыть
+                                    </button>
+                                    <button type="submit" class="btn btn-primary">Отправить</button>
+                                </div>
+                            </form>
+                        </div>
                     </div>
                 </div>
-            @endif
+            </div>
+            <div class="col-12">
+                <section class="my-5">
+                    <div class="card-header border-0 font-weight-bold">{{ $comments->count() }} comments</div>
+                    @foreach($comments as $comment)
+                        @if($comment->parent_id)
+                            @continue
+                        @endif
+                        <div class="media my-5 col-12" id="play">
+                            <div class="media-body  text-center text-md-left px-4">
+                                <h5 class="font-weight-bold mt-0 d-flex">
+                                    <p class="pr-2">{{ $comment->full_name }}</p>
+                                    @admin
+                                    <a href="#" data-toggle="modal" data-target="#modalForComment"
+                                       data-id="{{ $comment->id }}" class="pull-right answer">
+                                        <i class="fas fa-reply"></i>
+                                    </a>
+                                    @endadmin
+                                </h5>
+                                <h6 class="ml-3">{!! $comment->content !!}</h6>
+                                @foreach($comment->children as $answer)
+                                    <div class="media d-block d-md-flex mt-1">
+                                        <div class="media-body text-center text-md-left ml-md-5 ml-0">
+                                            <h5 class="font-weight-bold mt-0">
+                                                <p>{{ $answer->full_name }}</p>
+                                            </h5>
+                                            {{ $answer->content }}
+                                        </div>
+                                    </div>
+                                @endforeach
+                            </div>
+                        </div>
+                    @endforeach
+                </section>
+            </div>
         </div>
     </div>
-@endforeach
-<div class="form-group mt-4">
-    @if(!Auth::check())
-        <div class="form-group">
-            <label for="formGroupExampleInput">Name</label>
-            <input type="text" class="form-control" id="formGroupExampleInput"
-                   placeholder="Введите свое имя:">
-        </div>
-        <div class="form-group">
-            <label for="exampleInputPhone">Your telephone number:</label>
-            <input type="text" class="form-control" id="exampleInputPhone"
-                   placeholder="Введите свой номер телефона:">
-        </div>
-        <div class="form-group">
-            <label for="exampleInputEmail">Email address</label>
-            <input type="email" class="form-control" id="exampleInputEmail"
-                   aria-describedby="emailHelp">
-            <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone
-                else.
-            </small>
-        </div>
-    @endif
-    <label for="quickReplyFormComment">Your comment</label>
-    <textarea class="form-control" id="quickReplyFormComment" rows="5"></textarea>
+</section>
 
-    <div class="text-center my-4">
-        <button class="btn btn-primary btn-sm" type="submit">Написать</button>
-    </div>
-</div>
+@push('scripts')
+    <script>
+        $('.answer').click(e => {
+            e.preventDefault();
+            let answer = $(e.currentTarget);
+            let id = answer.data("id");
+            let input = document.createElement("input");
+            input.value = id;
+            input.name = "parent_id";
+            input.id = "parent_id";
+            input.hidden = true;
+            if (document.getElementById('parent_id') == null) {
+                document.getElementById('comment_form').appendChild(input);
+            }
+        })
+        $('.modal-open').click(e => {
+            if (document.getElementById('parent_id') != null) {
+                document.getElementById('parent_id').remove();
+            }
+        })
+    </script>
+@endpush
 

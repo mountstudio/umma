@@ -13,11 +13,3 @@
         @include('blocks.our_projects')
     </div>
 @endsection
-
-@push('styles')
-    {{--    <link rel="stylesheet" type="text/css" href="{{ asset('css/default.css') }}"/>--}}
-
-@endpush
-@push('scripts')
-
-@endpush

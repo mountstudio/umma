@@ -1,17 +1,24 @@
 @extends('layouts.app')
 @section('content')
     <div class="container">
-    {{ Breadcrumbs::render('article', $article) }}
+        {{ Breadcrumbs::render('article', $article) }}
         <div class="row">
             <div class="col-12 col-lg-8">
                 <nav aria-label="breadcrumb">
                 </nav>
                 <div class="author d-flex justify-content-between">
-                    <p>Автор:
+                    <p>Автор{{$article->authors->count()>1?'ы':'' }}:
                         @foreach($article->authors as $author)
                             <a href="{{ route('show.author', $author) }}">{{ $author->full_name . ($loop->last ? '' : ',') }} </a>
                         @endforeach
                     </p>
+                    @if($article->photographers->count())
+                    <p>Фотограф{{$article->photographers->count()>1?'ы':'' }}:
+                        @foreach($article->photographers as $photographer)
+                            <a>{{ $photographer->full_name . ($loop->last ? '' : ',') }} </a>
+                        @endforeach
+                    </p>
+                    @endif
                     <span>{{$article->created_at->format('d.m.y')}}</span>
                 </div>
                 <div class="post-header d-flex py-2">

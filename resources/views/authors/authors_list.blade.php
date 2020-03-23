@@ -1,31 +1,30 @@
 @extends('layouts.app')
 @section('content')
+    {{ Breadcrumbs::render('authors') }}
     <div class="container">
         <div class="row">
             <div class="col-12 col-lg-8">
                 <h2 class="text-center">Спикок всех авторов</h2>
-                <div class="d-flex ">
-                    <div>
-                        <img class="rounded-circle" style="width: 122px;height: 122px;"
-                             src="{{ asset('img/example-2.jpg') }}" alt="">
+                @foreach($authors as $author)
+                    <div class="d-flex ">
+                        <div>
+                            <img class="rounded-circle" style="width: 122px;height: 122px;"
+                                 src="{{ asset('storage/small/' . $author->photo) }}" alt="">
+                        </div>
+                        <a href="{{ route('show.author', $author) }}">
+                            <div class="pt-5 px-2">
+                                <h3 class="font-weight-bold h5 pt-2"
+                                    style="min-height: 56px;">{{ $author->full_name }}</h3>
+                            </div>
+                        </a>
                     </div>
-                    <div class="pt-5 px-2">
-                        <h3 class="font-weight-bold h5 pt-2"
-                            style="min-height: 56px;">Кубанов Тилек</h3>
+                    <hr>
+                @endforeach
+                @if($authors instanceof \Illuminate\Pagination\LengthAwarePaginator)
+                    <div class="row justify-content-center mt-5">
+                        {{ $authors->appends(request()->query())->links() }}
                     </div>
-                </div>
-                <hr>
-                <div class="d-flex ">
-                    <div>
-                        <img class="rounded-circle" style="width: 122px;height: 122px;"
-                             src="{{ asset('img/example-2.jpg') }}" alt="">
-                    </div>
-                    <div class="pt-5 px-2">
-                        <h3 class="font-weight-bold h5 pt-2"
-                            style="min-height: 56px;">Кубанов Тилек</h3>
-                    </div>
-                </div>
-                <hr>
+                @endif
             </div>
             <div class="col-12 col-lg-4 pb-3">
                 @include('blocks.right-sidebar.new')
