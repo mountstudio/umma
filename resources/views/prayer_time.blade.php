@@ -2,17 +2,16 @@
 @section('content')
     {{ Breadcrumbs::render('prayer_time') }}
     <div class="container">
-        <h2 class="text-center">Время намаза</h2>
         <div class="row">
-            <div class="col-12 col-lg-2">
-                <button id="btnGroupDrop1" type="button" class="btn btn-secondary dropdown-toggle"
+            <div class="col-12 col-lg-8">
+                <h2 class="text-center">Время намаза</h2>
+                <button id="btnGroupDrop1" type="button" class="btn btn-secondary dropdown-toggle  "
                         data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Выбрать город
                 </button>
-
-                <div class="dropdown-menu pb-0" aria-labelledby="btnGroupDrop1">
+                <div class="dropdown-menu pb-0 py-2" aria-labelledby="btnGroupDrop1">
                     <div class="nav nav-tabs" id="myTab">
-                        <a class="dropdown-item active" id="bishkek-tab" data-toggle="tab" role="tab"
+                        <a class="dropdown-item active py-2" id="bishkek-tab" data-toggle="tab" role="tab"
                            aria-controls="bishkek" aria-selected="false" href="#bishkek">Бишкек</a>
                         <a class="dropdown-item" id="ik-tab" data-toggle="tab" role="tab" aria-controls="ik"
                            aria-selected="false" href="#ik">Иссык-куль</a>
@@ -28,8 +27,6 @@
                            aria-controls="batken" aria-selected="false" href="#batken">Баткен</a>
                     </div>
                 </div>
-            </div>
-            <div class="col-12 col-lg-8">
                 <div class="tab-content" id="myTabContent">
                     @foreach($table as $key=>$city)
                         <div class="tab-pane fade {{$loop->index == 0 ? 'show active':''}}" id="{{ $key }}"
@@ -65,14 +62,14 @@
                     @endforeach
                 </div>
             </div>
-        </div>
-        <div class="col-12 col-lg-4 pb-3">
-            @include('blocks.right-sidebar.new')
-            <div class="pt-3">
-                @include('blocks.right-sidebar.animation')
+            <div class="col-12 col-lg-4 pb-3">
+                @include('blocks.right-sidebar.new')
+                <div class="pt-3">
+                    @include('blocks.right-sidebar.animation')
+                </div>
+                <h2 class="text-center py-2">Статьи</h2>
+                @include('blocks.right-sidebar.new')
             </div>
-            <h2 class="text-center py-2">Статьи</h2>
-            @include('blocks.right-sidebar.new')
         </div>
     </div>
 @endsection

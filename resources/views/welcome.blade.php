@@ -15,9 +15,10 @@
 @endsection
 
 @push('styles')
-    {{--    <link rel="stylesheet" type="text/css" href="{{ asset('css/default.css') }}"/>--}}
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css"/>
+    <link rel="stylesheet" type="text/css" href="{{asset('css/buttons.css')}}"/>
 @endpush
 @push('scripts')
-
+    {{--    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>--}}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.2/jquery.modal.min.js"></script>
 @endpush

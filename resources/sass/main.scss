@@ -98,3 +98,7 @@ body {
     top: 50%;
     transform: translateY(-50%);
 }
+.btn-orange {
+    border-color: $text-orange !important;
+    padding: 4px;
+}

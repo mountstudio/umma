@@ -8,7 +8,7 @@
             <div class="d-lg-flex border border-3 rounded p-3 text-center">
                 @foreach($kolumnisty as $kolumnist)
                     <div class="col-12 col-lg-3 col-md-12">
-                        <a href="{{ route('show.author', $kolumnist) }}">
+                        <a href="{{ route('show.author', ['author' => $kolumnist]) }}">
                             <img class="rounded-circle" style="width: 82px;height: 82px;"
                                  src="{{ asset('storage/small/' . $kolumnist->photo) }}" alt="">
                             <h3 class="font-weight-bold h5 pt-2"

@@ -40,12 +40,68 @@
                         <label for="exampleFormControlTextarea1">Ваше сообщение</label>
                         <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
                     </div>
-                    <button class="button button--nina button--text-thick button--text-upper button--size-s"
-                            data-text="Отправить">
-                        <span>О</span><span>т</span><span>п</span><span>р</span><span>а</span><span>в</span><span>и</span><span>т</span><span>ь</span>
-                    </button>
-
+                    <div class="row justify-content-center">
+                        <button class="button button--nina button--text-thick button--text-upper button--size-s"
+                                data-text="Отправить">
+                            <span>О</span><span>т</span><span>п</span><span>р</span><span>а</span><span>в</span><span>и</span><span>т</span><span>ь</span>
+                        </button>
+                    </div>
                 </form>
+                <div class="text-md-left text-sm-center border-question  pt-5">
+                    <h2 class="text-center  ">Список всех вопросов</h2>
+                    <div class="p-3 border my-4">
+                        <div class="text-left">
+                            <span class="text-orange  font-weight-bold">Категория вопроса:</span>
+                        </div>
+                        <p class="text-dark"><span class="pr-2 h5">В:</span>Я русская принявшая недавно ислам зрелая никях. Мне очень
+                            хорошо в моей религии. Я гармонична в
+                            ней. Замужем почти год. У мужа 2 неудачных брака за спиной. 3 е детей. А у меня 1 ребенок.
+                            Сын
+                            мой на инвалидности. Мы не говорящие аутисты. Я хочу познать счастье воспитания обычного
+                            здорового ребёнка, а муж не хочет. Что делать? Разводиться?</p>
+                        <div class="text-center">
+                            <span class="text-orange text-right  font-weight-bold">Анонимно / 22 апреля 2017</span>
+                        </div>
+                        <hr>
+                        <p class="text-dark"><span class="pr-2 h5">О:</span>Вы не должны желать или стремиться к разводу (по этой
+                            причине), а наоборот поговорить с мужем.
+                            Тем более Вы всего 1 год с ним, и у вас обоих дети, за которых вы двое также несете
+                            ответственность, чтобы воспитывать их. Муж должен обеспечивать детей и Вас. Возможно ему
+                            тяжело
+                            зарабатывать и поэтому дайте ему время. Поговорите с ним. Делайте дува (молитву) Аллаху.
+                        </p>
+                        <div class="text-right">
+                            <span class="text-orange text-right  font-weight-bold">Кадыр маликов</span>
+                        </div>
+
+                    </div>
+                    <div class="p-3 border my-4">
+                        <div class="text-left">
+                            <span class="text-orange  font-weight-bold">Категория вопроса:</span>
+                        </div>
+                        <p class="text-dark"><span class="pr-2 h5">В:</span>Я русская принявшая недавно ислам зрелая никях. Мне очень
+                            хорошо в моей религии. Я гармонична в
+                            ней. Замужем почти год. У мужа 2 неудачных брака за спиной. 3 е детей. А у меня 1 ребенок.
+                            Сын
+                            мой на инвалидности. Мы не говорящие аутисты. Я хочу познать счастье воспитания обычного
+                            здорового ребёнка, а муж не хочет. Что делать? Разводиться?</p>
+                        <div class="text-center">
+                            <span class="text-orange text-right  font-weight-bold">Анонимно / 22 апреля 2017</span>
+                        </div>
+                        <hr>
+                        <p class="text-dark"><span class="pr-2 h5">О:</span>Вы не должны желать или стремиться к разводу (по этой
+                            причине), а наоборот поговорить с мужем.
+                            Тем более Вы всего 1 год с ним, и у вас обоих дети, за которых вы двое также несете
+                            ответственность, чтобы воспитывать их. Муж должен обеспечивать детей и Вас. Возможно ему
+                            тяжело
+                            зарабатывать и поэтому дайте ему время. Поговорите с ним. Делайте дува (молитву) Аллаху.
+                        </p>
+                        <div class="text-right">
+                            <span class="text-orange text-right  font-weight-bold">Кадыр маликов</span>
+                        </div>
+
+                    </div>
+                </div>
             </div>
             <div class="col-12 col-lg-4 pb-3">
                 @include('blocks.right-sidebar.new')

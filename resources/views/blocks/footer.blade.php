@@ -5,17 +5,51 @@
         </div>
         <div class="col-12 col-md-7 pt-2 ">
             <div class="row align-items-center justify-content-center justify-content-lg-end">
-                <a href="https://www.facebook.com/ummamag.kg"><i class="fab fa-facebook fa-lg text-white mr-3" ></i></a>
-                <a href="https://www.instagram.com/ummamagkg/"><i class="fab fa-instagram fa-lg text-white mr-3" ></i></a>
-                <a href="https://www.youtube.com/watch?v=pfab0uXYDpY&feature=youtu.be"><i class="fab fa-youtube fa-lg text-white mr-3" ></i></a>
-                <a href=""><i class="fas fa-rss fa-lg text-white mr-3" ></i></a>
-                <a href=""></a><ul class="nav ml-3">
-                    <li class="text-for-footer nav-item mr-4"><a class="text-white" href="{{ route('all.magazines') }}">О нас</a></li>
-                    <li class="text-for-footer nav-item mr-4"><a class="text-white" href="{{ route('vacancies') }}">Вакансии</a></li>
-                    <li class="text-for-footer nav-item mr-4"><a class="text-white" href="{{ route('scientists') }}">Задать вопрос ученому</a></li>
-                    <li class="text-for-footer nav-item mr-4"><a class="text-white" href="{{ route('advertisers') }}">Рекламодателям</a></li>
-                    <li class="text-for-footer nav-item mr-4"><a class="text-orange" href="">Подписка</a></li>
+                <a href="https://www.facebook.com/ummamag.kg"><i class="fab fa-facebook fa-lg text-white mr-3"></i></a>
+                <a href="https://www.instagram.com/ummamagkg/"><i
+                        class="fab fa-instagram fa-lg text-white mr-3"></i></a>
+                <a href="https://www.youtube.com/watch?v=pfab0uXYDpY&feature=youtu.be"><i
+                        class="fab fa-youtube fa-lg text-white mr-3"></i></a>
+                <a href=""><i class="fas fa-rss fa-lg text-white mr-3"></i></a>
+                <a href=""></a>
+                <ul class="nav ml-3">
+                    <li class="text-for-footer nav-item mr-4"><a class="text-white" href="{{ route('all.magazines') }}">О
+                            нас</a></li>
+                    <li class="text-for-footer nav-item mr-4"><a class="text-white" href="{{ route('vacancies') }}">Вакансии</a>
+                    </li>
+                    <li class="text-for-footer nav-item mr-4"><a class="text-white" href="{{ route('scientists') }}">Задать
+                            вопрос ученому</a></li>
+                    <li class="text-for-footer nav-item mr-4"><a class="text-white" href="{{ route('advertisers') }}">Рекламодателям</a>
+                    </li>
+                    <li class="text-for-footer nav-item mr-4"><a class="text-orange" href="#ex1" rel="modal:open">Подписка</a>
+                    </li>
                 </ul>
+                <div id="ex1" class="modal">
+                    <form>
+                        <div class="row">
+                            <div class="col  text-center">
+                                <label for="exampleInputEmail1">Email address</label>
+                                <input type="email" class="form-control" id="exampleInputEmail1"
+                                       aria-describedby="emailHelp">
+                            </div>
+                            <div class="col text-center">
+                                <button class="button button--moema button--inverted button--text-thick button--size-s">
+                                    Подписаться
+                                </button>
+                            </div>
+                        </div>
+                        <div class="row justify-content-center">
+                            <p>Напишите свой email адресс, чтобы всегда быть вкурсе событий</p>
+                            <a class="button button--isi button--border-thick button--round-l button--size-s text-white"
+                               href="#" rel="modal:close">Закрыть окно</a>
+                        </div>
+                    </form>
+{{--                    <div class="">--}}
+{{--                        Напишите свой email адресс, чтобы всегда быть вкурсе собы--}}
+{{--                        <a class="button button--isi button--border-thick button--round-l button--size-s text-white"--}}
+{{--                           href="#" rel="modal:close">Закрыть окно</a>--}}
+{{--                    </div>--}}
+                </div>
             </div>
         </div>
     </div>
@@ -46,3 +80,4 @@
         </a>
     </div>
 </div>
+
