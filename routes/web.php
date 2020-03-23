@@ -67,6 +67,10 @@ Route::get('/show_poster', function () {
     return view('poster.show_poster');
 })->name('show_poster');
 
+Route::get('/poster_index', function () {
+    return view('poster.index');
+})->name('poster_index');
+
 Route::get('/show_search', function () {
     return view('search.show_search');
 })->name('show_search');
