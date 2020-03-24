@@ -8,12 +8,12 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 
-
-Route::get('editorjs/link', 'EditorJsController@link');
-
-Route::post('editorjs/image/file', 'EditorJsController@image');
-
-Route::post('editorjs/image/url', 'EditorJsController@image');
+//
+//Route::get('editorjs/link', 'EditorJsController@link');
+//
+//Route::post('editorjs/image/file', 'EditorJsController@image');
+//
+//Route::post('editorjs/image/url', 'EditorJsController@image');
 
 
 Route::get('/show_hadith/{hadith}', 'HadithController@show')->name('show.hadith');
@@ -52,19 +52,18 @@ Route::get('/education', 'ArticleController@education')->name('education');
 
 Route::post('/create_comment', 'CommentController@userStore')->name('user.comment.store');
 
+
 Route::get('/show_poster', function () {
     return view('poster.show_poster');
 })->name('show_poster');
 
-Route::get('/show_search', function () {
-    return view('search.show_search');
-})->name('show_search');
 
 Route::get('/scientists', function () {
     return view('scientists');
 })->name('scientists');
 
 
+Route::post('/search_results', 'ArticleController@searchArticles')->name('search');
 
 
 Route::get('/prayer_time_for_monthly', 'TimePrayersController@prayerForMonthly')->name('monthly.time.prayer');

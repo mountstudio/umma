@@ -57,6 +57,7 @@ class Article extends Model implements Searchable
     {
         return $this->hasMany(Comment::class);
     }
+
     public function getRouteKeyName()
     {
         return 'slug';
@@ -64,11 +65,11 @@ class Article extends Model implements Searchable
 
     public function getSearchResult(): SearchResult
     {
-        $url = route('blogPost.show', $this->slug);
+        $url = route('show.article', $this);
 
         return new \Spatie\Searchable\SearchResult(
             $this,
-            $this->title,
+            $this->name,
             $url
         );
     }

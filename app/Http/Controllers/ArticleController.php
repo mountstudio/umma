@@ -15,8 +15,10 @@ use App\Poster;
 use App\Project;
 use App\Services\ImageUploader;
 use App\Tag;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
+use Spatie\Searchable\Search;
 use Yajra\DataTables\Facades\DataTables;
 
 class ArticleController extends Controller
@@ -257,12 +259,12 @@ class ArticleController extends Controller
         $articles = Article::where('category_id', 4)->paginate(6);
         return view('education', ['articles' => $articles]);
     }
+
     public function about_sore()
     {
         $articles = Article::where('category_id', 1)->paginate(6);
         return view('about_sore', ['articles' => $articles]);
     }
-
 
 
     public static function get_categories()
@@ -302,5 +304,18 @@ class ArticleController extends Controller
         } else {
             return self::recursive_cut_content($content, --$countWords, $countSymbols);
         }
+    }
+
+    public function searchArticles(Request $request)
+    {
+        $searchResults = (new Search())
+            ->registerModel(Article::class, 'name', 'content')
+            ->search($request->desired);
+        $articles = Array();
+        foreach ($searchResults as $result) {
+            array_push($articles, $result->searchable);
+        }
+        $articles = collect($articles)->groupBy('type');
+        return view('search.search_results', ['searchResults' => $articles]);
     }
 }
