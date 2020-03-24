@@ -12,7 +12,7 @@
                 <div class="d-flex">
                     <div class="pr-2">
                         <img class="rounded-circle" style="width: 122px;height: 122px;"
-                             src="{{ asset('img/example-2.jpg') }}" alt="">
+                             src="{{ asset('storage/small/' . $author->photo) }}" alt="">
                     </div>
                     <div class="author pt-5 ">
                         <p class="text-dark font-weight-bold">{{ $author->full_name }}</p>

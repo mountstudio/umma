@@ -5,8 +5,10 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 use Cviebrock\EloquentSluggable\Sluggable;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Spatie\Searchable\Searchable;
+use Spatie\Searchable\SearchResult;
 
-class Article extends Model
+class Article extends Model implements Searchable
 {
     use SoftDeletes;
     use Sluggable;
@@ -55,8 +57,20 @@ class Article extends Model
     {
         return $this->hasMany(Comment::class);
     }
+
     public function getRouteKeyName()
     {
         return 'slug';
+    }
+
+    public function getSearchResult(): SearchResult
+    {
+        $url = route('show.article', $this);
+
+        return new \Spatie\Searchable\SearchResult(
+            $this,
+            $this->name,
+            $url
+        );
     }
 }

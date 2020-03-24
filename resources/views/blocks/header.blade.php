@@ -21,10 +21,11 @@
         <div class="col-12 col-lg-6 pt-3 text-center">
 
             <div id="sb-search" class="sb-search col-12 col-lg-8">
-                <form>
+                <form action="{{ route('search') }}" method="POST">
+                    @csrf
                     <input class="sb-search-input" placeholder="Enter your search term..." type="text" value="" name="search"
                            id="search">
-                    <input class="sb-search-submit" type="submit" value="">
+                    <input class="sb-search-submit" type="submit">
                     <span class="sb-icon-search"></span>
                 </form>
             </div>

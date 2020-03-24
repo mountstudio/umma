@@ -54,6 +54,10 @@ Breadcrumbs::register('about_sore', function ($breadcrumbs) {
     $breadcrumbs->parent('home');
     $breadcrumbs->push('О наболевшем', route('about_sore'));
 });
+Breadcrumbs::register('authors', function ($breadcrumbs) {
+    $breadcrumbs->parent('home');
+    $breadcrumbs->push('Авторы', route('all.authors'));
+});
 
 
 
@@ -68,7 +72,7 @@ Breadcrumbs::register('magazine', function ($breadcrumbs, $magazine) {
 });
 
 Breadcrumbs::register('author', function ($breadcrumbs, $author) {
-    $breadcrumbs->parent('home');
+    $breadcrumbs->parent('authors');
     $breadcrumbs->push($author->full_name, route('show.author', $author));
 });
 

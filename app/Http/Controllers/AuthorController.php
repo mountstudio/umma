@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Article;
 use App\Author;
 use App\Http\Requests\StoreAuthorRequest;
 use App\Http\Requests\UpdateAuthorRequest;
@@ -137,5 +136,10 @@ class AuthorController extends Controller
     public function datatable()
     {
         return view('admin.authors.index');
+    }
+
+    public function showAuthors()
+    {
+        return view('authors.authors_list', ['authors' => Author::paginate(5)]);
     }
 }
