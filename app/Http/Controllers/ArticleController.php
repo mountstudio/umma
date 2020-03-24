@@ -310,7 +310,7 @@ class ArticleController extends Controller
     {
         $searchResults = (new Search())
             ->registerModel(Article::class, 'name', 'content')
-            ->search($request->desired);
+            ->search($request->search);
         $articles = Array();
         foreach ($searchResults as $result) {
             array_push($articles, $result->searchable);
