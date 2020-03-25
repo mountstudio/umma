@@ -114,8 +114,8 @@
 {{--                </ul>--}}
 {{--            </nav>--}}
 {{--        </div>--}}
-        <marquee behavior="alternate" direction="right" >
-            <p class="bg-for-middle-div h4 pt-2 pb-2">Трансляция: Текст, Видео, Галерея</p>
+        <marquee behavior="alternate" direction="right" class="bg-for-middle-div">
+            <p class=" h4 pt-2 pb-2">Трансляция: Текст, Видео, Галерея</p>
         </marquee>
     </div>
 {{--    <div class="row d-none d-lg-block">--}}
