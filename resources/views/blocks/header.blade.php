@@ -49,28 +49,28 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav mr-auto">
                         <li class="nav-item active">
-                            <a class="nav-link text-dark  pl-0" href="{{ route('need_to_know') }}" title="" style="">Надо знать</a>
+                            <a class="nav-link text-dark  text-menu pl-0" href="{{ route('need_to_know') }}" title="" style="">Надо знать</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" href="{{ route('it_is_interesting') }}" title="" style="">Это интересно</a>
+                            <a class="nav-link text-dark text-menu" href="{{ route('it_is_interesting') }}" title="" style="">Это интересно</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" href="{{ route('education') }}" title="" style="">Просвещение</a>
+                            <a class="nav-link text-dark text-menu" href="{{ route('education') }}" title="" style="">Просвещение</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" href="{{ route('about_sore') }}" title="" style="">О наболевшем</a>
+                            <a class="nav-link text-dark text-menu" href="{{ route('about_sore') }}" title="" style="">О наболевшем</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" href="{{ route('interview') }}" title="" style="">Интервью</a>
+                            <a class="nav-link text-dark text-menu" href="{{ route('interview') }}" title="" style="">Интервью</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" href="{{ route('all.media') }}" title="" style="">Медиа</a>
+                            <a class="nav-link text-dark text-menu" href="{{ route('all.media') }}" title="" style="">Медиа</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" href="{{ route('all.news') }}" title="" style="">Новости</a>
+                            <a class="nav-link text-dark text-menu" href="{{ route('all.news') }}" title="" style="">Новости</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" href="{{ route('all.magazines') }}" title="" style="">Журнал</a>
+                            <a class="nav-link text-dark text-menu" href="{{ route('all.magazines') }}" title="" style="">Журнал</a>
                         </li>
                     </ul>
                 </div>
