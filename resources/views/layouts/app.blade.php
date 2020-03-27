@@ -14,12 +14,12 @@
     <link rel="stylesheet" type="text/css" href="{{asset('css/buttons.css')}}"/>
     @stack('styles')
 </head>
-<body>
-<section class="position-absolute " style="z-index: -1;">
-    <img class="img-fluid" src="{{ asset('img/example-2.jpg') }}" alt="">
-    <div class="position-absolute" style="bottom: 0;height: 100px;width: 100%;left: 0;filter: blur(5px);">
+<body style="overflow-x: hidden;">
+<section class="position-absolute " style="z-index: -1;background: url('{{ asset('img/example-2.jpg') }}');height: 100vh;width: 100%;">
 
-    </div>
+</section>
+<section class="position-absolute" style="bottom: -52px;height: 100px;width: 110%;left: -30px;filter: blur(15px);background: white;z-index: -1;">
+
 </section>
 <form id="frm-logout" action="{{ route('logout') }}" method="POST" style="display: none;">
     {{ csrf_field() }}
