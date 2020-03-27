@@ -19,6 +19,7 @@ class VerifyCsrfToken extends Middleware
      * @var array
      */
     protected $except = [
+        'image-upload',
         'editorjs/image/file',
         'editorjs/image/url',
     ];
