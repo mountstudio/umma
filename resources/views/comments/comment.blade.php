@@ -1,8 +1,10 @@
 <section>
     <div class="container">
-        <button type="button" class="btn btn-primary modal-open" data-toggle="modal" data-target="#modalForComment">
-            Оставить отзыв
-        </button>
+        <div class="col-12 row justify-content-center">
+            <button type="button" class="btn btn-primary modal-open" data-toggle="modal" data-target="#modalForComment">
+                Оставить отзыв
+            </button>
+        </div>
         <div class="row">
             <div class="col-12">
                 <div class="modal fade" id="modalForComment" tabindex="-1" role="dialog"
