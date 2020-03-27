@@ -4,14 +4,14 @@
     </div>
     <div class="row">
         @foreach($posters as $poster)
-            <div class="col-12 col-lg-3 col-md-6 px-3 py-2">
+            <div class="col-12 col-lg-3 col-md-6 px-1 py-2">
                 <div class="card">
 
                     <img src="{{ asset('storage/medium/' . $poster->main_photo) }}" class="card-img-top p-2"
                          alt="...">
                     <div class="card-body pt-0 text-center">
-                        <div class="row justify-content-center" style="margin-top: -4rem;">
-                            <div class="col-4 border  rounded border-1  bg-white">
+                        <div class="row justify-content-center" style="margin-top: -3rem;">
+                            <div class="col-5 border  rounded border-1 px-1 bg-white">
                                 <p class="pt-3 h4 mb-0" style="line-height: 92%;"><span
                                             class="text-orange">{{ \Carbon\Carbon::make($poster->date_event)->formatLocalized('%d') }}</span>
                                     <br>{{ \Carbon\Carbon::make($poster->date_event)->formatLocalized('%b') }}</p>
