@@ -9,6 +9,9 @@ class PdfUploader
 {
     public static function upload(UploadedFile $file, $dir, $prefix)
     {
+        if (!file_exists(storage_path('app/public/pdf/'))) {
+            mkdir(storage_path('app/public/pdf/'), 0777);
+        }
         if (!file_exists(storage_path('app/public/pdf/' . $dir))) {
             mkdir(storage_path('app/public/pdf/' . $dir), 0777);
         }

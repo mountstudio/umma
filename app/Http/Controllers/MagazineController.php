@@ -42,7 +42,7 @@ class MagazineController extends Controller
     public function store(StoreMagazineRequest $request)
     {
         $request->validated();
-        $magazine = Magazine::create($request);
+        $magazine = Magazine::create($request->all());
         $magazine->image = ImageUploader::upload(request('image'), 'magazines', 'magazines', 40);
         $magazine->pdf = PdfUploader::upload(request('pdf'), 'magazines', 'magazines');
         $magazine->save();
@@ -57,10 +57,15 @@ class MagazineController extends Controller
      */
     public function show(Magazine $magazine)
     {
+//        dd($magazine);
+        return view('magazines.show_magazines', ['magazine' => $magazine]);
+    }
+
+    public function adminShow(Magazine $magazine)
+    {
 
         return view('admin.magazines.show', ['magazine' => $magazine]);
     }
-
     /**
      * Show the form for editing the specified resource.
      *
@@ -139,6 +144,6 @@ class MagazineController extends Controller
 
     public function showMagazines()
     {
-        return view('magazines',['magazines'=>Magazine::latest()->get()]);
+        return view('magazines', ['magazines' => Magazine::latest()->get()]);
     }
 }

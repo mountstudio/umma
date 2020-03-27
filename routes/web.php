@@ -1,18 +1,5 @@
 <?php
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
-//Route::get('/', function () {
-//    return view('welcome');
-//});
 
 Route::get('/', 'ArticleController@welcome')->name('welcome');
 
@@ -20,74 +7,69 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('/hadiths', 'HadithController@showHadiths')->name('show.hadiths');
 
 Route::get('/show_hadith/{hadith}', 'HadithController@show')->name('show.hadith');
 
 Route::get('/show_for_news/{article}', 'ArticleController@show')->name('show.article');
 
-Route::get('/news_page', 'ArticleController@news_page')->name('all.news');
+Route::get('/show_for_authors/{author}', 'AuthorController@show')->name('show.author');
 
-Route::get('editorjs/link', 'EditorJsController@link');
+Route::get('/show_for_tags/{tag}', 'TagController@show')->name('show.tag');
 
-Route::post('editorjs/image/file', 'EditorJsController@image');
+Route::get('/show_media/{multimedia}', 'MultimediaController@show')->name('show.media');
 
-Route::post('editorjs/image/url', 'EditorJsController@image');
+Route::get('/show_magazines/{magazine}', 'MagazineController@show')->name('show.magazine');
 
 
-Route::get('/media', function () {
-    return view('media');
-})->name('media');
+Route::get('/hadiths', 'HadithController@showHadiths')->name('all.hadiths');
+
+Route::get('/news_page', 'ArticleController@showNews')->name('all.news');
 
 Route::get('/magazines', 'MagazineController@showMagazines')->name('all.magazines');
 
-Route::get('/it_is_interesting', function () {
-    return view('it_is_interesting');
-})->name('it_is_interesting');
+Route::get('/multimedia', 'MultimediaController@showMultimedia')->name('all.media');
 
-Route::get('/need_to_know', function () {
-    return view('need_to_know');
-})->name('need_to_know');
+Route::get('/authors', 'AuthorController@showAuthors')->name('all.authors');
 
-Route::get('/need_to_know', function () {
-    return view('need_to_know');
-})->name('need_to_know');
+Route::get('/poster_index', 'PosterController@index')->name('all.posters');
 
-Route::get('/interview', function () {
-    return view('interview');
-})->name('interview');
 
-Route::get('/about_sore', function () {
-    return view('about_sore');
-})->name('about_sore');
+Route::get('/it_is_interesting', 'ArticleController@it_is_interesting')->name('it_is_interesting');
 
-Route::get('/education', function () {
-    return view('education');
-})->name('education');
+Route::get('/need_to_know', 'ArticleController@need_to_know')->name('need_to_know');
 
-Route::get('/scientists', function () {
-    return view('scientists');
-})->name('scientists');
+Route::get('/interview', 'ArticleController@interview')->name('interview');
 
-Route::get('/show_for_hadis', function () {
-    return view('show_for_hadis');
-})->name('show_for_hadis');
+Route::get('/about_sore', 'ArticleController@about_sore')->name('about_sore');
 
-Route::get('/show_for_authors',function (){
-    return view('show_for_authors');
-})->name('show_for_authors');
+Route::get('/education', 'ArticleController@education')->name('education');
 
-Route::get('/show_for_news',function (){
-    return view('show_for_news');
-})->name('show_for_news');
+Route::post('/create_comment', 'CommentController@userStore')->name('user.comment.store');
 
-Route::get('/show_multimedia', function () {
-    return view('show_multimedia');
-})->name('show_multimedia');
 
-Route::get('/prayer_time', function () {
-    return view('prayer_time');
-})->name('prayer_time');
+Route::get('/show_poster/{poster}', 'PosterController@show')->name('show.poster');
+
+
+Route::get('/show_search', function () {
+    return view('search.show_search');
+})->name('show_search');
+
+Route::get('/scientists', 'QuestionController@scientists')->name('scientists');
+
+
+Route::get('/search_results', 'ArticleController@searchArticles')->name('search');
+Route::post('/image-upload', 'ContentController@upload')->name('content.upload');
+
+
+Route::get('/prayer_time_for_monthly', 'TimePrayersController@prayerForMonthly')->name('monthly.time.prayer');
+
+Route::get('/questions_show', function () {
+    return view('questions.show');
+})->name('questions_show');
+
+Route::get('/questions_index', function () {
+    return view('questions.index');
+})->name('questions_index');
 
 Route::get('/vacancies', function () {
     return view('vacancies');
@@ -97,10 +79,10 @@ Route::get('/advertisers', function () {
     return view('advertisers');
 })->name('advertisers');
 
-//router for send prayer time to today
+//for ajax query
 Route::get('/time_prayer', 'TimePrayersController@prayerForToday')->name('time.prayer');
 
-Route::get('/check_pars', 'TimePrayersController@prayerForMonthly');
+
 
 //ADMINKA
 Route::prefix('admin')->name('admin.')/*->middleware('admin')*/

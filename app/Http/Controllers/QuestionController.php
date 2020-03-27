@@ -117,4 +117,12 @@ class QuestionController extends Controller
     {
         return view('admin.questions.index');
     }
+    public function scientists(){
+        $question = Question::whereNotNull('answer')->paginate(3);
+        dd($question);
+        return view('scientists', [
+            'category' => QuestionCategory::all(),
+            'question' => $question,
+        ]);
+    }
 }

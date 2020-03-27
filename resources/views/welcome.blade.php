@@ -2,6 +2,13 @@
 
 @section('content')
     <div class="">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 p-0">
+                    {{ Breadcrumbs::render('home') }}
+                </div>
+            </div>
+        </div>
         @include('blocks.news')
         @include('blocks.kolumnisti')
         @include('blocks.afisha')
@@ -14,8 +21,7 @@
 @endsection
 
 @push('styles')
-    {{--    <link rel="stylesheet" type="text/css" href="{{ asset('css/default.css') }}"/>--}}
-
+    <link rel="stylesheet" type="text/css" href="{{asset('css/buttons.css')}}"/>
 @endpush
 @push('scripts')
 

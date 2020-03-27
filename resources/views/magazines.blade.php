@@ -2,6 +2,14 @@
 @section('content')
     <div class="container">
         <div class="row">
+            <div class="col-12 p-0">
+                {{ Breadcrumbs::render('magazines') }}
+
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
             <div class="col-12 col-lg-8">
                 <div>
                     <h2 class="text-center">Журналы</h2>
@@ -11,7 +19,9 @@
                             <div class="col-12 col-md-6">
                                 <div>
                                     <img class="img-fluid" src="{{ asset('storage/medium/' . $magazine->image) }}" alt="журнал 2017">
-                                    <p style="min-height: 52px">{{ $magazine->name }}</p>
+                                    <p class="m-0">{{ $magazine->name }}</p>
+                                    <a href="{{ route('show.magazine', $magazine) }}">Просмотреть журнал в PDF</a>
+                                    <a href="{{ asset('storage/pdf/' . $magazine->pdf) }}" download><p>Скачать журнал</p></a>
                                 </div>
                             </div>
                         @endforeach

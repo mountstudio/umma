@@ -13,12 +13,11 @@
                                                 background-color: #008500;margin-top: -2.10rem;">
                         @foreach($article->tags as $tag)
                             @if($loop->index == 1)
-                                <a href="" class="text-white"
-                                   target="_blank">{{ $tag->name }} </a>
+                                <a href="{{ route('show.tag', $tag) }}" class="text-white">{{ $tag->name }} </a>
                                 @break
                             @endif
-                            <a href="" class="text-white"
-                               target="_blank">{{ $tag->name . ($loop->last ? '' : ', ') }} </a>
+                            <a href="{{ route('show.tag', $tag) }}"
+                               class="text-white">{{ $tag->name . ($loop->last ? '' : ', ') }} </a>
                         @endforeach
                     </p>
                 </div>

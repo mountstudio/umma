@@ -50,7 +50,12 @@ class TagController extends Controller
      */
     public function show(Tag $tag)
     {
-        //
+        $articlesByTag = $tag->articles()->paginate(6);
+        return view('show_tags',
+            [
+                'tag' => $tag,
+                'articlesByTag' => $articlesByTag,
+            ]);
     }
 
     public function adminShow(Tag $tag)

@@ -2,16 +2,28 @@
 @section('content')
     <div class="container">
         <div class="row">
+            <div class="col-12 p-0">
+                {{ Breadcrumbs::render('article', $article) }}
+            </div>
+        </div>
+        <div class="row">
             <div class="col-12 col-lg-8">
                 <nav aria-label="breadcrumb">
                 </nav>
                 <div class="author d-flex justify-content-between">
-                    <p>Автор:
+                    <p>Автор{{$article->authors->count()>1?'ы':'' }}:
                         @foreach($article->authors as $author)
-                            <a href="" target="_blank">{{ $author->full_name . ($loop->last ? '' : ',') }} </a>
+                            <a href="{{ route('show.author', $author) }}">{{ $author->full_name . ($loop->last ? '' : ',') }} </a>
                         @endforeach
                     </p>
-                    <span>{{$article->created_at->format('')}}</span>
+                    @if($article->photographers->count())
+                        <p>Фотограф{{$article->photographers->count()>1?'ы':'' }}:
+                            @foreach($article->photographers as $photographer)
+                                <a>{{ $photographer->full_name . ($loop->last ? '' : ',') }} </a>
+                            @endforeach
+                        </p>
+                    @endif
+                    <span>{{$article->created_at->format('d.m.y')}}</span>
                 </div>
                 <div class="post-header d-flex py-2">
                     <img class="d-none d-md-block mx-2" src="{{ asset('img/news.png') }}" alt=""
@@ -29,37 +41,35 @@
                 <div class="tags">
                     <h5 class="widget-title">Теги:</h5>
                     @foreach($article->tags as $tag)
-                        <a href="" target="_blank">{{  $tag->name . ($loop->last ? '' : ',') }} </a>
+                        <a href="{{ route('show.tag', $tag) }}">{{  $tag->name . ($loop->last ? '' : ',') }} </a>
                     @endforeach
                 </div>
                 @include('subscription.subscribe')
                 @include('share.share_buttons')
-
-                <div class="icons" style="position: relative;right: -9%;margin-top: -25px;">
-                    <div class="">
-                        <a href="https://www.facebook.com/ummamag.kg"><i
-                                    class="fab fa-facebook fa-lg text-orange mr-3"></i></a>
-                        <a href="https://www.instagram.com/ummamagkg/"><i
-                                    class="fab fa-instagram fa-lg text-orange mr-3"></i></a>
-                        <a class="" href="/#vk" title="VK" rel="nofollow noopener" target="_blank">
-                            <i class="fab fa-vk fa-lg text-orange mr-3"></i>
-                        </a>
+                <section class="my-5">
+                    @include('comments.comment')
+                </section>
+                <div class="row">
+                    <div class="col-12 text-center pb-5">
+                        <h3>Другие статьи</h3>
+                    </div>
+                    @for($i=0;$i<3;$i++)
+                        @include('other.other_articles')
+                    @endfor
+                    <div class="col-12 row justify-content-center   ">
+                        <button class="button button--winona button--border-thin button--round-s" data-text="Показать еще"><span>Показать еще</span></button>
                     </div>
                 </div>
             </div>
-            <section class="my-5">
-                @include('comments.comment')
-            </section>
-        </div>
-        <div class="col-12 col-lg-4 pb-3">
-            @include('blocks.right-sidebar.new')
-            <div class="pt-3">
-                @include('blocks.right-sidebar.animation')
+            <div class="col-12 col-lg-4 pb-3">
+                @include('blocks.right-sidebar.new')
+                <div class="pt-3">
+                    @include('blocks.right-sidebar.animation')
+                </div>
+                <h2 class="text-center py-2">Статьи</h2>
+                @include('blocks.right-sidebar.new')
             </div>
-            <h2 class="text-center py-2">Статьи</h2>
-            @include('blocks.right-sidebar.new')
         </div>
-    </div>
     </div>
 @endsection
 
@@ -69,7 +79,6 @@
             let btn = $(e.currentTarget);
             let social = btn.data('social');
             let url = btn.data('url');
-            let text = btn.data('text');
 
             if (social == 'facebook') {
                 url = 'https://facebook.com/sharer/sharer.php?u=' + url;
@@ -79,9 +88,6 @@
                 url = 'https://vk.com/share.php?url=' + url;
                 window.open(url, "popupWindow", "width=600,height=600,scrollbars=yes");
             }
-            // if (social == 'instagram') {
-            //     window.open($(this).attr("href", 'https://vk.com/share.php?url=' + url), "popupWindow", "width=600,height=600,scrollbars=yes");
-            // }
         })
     </script>
 @endpush

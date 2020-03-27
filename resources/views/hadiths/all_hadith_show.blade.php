@@ -1,5 +1,6 @@
 @extends('layouts.app')
 @section('content')
+    {{ Breadcrumbs::render('hadiths') }}
     <div class="container">
         <div class="row">
             <div class="col-12 col-lg-8">

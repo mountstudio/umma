@@ -70,10 +70,6 @@ class CommentController extends Controller
     {
         //
     }
-//    public function get_comments(artilce)
-//    {
-//
-//    }
 
     public function adminShow(Comment $comment)
     {
@@ -151,5 +147,25 @@ class CommentController extends Controller
     public function datatable()
     {
         return view('admin.comments.index');
+    }
+
+    public function userStore(Request $request)
+    {
+//        dd($request);
+        if ($request->user_id == 0) {
+            Comment::create($request->except('user_id'));
+        } else {
+            $comment = New Comment();
+            $user = User::find($request->user_id);
+            $comment->full_name = $user->name;
+            $comment->phone = $user->phone;
+            $comment->mail = $user->email;
+            $comment->article_id = $request->input('article_id');
+            $comment->user_id = $request->input('user_id');
+            $comment->content = $request->input('content');
+            $comment->parent_id = $request->input('parent_id');
+            $comment->save();
+        }
+        return redirect()->back();
     }
 }

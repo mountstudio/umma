@@ -57,7 +57,12 @@ class AuthorController extends Controller
      */
     public function show(Author $author)
     {
-        return view('authors.show', ['author' => $author]);
+        $articlesByAuthor = $author->articles()->paginate(6);
+        return view('show_for_authors',
+            [
+                'author' => $author,
+                'articlesByAuthor' => $articlesByAuthor,
+            ]);
     }
 
     public function adminShow(Author $author)
@@ -131,5 +136,10 @@ class AuthorController extends Controller
     public function datatable()
     {
         return view('admin.authors.index');
+    }
+
+    public function showAuthors()
+    {
+        return view('authors.authors_list', ['authors' => Author::paginate(5)]);
     }
 }

@@ -38,11 +38,9 @@
                     <label for="mail_input">Почта:<span class="text-danger">*</span></label>
                     <input type="text" class="form-control" id="mail_input" name="mail" required>
                 </div>
-                <label for="content_area">Контент:<span class="text-danger">*</span></label>
-                <div id="editorjs" class="border"></div>
                 <div class="form-group pt-2">
                     <label for="Content_area">Контент:<span class="text-danger">*</span></label>
-                    <textarea id="Content_area" class="form-control richTextBox is-invalid"
+                    <textarea id="Content_area" class="form-control"
                               name="content"></textarea>
                 </div>
                 <button type="submit" title="{{ __('Добавить') }}"
@@ -56,13 +54,6 @@
     <link rel="stylesheet" href="{{ asset('css/main.css') }}">
 @endpush
 @push('scripts')
-    <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
-    <script src="{{ asset('js/editor-conf.js') }}"></script>
-    <script>
-        tinymce.init({
-            selector: '#Content_area'
-        });
-    </script>
     <script>
         $("#user_select").change(e => {
             let selectValue = $(e.currentTarget).val();

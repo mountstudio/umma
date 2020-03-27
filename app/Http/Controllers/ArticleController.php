@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Article;
 use App\Author;
 use App\Category;
-use App\Comment;
 use App\hadith;
 use App\Http\Requests\StoreArticleRequest;
 use App\Http\Requests\UpdateArticleRequest;
@@ -16,8 +15,10 @@ use App\Poster;
 use App\Project;
 use App\Services\ImageUploader;
 use App\Tag;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
+use Spatie\Searchable\Search;
 use Yajra\DataTables\Facades\DataTables;
 
 class ArticleController extends Controller
@@ -84,7 +85,12 @@ class ArticleController extends Controller
      */
     public function show(Article $article)
     {
-        return view('show_for_news', ['article' => $article]);
+        $comments = $article->comments()->get();
+        return view('show_for_news',
+            [
+                'article' => $article,
+                'comments' => $comments,
+            ]);
     }
 
     /**
@@ -190,7 +196,8 @@ class ArticleController extends Controller
 
     public function welcome()
     {
-        $articlesDayTheme = Article::where('view_main', true)->latest()->get();
+
+        $articlesDayTheme = Article::where('view_main', true)->latest()->take(6)->get();
         $articlesCommentLatest = Article::has('comments')->orderBy('updated_at', 'DESC')->take(6)->get();
         $articlesLatest = Article::latest()->take(6)->get();
         $categories = self::get_categories();
@@ -223,11 +230,42 @@ class ArticleController extends Controller
             ]);
     }
 
-    public function news_page()
+    public function showNews()
     {
         $articles = Article::all()->paginate(6);
         return view('news_page', ['articles' => $articles]);
     }
+
+    public function it_is_interesting()
+    {
+        $articles = Article::where('category_id', 3)->paginate(6);
+        return view('it_is_interesting', ['articles' => $articles]);
+    }
+
+    public function need_to_know()
+    {
+        $articles = Article::where('category_id', 2)->paginate(6);
+        return view('need_to_know', ['articles' => $articles]);
+    }
+
+    public function interview()
+    {
+        $articles = Article::where('category_id', 5)->paginate(6);
+        return view('interview', ['articles' => $articles]);
+    }
+
+    public function education()
+    {
+        $articles = Article::where('category_id', 4)->paginate(6);
+        return view('education', ['articles' => $articles]);
+    }
+
+    public function about_sore()
+    {
+        $articles = Article::where('category_id', 1)->paginate(6);
+        return view('about_sore', ['articles' => $articles]);
+    }
+
 
     public static function get_categories()
     {
@@ -242,6 +280,8 @@ class ArticleController extends Controller
             case 2:
                 $countNeed = 1;
                 break;
+            default:
+                $countNeed = 0;
         }
         $categories = $categories->merge(Category::has('articles', '=', 1)->inRandomOrder()->take($countNeed)->get());
         return $categories;
@@ -266,5 +306,18 @@ class ArticleController extends Controller
         } else {
             return self::recursive_cut_content($content, --$countWords, $countSymbols);
         }
+    }
+
+    public function searchArticles(Request $request)
+    {
+        $searchResults = (new Search())
+            ->registerModel(Article::class, 'name', 'content')
+            ->search($request->search);
+        $articles = Array();
+        foreach ($searchResults as $result) {
+            array_push($articles, $result->searchable);
+        }
+        $articles = collect($articles)->groupBy('type');
+        return view('search.search_results', ['searchResults' => $articles]);
     }
 }

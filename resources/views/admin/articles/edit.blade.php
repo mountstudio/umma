@@ -45,11 +45,9 @@
                         @endforeach
                     </select>
                 </div>
-                <label for="content_area">Контент:<span class="text-danger">*</span></label>
-                <div id="editorjs" class="border"></div>
                 <div class="form-group pt-2">
-                    <label for="Content_area">Контент:<span class="text-danger">*</span></label>
-                    <textarea id="Content_area" class="form-control richTextBox is-invalid"
+                    <label for="content_area">Контент:<span class="text-danger">*</span></label>
+                    <textarea id="content_area" class="form-control richTextBox is-invalid"
                               name="content">{{ $article->content }}</textarea>
                 </div>
                 <div class="form-group">
@@ -92,12 +90,7 @@
 @push('scripts')
     <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
     <script src="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/js/select2.min.js"></script>
-    <script src="{{ asset('js/editor-conf.js') }}"></script>
-    <script>
-        tinymce.init({
-            selector: '#Content_area'
-        });
-    </script>
+    <script src="{{ asset('js/tinyMCE.js') }}"></script>
     <script>
         $(document).ready(function () {
             $('.js-example-basic-multiple').select2();
