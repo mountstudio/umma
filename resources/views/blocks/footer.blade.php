@@ -21,28 +21,41 @@
                             вопрос ученому</a></li>
                     <li class="text-for-footer nav-item mr-4"><a class="text-white" href="{{ route('advertisers') }}">Рекламодателям</a>
                     </li>
-                    <li class="text-for-footer nav-item mr-4"><a class="text-orange" href="#ex1" rel="modal:open">Подписка</a>
+                    <li class="text-for-footer nav-item mr-4"><a class="text-orange" href="#" data-toggle="modal" data-target="#exampleModal">Подписка</a>
                     </li>
                 </ul>
-                <div id="ex1" class="modal" style="overflow: visible;">
-                    <form>
-                        <div class="row">
-                            <div class="col  text-center">
-                                <label for="exampleInputEmail1">Email address</label>
-                                <input type="email" class="form-control" id="exampleInputEmail1"
-                                       aria-describedby="emailHelp">
+                <!-- Modal -->
+                <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Подпишитесь на рассылку новостей!</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
                             </div>
-                            <div class="col text-center">
-                                <a href="#" class="button button--isi button--border-thick button--round-l button--size-s text-white"> Подписаться</a>
+                            <div class="modal-body">
+                                <div class="row">
+                                    <div class="col  text-center">
+                                        <label for="exampleInputEmail1">Email address</label>
+                                        <input type="email" class="form-control" id="exampleInputEmail1"
+                                               aria-describedby="emailHelp">
+                                    </div>
+                                    <div class="col text-center">
+                                        <a href="#" class="button button--isi button--border-thick button--round-l button--size-s text-white"> Подписаться</a>
+                                    </div>
+                                </div>
+                                <div class="row justify-content-center">
+                                    <p>Напишите свой email адресс, чтобы всегда быть вкурсе событий</p>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Закрыть</button>
                             </div>
                         </div>
-                        <div class="row justify-content-center">
-                            <p>Напишите свой email адресс, чтобы всегда быть вкурсе событий</p>
-                            <a class="button button--isi button--border-thick button--round-l button--size-s text-white"
-                               href="#" rel="modal:close">Закрыть окно</a>
-                        </div>
-                    </form>
+                    </div>
                 </div>
+
             </div>
         </div>
     </div>
