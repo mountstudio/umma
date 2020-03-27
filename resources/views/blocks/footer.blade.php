@@ -41,16 +41,13 @@
                                         <input type="email" class="form-control" id="exampleInputEmail1"
                                                aria-describedby="emailHelp">
                                     </div>
-                                    <div class="col text-center">
+                                    <div class="row justify-content-around">
                                         <a href="#" class="button button--isi button--border-thick button--round-l button--size-s text-white"> Подписаться</a>
                                     </div>
                                 </div>
                                 <div class="row justify-content-center">
                                     <p>Напишите свой email адресс, чтобы всегда быть вкурсе событий</p>
                                 </div>
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Закрыть</button>
                             </div>
                         </div>
                     </div>
