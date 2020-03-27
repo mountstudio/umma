@@ -80,7 +80,7 @@
                                     <div class="media d-block d-md-flex mt-1">
                                         <div class="media-body text-center text-md-left ml-md-5 ml-0">
                                             <h5 class="font-weight-bold mt-0">
-                                                <p>{{ $answer->full_name }}</p>
+                                               {{ $answer->full_name }}
                                             </h5>
                                             {{ $answer->content }}
                                         </div>

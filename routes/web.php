@@ -8,14 +8,6 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 
-//
-//Route::get('editorjs/link', 'EditorJsController@link');
-//
-//Route::post('editorjs/image/file', 'EditorJsController@image');
-//
-//Route::post('editorjs/image/url', 'EditorJsController@image');
-
-
 Route::get('/show_hadith/{hadith}', 'HadithController@show')->name('show.hadith');
 
 Route::get('/show_for_news/{article}', 'ArticleController@show')->name('show.article');
@@ -39,6 +31,8 @@ Route::get('/multimedia', 'MultimediaController@showMultimedia')->name('all.medi
 
 Route::get('/authors', 'AuthorController@showAuthors')->name('all.authors');
 
+Route::get('/poster_index', 'PosterController@index')->name('all.posters');
+
 
 Route::get('/it_is_interesting', 'ArticleController@it_is_interesting')->name('it_is_interesting');
 
@@ -53,24 +47,18 @@ Route::get('/education', 'ArticleController@education')->name('education');
 Route::post('/create_comment', 'CommentController@userStore')->name('user.comment.store');
 
 
-Route::get('/show_poster', function () {
-    return view('poster.show_poster');
-})->name('show_poster');
+Route::get('/show_poster/{poster}', 'PosterController@show')->name('show.poster');
 
-Route::get('/poster_index', function () {
-    return view('poster.index');
-})->name('poster_index');
 
 Route::get('/show_search', function () {
     return view('search.show_search');
 })->name('show_search');
 
-Route::get('/scientists', function () {
-    return view('scientists');
-})->name('scientists');
+Route::get('/scientists', 'QuestionController@scientists')->name('scientists');
 
 
-Route::post('/search_results', 'ArticleController@searchArticles')->name('search');
+Route::get('/search_results', 'ArticleController@searchArticles')->name('search');
+Route::post('/image-upload', 'ContentController@upload')->name('content.upload');
 
 
 Route::get('/prayer_time_for_monthly', 'TimePrayersController@prayerForMonthly')->name('monthly.time.prayer');

@@ -1,40 +1,35 @@
 @extends('layouts.app')
 @section('content')
+    {{ Breadcrumbs::render('poster', $poster) }}
     <div class="container">
         <div class="row">
             <div class="col-12 col-lg-8">
-                <div class="author d-flex justify-content-between">
-                    <p>Автор: Саймудин Ибн Зараб
-                    </p>
-                    <p>
-                        Фотограф: Дамир Дамирович
-                    </p>
-                    <span>23.03.2020</span>
-                </div>
                 <div>
-                    <p>Дата окончания события: 26.04.2020</p>
+                    <p>Дата события: 26.04.2020</p>
                 </div>
                 <div class="post-header d-flex py-2">
                     <img class="d-none d-md-block mx-2" src="{{ asset('img/news.png') }}" alt=""
                          style="width: 60px;height: 60px;">
                     <h2 class="title">
-                        Имя автора поста
+                        {{ $poster->name }}
                     </h2>
                 </div>
                 <div class="py-2">
-                    <img class="img-fluid" src="{{ asset('img/example-2.jpg') }}" alt="">
+                    <img class="img-fluid" src="{{ asset('storage/medium/' . $poster->main_photo) }}" alt="">
                 </div>
                 <div>
-                    <p>Какой-то контент</p>
+                    <p>{!! $poster->content !!}</p>
                 </div>
                 <div class="tags">
-                    <h5 class="widget-title">Теги:</h5>
+                    @if($poster->type->count())
+                        <h5 class="widget-title">Тип: {{ $poster->type->name }} </h5>
+                    @endif
                 </div>
                 @include('subscription.subscribe')
                 @include('share.share_buttons')
-                <section class="my-5">
-{{--                    @include('comments.comment')--}}
-                </section>
+                {{--<section class="my-5">--}}
+                    {{--                    @include('comments.comment')--}}
+                {{--</section>--}}
                 <div class="row">
                     <div class="col-12 text-center pb-5">
                         <h3>Другие статьи</h3>

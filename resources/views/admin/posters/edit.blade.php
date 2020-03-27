@@ -16,8 +16,6 @@
                     <input id="name_filed" value="{{ $poster->name }}" type="text" class="form-control" name="name"
                            placeholder="" required>
                 </div>
-                <label for="content_area">Описание:<span class="text-danger">*</span></label>
-                <div id="editorjs" class="border"></div>
                 <div class="form-group pt-2">
                     <label for="content_area">Описание:<span class="text-danger">*</span></label>
                     <textarea id="content_area" class="form-control richTextBox is-invalid"
@@ -61,12 +59,7 @@
 @endpush
 @push('scripts')
     <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
-    <script src="{{ asset('js/editor-conf.js') }}"></script>
-    <script>
-        tinymce.init({
-            selector: '#content_area'
-        });
-    </script>
+    <script src="{{ asset('js/tinyMCE.js') }}"></script>
     <script language="javascript">
         function readURL(input) {
             if (input.files && input.files[0]) {

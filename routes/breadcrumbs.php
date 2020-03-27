@@ -58,9 +58,16 @@ Breadcrumbs::register('authors', function ($breadcrumbs) {
     $breadcrumbs->parent('home');
     $breadcrumbs->push('Авторы', route('all.authors'));
 });
+Breadcrumbs::register('posters', function ($breadcrumbs) {
+    $breadcrumbs->parent('home');
+    $breadcrumbs->push('Афишы', route('all.posters'));
+});
 
 
-
+Breadcrumbs::register('poster', function ($breadcrumbs, $poster){
+    $breadcrumbs->parent('posters');
+    $breadcrumbs->push($poster->name, route('show.poster', $poster));
+});
 
 Breadcrumbs::register('media', function ($breadcrumbs, $media) {
     $breadcrumbs->parent('multimedia');

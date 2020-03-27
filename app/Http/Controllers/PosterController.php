@@ -8,6 +8,7 @@ use App\Poster;
 use App\PosterType;
 use App\Services\ImageUploader;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str;
 use Yajra\DataTables\Facades\DataTables;
 
 class PosterController extends Controller
@@ -19,7 +20,15 @@ class PosterController extends Controller
      */
     public function index()
     {
-        //
+        $posters = Poster::orderBy('date_event','desc')->paginate(4);
+        foreach ($posters as $poster) {
+            $content = strip_tags($poster->content);
+            $poster->content = self::cut_contents($content, 10, 42);
+        }
+        return view('poster.index',
+            [
+            'posters' => $posters,
+        ]);
     }
 
     /**
@@ -55,7 +64,7 @@ class PosterController extends Controller
      */
     public function show(Poster $poster)
     {
-        //
+        return view('poster.show_poster', ['poster' => $poster]);
     }
 
     public function adminShow(Poster $poster)
@@ -130,5 +139,26 @@ class PosterController extends Controller
     public function datatable()
     {
         return view('admin.posters.index');
+    }
+
+    public static function cut_contents($content, $countWords, $countSymbols)
+    {
+        if (iconv_strlen($content) < $countSymbols - 3) {
+            return $content;
+        } else {
+            return self::recursive_cut_content($content, $countWords, $countSymbols);
+        }
+    }
+
+    public static function recursive_cut_content($content, $countWords, $countSymbols)
+    {
+        $content = Str::words($content, $countWords, '');
+
+        if (iconv_strlen($content) < $countSymbols - 3) {
+            $strWithoutLastSymbol = preg_replace('/(!|,|\.|\'|\"|\:|\.{2}|\.{3}|\;)$/', '', $content);
+            return $strWithoutLastSymbol . '...';
+        } else {
+            return self::recursive_cut_content($content, --$countWords, $countSymbols);
+        }
     }
 }

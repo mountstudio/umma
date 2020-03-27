@@ -12,40 +12,43 @@
                     воспользуйтесь формой поиска вопросов справа. Для вашего удобства все вопросы помечены специальными
                     тегами. Благодаря тегам вы сможете быстро отыскать вопросы на интересующую вас тему.</p>
                 <form>
-                    <div class="form-group">
-                        <label for="formGroupExampleInput">Ваше имя</label>
-                        <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Имя">
-                    </div>
-                    <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
-                        <label class="form-check-label" for="inlineCheckbox1">Скрыть имя</label>
-                    </div>
-                    <div class="form-group">
-                        <label for="exampleFormControlInput1">Email</label>
-                        <input type="email" class="form-control" id="exampleFormControlInput1"
-                               placeholder="name@example.com">
-                    </div>
-                    <div class="form-group">
-                        <label for="formGroupExampleInput">Телефонный номер:</label>
-                        <input type="text" class="form-control" id="formGroupExampleInput" placeholder="+996220433443">
-                    </div>
-                    <div class="form-group">
-                        <label for="formGroupExampleInput">Категория вопроса:</label>
-                        <select class="form-control">
-                            <option>Пункт 1</option>
-                            <option>Пункт 2</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="exampleFormControlTextarea1">Ваше сообщение</label>
-                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-                    </div>
-                    <div class="row justify-content-center">
-                        <button class="button button--nina button--text-thick button--text-upper button--size-s"
-                                data-text="Отправить">
-                            <span>О</span><span>т</span><span>п</span><span>р</span><span>а</span><span>в</span><span>и</span><span>т</span><span>ь</span>
-                        </button>
-                    </div>
+                    @if(!Auth::user())
+                        <div class="form-group">
+                            <label for="formGroupExampleInput">Ваше имя</label>
+                            <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Имя">
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleFormControlInput1">Email</label>
+                            <input type="email" class="form-control" id="exampleFormControlInput1"
+                                   placeholder="name@example.com">
+                        </div>
+                        <div class="form-group">
+                            <label for="formGroupExampleInput">Телефонный номер:</label>
+                            <input type="text" class="form-control" id="formGroupExampleInput"
+                                   placeholder="+996220433443">
+                        </div>
+                    @endif
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
+                            <label class="form-check-label" for="inlineCheckbox1">Скрыть имя</label>
+                        </div>
+                        <div class="form-group">
+                            <label for="formGroupExampleInput">Категория вопроса:</label>
+                            <select class="form-control">
+                                <option>Пункт 1</option>
+                                <option>Пункт 2</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleFormControlTextarea1">Ваше сообщение</label>
+                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                        </div>
+                        <div class="row justify-content-center">
+                            <button class="button button--nina button--text-thick button--text-upper button--size-s"
+                                    data-text="Отправить">
+                                <span>О</span><span>т</span><span>п</span><span>р</span><span>а</span><span>в</span><span>и</span><span>т</span><span>ь</span>
+                            </button>
+                        </div>
                 </form>
                 <div class="text-md-left text-sm-center border-question  pt-5">
                     <h2 class="text-center  ">Список всех вопросов</h2>
@@ -53,7 +56,8 @@
                         <div class="text-left">
                             <span class="text-orange  font-weight-bold">Категория вопроса:</span>
                         </div>
-                        <p class="text-dark"><span class="pr-2 h5">В:</span>Я русская принявшая недавно ислам зрелая никях. Мне очень
+                        <p class="text-dark"><span class="pr-2 h5">В:</span>Я русская принявшая недавно ислам зрелая
+                            никях. Мне очень
                             хорошо в моей религии. Я гармонична в
                             ней. Замужем почти год. У мужа 2 неудачных брака за спиной. 3 е детей. А у меня 1 ребенок.
                             Сын
@@ -63,7 +67,8 @@
                             <span class="text-orange text-right  font-weight-bold">Анонимно / 22 апреля 2017</span>
                         </div>
                         <hr>
-                        <p class="text-dark"><span class="pr-2 h5">О:</span>Вы не должны желать или стремиться к разводу (по этой
+                        <p class="text-dark"><span class="pr-2 h5">О:</span>Вы не должны желать или стремиться к разводу
+                            (по этой
                             причине), а наоборот поговорить с мужем.
                             Тем более Вы всего 1 год с ним, и у вас обоих дети, за которых вы двое также несете
                             ответственность, чтобы воспитывать их. Муж должен обеспечивать детей и Вас. Возможно ему
@@ -79,7 +84,8 @@
                         <div class="text-left">
                             <span class="text-orange  font-weight-bold">Категория вопроса:</span>
                         </div>
-                        <p class="text-dark"><span class="pr-2 h5">В:</span>Я русская принявшая недавно ислам зрелая никях. Мне очень
+                        <p class="text-dark"><span class="pr-2 h5">В:</span>Я русская принявшая недавно ислам зрелая
+                            никях. Мне очень
                             хорошо в моей религии. Я гармонична в
                             ней. Замужем почти год. У мужа 2 неудачных брака за спиной. 3 е детей. А у меня 1 ребенок.
                             Сын
@@ -89,7 +95,8 @@
                             <span class="text-orange text-right  font-weight-bold">Анонимно / 22 апреля 2017</span>
                         </div>
                         <hr>
-                        <p class="text-dark"><span class="pr-2 h5">О:</span>Вы не должны желать или стремиться к разводу (по этой
+                        <p class="text-dark"><span class="pr-2 h5">О:</span>Вы не должны желать или стремиться к разводу
+                            (по этой
                             причине), а наоборот поговорить с мужем.
                             Тем более Вы всего 1 год с ним, и у вас обоих дети, за которых вы двое также несете
                             ответственность, чтобы воспитывать их. Муж должен обеспечивать детей и Вас. Возможно ему

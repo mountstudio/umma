@@ -197,7 +197,7 @@ class ArticleController extends Controller
     public function welcome()
     {
 
-        $articlesDayTheme = Article::where('view_main', true)->latest()->get();
+        $articlesDayTheme = Article::where('view_main', true)->latest()->take(6)->get();
         $articlesCommentLatest = Article::has('comments')->orderBy('updated_at', 'DESC')->take(6)->get();
         $articlesLatest = Article::latest()->take(6)->get();
         $categories = self::get_categories();
@@ -280,6 +280,8 @@ class ArticleController extends Controller
             case 2:
                 $countNeed = 1;
                 break;
+            default:
+                $countNeed = 0;
         }
         $categories = $categories->merge(Category::has('articles', '=', 1)->inRandomOrder()->take($countNeed)->get());
         return $categories;
