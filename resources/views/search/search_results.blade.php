@@ -7,14 +7,14 @@
                 @foreach($searchResults as $type=>$resultGroup)
                     <div>
                         @if($type == 'longread')
-                            <p>Лонгриды</p>
+                            <p class="h4">Лонгриды</p>
                         @elseif($type == 'article')
-                            <p>Статьи</p>
+                            <p class="h4">Статьи</p>
                         @else
-                            <p>Дайджесты</p>
+                            <p class="h4">Дайджесты</p>
                         @endif
                         @foreach($resultGroup as $article)
-                            <div class="col">
+                            <div class="col-12">
                                 @include('articles.card')
                             </div>
                         @endforeach
