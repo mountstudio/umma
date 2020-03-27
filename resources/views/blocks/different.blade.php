@@ -1,4 +1,4 @@
-<div class="container-fluid pt-5">
+<div class="container pt-5">
     <div class="row">
 
         @foreach($articlesByCategory as $category)
@@ -39,8 +39,10 @@
                 </a>
             @endforeach
         </div>
+        <div class="col-12 row justify-content-center text-center  py-4">
+            <button class="button button--winona button--border-thin button--round-s" data-text="Читать еще"><span>Читать еще</span>
+            </button>
+        </div>
     </div>
 </div>
-<div class="col-12 text-center  py-4">
-    <a href="{{ route('all.news') }}" class="text-black-50 rounded btn-lg border">Читать еще</a>
-</div>
+

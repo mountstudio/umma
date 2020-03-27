@@ -1,4 +1,4 @@
-<div class="container-fluid">
+<div class="container">
     <div class="row">
         <div class="col-12 col-lg-6 pt-3 text-center">
             <div class="row pt-2 ">
@@ -86,8 +86,5 @@
             </div>
         </nav>
     </div>
-</div>
-<div class="text-center">
-    <p class="bg-for-middle-div h4 pt-2 pb-2">Трансляция: Текст, Видео, Галерея</p>
 </div>
 

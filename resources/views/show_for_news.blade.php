@@ -1,7 +1,11 @@
 @extends('layouts.app')
 @section('content')
     <div class="container">
-        {{ Breadcrumbs::render('article', $article) }}
+        <div class="row">
+            <div class="col-12 p-0">
+                {{ Breadcrumbs::render('article', $article) }}
+            </div>
+        </div>
         <div class="row">
             <div class="col-12 col-lg-8">
                 <nav aria-label="breadcrumb">
@@ -13,11 +17,11 @@
                         @endforeach
                     </p>
                     @if($article->photographers->count())
-                    <p>Фотограф{{$article->photographers->count()>1?'ы':'' }}:
-                        @foreach($article->photographers as $photographer)
-                            <a>{{ $photographer->full_name . ($loop->last ? '' : ',') }} </a>
-                        @endforeach
-                    </p>
+                        <p>Фотограф{{$article->photographers->count()>1?'ы':'' }}:
+                            @foreach($article->photographers as $photographer)
+                                <a>{{ $photographer->full_name . ($loop->last ? '' : ',') }} </a>
+                            @endforeach
+                        </p>
                     @endif
                     <span>{{$article->created_at->format('d.m.y')}}</span>
                 </div>
@@ -45,6 +49,17 @@
                 <section class="my-5">
                     @include('comments.comment')
                 </section>
+                <div class="row">
+                    <div class="col-12 text-center pb-5">
+                        <h3>Другие статьи</h3>
+                    </div>
+                    @for($i=0;$i<3;$i++)
+                        @include('other.other_articles')
+                    @endfor
+                    <div class="col-12 row justify-content-center   ">
+                        <button class="button button--winona button--border-thin button--round-s" data-text="Показать еще"><span>Показать еще</span></button>
+                    </div>
+                </div>
             </div>
             <div class="col-12 col-lg-4 pb-3">
                 @include('blocks.right-sidebar.new')

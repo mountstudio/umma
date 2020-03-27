@@ -1,6 +1,12 @@
 @extends('layouts.app')
 @section('content')
-    {{ Breadcrumbs::render('need_to_know') }}
+    <div class="container">
+        <div class="row">
+            <div class="col-12 p-0">
+                {{ Breadcrumbs::render('need_to_know') }}
+            </div>
+        </div>
+    </div>
     <div class="container">
         <div class="row">
             <div class="col-12 col-lg-8">
