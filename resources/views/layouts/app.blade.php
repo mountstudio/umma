@@ -15,13 +15,16 @@
     @stack('styles')
 </head>
 <body>
-<a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('frm-logout').submit();">
-    Logout
-</a>
+<section class="position-absolute " style="z-index: -1;">
+    <img class="img-fluid" src="{{ asset('img/example-2.jpg') }}" alt="">
+    <div class="position-absolute" style="bottom: 0;height: 100px;width: 100%;left: 0;filter: blur(5px);">
+
+    </div>
+</section>
 <form id="frm-logout" action="{{ route('logout') }}" method="POST" style="display: none;">
     {{ csrf_field() }}
 </form>
-    <div id="app" class="">
+    <div id="app" class="" style="padding-top: 200px">
             @include('blocks.header')
         <main class="">
             @yield('content')

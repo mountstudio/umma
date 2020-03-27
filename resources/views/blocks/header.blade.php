@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container bg-white">
     <div class="row">
         <div class="col-12 col-lg-6 pt-3 text-center">
             <div class="row pt-2 ">
@@ -23,7 +23,6 @@
 
         </div>
         <div class="col-12 col-lg-6 pt-3 text-center">
-
             <div id="sb-search" class="sb-search col-12 col-lg-8">
                 <form action="{{ route('search') }}" method="GET">
                     <input class="sb-search-input" placeholder="Enter your search term..." type="text" value=""
@@ -85,6 +84,9 @@
                 </div>
             </div>
         </nav>
+        <marquee behavior="alternate" direction="right" class="bg-for-middle-div">
+            <p class=" h4 pt-2 pb-2">Трансляция: Текст, Видео, Галерея</p>
+        </marquee>
     </div>
 </div>
 
