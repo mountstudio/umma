@@ -24,7 +24,7 @@
                     <li class="text-for-footer nav-item mr-4"><a class="text-orange" href="#ex1" rel="modal:open">Подписка</a>
                     </li>
                 </ul>
-                <div id="ex1" class="modal">
+                <div id="ex1" class="modal" style="overflow: visible;">
                     <form>
                         <div class="row">
                             <div class="col  text-center">
@@ -33,9 +33,7 @@
                                        aria-describedby="emailHelp">
                             </div>
                             <div class="col text-center">
-                                <button class="button button--moema button--inverted button--text-thick button--size-s">
-                                    Подписаться
-                                </button>
+                                <a href="#" class="button button--isi button--border-thick button--round-l button--size-s text-white"> Подписаться</a>
                             </div>
                         </div>
                         <div class="row justify-content-center">
@@ -44,11 +42,6 @@
                                href="#" rel="modal:close">Закрыть окно</a>
                         </div>
                     </form>
-{{--                    <div class="">--}}
-{{--                        Напишите свой email адресс, чтобы всегда быть вкурсе собы--}}
-{{--                        <a class="button button--isi button--border-thick button--round-l button--size-s text-white"--}}
-{{--                           href="#" rel="modal:close">Закрыть окно</a>--}}
-{{--                    </div>--}}
                 </div>
             </div>
         </div>

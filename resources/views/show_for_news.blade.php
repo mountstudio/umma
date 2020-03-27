@@ -1,7 +1,11 @@
 @extends('layouts.app')
 @section('content')
     <div class="container">
-        {{ Breadcrumbs::render('article', $article) }}
+        <div class="row">
+            <div class="col-12 p-0">
+                {{ Breadcrumbs::render('article', $article) }}
+            </div>
+        </div>
         <div class="row">
             <div class="col-12 col-lg-8">
                 <nav aria-label="breadcrumb">
@@ -49,7 +53,7 @@
                     <div class="col-12 text-center pb-5">
                         <h3>Другие статьи</h3>
                     </div>
-                    @for($i=0;$i<2;$i++)
+                    @for($i=0;$i<3;$i++)
                         @include('other.other_articles')
                     @endfor
                     <div class="col-12 row justify-content-center   ">
