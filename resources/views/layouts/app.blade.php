@@ -14,8 +14,17 @@
     <link rel="stylesheet" type="text/css" href="{{asset('css/buttons.css')}}"/>
     @stack('styles')
 </head>
-<body>
-    <div id="app" class="">
+<body style="overflow-x: hidden;">
+<section class="position-absolute " style="z-index: -1;background: url('{{ asset('img/example-2.jpg') }}');height: 100vh;width: 100%;">
+
+</section>
+<section class="position-absolute" style="bottom: -52px;height: 100px;width: 110%;left: -30px;filter: blur(15px);background: white;z-index: -1;">
+
+</section>
+<form id="frm-logout" action="{{ route('logout') }}" method="POST" style="display: none;">
+    {{ csrf_field() }}
+</form>
+    <div id="app" class="" style="padding-top: 200px">
             @include('blocks.header')
         <main class="">
             @yield('content')
@@ -26,6 +35,7 @@
     <script src="{{ asset('js/modernizr.custom.js') }}"></script>
     <script src="{{ asset('js/classie.js') }}"></script>
     <script src="{{ asset('js/uisearch.js') }}"></script>
+    {{--<script src="{{ asset('js/editor-conf.js') }}"></script>--}}
     <script>
         new UISearch( document.getElementById( 'sb-search' ) );
     </script>
