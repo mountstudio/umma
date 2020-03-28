@@ -53,7 +53,7 @@
                     <div class="col-12 text-center pb-5">
                         <h3>Другие статьи</h3>
                     </div>
-                    @for($i=0;$i<3;$i++)
+                    @for($i=0;$i<8;$i++)
                         @include('other.other_articles')
                     @endfor
                     <div class="col-12 row justify-content-center   ">

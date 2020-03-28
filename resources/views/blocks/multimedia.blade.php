@@ -1,13 +1,13 @@
-<div class="container-fluid px-5">
-    <h2 class="text-uppercase">Мультимедиа</h2>
+<div class="container px-5">
+    <h2 class="text-uppercase text-center">Мультимедиа</h2>
     <div class="row">
         <div class="col-12 p-4 bg-orange">
             <div class="multimedia">
                 @foreach($multimedia as $media)
-                    <div class="item border bg-for-image p-1 mr-1 position-relative">
+                    <div class="item  p-1 mr-1 position-relative">
                         <a href="{{ $media->url_video }}">
-                            <img class="img-fluid position-relative"
-                                 src="{{ asset('storage/medium/' . $media->url_photo) }}" alt="">
+                            <img class="border border-white img-fluid position-relative"
+                                 src="{{ asset('storage/medium/' . $media->url_photo) }}" alt="" style="border-width: 5px!important;">
                             <img src="{{ asset('img/play-button.svg') }}" class="img-fluid position-absolute"
                                  style="left: 50%; top: 50%; transform: translate(-50%, -50%);width: 27%;height: 27%;" alt="">
                         </a>
