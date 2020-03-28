@@ -6,6 +6,7 @@ use App\Http\Requests\StoreQuestionRequest;
 use App\Http\Requests\UpdateQuestionRequest;
 use App\Question;
 use App\QuestionCategory;
+use Illuminate\Support\Str;
 use Yajra\DataTables\Facades\DataTables;
 
 class QuestionController extends Controller
@@ -52,7 +53,7 @@ class QuestionController extends Controller
      */
     public function show(Question $question)
     {
-
+        return view('questions.show', ['question' => $question]);
     }
 
     public function adminShow(Question $question)
@@ -117,12 +118,38 @@ class QuestionController extends Controller
     {
         return view('admin.questions.index');
     }
-    public function scientists(){
-        $question = Question::whereNotNull('answer')->paginate(3);
-        dd($question);
+
+    public function scientists()
+    {
+        $questions = Question::whereNotNull('answer')->paginate(3);
+        foreach ($questions as $question) {
+            $question->content = self::cut_contents($question->content, 40, 160);
+            $question->answer = self::cut_contents($question->answer, 40, 160);
+        }
         return view('scientists', [
-            'category' => QuestionCategory::all(),
-            'question' => $question,
+            'categories' => QuestionCategory::all(),
+            'questions' => $questions,
         ]);
+    }
+
+    public static function cut_contents($content, $countWords, $countSymbols)
+    {
+        if (iconv_strlen($content) < $countSymbols - 3) {
+            return $content;
+        } else {
+            return self::recursive_cut_content($content, $countWords, $countSymbols);
+        }
+    }
+
+    public static function recursive_cut_content($content, $countWords, $countSymbols)
+    {
+        $content = Str::words($content, $countWords, '');
+
+        if (iconv_strlen($content) < $countSymbols - 3) {
+            $strWithoutLastSymbol = preg_replace('/(!|,|\.|\'|\"|\:|\.{2}|\.{3}|\;)$/', '', $content);
+            return $strWithoutLastSymbol . '...';
+        } else {
+            return self::recursive_cut_content($content, --$countWords, $countSymbols);
+        }
     }
 }

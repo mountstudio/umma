@@ -31,7 +31,9 @@ Route::get('/multimedia', 'MultimediaController@showMultimedia')->name('all.medi
 
 Route::get('/authors', 'AuthorController@showAuthors')->name('all.authors');
 
-Route::get('/poster_index', 'PosterController@index')->name('all.posters');
+Route::get('/posters', 'PosterController@index')->name('all.posters');
+
+Route::get('/questions', 'QuestionController@scientists')->name('all.questions');
 
 
 Route::get('/it_is_interesting', 'ArticleController@it_is_interesting')->name('it_is_interesting');
@@ -50,26 +52,22 @@ Route::post('/create_comment', 'CommentController@userStore')->name('user.commen
 Route::get('/show_poster/{poster}', 'PosterController@show')->name('show.poster');
 
 
-Route::get('/show_search', function () {
-    return view('search.show_search');
-})->name('show_search');
-
-Route::get('/scientists', 'QuestionController@scientists')->name('scientists');
-
 
 Route::get('/search_results', 'ArticleController@searchArticles')->name('search');
+
 Route::post('/image-upload', 'ContentController@upload')->name('content.upload');
 
 
 Route::get('/prayer_time_for_monthly', 'TimePrayersController@prayerForMonthly')->name('monthly.time.prayer');
+Route::get('/show_question/{question}', 'QuestionController@show')->name('show.question');
 
-Route::get('/questions_show', function () {
-    return view('questions.show');
-})->name('questions_show');
+//Route::get('/questions_show', function () {
+//    return view('questions.show');
+//})->name('questions_show');
 
-Route::get('/questions_index', function () {
-    return view('questions.index');
-})->name('questions_index');
+//Route::get('/questions_index', function () {
+//    return view('questions.index');
+//})->name('questions_index');
 
 Route::get('/vacancies', function () {
     return view('vacancies');

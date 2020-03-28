@@ -205,7 +205,7 @@ class ArticleController extends Controller
         $kolumnisty = Author::where('view_main', true)->latest()->get();
         $hadith = Hadith::latest()->first();
         $multimedia = Multimedia::latest()->take(10)->get();
-        $projects = Project::All();
+        $projects = Project::latest()->get();
         $magazines = Magazine::latest()->take(2)->get();
         $posters = Poster::latest()->take(6)->get();
 

@@ -40,8 +40,8 @@
             @endforeach
         </div>
         <div class="col-12 row justify-content-center text-center  py-4">
-            <button class="button button--winona button--border-thin button--round-s" data-text="Читать еще"><span>Читать еще</span>
-            </button>
+            <a href="{{ route('all.news') }}" class="button button--winona button--border-thin button--round-s" data-text="Читать еще"><span>Читать еще</span>
+            </a>
         </div>
     </div>
 </div>

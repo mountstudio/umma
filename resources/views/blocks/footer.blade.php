@@ -17,7 +17,7 @@
                             нас</a></li>
                     <li class="text-for-footer nav-item mr-4"><a class="text-white" href="{{ route('vacancies') }}">Вакансии</a>
                     </li>
-                    <li class="text-for-footer nav-item mr-4"><a class="text-white" href="{{ route('scientists') }}">Задать
+                    <li class="text-for-footer nav-item mr-4"><a class="text-white" href="{{ route('all.questions') }}">Задать
                             вопрос ученому</a></li>
                     <li class="text-for-footer nav-item mr-4"><a class="text-white" href="{{ route('advertisers') }}">Рекламодателям</a>
                     </li>

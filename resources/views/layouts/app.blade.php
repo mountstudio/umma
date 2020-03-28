@@ -15,12 +15,6 @@
     @stack('styles')
 </head>
 <body>
-<a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('frm-logout').submit();">
-    Logout
-</a>
-<form id="frm-logout" action="{{ route('logout') }}" method="POST" style="display: none;">
-    {{ csrf_field() }}
-</form>
     <div id="app" class="">
             @include('blocks.header')
         <main class="">
@@ -32,7 +26,6 @@
     <script src="{{ asset('js/modernizr.custom.js') }}"></script>
     <script src="{{ asset('js/classie.js') }}"></script>
     <script src="{{ asset('js/uisearch.js') }}"></script>
-    {{--<script src="{{ asset('js/editor-conf.js') }}"></script>--}}
     <script>
         new UISearch( document.getElementById( 'sb-search' ) );
     </script>

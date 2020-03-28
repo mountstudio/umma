@@ -46,9 +46,6 @@
                 </div>
                 @include('subscription.subscribe')
                 @include('share.share_buttons')
-                <section class="my-5">
-                    @include('comments.comment')
-                </section>
                 <div class="row">
                     <div class="col-12 text-center pb-5">
                         <h3>Другие статьи</h3>
@@ -60,6 +57,9 @@
                         <button class="button button--winona button--border-thin button--round-s" data-text="Показать еще"><span>Показать еще</span></button>
                     </div>
                 </div>
+                <section class="my-5">
+                    @include('comments.comment')
+                </section>
             </div>
             <div class="col-12 col-lg-4 pb-3">
                 @include('blocks.right-sidebar.new')
