@@ -28,9 +28,9 @@
                 <form action="{{ route('search') }}" method="GET">
                     <input class="sb-search-input" placeholder="Enter your search term..." type="text" value=""
                            name="search"
-                           id="search">
-                    <input class="sb-search-submit" type="submit">
-                    <span class="sb-icon-search"></span>
+                           id="search" >
+                    <input class="sb-search-submit" type="submit" >
+                    <span class="sb-icon-search" ></span>
                 </form>
             </div>
         </div>
