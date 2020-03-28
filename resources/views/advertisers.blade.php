@@ -1,18 +1,16 @@
 @extends('layouts.app')
 @section('content')
-    <div class="container">
+    <div class="container bg-white">
         <div class="row">
             <div class="col-12 p-0">
                 {{ Breadcrumbs::render('advertisers') }}
-
             </div>
         </div>
     </div>
-    <div class="container">
+    <div class="container bg-white">
         <div class="row">
             <div class="col-12 col-lg-8">
                 <h2 class="text-center">Рекламодателям</h2>
-
             </div>
             <div class="col-12 col-lg-4 pb-3">
                 @include('blocks.right-sidebar.new')

@@ -1,6 +1,6 @@
 <div class="container bg-white">
     <div class="row">
-        <div class="col-12 col-lg-6 pt-3 text-center">
+        <div class="col-12 col-lg-6 pt-3 text-center order-1">
             <div class="row pt-2 ">
                 <h5 class="mr-2 text-orange">RU</h5>
                 <h5 class="text-orange">KG</h5>
@@ -20,9 +20,8 @@
                     @endif
                 </div>
             </div>
-
         </div>
-        <div class="col-12 col-lg-6 pt-3 text-center">
+        <div class="col-12 col-lg-6 pt-3 text-center order-0">
             <div id="sb-search" class="sb-search col-12 col-lg-8">
                 <form action="{{ route('search') }}" method="GET">
                     <input class="sb-search-input" placeholder="Enter your search term..." type="text" value=""
@@ -33,15 +32,18 @@
                 </form>
             </div>
         </div>
-        <div class="col-12 col-lg-7 text-right pr-0">
+    </div>
+    <div class="row">
+
+        <div class="col-12  text-center">
             <a class="navbar-brand" href="{{ route('welcome') }}"><img src="{{ asset('img/umma_logo.png') }}" alt=""
                                                                        class="img-fluid justify-content-center"></a>
         </div>
-        <div class="col-lg-5 m-0 p-0 justify-content-center justify-content-lg-end">
+        <div class="col-12  text-center py-2">
             <a href="https://www.facebook.com/ummamag.kg"><i class="fab fa-facebook fa-lg text-orange mr-3"></i></a>
             <a href="https://www.instagram.com/ummamagkg/"><i class="fab fa-instagram fa-lg text-orange mr-3"></i></a>
             <a href="https://www.youtube.com/watch?v=pfab0uXYDpY&feature=youtu.be"><i
-                        class="fab fa-youtube fa-lg text-orange mr-3"></i></a>
+                    class="fab fa-youtube fa-lg text-orange mr-3"></i></a>
             <a href=""><i class="fas fa-rss fa-lg text-orange"></i></a>
         </div>
         <nav class="navbar navbar-expand-lg mx-0 mx-lg-auto">
