@@ -46,20 +46,30 @@
                 </div>
                 @include('subscription.subscribe')
                 @include('share.share_buttons')
+                @if($otherArticles->count())
                 <div class="row">
                     <div class="col-12 text-center pb-5">
                         <h3>Другие статьи</h3>
                     </div>
-                    @for($i=0;$i<3;$i++)
-                        @include('other.other_articles')
-                    @endfor
-                    <div class="col-12 row justify-content-center   ">
-                        <button class="button button--winona button--border-thin button--round-s" data-text="Показать еще"><span>Показать еще</span></button>
-                    </div>
                 </div>
-                <section class="my-5">
-                    @include('comments.comment')
-                </section>
+                @endif
+                @foreach($otherArticles as $articleGroup)
+                    <div id="{{ !$loop->first ? 'more':'basic' }}" class="row{{ !$loop->first ? ' collapse':'' }}">
+                        @foreach($articleGroup as $article)
+                            @include('other.other_articles')
+                        @endforeach
+                    </div>
+                @endforeach
+                @if($otherArticles->count()>1)
+                    <div class="col-12 row justify-content-center">
+                        <button class="button button--winona button--border-thin button--round-s"
+                                data-toggle="collapse" data-target="#more" data-text="Показать еще">
+                            <span>Показать еще</span></button>
+                    </div>
+                @endif
+                    <section class="my-5">
+                        @include('comments.comment')
+                    </section>
             </div>
             <div class="col-12 col-lg-4 pb-3">
                 @include('blocks.right-sidebar.new')

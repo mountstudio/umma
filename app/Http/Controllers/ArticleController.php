@@ -14,6 +14,7 @@ use App\Photographer;
 use App\Poster;
 use App\Project;
 use App\Services\ImageUploader;
+use App\Services\MailSender;
 use App\Tag;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
@@ -74,6 +75,10 @@ class ArticleController extends Controller
         $article->authors()->attach($request->authors);
         $article->photographers()->attach($request->photographers);
         $article->tags()->attach($request->tags);
+
+        $article->content = self::cut_contents( $article->content, 20, 80);
+        MailSender::send($article);
+
         return redirect()->route('admin.' . $request->type . '.datatable');
     }
 
@@ -85,11 +90,19 @@ class ArticleController extends Controller
      */
     public function show(Article $article)
     {
+
+        if (!Article::getProductionViews($article->id)) {
+            $article->impressions++;
+            $article->save();
+        }
         $comments = $article->comments()->get();
+        $otherArticles = Article::where('category_id',$article->category_id)->where('id','!=',$article->id)->take(6)->get();
+        $otherArticles = $otherArticles->chunk(ceil(3));
         return view('show_for_news',
             [
                 'article' => $article,
                 'comments' => $comments,
+                'otherArticles' => $otherArticles,
             ]);
     }
 
@@ -207,7 +220,7 @@ class ArticleController extends Controller
         $multimedia = Multimedia::latest()->take(10)->get();
         $projects = Project::latest()->get();
         $magazines = Magazine::latest()->take(2)->get();
-        $posters = Poster::latest()->take(6)->get();
+        $posters = Poster::latest()->take(4)->get();
 
         $hadith->content = self::cut_contents(strip_tags($hadith->content), 60, 370);
         foreach ($posters as $poster) {

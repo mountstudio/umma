@@ -6,6 +6,8 @@ use App\Http\Requests\StoreQuestionRequest;
 use App\Http\Requests\UpdateQuestionRequest;
 use App\Question;
 use App\QuestionCategory;
+use App\User;
+use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use Yajra\DataTables\Facades\DataTables;
 
@@ -130,6 +132,28 @@ class QuestionController extends Controller
             'categories' => QuestionCategory::all(),
             'questions' => $questions,
         ]);
+    }
+
+    public  function userStore(Request $request){
+        if ($request->user_id == 0) {
+            $question = Question::create($request->except(['user_id', 'is_anonim']));
+            $question->is_anonim = $request->exists('is_anonim');
+            $question->save();
+        } else {
+            $question = New Question();
+            $user = User::find($request->user_id);
+            $question->user_id = $user->id;
+            $question->full_name = $user->name;
+            $question->phone = $user->phone;
+            $question->mail = $user->email;
+
+            $question->name =$request->exists('name');
+            $question->is_anonim =$request->exists('is_anonim');
+            $question->content = $request->input('content');
+            $question->category_id = $request->input('category_id');
+            $question->save();
+        }
+        return redirect()->back();
     }
 
     public static function cut_contents($content, $countWords, $countSymbols)

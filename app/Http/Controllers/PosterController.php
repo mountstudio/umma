@@ -64,7 +64,17 @@ class PosterController extends Controller
      */
     public function show(Poster $poster)
     {
-        return view('poster.show_poster', ['poster' => $poster]);
+        $otherPosters = Poster::where('type_id', $poster->type_id)->where('id','!=',$poster->id)->take(4)->get();
+        foreach ($otherPosters as $otherPoster) {
+            $content = strip_tags($otherPoster->content);
+            $otherPoster->content = self::cut_contents($content, 10, 42);
+        }
+        $otherPosters = $otherPosters->chunk(ceil(2));
+        return view('poster.show_poster',
+            [
+                'poster' => $poster,
+                'otherPosters' => $otherPosters
+            ]);
     }
 
     public function adminShow(Poster $poster)

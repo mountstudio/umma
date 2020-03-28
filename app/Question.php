@@ -11,7 +11,7 @@ class Question extends Model
     use SoftDeletes;
     use Sluggable;
 
-    protected $fillable = ['name', 'slug', 'content', 'category_id', 'phone', 'full_name'];
+    protected $fillable = ['name', 'slug', 'content', 'category_id', 'phone', 'full_name', 'mail'];
 
     public function sluggable(): array
     {

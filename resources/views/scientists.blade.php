@@ -14,30 +14,40 @@
                     Перед заполнением формы убедитесь, что данный вопрос еще не публиковался на сайте. Для этого
                     воспользуйтесь формой поиска вопросов справа. Для вашего удобства все вопросы помечены специальными
                     тегами. Благодаря тегам вы сможете быстро отыскать вопросы на интересующую вас тему.</p>
-                <form>
+                <form action="{{ route('user.question.store') }}" method="POST">
+                    @csrf
                     @if(!Auth::user())
                         <div class="form-group">
-                            <label for="name_input">Ваше имя</label>
-                            <input type="text" class="form-control" id="name_input" placeholder="Имя">
+                            <label for="full_name_input">Ваше имя</label>
+                            <input type="text" class="form-control" id="full_name_input" placeholder="Имя"
+                                   name="full_name" required>
                         </div>
                         <div class="form-group">
                             <label for="mail_input">Email</label>
                             <input type="email" class="form-control" id="mail_input"
-                                   placeholder="name@example.com">
+                                   placeholder="name@example.com" name="mail" required>
                         </div>
                         <div class="form-group">
                             <label for="phone_input">Телефонный номер:</label>
                             <input type="text" class="form-control" id="phone_input"
-                                   placeholder="+996220433443">
+                                   placeholder="+996220433443" name="phone" required>
                         </div>
+                        <input hidden name="user_id" value="0">
+                    @else
+                        <input hidden name="user_id" value="{{ Auth::user()->id }}">
                     @endif
                     <div class="form-check form-check-inline">
                         <input class="form-check-input" type="checkbox" id="inlineCheckbox1" name="is_anonim">
                         <label class="form-check-label" for="inlineCheckbox1">Скрыть имя</label>
                     </div>
                     <div class="form-group">
-                        <label for="formGroupExampleInput">Категория вопроса:</label>
-                        <select class="form-control" name="category_id">
+                        <label for="_input">Кратко о вопросе:</label>
+                        <input type="text" class="form-control" id="name_input"
+                               placeholder="вопрос о работе" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="category_select">Категория вопроса:</label>
+                        <select id="category_select" class="form-control" name="category_id">
                             @foreach($categories as $category)
                                 <option value="{{ $category->id }}">{{ $category->name }}</option>
                             @endforeach

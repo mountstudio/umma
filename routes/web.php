@@ -3,9 +3,21 @@
 
 Route::get('/', 'ArticleController@welcome')->name('welcome');
 
+Route::get('/it_is_interesting', 'ArticleController@it_is_interesting')->name('it_is_interesting');
+
+Route::get('/need_to_know', 'ArticleController@need_to_know')->name('need_to_know');
+
+Route::get('/interview', 'ArticleController@interview')->name('interview');
+
+Route::get('/about_sore', 'ArticleController@about_sore')->name('about_sore');
+
+Route::get('/education', 'ArticleController@education')->name('education');
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+
 
 
 Route::get('/show_hadith/{hadith}', 'HadithController@show')->name('show.hadith');
@@ -19,6 +31,11 @@ Route::get('/show_for_tags/{tag}', 'TagController@show')->name('show.tag');
 Route::get('/show_media/{multimedia}', 'MultimediaController@show')->name('show.media');
 
 Route::get('/show_magazines/{magazine}', 'MagazineController@show')->name('show.magazine');
+
+Route::get('/show_poster/{poster}', 'PosterController@show')->name('show.poster');
+
+Route::get('/show_question/{question}', 'QuestionController@show')->name('show.question');
+
 
 
 Route::get('/hadiths', 'HadithController@showHadiths')->name('all.hadiths');
@@ -36,30 +53,28 @@ Route::get('/posters', 'PosterController@index')->name('all.posters');
 Route::get('/questions', 'QuestionController@scientists')->name('all.questions');
 
 
-Route::get('/it_is_interesting', 'ArticleController@it_is_interesting')->name('it_is_interesting');
 
-Route::get('/need_to_know', 'ArticleController@need_to_know')->name('need_to_know');
 
-Route::get('/interview', 'ArticleController@interview')->name('interview');
 
-Route::get('/about_sore', 'ArticleController@about_sore')->name('about_sore');
 
-Route::get('/education', 'ArticleController@education')->name('education');
+//OTHER
+Route::post('/create_subscriber', 'SubscriberController@userStore')->name('user.subscriber.store');
+
+Route::post('/create_question', 'QuestionController@userStore')->name('user.question.store');
 
 Route::post('/create_comment', 'CommentController@userStore')->name('user.comment.store');
 
 
-Route::get('/show_poster/{poster}', 'PosterController@show')->name('show.poster');
-
-
-
 Route::get('/search_results', 'ArticleController@searchArticles')->name('search');
 
+Route::get('/prayer_time_for_monthly', 'TimePrayersController@prayerForMonthly')->name('monthly.time.prayer');
+
+
+//AJAX
 Route::post('/image-upload', 'ContentController@upload')->name('content.upload');
 
+Route::get('/time_prayer', 'TimePrayersController@prayerForToday')->name('time.prayer');
 
-Route::get('/prayer_time_for_monthly', 'TimePrayersController@prayerForMonthly')->name('monthly.time.prayer');
-Route::get('/show_question/{question}', 'QuestionController@show')->name('show.question');
 
 //Route::get('/questions_show', function () {
 //    return view('questions.show');
@@ -78,7 +93,6 @@ Route::get('/advertisers', function () {
 })->name('advertisers');
 
 //for ajax query
-Route::get('/time_prayer', 'TimePrayersController@prayerForToday')->name('time.prayer');
 
 
 
@@ -173,5 +187,11 @@ Route::prefix('admin')->name('admin.')/*->middleware('admin')*/
     Route::get('/comment/datatable', 'CommentController@datatableData')->name('comment.datatable.data');
     Route::get('/comment/{comment}', 'CommentController@adminShow')->name('comment.show');
     Route::resource('comments', 'CommentController')->except(['index', 'show']);
+
+    //CRUD for comments
+    Route::get('/subscriber', 'SubscriberController@datatable')->name('subscriber.datatable');
+    Route::get('/subscriber/datatable', 'SubscriberController@datatableData')->name('subscriber.datatable.data');
+    Route::get('/subscriber/{subscriber}', 'SubscriberController@adminShow')->name('subscriber.show');
+    Route::resource('subscribers', 'SubscriberController')->except(['index', 'show']);
 });
 

@@ -5,6 +5,8 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 use Cviebrock\EloquentSluggable\Sluggable;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Support\Arr;
+use Illuminate\Support\Facades\Session;
 use Spatie\Searchable\Searchable;
 use Spatie\Searchable\SearchResult;
 
@@ -72,5 +74,19 @@ class Article extends Model implements Searchable
             $this->name,
             $url
         );
+    }
+    public static function getProductionViews($id)
+    {
+        if (Session::has('articlesViewed')) {
+            if (in_array($id, Session::get('articlesViewed'))) {
+                return true;
+            } else {
+                $articles = Arr::prepend(Session::get('articlesViewed'), $id);
+                Session::put('articlesViewed', $articles);
+                return false;
+            }
+        }
+        Session::put('articlesViewed', [$id]);
+        return false;
     }
 }

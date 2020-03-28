@@ -27,20 +27,25 @@
                 </div>
                 @include('subscription.subscribe')
                 @include('share.share_buttons')
-                {{--<section class="my-5">--}}
-                    {{--                    @include('comments.comment')--}}
-                {{--</section>--}}
+                @if($otherPosters->count())
                 <div class="row">
                     <div class="col-12 text-center pb-5">
                         <h3>Другие статьи</h3>
                     </div>
-                    @for($i=0;$i<2;$i++)
-                        @include('other.other_poster')
-                    @endfor
-                    <div class="col-12 row justify-content-center   ">
-                        <button class="button button--winona button--border-thin button--round-s" data-text="Показать еще"><span>Показать еще</span></button>
-                    </div>
                 </div>
+                @endif
+                @foreach($otherPosters as $posterGroup)
+                    <div id="{{ !$loop->first ? 'more':'basic' }}" class="row{{ !$loop->first ? ' collapse':'' }}">
+                        @foreach($posterGroup as $poster)
+                            @include('poster.card')
+                        @endforeach
+                    </div>
+                @endforeach
+                @if($otherPosters->count()>1)
+                    <div class="col-12 row justify-content-center   ">
+                        <button class="button button--winona button--border-thin button--round-s" data-text="Показать еще"  data-toggle="collapse" data-target="#more"><span>Показать еще</span></button>
+                    </div>
+                @endif
             </div>
             <div class="col-12 col-lg-4 pb-3">
                 @include('blocks.right-sidebar.new')

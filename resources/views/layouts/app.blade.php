@@ -21,9 +21,6 @@
 <section class="position-absolute" style="bottom: -52px;height: 100px;width: 110%;left: -30px;filter: blur(15px);background: white;z-index: -1;">
 
 </section>
-<form id="frm-logout" action="{{ route('logout') }}" method="POST" style="display: none;">
-    {{ csrf_field() }}
-</form>
     <div id="app" class="" style="padding-top: 200px">
             @include('blocks.header')
         <main class="">

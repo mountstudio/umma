@@ -3,7 +3,7 @@
     <div class="row justify-content-around">
         <div class="col-12 col-lg-7">
             <div class="col">
-                <h2 class="text-uppercase">Колумнисты</h2>
+                <h2 class="text-uppercase"><a href="{{ route('all.authors') }}">Колумнисты</a></h2>
             </div>
             <div class="d-lg-flex border border-3 rounded p-3 text-center">
                 @foreach($kolumnisty as $kolumnist)

@@ -49,16 +49,21 @@ class AppServiceProvider extends ServiceProvider
                 ]
             );
         });
+
         Blade::if('admin', function () {
             if (request()->user()) {
                 return request()->user()->isAdmin();
             }
             return false;
         });
-        $articles_for_subblock = Article::where('is_active', true)->where('type', 'article')->latest()->take(9)->get();
-        view()->composer('blocks.right-sidebar.new', function ($view) use ($articles_for_subblock) {
+
+        $articles_for_subblock = Article::where('is_active', true)
+            ->where('type', 'article')->latest()->take(9)->get();
+        view()->composer('blocks.right-sidebar.new',
+            function ($view) use ($articles_for_subblock) {
             $view->with('articles_for_subblock', $articles_for_subblock);
         });
         setlocale(LC_TIME, 'ru_RU.UTF-8');
+
     }
 }
