@@ -1,7 +1,7 @@
 <div class="container bg-white">
     <div class="row">
         <div class="col-12 col-lg-6 pt-3 text-center order-1">
-            <div class="row justify-content-around">
+            <div class="row justify-content-end">
                 <div class="">
                     @if(Auth::user())
                         <form id="frm-logout" action="{{ route('logout') }}" method="POST">
@@ -9,17 +9,17 @@
                             <button type="submit" class=" text-orange"> {{ __('Выйти') }}</button>
                         </form>
                     @else
-                        <a href="{{ route('login') }}" class="text-orange h5 mx-3">
+                        <a href="{{ route('login') }}" class="text-orange  mx-3">
                             {{ __('Войти') }}
                         </a>
-                        <a href="{{ route('register') }}" class="text-orange h5">
+                        <a href="{{ route('register') }}" class="text-orange ">
                             {{ __('Регистрация') }}
                         </a>
                     @endif
                 </div>
-                <div class="d-flex">
-                    <a href="#"><h5 class="mr-2 text-orange">RU</h5></a>
-                    <a href="#"><h5 class="text-orange">KG</h5></a>
+                <div class="d-flex px-4">
+                    <a href="#"><p class="mr-2 text-orange small mb-0">RU</p></a>
+                    <a href="#"><p class="text-orange small mb-0">KG</p></a>
                 </div>
             </div>
         </div>
@@ -88,7 +88,7 @@
             </div>
         </nav>
         <marquee behavior="alternate" direction="right" class="bg-for-middle-div">
-            <p class=" h4 pt-2 pb-2">Трансляция: Текст, Видео, Галерея</p>
+            <p class="h6 py-2">Трансляция: Текст, Видео, Галерея</p>
         </marquee>
     </div>
 </div>
