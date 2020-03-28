@@ -1,28 +1,30 @@
 <div class="container bg-white">
     <div class="row">
         <div class="col-12 col-lg-6 pt-3 text-center order-1">
-            <div class="row pt-2 ">
-                <h5 class="mr-2 text-orange">RU</h5>
-                <h5 class="text-orange">KG</h5>
-                <div class="mx-auto">
+            <div class="row justify-content-around">
+                <div class="">
                     @if(Auth::user())
                         <form id="frm-logout" action="{{ route('logout') }}" method="POST">
                             {{ csrf_field() }}
-                            <button type="submit" class="btn btn-orange text-orange"> {{ __('Выйти') }}</button>
+                            <button type="submit" class=" text-orange"> {{ __('Выйти') }}</button>
                         </form>
                     @else
-                        <a href="{{ route('login') }}" class="btn btn-orange text-orange">
+                        <a href="{{ route('login') }}" class="text-orange h5 mx-3">
                             {{ __('Войти') }}
                         </a>
-                        <a href="{{ route('register') }}" class="btn btn-orange text-orange">
+                        <a href="{{ route('register') }}" class="text-orange h5">
                             {{ __('Регистрация') }}
                         </a>
                     @endif
                 </div>
+                <div class="d-flex">
+                    <a href="#"><h5 class="mr-2 text-orange">RU</h5></a>
+                    <a href="#"><h5 class="text-orange">KG</h5></a>
+                </div>
             </div>
         </div>
-        <div class="col-12 col-lg-6 pt-3 text-center order-0">
-            <div id="sb-search" class="sb-search col-12 col-lg-8">
+        <div class="col-12 col-lg-6  text-center order-0 ">
+            <div id="sb-search" class="sb-search col-12 col-lg-8 float-left" >
                 <form action="{{ route('search') }}" method="GET">
                     <input class="sb-search-input" placeholder="Enter your search term..." type="text" value=""
                            name="search"
@@ -34,7 +36,6 @@
         </div>
     </div>
     <div class="row">
-
         <div class="col-12  text-center">
             <a class="navbar-brand" href="{{ route('welcome') }}"><img src="{{ asset('img/umma_logo.png') }}" alt=""
                                                                        class="img-fluid justify-content-center"></a>
