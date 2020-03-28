@@ -65,7 +65,7 @@
                 и высказывания отдельных лиц.</p>
         </div>
         <div class="col-12 col-md-6 text-lg-right">
-            <p class="">Свяжитесь с нами:</p>
+            <p class="h4 font-weight-bold">Свяжитесь с нами:</p>
             <a href="tel:+996 777 505 005 "><p class="p-0 m-0 txt-for-black">Тел: +996 777 505 005</p></a>
             <a href="mailto:"><p class="p-0 m-0 txt-for-black"> Эл.адрес: ummamagkg@gmail.com</p></a>
             <p class="p-0 m-0 txt-for-black"> Почтовый адрес: г. Бишкек, ул. Грибоедова, 16</p>
