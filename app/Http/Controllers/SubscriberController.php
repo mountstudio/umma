@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StoreSubscriberRequest;
+use App\Http\Requests\UpdateSubscriberRequest;
 use App\Subscriber;
 use Illuminate\Http\Request;
 use Yajra\DataTables\Facades\DataTables;
@@ -34,8 +36,9 @@ class SubscriberController extends Controller
      * @param  \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreSubscriberRequest $request)
     {
+        $request->validated();
         Subscriber::create($request->all());
         return redirect()->route('admin.subscriber.datatable');
     }
@@ -69,8 +72,9 @@ class SubscriberController extends Controller
      * @param  \App\Subscriber $subscriber
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Subscriber $subscriber)
+    public function update(UpdateSubscriberRequest $request, Subscriber $subscriber)
     {
+        $request->validated();
         $subscriber->update($request->all());
         return redirect()->route('admin.subscriber.datatable');
     }
@@ -103,8 +107,10 @@ class SubscriberController extends Controller
         return view('admin.subscribers.index');
     }
 
-    public function userStore(Request $request)
+    public function userStore(StoreSubscriberRequest $request)
     {
+
+        $request->validated();
         Subscriber::create($request->all());
         return redirect()->back();
     }

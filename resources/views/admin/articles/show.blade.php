@@ -17,20 +17,40 @@
                             <th> Заголовок:</th>
                             <td scope="row">{{ $article->name }}</td>
                         </tr>
-                        <tr>
-                            <th> Категория:</th>
-                            <td scope="row">{{ $article->category_id }}</td>
-                        </tr>
+                        @if($article->category->count())
+                            <tr>
+                                <th> Категория:</th>
+                                <td scope="row">{{ $article->category->name }}</td>
+                            </tr>
+                        @endif
                         <tr>
                             <th> Просмотры:</th>
                             <td scope="row">{{ $article->impressions }}</td>
                         </tr>
+                        @if($article->authors->count())
+                            <tr>
+                                <th>Авторы:</th>
+                                <td scope="row">{{ $article->authors->implode('full_name', ',') }}</td>
+                            </tr>
+                        @endif
+                        @if($article->photographers->count())
+                            <tr>
+                                <th>Авторы:</th>
+                                <td scope="row">{{ $article->photographers->implode('full_name', ',') }}</td>
+                            </tr>
+                        @endif
+                        @if($article->tags->count())
+                            <tr>
+                                <th>Авторы:</th>
+                                <td scope="row">{{ $article->tags->implode('name', ', ') }}</td>
+                            </tr>
+                        @endif
                         <tr>
                             <th> Комментарии:</th>
                             <td scope="row">{{ $article->comments->count() }}</td>
                         </tr>
                         <tr>
-                            <th> Главное фото::</th>
+                            <th> Главное фото:</th>
                             <td scope="row"><img src="{{ asset('storage/medium/' .$article->logo) }}"></td>
                         </tr>
                         <tr>
@@ -67,38 +87,8 @@
                         </tr>
                         </tbody>
                     </table>
-{{--                    <label>id:</label>--}}
-{{--                    <p>{{ $article->id }}</p>--}}
-{{--                    <label>Заголовок:</label>--}}
-{{--                    <p>{{ $article->name }}</p>--}}
-{{--                    <label>Категория:</label>--}}
-{{--                    <p>{{ $article->category_id }}</p>--}}
-{{--                    <label>Просмотры:</label>--}}
-{{--                    <p>{{ $article->impressions }}</p>--}}
-{{--                    <label>Комментарии:</label>--}}
-{{--                    <p>{{ $article->comments->count() }}</p>--}}
-{{--                    <label>Главное фото:</label>--}}
-{{--                    <img src="{{ asset('storage/medium/' .$article->logo) }}">--}}
-{{--                    @if($article->is_active)--}}
-{{--                        <label>Активен: Да</label>--}}
-{{--                    @else--}}
-{{--                        <label>Активен: Нет</label>--}}
-{{--                    @endif--}}
-{{--                    <br>--}}
-{{--                    @if($article->view_main)--}}
-{{--                        <label>На главной странице: Да</label>--}}
-{{--                    @else--}}
-{{--                        <label>На главной странице: Нет</label>--}}
-{{--                    @endif--}}
-{{--                    <br>--}}
-{{--                    <label>контент:</label>--}}
-{{--                    {!! $article->content  !!}--}}
-{{--                </div>--}}
-
-{{--                <p>{{ $article->created_at }}</p>--}}
-{{--                <p>{{ $article->updated_at }}</p>--}}
+                </div>
             </div>
         </div>
     </div>
-
 @endsection

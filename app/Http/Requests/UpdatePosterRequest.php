@@ -28,6 +28,7 @@ class UpdatePosterRequest extends FormRequest
             'name' => 'required|max:255',
             'main_photo' => ['nullable','image','max:2000','dimensions:min_width=500', new Main_image],
             'content' => 'required',
+            'date_event' => 'required|date',
             'phone' => 'required',
             'mail' => 'required|email',
             'type_id' =>'required|numeric',

@@ -30,7 +30,8 @@ class StorePosterRequest extends FormRequest
             'content' => 'required',
             'phone' => 'required',
             'mail' => 'required|email',
-            'type_id' =>'required|numeric',
+            'date_event' => 'required|date',
+                'type_id' =>'required|numeric',
         ];
     }
 }

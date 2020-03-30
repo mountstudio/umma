@@ -39,7 +39,11 @@ class User extends Authenticatable
 
     public function comments()
     {
-        return $this->hasMany(User::class);
+        return $this->hasMany(Comment::class);
+    }
+    public function questions()
+    {
+        return $this->hasMany(Question::class);
     }
 
     public function isAdmin(){
