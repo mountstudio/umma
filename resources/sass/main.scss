@@ -100,3 +100,30 @@ body {
     border-color: $text-orange !important;
     padding: 4px;
 }
+
+.bg-login {
+    height: 500px;
+    background-image: url('img/mohd-danish-hussain-rm7eNpq6c8s-unsplash.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.bg-register {
+    height: 500px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-image: url('img/kilarov-zaneit-iPVqE-H5hqA-unsplash.jpg');
+}
+
+@media (max-width: 992px){
+    .bg-login {
+        display: none;
+    }
+}
+@media (max-width: 992px){
+    .bg-register {
+        display: none;
+    }
+}
