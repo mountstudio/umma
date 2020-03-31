@@ -2,8 +2,8 @@
     <div class="row">
         <div class="col-12 col-lg-6 pt-3 text-center">
             <div class="row pt-2 ">
-                <h5 class="mr-2 text-orange">RU</h5>
-                <h5 class="text-orange">KG</h5>
+                <a href="{{ route('language.switch', 'ru') }}" class="mr-2 text-orange h5">RU</a>
+                <a href="{{ route('language.switch', 'en') }}" class="text-orange h5">EN</a>
                 <div class="mx-auto">
                     @if(Auth::user())
                         <form id="frm-logout" action="{{ route('logout') }}" method="POST">
