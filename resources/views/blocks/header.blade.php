@@ -1,47 +1,50 @@
 <div class="container bg-white">
     <div class="row">
-        <div class="col-12 col-lg-6 pt-3 text-center">
-            <div class="row pt-2 ">
-                <a href="{{ route('language.switch', 'ru') }}" class="mr-2 text-orange h5">RU</a>
-                <a href="{{ route('language.switch', 'en') }}" class="text-orange h5">EN</a>
-                <div class="mx-auto">
+        <div class="col-12 col-lg-6 pt-3 text-center order-1">
+            <div class="row justify-content-end">
+                <div class="">
                     @if(Auth::user())
                         <form id="frm-logout" action="{{ route('logout') }}" method="POST">
                             {{ csrf_field() }}
-                            <button type="submit" class="btn btn-orange text-orange"> {{ __('Выйти') }}</button>
+                            <button type="submit" class=" text-orange"> {{ __('Выйти') }}</button>
                         </form>
                     @else
-                        <a href="{{ route('login') }}" class="btn btn-orange text-orange">
+                        <a href="{{ route('login') }}" class="text-orange  mx-3">
                             {{ __('Войти') }}
                         </a>
-                        <a href="{{ route('register') }}" class="btn btn-orange text-orange">
+                        <a href="{{ route('register') }}" class="text-orange ">
                             {{ __('Регистрация') }}
                         </a>
                     @endif
                 </div>
+                <div class="d-flex px-4">
+                    <a href="{{ route('language.switch', 'en') }}"><p class="mr-2 text-orange small mb-0">EN</p></a>
+                    <a href="{{ route('language.switch', 'ru') }}"><p class="text-orange small mb-0">RU</p></a>
+                </div>
             </div>
-
         </div>
-        <div class="col-12 col-lg-6 pt-3 text-center">
-            <div id="sb-search" class="sb-search col-12 col-lg-8">
+        <div class="col-12 col-lg-6  text-center order-0 ">
+            <div id="sb-search" class="sb-search col-12 col-lg-8 float-left" >
                 <form action="{{ route('search') }}" method="GET">
                     <input class="sb-search-input" placeholder="Enter your search term..." type="text" value=""
                            name="search"
-                           id="search">
-                    <input class="sb-search-submit" type="submit">
-                    <span class="sb-icon-search"></span>
+                           id="search" >
+                    <input class="sb-search-submit" type="submit" >
+                    <span class="sb-icon-search" ></span>
                 </form>
             </div>
         </div>
-        <div class="col-12 col-lg-7 text-right pr-0">
+    </div>
+    <div class="row">
+        <div class="col-12  text-center">
             <a class="navbar-brand" href="{{ route('welcome') }}"><img src="{{ asset('img/umma_logo.png') }}" alt=""
                                                                        class="img-fluid justify-content-center"></a>
         </div>
-        <div class="col-lg-5 m-0 p-0 justify-content-center justify-content-lg-end">
+        <div class="col-12  text-center py-2">
             <a href="https://www.facebook.com/ummamag.kg"><i class="fab fa-facebook fa-lg text-orange mr-3"></i></a>
             <a href="https://www.instagram.com/ummamagkg/"><i class="fab fa-instagram fa-lg text-orange mr-3"></i></a>
             <a href="https://www.youtube.com/watch?v=pfab0uXYDpY&feature=youtu.be"><i
-                        class="fab fa-youtube fa-lg text-orange mr-3"></i></a>
+                    class="fab fa-youtube fa-lg text-orange mr-3"></i></a>
             <a href=""><i class="fas fa-rss fa-lg text-orange"></i></a>
         </div>
         <nav class="navbar navbar-expand-lg mx-0 mx-lg-auto">
@@ -85,7 +88,7 @@
             </div>
         </nav>
         <marquee behavior="alternate" direction="right" class="bg-for-middle-div">
-            <p class=" h4 pt-2 pb-2">Трансляция: Текст, Видео, Галерея</p>
+            <p class="h6 py-2">Трансляция: Текст, Видео, Галерея</p>
         </marquee>
     </div>
 </div>
