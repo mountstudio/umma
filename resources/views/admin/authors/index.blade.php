@@ -38,7 +38,7 @@
                     { data: 'id', name: 'id' },
                     { data: 'full_name', name: 'full_name' },
                     { data: 'photo', name: 'photo' },
-                    { data: 'view_main', name: 'view_main'},
+                    { data: 'view_main', name: 'view_main', className: "dt-body-center", searchable: false, orderable: false },
                     { data: 'created_at', name: 'created_at' },
                     { data: 'updated_at', name: 'updated_at' },
                     { data: 'actions', name: 'actions', searchable: false, orderable: false},

@@ -28,6 +28,12 @@
                         @endforeach
                     </select>
                 </div>
+                <br>
+                <div class="form-group">
+                    <label for="date_event_field">Дата события:<span class="text-danger">*</span></label>
+                    <br>
+                    <input type="datetime-local" id="date_event_field" name="date_event">
+                </div>
                 <div class="form-group">
                     <label for="phone_field">Телефон:<span class="text-danger">*</span></label>
                     <input id="phone_field" type="text" class="form-control" name="phone" required>
@@ -38,9 +44,11 @@
                 </div>
                 <div class="form-group">
                     <label for="main_photo_input">Главное фото:<span class="text-danger">*</span></label>
-                    <input id="main_photo_input" type="file" class="form-control" name="main_photo" accept="image/jpeg, image/png" required>
+                    <input id="main_photo_input" type="file" class="form-control" name="main_photo"
+                           accept="image/jpeg, image/png" required>
                 </div>
-                <button type="submit" title="{{ __('Добавить') }}" class="btn n btn-success">{{ __('Добавить') }}</button>
+                <button type="submit" title="{{ __('Добавить') }}"
+                        class="btn n btn-success">{{ __('Добавить') }}</button>
             </form>
         </div>
     </div>

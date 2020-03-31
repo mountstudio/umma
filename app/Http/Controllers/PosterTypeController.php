@@ -37,6 +37,7 @@ class PosterTypeController extends Controller
      */
     public function store(StorePosterTypeRequest $request)
     {
+        $request->validated();
         PosterType::create($request->all());
         return redirect()->route('admin.posterType.datatable');
     }

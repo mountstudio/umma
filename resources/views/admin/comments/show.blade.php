@@ -14,32 +14,28 @@
                         </thead>
                         <tbody>
                         <tr>
-                            <th> Контент:</th>
-                            <td scope="row">{{ $comment->content }}</td>
-                        </tr>
-                        <tr>
                             <th> ФИО:</th>
                             <td scope="row">{{ $comment->full_name }}</td>
                         </tr>
                         <tr>
-                            <th> Контент:</th>
+                            <th>Контент:</th>
                             <td scope="row">{!! $comment->content  !!}</td>
                         </tr>
                         <tr>
-                            <th> Slug article:</th>
-                            <td scope="row">{{ $comment->article->slug }}</td>
+                            <th>статья:</th>
+                            <td scope="row">{{ $comment->article->name }}</td>
                         </tr>
                         <tr>
-                            <th> Контент:</th>
-                            <td scope="row">{!! $comment->content  !!}</td>
-                        </tr>
-                        <tr>
-                            <th> Телефон:</th>
+                            <th>Телефон:</th>
                             <td scope="row">{{ $comment->phone }}</td>
                         </tr>
                         <tr>
-                            <th> Почта:</th>
+                            <th>Почта:</th>
                             <td scope="row">{{ $comment->mail }}</td>
+                        </tr>
+                        <tr>
+                            <th>Зарегистрирован:</th>
+                            <td scope="row">{{ $comment->user ? 'Да':'Нет' }}</td>
                         </tr>
                         <tr>
                             <th>Дата создания:</th>
@@ -51,25 +47,8 @@
                         </tr>
                         </tbody>
                     </table>
-{{--                    <label>id:</label>--}}
-{{--                    <p>{{ $comment->id }}</p>--}}
-{{--                    <label>Контент:</label>--}}
-{{--                    <p>{{ $comment->content }}</p>--}}
-{{--                    <label>Полной имя:</label>--}}
-{{--                    <p>{{ $comment->full_name }}</p>--}}
-{{--                    <label>phone:</label>--}}
-{{--                    <p>{{ $comment->phone }}</p>--}}
-{{--                    <label>Почта:</label>--}}
-{{--                    <p>{{ $comment->mail }}</p>--}}
-{{--                    <label>slug article</label>--}}
-{{--                    <p>{{ $comment->article->slug }}</p>--}}
-{{--                    <label>контент:</label>--}}
-{{--                    {!! $comment->content  !!}--}}
-{{--                </div>--}}
-{{--                <p>{{ $comment->created_at }}</p>--}}
-{{--                <p>{{ $comment->updated_at }}</p>--}}
+                </div>
             </div>
         </div>
     </div>
-
 @endsection

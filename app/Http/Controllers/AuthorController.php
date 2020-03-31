@@ -125,10 +125,17 @@ class AuthorController extends Controller
             ->editColumn('photo', function (Author $author) {
                 return '<img src="' . asset('/storage/small/' . $author->photo) . '" height="100">';
             })
+            ->editColumn('view_main', function (Author $author) {
+                if ($author->view_main) {
+                    return '<i class="fas fa-check fa-lg"></i>';
+                } else {
+                    return '<i class="fas fa-ban fa-lg"></i>';
+                }
+            })
             ->addColumn('actions', function (Author $author) {
                 return view('admin.actions', ['type' => 'authors', 'model' => $author]);
             })
-            ->rawColumns(['full_name', 'photo'])
+            ->rawColumns(['full_name', 'photo', 'view_main'])
             ->make(true);
 
     }

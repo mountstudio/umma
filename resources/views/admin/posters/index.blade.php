@@ -13,7 +13,8 @@
             <th>main_photo</th>
             <th>phone</th>
             <th>mail</th>
-            <th>type_id</th>
+            <th>date_event</th>
+            <th>type</th>
             <th>created_at</th>
             <th>updated_at</th>
             <th>actions</th>
@@ -41,6 +42,7 @@
                     {data: 'main_photo', name: 'main_photo'},
                     {data: 'phone', name: 'phone'},
                     {data: 'mail', name: 'mail'},
+                    {data: 'date_event', name: 'date_event'},
                     {data: 'type_id', name: 'type_id'},
                     {data: 'created_at', name: 'created_at'},
                     {data: 'updated_at', name: 'updated_at'},
