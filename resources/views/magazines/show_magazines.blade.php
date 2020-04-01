@@ -1,7 +1,13 @@
 @extends('layouts.app')
 @section('content')
-    {{ Breadcrumbs::render('magazine', $magazine) }}
-    <div class="container">
+    <div class="container bg-white">
+        <div class="row">
+            <div class="col-12 p-0">
+                {{ Breadcrumbs::render('magazine', $magazine) }}
+            </div>
+        </div>
+    </div>
+    <div class="container bg-white">
         <div class="row">
             <div class="col-12 col-lg-8">
                 <h2>Журнал</h2>

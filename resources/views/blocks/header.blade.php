@@ -26,7 +26,7 @@
         <div class="col-12 col-lg-6  text-center order-0 ">
             <div id="sb-search" class="sb-search col-12 col-lg-8 float-left" >
                 <form action="{{ route('search') }}" method="GET">
-                    <input class="sb-search-input" placeholder="Enter your search term..." type="text" value=""
+                    <input class="sb-search-input" placeholder="Введите поисковый запрос..." type="text" value=""
                            name="search"
                            id="search" >
                     <input class="sb-search-submit" type="submit" >

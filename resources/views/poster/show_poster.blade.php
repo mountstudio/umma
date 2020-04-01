@@ -1,6 +1,12 @@
 @extends('layouts.app')
 @section('content')
-    {{ Breadcrumbs::render('poster', $poster) }}
+    <div class="container bg-white">
+        <div class="row">
+            <div class="col-12 p-0">
+                {{ Breadcrumbs::render('poster', $poster) }}
+            </div>
+        </div>
+    </div>
     <div class="container bg-white">
         <div class="row">
             <div class="col-12 col-lg-8">
@@ -28,11 +34,11 @@
                 @include('subscription.subscribe')
                 @include('share.share_buttons')
                 @if($otherPosters->count())
-                <div class="row">
-                    <div class="col-12 text-center pb-5">
-                        <h3>Другие статьи</h3>
+                    <div class="row">
+                        <div class="col-12 text-center pb-5">
+                            <h3>Другие статьи</h3>
+                        </div>
                     </div>
-                </div>
                 @endif
                 @foreach($otherPosters as $posterGroup)
                     <div id="{{ !$loop->first ? 'more':'basic' }}" class="row{{ !$loop->first ? ' collapse':'' }}">
@@ -43,7 +49,9 @@
                 @endforeach
                 @if($otherPosters->count()>1)
                     <div class="col-12 row justify-content-center   ">
-                        <button class="button button--winona button--border-thin button--round-s" data-text="Показать еще"  data-toggle="collapse" data-target="#more"><span>Показать еще</span></button>
+                        <button class="button button--winona button--border-thin button--round-s"
+                                data-text="Показать еще" data-toggle="collapse" data-target="#more">
+                            <span>Показать еще</span></button>
                     </div>
                 @endif
             </div>
