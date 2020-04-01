@@ -47,8 +47,8 @@
                     class="fab fa-youtube fa-lg text-orange mr-3"></i></a>
             <a href=""><i class="fas fa-rss fa-lg text-orange"></i></a>
         </div>
-        <nav class="navbar navbar-expand-lg mx-0 mx-lg-auto">
-            <button class="navbar-toggler " type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+        <nav class="navbar navbar-expand-lg mx-0 mx-lg-auto col-12">
+            <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                     aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="fas fa-bars"></span>
             </button>
