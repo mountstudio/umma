@@ -18,7 +18,7 @@ class MailSender
     public static function send(Article $article)
     {
         $subscribers = Subscriber::pluck('email')->toArray();
-        Mail::send('otherView.mail', ['article' => $article], function ($message) use ($subscribers) {
+        Mail::send('otherViews.mail', ['article' => $article], function ($message) use ($subscribers) {
             $message->to($subscribers)
                 ->subject('Посмотри новость');
             $message->from(['maunt@mail.ru', 'umma@mail.ru']);

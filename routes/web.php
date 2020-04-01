@@ -75,6 +75,10 @@ Route::post('/image-upload', 'ContentController@upload')->name('content.upload')
 
 Route::get('/time_prayer', 'TimePrayersController@prayerForToday')->name('time.prayer');
 
+Route::get('chart_count_registered', 'ChartController@registeredUsers')->name('chart.count.registered');
+
+Route::get('chart_count_views', 'ChartController@articleTypeViews')->name('chart.count.views');
+
 
 //Route::get('/questions_show', function () {
 //    return view('questions.show');
