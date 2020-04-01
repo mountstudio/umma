@@ -1,7 +1,7 @@
 <div class="container bg-white">
     <div class="row">
         <div class="col-12 col-lg-6 pt-3 text-center order-1">
-            <div class="row justify-content-end">
+            <div class="row justify-content-center justify-content-lg-end mb-4">
                 <div class="">
                     @if(Auth::user())
                         <form id="frm-logout" action="{{ route('logout') }}" method="POST">
@@ -54,7 +54,7 @@
             </button>
             <div class="col-12">
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav mr-auto">
+                    <ul class="navbar-nav mx-auto">
                         <li class="nav-item active">
                             <a class="nav-link text-dark text-menu pl-0" href="{{ route('need_to_know') }}" title=""
                                style="">Надо знать</a>

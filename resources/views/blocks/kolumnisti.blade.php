@@ -5,7 +5,7 @@
             <div class="col">
                 <h2 class="text-uppercase"><a href="{{ route('all.authors') }}">Колумнисты</a></h2>
             </div>
-            <div class="d-lg-flex border border-3 rounded p-3 text-center">
+            <div class="d-lg-flex p-3 text-center">
                 @foreach($kolumnisty as $kolumnist)
                     <div class="col-12 col-lg-3 col-md-12">
                         <a href="{{ route('show.author', ['author' => $kolumnist]) }}">
