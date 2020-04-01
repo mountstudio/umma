@@ -6,6 +6,7 @@ use App\Http\Requests\StorePosterRequest;
 use App\Http\Requests\UpdatePosterRequest;
 use App\Poster;
 use App\PosterType;
+use App\Services\ContentCutting;
 use App\Services\ImageUploader;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
@@ -23,7 +24,7 @@ class PosterController extends Controller
         $posters = Poster::orderBy('date_event','desc')->paginate(4);
         foreach ($posters as $poster) {
             $content = strip_tags($poster->content);
-            $poster->content = self::cut_contents($content, 10, 42);
+            $poster->content = ContentCutting::cut_contents($content, 10, 42);
         }
         return view('poster.index',
             [
@@ -51,6 +52,7 @@ class PosterController extends Controller
     {
         $request->validated();
         $poster = Poster::create($request->all());
+        $poster->date_event = $request->date_event;
         $poster->main_photo = ImageUploader::upload(request('main_photo'), 'posters', 'posters', 40);
         $poster->save();
         return redirect()->route('admin.poster.datatable');
@@ -64,7 +66,17 @@ class PosterController extends Controller
      */
     public function show(Poster $poster)
     {
-        return view('poster.show_poster', ['poster' => $poster]);
+        $otherPosters = Poster::where('type_id', $poster->type_id)->where('id','!=',$poster->id)->take(4)->get();
+        foreach ($otherPosters as $otherPoster) {
+            $content = strip_tags($otherPoster->content);
+            $otherPoster->content = ContentCutting::cut_contents($content, 10, 42);
+        }
+        $otherPosters = $otherPosters->chunk(ceil(2));
+        return view('poster.show_poster',
+            [
+                'poster' => $poster,
+                'otherPosters' => $otherPosters
+            ]);
     }
 
     public function adminShow(Poster $poster)
@@ -96,6 +108,7 @@ class PosterController extends Controller
      */
     public function update(UpdatePosterRequest $request, Poster $poster)
     {
+//        dd($request);
         $request->validated();
         if ($request->hasFile('main_photo')) {
             Storage::disk('public')->delete("/large/" . $poster->main_photo);
@@ -104,6 +117,7 @@ class PosterController extends Controller
             $poster->main_photo = ImageUploader::upload(request('main_photo'), 'posters', 'posters', 40);
         }
         $poster->update($request->except('main_photo'));
+        $poster->date_event = $request->date_event;
         $poster->save();
         return redirect()->route('admin.poster.datatable');
     }
@@ -129,6 +143,14 @@ class PosterController extends Controller
             ->editColumn('main_photo', function (Poster $poster) {
                 return '<img src="' . asset('/storage/small/' . $poster->main_photo) . '" height="100">';
             })
+            ->editColumn('type_id', function (Poster $poster) {
+                if ($poster->type->count()){
+                    return $poster->type->name;
+                }
+                else{
+                    return null;
+                }
+            })
             ->addColumn('actions', function (Poster $poster) {
                 return view('admin.actions', ['type' => 'posters', 'model' => $poster]);
             })
@@ -139,26 +161,5 @@ class PosterController extends Controller
     public function datatable()
     {
         return view('admin.posters.index');
-    }
-
-    public static function cut_contents($content, $countWords, $countSymbols)
-    {
-        if (iconv_strlen($content) < $countSymbols - 3) {
-            return $content;
-        } else {
-            return self::recursive_cut_content($content, $countWords, $countSymbols);
-        }
-    }
-
-    public static function recursive_cut_content($content, $countWords, $countSymbols)
-    {
-        $content = Str::words($content, $countWords, '');
-
-        if (iconv_strlen($content) < $countSymbols - 3) {
-            $strWithoutLastSymbol = preg_replace('/(!|,|\.|\'|\"|\:|\.{2}|\.{3}|\;)$/', '', $content);
-            return $strWithoutLastSymbol . '...';
-        } else {
-            return self::recursive_cut_content($content, --$countWords, $countSymbols);
-        }
     }
 }

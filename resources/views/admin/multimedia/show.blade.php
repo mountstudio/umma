@@ -18,7 +18,7 @@
                         </tr>
                         <tr>
                             <th> Ссылка к видео:</th>
-                            <td>{{ $multimedia->url_video }}</td>
+                            <td><a href="{{ $multimedia->url_video }}" target="_blank">{{ $multimedia->url_video }}</a></td>
                         </tr>
                         <tr>
                             <th> Картинка:</th>
@@ -34,16 +34,7 @@
                         </tr>
                         </tbody>
                     </table>
-{{--                    <label>id:</label>--}}
-{{--                    <p>{{ $multimedia->id }}</p>--}}
-{{--                    <label>Заголовок:</label>--}}
-{{--                    <p>{{ $multimedia->title }}</p>--}}
-{{--                    <label>Ссылка к видео:</label>--}}
-{{--                    <p>{{ $multimedia->url_video }}</p>--}}
                 </div>
-{{--                <img src="{{ asset('storage/medium/' . $multimedia->url_photo) }}">--}}
-{{--                <p>{{ $multimedia->created_at }}</p>--}}
-{{--                <p>{{ $multimedia->updated_at }}</p>--}}
             </div>
         </div>
     </div>

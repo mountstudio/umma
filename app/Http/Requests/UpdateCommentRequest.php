@@ -24,7 +24,9 @@ class UpdateCommentRequest extends FormRequest
     public function rules()
     {
         return [
-            'content' => 'required'
+            'article_id' => 'required|numeric',
+            'user_id' => 'required|numeric',
+            'content' => 'required',
         ];
     }
 }

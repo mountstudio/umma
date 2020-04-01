@@ -14,8 +14,9 @@
     <a href="{{ route('admin.question.datatable') }}" class="list-group-item list-group-item-action {{ request()->is('admin/question*') ? 'active' : '' }}">{{ __('Вопросы') }}</a>
     <a href="{{ route('admin.tag.datatable') }}" class="list-group-item list-group-item-action {{ request()->is('admin/tag*') ? 'active' : '' }}">{{ __('Теги') }}</a>
     <a href="{{ route('admin.photographer.datatable') }}" class="list-group-item list-group-item-action {{ request()->is('admin/photographer*') ? 'active' : '' }}">{{ __('Фотографы') }}</a>
-    <a href="{{ route('admin.posterType.datatable') }}" class="list-group-item list-group-item-action {{ request()->is('admin/posterType*') ? 'active' : '' }}">{{ __('Типы поста') }}</a>
+    <a href="{{ route('admin.posterType.datatable') }}" class="list-group-item list-group-item-action {{ request()->is('admin/posterType*') ? 'active' : '' }}">{{ __('Типы афиш') }}</a>
     <a href="{{ route('admin.comment.datatable') }}" class="list-group-item list-group-item-action {{ request()->is('admin/comment*') ? 'active' : '' }}">{{ __('Комментарии') }}</a>
+    <a href="{{ route('admin.subscriber.datatable') }}" class="list-group-item list-group-item-action {{ request()->is('admin/subscriber*') ? 'active' : '' }}">{{ __('Подписчики') }}</a>
     <a href="#" onclick="event.preventDefault();$('.logout-form').submit();" class="list-group-item list-group-item-action text-danger">{{ __('Выход') }}</a>
 </div>
 <form action="{{ route('logout') }}" method="POST" class="d-none logout-form">

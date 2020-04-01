@@ -3,11 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\App;
 
-class LanguagesController extends Controller
+class LanguageController extends Controller
 {
-    public function set($lang) {
+    public function switch($lang)
+    {
         session(['applocale' => $lang]);
 
         return back();

@@ -18,8 +18,8 @@
                     @endif
                 </div>
                 <div class="d-flex px-4">
-                    <a href="#"><p class="mr-2 text-orange small mb-0">RU</p></a>
-                    <a href="#"><p class="text-orange small mb-0">KG</p></a>
+                    <a href="{{ route('language.switch', 'en') }}"><p class="mr-2 text-orange small mb-0">EN</p></a>
+                    <a href="{{ route('language.switch', 'ru') }}"><p class="text-orange small mb-0">RU</p></a>
                 </div>
             </div>
         </div>

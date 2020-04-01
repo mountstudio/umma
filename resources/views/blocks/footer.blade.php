@@ -7,9 +7,9 @@
             <div class="row align-items-center justify-content-center justify-content-lg-end">
                 <a href="https://www.facebook.com/ummamag.kg"><i class="fab fa-facebook fa-lg text-white mr-3"></i></a>
                 <a href="https://www.instagram.com/ummamagkg/"><i
-                        class="fab fa-instagram fa-lg text-white mr-3"></i></a>
+                            class="fab fa-instagram fa-lg text-white mr-3"></i></a>
                 <a href="https://www.youtube.com/watch?v=pfab0uXYDpY&feature=youtu.be"><i
-                        class="fab fa-youtube fa-lg text-white mr-3"></i></a>
+                            class="fab fa-youtube fa-lg text-white mr-3"></i></a>
                 <a href=""><i class="fas fa-rss fa-lg text-white mr-3"></i></a>
                 <a href=""></a>
                 <ul class="nav ml-3">
@@ -17,15 +17,17 @@
                             нас</a></li>
                     <li class="text-for-footer nav-item mr-4"><a class="text-white" href="{{ route('vacancies') }}">Вакансии</a>
                     </li>
-                    <li class="text-for-footer nav-item mr-4"><a class="text-white" href="{{ route('scientists') }}">Задать
+                    <li class="text-for-footer nav-item mr-4"><a class="text-white" href="{{ route('all.questions') }}">Задать
                             вопрос ученому</a></li>
                     <li class="text-for-footer nav-item mr-4"><a class="text-white" href="{{ route('advertisers') }}">Рекламодателям</a>
                     </li>
-                    <li class="text-for-footer nav-item mr-4"><a class="text-orange" href="#" data-toggle="modal" data-target="#exampleModal">Подписка</a>
+                    <li class="text-for-footer nav-item mr-4"><a class="text-orange" href="#" data-toggle="modal"
+                                                                 data-target="#exampleModal">Подписка</a>
                     </li>
                 </ul>
                 <!-- Modal -->
-                <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
+                     aria-labelledby="exampleModalLabel" aria-hidden="true">
                     <div class="modal-dialog" role="document">
                         <div class="modal-content">
                             <div class="modal-header">
@@ -35,16 +37,21 @@
                                 </button>
                             </div>
                             <div class="modal-body">
-                                <div class="row">
-                                    <div class="col  text-center">
-                                        <label for="exampleInputEmail1">Email address</label>
-                                        <input type="email" class="form-control" id="exampleInputEmail1"
-                                               aria-describedby="emailHelp">
+                                <form action="{{ route('user.subscriber.store') }}" method="POST">
+                                    @csrf
+                                    <div class="row">
+                                        <div class="col  text-center">
+                                            <label for="mail_input">Email address</label>
+                                            <input type="email" name="email" class="form-control" id="mail_input"
+                                                   aria-describedby="emailHelp">
+                                        </div>
+                                        <div class="row justify-content-around">
+                                            <button type="submit"
+                                               class="button button--isi button--border-thick button--round-l button--size-s text-white">
+                                                Подписаться</button>
+                                        </div>
                                     </div>
-                                    <div class="row justify-content-around">
-                                        <a href="#" class="button button--isi button--border-thick button--round-l button--size-s text-white"> Подписаться</a>
-                                    </div>
-                                </div>
+                                </form>
                                 <div class="row justify-content-center">
                                     <p>Напишите свой email адресс, чтобы всегда быть вкурсе событий</p>
                                 </div>

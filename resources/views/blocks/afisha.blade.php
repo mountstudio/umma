@@ -1,6 +1,6 @@
 <div class="container pt-3">
     <div class="col pr-3">
-        <h2 class="text-uppercase">Афиша</h2>
+        <h2 class="text-uppercase"><a href="{{ route('all.posters') }}">Афиша</a></h2>
     </div>
     <div class="row">
         @foreach($posters as $poster)

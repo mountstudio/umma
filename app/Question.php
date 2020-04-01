@@ -11,7 +11,7 @@ class Question extends Model
     use SoftDeletes;
     use Sluggable;
 
-    protected $fillable = ['name', 'slug', 'content', 'category_id', 'phone', 'full_name'];
+    protected $fillable = ['name', 'slug', 'content', 'category_id', 'phone', 'full_name', 'mail'];
 
     public function sluggable(): array
     {
@@ -21,12 +21,19 @@ class Question extends Model
             ]
         ];
     }
+
     public function getRouteKeyName()
     {
         return 'slug';
     }
-    public function questionCategory()
+
+    public function category()
     {
         return $this->belongsTo(QuestionCategory::class, 'category_id');
+    }
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
     }
 }

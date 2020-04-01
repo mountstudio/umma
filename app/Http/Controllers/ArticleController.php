@@ -13,7 +13,9 @@ use App\Multimedia;
 use App\Photographer;
 use App\Poster;
 use App\Project;
+use App\Services\ContentCutting;
 use App\Services\ImageUploader;
+use App\Services\MailSender;
 use App\Tag;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
@@ -65,6 +67,7 @@ class ArticleController extends Controller
      */
     public function store(StoreArticleRequest $request)
     {
+        $request->validated();
         $article = Article::create($request->except(['is_active', 'view_main']));
         $article->is_active = $request->exists('is_active');
         $article->view_main = $request->exists('view_main');
@@ -74,6 +77,10 @@ class ArticleController extends Controller
         $article->authors()->attach($request->authors);
         $article->photographers()->attach($request->photographers);
         $article->tags()->attach($request->tags);
+
+        $article->content = ContentCutting::cut_contents( $article->content, 20, 80);
+        MailSender::send($article);
+
         return redirect()->route('admin.' . $request->type . '.datatable');
     }
 
@@ -85,11 +92,19 @@ class ArticleController extends Controller
      */
     public function show(Article $article)
     {
+
+        if (!Article::getProductionViews($article->id)) {
+            $article->impressions++;
+            $article->save();
+        }
         $comments = $article->comments()->get();
+        $otherArticles = Article::where('category_id',$article->category_id)->where('id','!=',$article->id)->take(6)->get();
+        $otherArticles = $otherArticles->chunk(ceil(3));
         return view('show_for_news',
             [
                 'article' => $article,
                 'comments' => $comments,
+                'otherArticles' => $otherArticles,
             ]);
     }
 
@@ -173,13 +188,35 @@ class ArticleController extends Controller
             ->editColumn('name', function (Article $article) use ($type) {
                 return '<a href="' . route('admin.' . $type . '.show', $article) . '">' . $article->name . '</a>';
             })
+            ->editColumn('view_main', function (Article $article) {
+                if ($article->view_main) {
+                    return '<i class="fas fa-check fa-lg"></i>';
+                } else {
+                    return '<i class="fas fa-ban fa-lg"></i>';
+                }
+            })
+            ->editColumn('is_active', function (Article $article) {
+                if ($article->is_active) {
+                    return '<i class="fas fa-check fa-lg"></i>';
+                } else {
+                    return '<i class="fas fa-ban fa-lg"></i>';
+                }
+            })
+            ->editColumn('category_id', function (Article $article) {
+               if ($article->category->count()){
+                   return $article->category->name;
+               }
+               else{
+                   return null;
+               }
+            })
             ->addColumn('actions', function (Article $article) use ($type) {
                 return view('admin.actions', [
                     'type' => $type . 's',
                     'model' => $article
                 ]);
             })
-            ->rawColumns(['name'])
+            ->rawColumns(['name', 'view_main', 'is_active'])
             ->make(true);
     }
 
@@ -205,14 +242,14 @@ class ArticleController extends Controller
         $kolumnisty = Author::where('view_main', true)->latest()->get();
         $hadith = Hadith::latest()->first();
         $multimedia = Multimedia::latest()->take(10)->get();
-        $projects = Project::All();
+        $projects = Project::latest()->get();
         $magazines = Magazine::latest()->take(2)->get();
-        $posters = Poster::latest()->take(6)->get();
+        $posters = Poster::latest()->take(4)->get();
 
-        $hadith->content = self::cut_contents(strip_tags($hadith->content), 60, 370);
+        $hadith->content = ContentCutting::cut_contents($hadith->content, 60, 370);
         foreach ($posters as $poster) {
             $content = strip_tags($poster->content);
-            $poster->content = self::cut_contents($content, 10, 42);
+            $poster->content = ContentCutting::cut_contents($content, 10, 42);
         }
 
         return view('welcome',
@@ -266,6 +303,18 @@ class ArticleController extends Controller
         return view('about_sore', ['articles' => $articles]);
     }
 
+    public function searchArticles(Request $request)
+    {
+        $searchResults = (new Search())
+            ->registerModel(Article::class, 'name', 'content')
+            ->search($request->search);
+        $articles = Array();
+        foreach ($searchResults as $result) {
+            array_push($articles, $result->searchable);
+        }
+        $articles = collect($articles)->groupBy('type');
+        return view('search.search_results', ['searchResults' => $articles]);
+    }
 
     public static function get_categories()
     {
@@ -287,37 +336,4 @@ class ArticleController extends Controller
         return $categories;
     }
 
-    public static function cut_contents($content, $countWords, $countSymbols)
-    {
-        if (iconv_strlen($content) < $countSymbols - 3) {
-            return $content;
-        } else {
-            return self::recursive_cut_content($content, $countWords, $countSymbols);
-        }
-    }
-
-    public static function recursive_cut_content($content, $countWords, $countSymbols)
-    {
-        $content = Str::words($content, $countWords, '');
-
-        if (iconv_strlen($content) < $countSymbols - 3) {
-            $strWithoutLastSymbol = preg_replace('/(!|,|\.|\'|\"|\:|\.{2}|\.{3}|\;)$/', '', $content);
-            return $strWithoutLastSymbol . '...';
-        } else {
-            return self::recursive_cut_content($content, --$countWords, $countSymbols);
-        }
-    }
-
-    public function searchArticles(Request $request)
-    {
-        $searchResults = (new Search())
-            ->registerModel(Article::class, 'name', 'content')
-            ->search($request->search);
-        $articles = Array();
-        foreach ($searchResults as $result) {
-            array_push($articles, $result->searchable);
-        }
-        $articles = collect($articles)->groupBy('type');
-        return view('search.search_results', ['searchResults' => $articles]);
-    }
 }

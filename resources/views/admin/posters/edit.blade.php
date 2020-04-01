@@ -30,6 +30,12 @@
                         @endforeach
                     </select>
                 </div>
+                <br>
+                <div class="form-group">
+                    <label for="date_event_field">Дата события:<span class="text-danger">*</span></label>
+                    <br>
+                    <input value="{{ date('Y-m-d\TH:i', strtotime($poster->date_event)) }}" type="datetime-local" id="date_event_field" name="date_event" required>
+                </div>
                 <div class="form-group">
                     <label for="phone_field">Телефон:<span class="text-danger">*</span></label>
                     <input id="phone_field" value="{{ $poster->phone }}" type="text" class="form-control" name="phone"
