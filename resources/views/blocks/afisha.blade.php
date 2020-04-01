@@ -21,7 +21,7 @@
                             </div>
                         </div>
                         <div class="row justify-content-center">
-                            <div class="col-9">
+                            <div class="col-12">
                                 <h6 class="card-title text-orange pt-2">{{ $poster->type->name }}</h6>
                                 <a href="{{ route('show.poster', $poster) }}">
                                     <p class="card-text text-uppercase">{{ $poster->name }}</p>

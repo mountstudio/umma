@@ -1,5 +1,5 @@
 <?php
-
+use Illuminate\Support\Facades\Route;
 
 Route::get('/', 'ArticleController@welcome')->name('welcome');
 
@@ -17,7 +17,7 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-
+Route::get('/set-language/{lang}', 'LanguageController@switch')->name('language.switch');
 
 
 Route::get('/show_hadith/{hadith}', 'HadithController@show')->name('show.hadith');

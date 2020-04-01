@@ -9,21 +9,21 @@
         <div class="col-12 col-lg-7">
             <div class="row">
                 <div class="col-12">
+                    {{ \Illuminate\Support\Facades\App::getLocale() }}
                     <ul class="nav nav-pills mb-0 text-dark" id="pills-tab" role="tablist">
                         <li class="nav-item">
                             <a class="nav-link rounded-0 active bg-white border-right text-dark" id="pills-home-tab"
                                data-toggle="pill"
-                               href="#pills-home" role="tab" aria-controls="pills-home" aria-selected="true">Свежее</a>
+                               href="#pills-home" role="tab" aria-controls="pills-home" aria-selected="true">{{ __('Свежее') }}</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link rounded-0 bg-white text-dark border-right" id="pills-profile-tab"
                                data-toggle="pill"
-                               href="#pills-profile" role="tab" aria-controls="pills-profile" aria-selected="false">Актуальное</a>
+                               href="#pills-profile" role="tab" aria-controls="pills-profile" aria-selected="false">{{ __('Актуальное') }}</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link rounded-0 bg-white text-dark" id="pills-contact-tab" data-toggle="pill"
-                               href="#pills-contact" role="tab" aria-controls="pills-contact" aria-selected="false">Тема
-                                дня</a>
+                               href="#pills-contact" role="tab" aria-controls="pills-contact" aria-selected="false">{{ __('Тема дня') }}</a>
                         </li>
                     </ul>
                 </div>

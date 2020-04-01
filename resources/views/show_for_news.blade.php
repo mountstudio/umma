@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('content')
-    <div class="container">
+    <div class="container bg-white">
         <div class="row">
             <div class="col-12 p-0">
                 {{ Breadcrumbs::render('article', $article) }}
@@ -29,7 +29,7 @@
                     <img class="d-none d-md-block mx-2" src="{{ asset('img/news.png') }}" alt=""
                          style="width: 60px;height: 60px;">
                     <h2 class="title">
-                        {{ $article->name }}
+                        {{ __($article->name) }}
                     </h2>
                 </div>
                 <div class="py-2">
