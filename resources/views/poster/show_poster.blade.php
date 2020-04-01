@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('content')
     {{ Breadcrumbs::render('poster', $poster) }}
-    <div class="container">
+    <div class="container bg-white">
         <div class="row">
             <div class="col-12 col-lg-8">
                 <div>
