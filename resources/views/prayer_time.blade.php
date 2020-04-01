@@ -33,12 +33,12 @@
                            aria-controls="batken" aria-selected="false" href="#batken">Баткен</a>
                     </div>
                 </div>
-                <div class="tab-content" id="myTabContent">
+                <div class="tab-content pt-3" id="myTabContent">
                     @foreach($table as $key=>$city)
                         <div class="tab-pane fade {{$loop->index == 0 ? 'show active':''}}" id="{{ $key }}"
                              role="tabpanel"
                              aria-labelledby="{{ $key }}-tab">
-                            <h3>{{ $cities[$loop->index] }}</h3>
+                            <h3 class="text-center">{{ $cities[$loop->index] }}</h3>
                             <table class="table table-striped table-responsive-sm">
                                 <thead>
                                 <tr>
