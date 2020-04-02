@@ -39,7 +39,20 @@ class ChartController extends Controller
             foreach ($typeArticles as $article) {
                 $sum += $article->impressions;
             }
-            $result[$key] = $sum;
+            switch ($key) {
+                case 'article':
+                    $result[' Статьи'] = $sum;
+                    break;
+                case 'longread':
+                    $result['Лонгриды'] = $sum;
+                    break;
+                case 'digest':
+                    $result['Дайджест'] = $sum;
+                    break;
+                default:
+                    $result[$key] = $sum;
+                    break;
+            }
         }
         asort($result);
         return response()->json($result);
