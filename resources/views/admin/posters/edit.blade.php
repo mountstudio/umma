@@ -34,7 +34,8 @@
                 <div class="form-group">
                     <label for="date_event_field">Дата события:<span class="text-danger">*</span></label>
                     <br>
-                    <input value="{{ date('Y-m-d\TH:i', strtotime($poster->date_event)) }}" type="datetime-local" id="date_event_field" name="date_event" required>
+                    <input value="{{ date('Y-m-d\TH:i', strtotime($poster->date_event)) }}" type="datetime-local"
+                           id="date_event_field" name="date_event" required>
                 </div>
                 <div class="form-group">
                     <label for="phone_field">Телефон:<span class="text-danger">*</span></label>
@@ -50,7 +51,8 @@
                     <label for="main_photo_input">Выберите фото:</label>
                     <input id="main_photo_input" class="form-control" onchange="readURL(this);" type="file"
                            name="main_photo" accept="image/jpeg, image/png">
-                    <img id="photo" src="{{ asset('storage/medium/' . $poster->main_photo) }}"/>
+                    <br>
+                    <img id="photo" src="{{ asset('storage/medium/' . $poster->main_photo) }}" width="750"/>
                 </div>
                 <button type="submit" title="{{ __('Изменить') }}"
                         class="btn n btn-success">{{ __('Изменить') }}</button>
@@ -76,6 +78,7 @@
                         .attr('src', e.target.result);
                 };
                 reader.readAsDataURL(input.files[0]);
+                $('#photo').width = 750;
             }
         }
     </script>

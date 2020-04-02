@@ -9,11 +9,11 @@
     <a href="{{ route('admin.hadith.datatable') }}" class="list-group-item list-group-item-action {{ request()->is('admin/hadith*') ? 'active' : '' }}">{{ __('Хадисы') }}</a>
     <a href="{{ route('admin.magazine.datatable') }}" class="list-group-item list-group-item-action {{ request()->is('admin/magazin*') ? 'active' : '' }}">{{ __('Журналы') }}</a>
     <a href="{{ route('admin.project.datatable') }}" class="list-group-item list-group-item-action {{ request()->is('admin/project*') ? 'active' : '' }}">{{ __('Проекты') }}</a>
-    <a href="{{ route('admin.poster.datatable') }}" class="list-group-item list-group-item-action {{ request()->is('admin/poster*') ? 'active' : '' }}">{{ __('Афиша') }}</a>
     <a href="{{ route('admin.questionCategory.datatable') }}" class="list-group-item list-group-item-action {{ request()->is('admin/questionCategor*') ? 'active' : '' }}">{{ __('Категории вопросов') }}</a>
     <a href="{{ route('admin.question.datatable') }}" class="list-group-item list-group-item-action {{ request()->is('admin/question*') ? 'active' : '' }}">{{ __('Вопросы') }}</a>
     <a href="{{ route('admin.tag.datatable') }}" class="list-group-item list-group-item-action {{ request()->is('admin/tag*') ? 'active' : '' }}">{{ __('Теги') }}</a>
     <a href="{{ route('admin.photographer.datatable') }}" class="list-group-item list-group-item-action {{ request()->is('admin/photographer*') ? 'active' : '' }}">{{ __('Фотографы') }}</a>
+    <a href="{{ route('admin.poster.datatable') }}" class="list-group-item list-group-item-action {{ request()->is('admin/poster') ? 'active' : '' }}">{{ __('Афиша') }}</a>
     <a href="{{ route('admin.posterType.datatable') }}" class="list-group-item list-group-item-action {{ request()->is('admin/posterType*') ? 'active' : '' }}">{{ __('Типы афиш') }}</a>
     <a href="{{ route('admin.comment.datatable') }}" class="list-group-item list-group-item-action {{ request()->is('admin/comment*') ? 'active' : '' }}">{{ __('Комментарии') }}</a>
     <a href="{{ route('admin.subscriber.datatable') }}" class="list-group-item list-group-item-action {{ request()->is('admin/subscriber*') ? 'active' : '' }}">{{ __('Подписчики') }}</a>

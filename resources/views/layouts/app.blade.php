@@ -32,7 +32,6 @@
     <script src="{{ asset('js/modernizr.custom.js') }}"></script>
     <script src="{{ asset('js/classie.js') }}"></script>
     <script src="{{ asset('js/uisearch.js') }}"></script>
-    {{--<script src="{{ asset('js/editor-conf.js') }}"></script>--}}
     <script>
         new UISearch( document.getElementById( 'sb-search' ) );
     </script>

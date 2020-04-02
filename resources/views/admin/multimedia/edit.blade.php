@@ -22,7 +22,8 @@
                 <div class="form-group">
                     <label for="image_field">Выберите картинку:</label>
                     <input id="image_field" class="form-control" onchange="readURL(this);" type="file" name="url_photo" accept="image/jpeg, image/png">
-                    <img id="image" src="{{ asset('storage/medium/' . $multimedia->url_photo) }}"/>
+                    <br>
+                    <img id="image" src="{{ asset('storage/medium/' . $multimedia->url_photo) }}" width="750"/>
                 </div>
                 <button type="submit" title="{{ __('Изменить') }}" class="btn n btn-success">{{ __('Изменить') }}</button>
             </form>
@@ -40,6 +41,7 @@
                         .attr('src', e.target.result);
                 };
                 reader.readAsDataURL(input.files[0]);
+                $('#image').width = 750;
             }
         }
     </script>

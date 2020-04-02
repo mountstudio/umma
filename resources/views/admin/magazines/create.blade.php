@@ -16,14 +16,15 @@
                            placeholder="Наименование" name="name" required>
                 </div>
                 <div class="form-group">
-                    <label for="image_input">Картинка</label>
-                    <input id="image_input" type="file" class="form-control" name="image" accept="image/*" required>
-                </div>
-                <div class="form-group">
                     <label for="pdf_input">pdf</label>
                     <input id="pdf_input" type="file" class="form-control" name="pdf" accept="application/pdf" required>
                 </div>
-                <button type="submit" title="{{ __('Добавить') }}" class="btn n btn-success">{{ __('Добавить') }}</button>
+                <div class="form-group">
+                    <label for="image_input">Картинка</label>
+                    <input id="image_input" type="file" class="form-control" name="image" accept="image/*" required>
+                </div>
+                <button type="submit" title="{{ __('Добавить') }}"
+                        class="btn n btn-success">{{ __('Добавить') }}</button>
             </form>
         </div>
     </div>

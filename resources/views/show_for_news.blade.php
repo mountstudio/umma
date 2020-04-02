@@ -55,7 +55,7 @@
                 @endif
                 @foreach($otherArticles as $articleGroup)
                     <div id="{{ !$loop->first ? 'more':'basic' }}" class="row{{ !$loop->first ? ' collapse':'' }}">
-                        @foreach($articleGroup as $article)
+                        @foreach($articleGroup as $otherArticle)
                             @include('other.other_articles')
                         @endforeach
                     </div>

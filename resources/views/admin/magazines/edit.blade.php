@@ -13,18 +13,22 @@
                 @method('PUT')
                 <div class="form-group">
                     <label for="name_field">Наименование<span class="text-danger">*</span></label>
-                    <input value="{{ $magazine->name }}" type="text" class="form-control" name="name" id="name_field" required>
-                </div>
-                <div class="form-group">
-                    <label for="image_input">Картинка</label>
-                    <input id="image_input" type="file" class="form-control" onchange="readURL(this);" name="image" accept="image/*">
-                    <img id="image" src="{{ asset('storage/medium/' . $magazine->image) }}"/>
+                    <input value="{{ $magazine->name }}" type="text" class="form-control" name="name" id="name_field"
+                           required>
                 </div>
                 <div class="form-group">
                     <label for="pdf_input">pdf</label>
                     <input id="pdf_input" type="file" class="form-control" name="pdf" accept="application/pdf">
                 </div>
-                <button type="submit" title="{{ __('Изменить') }}" class="btn n btn-success">{{ __('Изменить') }}</button>
+                <div class="form-group">
+                    <label for="image_input">Картинка</label>
+                    <input id="image_input" type="file" class="form-control" onchange="readURL(this);" name="image"
+                           accept="image/*">
+                    <br>
+                    <img id="image" src="{{ asset('storage/medium/' . $magazine->image) }}" width="750"/>
+                </div>
+                <button type="submit" title="{{ __('Изменить') }}"
+                        class="btn n btn-success">{{ __('Изменить') }}</button>
             </form>
         </div>
     </div>
@@ -45,6 +49,7 @@
                         .attr('src', e.target.result);
                 };
                 reader.readAsDataURL(input.files[0]);
+                $('#image').width = 750;
             }
         }
     </script>

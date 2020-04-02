@@ -4,15 +4,21 @@
             <div class="row justify-content-center justify-content-lg-end mb-4">
                 <div class="">
                     @if(Auth::user())
-                        <form id="frm-logout" action="{{ route('logout') }}" method="POST">
+
+                        <a href="{{ route('logout') }}"
+                           onclick="event.preventDefault(); document.getElementById('logout-form').submit();"
+                           class="text-orange">
+                            {{ __('Выйти') }}
+                        </a>
+
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                             {{ csrf_field() }}
-                            <button type="submit" class=" text-orange"> {{ __('Выйти') }}</button>
                         </form>
                     @else
                         <a href="{{ route('login') }}" class="text-orange  mx-3">
                             {{ __('Войти') }}
                         </a>
-                        <a href="{{ route('register') }}" class="text-orange ">
+                        <a href="{{ route('register') }}" class="text-orange">
                             {{ __('Регистрация') }}
                         </a>
                     @endif
@@ -24,13 +30,13 @@
             </div>
         </div>
         <div class="col-12 col-lg-6  text-center order-0 ">
-            <div id="sb-search" class="sb-search col-12 col-lg-8 float-left" >
+            <div id="sb-search" class="sb-search col-12 col-lg-8 float-left">
                 <form action="{{ route('search') }}" method="GET">
                     <input class="sb-search-input" placeholder="Введите поисковый запрос..." type="text" value=""
                            name="search"
-                           id="search" >
-                    <input class="sb-search-submit" type="submit" >
-                    <span class="sb-icon-search" ></span>
+                           id="search">
+                    <input class="sb-search-submit" type="submit">
+                    <span class="sb-icon-search"></span>
                 </form>
             </div>
         </div>
@@ -44,11 +50,12 @@
             <a href="https://www.facebook.com/ummamag.kg"><i class="fab fa-facebook fa-lg text-orange mr-3"></i></a>
             <a href="https://www.instagram.com/ummamagkg/"><i class="fab fa-instagram fa-lg text-orange mr-3"></i></a>
             <a href="https://www.youtube.com/watch?v=pfab0uXYDpY&feature=youtu.be"><i
-                    class="fab fa-youtube fa-lg text-orange mr-3"></i></a>
+                        class="fab fa-youtube fa-lg text-orange mr-3"></i></a>
             <a href=""><i class="fas fa-rss fa-lg text-orange"></i></a>
         </div>
         <nav class="navbar navbar-expand-lg mx-0 mx-lg-auto col-12">
-            <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse"
+                    data-target="#navbarSupportedContent"
                     aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="fas fa-bars"></span>
             </button>
