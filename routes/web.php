@@ -1,6 +1,10 @@
 <?php
 use Illuminate\Support\Facades\Route;
 
+Auth::routes();
+
+Route::feeds();
+
 Route::get('/', 'ArticleController@welcome')->name('welcome');
 
 Route::get('/it_is_interesting', 'ArticleController@it_is_interesting')->name('it_is_interesting');
@@ -13,7 +17,6 @@ Route::get('/about_sore', 'ArticleController@about_sore')->name('about_sore');
 
 Route::get('/education', 'ArticleController@education')->name('education');
 
-Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
@@ -80,13 +83,6 @@ Route::get('chart_count_registered', 'ChartController@registeredUsers')->name('c
 Route::get('chart_count_views', 'ChartController@articleTypeViews')->name('chart.count.views');
 
 
-//Route::get('/questions_show', function () {
-//    return view('questions.show');
-//})->name('questions_show');
-
-//Route::get('/questions_index', function () {
-//    return view('questions.index');
-//})->name('questions_index');
 
 Route::get('/vacancies', function () {
     return view('vacancies');
@@ -95,10 +91,6 @@ Route::get('/vacancies', function () {
 Route::get('/advertisers', function () {
     return view('advertisers');
 })->name('advertisers');
-
-//for ajax query
-
-
 
 //ADMINKA
 Route::prefix('admin')->name('admin.')/*->middleware('admin')*/

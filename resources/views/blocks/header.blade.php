@@ -51,7 +51,7 @@
             <a href="https://www.instagram.com/ummamagkg/"><i class="fab fa-instagram fa-lg text-orange mr-3"></i></a>
             <a href="https://www.youtube.com/watch?v=pfab0uXYDpY&feature=youtu.be"><i
                         class="fab fa-youtube fa-lg text-orange mr-3"></i></a>
-            <a href=""><i class="fas fa-rss fa-lg text-orange"></i></a>
+            <a href="{{ route('feeds.main') }}"><i class="fas fa-rss fa-lg text-orange"></i></a>
         </div>
         <nav class="navbar navbar-expand-lg mx-0 mx-lg-auto col-12">
             <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse"

@@ -84,16 +84,14 @@ class MultimediaController extends Controller
     public function update(UpdateMultimediaRequest $request, Multimedia $multimedia)
     {
         $request->validated();
-        if (!$request->hasFile('url_photo')) {
-            $multimedia->update($request->all());
-        } else {
+        if ($request->hasFile('url_photo')) {
             Storage::disk('public')->delete("/large/" . $multimedia->url_photo);
             Storage::disk('public')->delete("/medium/" . $multimedia->url_photo);
             Storage::disk('public')->delete("/small/" . $multimedia->url_photo);
-            $multimedia->update($request->all());
             $multimedia->url_photo = ImageUploader::upload(request('url_photo'), 'multimedia', 'multimedia', 40);
             $multimedia->save();
         }
+        $multimedia->update($request->except('url_photo'));
         return redirect()->route('admin.multimedia.datatable');
     }
 

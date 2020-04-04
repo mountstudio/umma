@@ -59,8 +59,9 @@ class ProjectController extends Controller
 
     public function adminShow(Project $project)
     {
-        return view('admin.projects.show', ['project'=>$project]);
+        return view('admin.projects.show', ['project' => $project]);
     }
+
     /**
      * Show the form for editing the specified resource.
      *
@@ -81,17 +82,15 @@ class ProjectController extends Controller
      */
     public function update(UpdateProjectRequest $request, Project $project)
     {
-       $request->validated();
-        if (!$request->hasFile('image')) {
-            $project->update($request->all());
-        } else {
+        $request->validated();
+        if ($request->hasFile('image')) {
             Storage::disk('public')->delete("/large/" . $project->image);
             Storage::disk('public')->delete("/medium/" . $project->image);
             Storage::disk('public')->delete("/small/" . $project->image);
-            $project->update($request->all());
             $project->image = ImageUploader::upload(request('image'), 'projects', 'projects', 40);
             $project->save();
         }
+        $project->update($request->except('image'));
         return redirect()->route('admin.project.datatable');
     }
 

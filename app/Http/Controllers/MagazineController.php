@@ -87,25 +87,18 @@ class MagazineController extends Controller
     public function update(UpdateMagazineRequest $request, Magazine $magazine)
     {
         $request->validated();
-        if (!$request->hasFile('image') && !$request->hasFile('pdf')) {
-            $magazine->update($request->all());
-        } else {
-            if ($request->hasFile('image')) {
-                Storage::disk('public')->delete("/large/" . $magazine->image);
-                Storage::disk('public')->delete("/medium/" . $magazine->image);
-                Storage::disk('public')->delete("/small/" . $magazine->image);
-                $magazine->update($request->all());
-                $magazine->image = ImageUploader::upload(request('image'), 'authors', 'authors', 40);
-                $magazine->save();
-
-            }
-            if ($request->hasFile('pdf')) {
-                Storage::disk('public')->delete("/pdf/" . $magazine->pdf);
-                $magazine->update($request->all());
-                $magazine->pdf = PdfUploader::upload(request('pdf'), 'magazines', 'magazines');
-                $magazine->save();
-            }
+        if($request->hasFile('image')){
+            Storage::disk('public')->delete("/large/" . $magazine->image);
+            Storage::disk('public')->delete("/medium/" . $magazine->image);
+            Storage::disk('public')->delete("/small/" . $magazine->image);
+            $magazine->image = ImageUploader::upload(request('image'), 'authors', 'authors', 40);
         }
+        if ($request->hasFile('pdf')){
+            Storage::disk('public')->delete("/pdf/" . $magazine->pdf);
+            $magazine->pdf = PdfUploader::upload(request('pdf'), 'magazines', 'magazines');
+        }
+        $magazine->save();
+        $magazine->update($request->except('image','pdf'));
         return redirect()->route('admin.magazine.datatable');
     }
 

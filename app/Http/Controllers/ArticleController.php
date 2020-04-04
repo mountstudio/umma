@@ -78,7 +78,7 @@ class ArticleController extends Controller
         $article->photographers()->attach($request->photographers);
         $article->tags()->attach($request->tags);
 
-        $article->content = ContentCutting::cut_contents( $article->content, 20, 80);
+        $article->content = ContentCutting::cut_contents($article->content, 15, 65);
         MailSender::send($article);
 
         return redirect()->route('admin.' . $request->type . '.datatable');
@@ -93,12 +93,12 @@ class ArticleController extends Controller
     public function show(Article $article)
     {
 
-        if (!Article::getProductionViews($article->id)) {
+        if (!Article::getArticleViews($article->id)) {
             $article->impressions++;
             $article->save();
         }
         $comments = $article->comments()->get();
-        $otherArticles = Article::where('category_id',$article->category_id)->where('id','!=',$article->id)->take(6)->get();
+        $otherArticles = Article::where('category_id', $article->category_id)->where('id', '!=', $article->id)->take(6)->get();
         $otherArticles = $otherArticles->chunk(ceil(3));
         return view('show_for_news',
             [
@@ -203,12 +203,11 @@ class ArticleController extends Controller
                 }
             })
             ->editColumn('category_id', function (Article $article) {
-               if ($article->category->count()){
-                   return $article->category->name;
-               }
-               else{
-                   return null;
-               }
+                if ($article->category->count()) {
+                    return $article->category->name;
+                } else {
+                    return null;
+                }
             })
             ->addColumn('actions', function (Article $article) use ($type) {
                 return view('admin.actions', [
@@ -239,7 +238,7 @@ class ArticleController extends Controller
         $articlesLatest = Article::latest()->take(6)->get();
         $categories = self::get_categories();
 
-        $kolumnisty = Author::where('view_main', true)->latest()->get();
+        $kolumnisty = Author::has('articles')->where('view_main', true)->latest()->get();
         $hadith = Hadith::latest()->first();
         $multimedia = Multimedia::latest()->take(10)->get();
         $projects = Project::latest()->get();
