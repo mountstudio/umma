@@ -10,7 +10,7 @@
             <div class="col-12 col-lg-8">
                 <nav aria-label="breadcrumb">
                 </nav>
-                <div class="author d-flex justify-content-between">
+                <div class="author d-lg-flex d-md-flex d-block justify-content-between">
                     <p>Автор{{$article->authors->count()>1?'ы':'' }}:
                         @foreach($article->authors as $author)
                             <a href="{{ route('show.author', $author) }}">{{ $author->full_name . ($loop->last ? '' : ',') }} </a>
@@ -23,7 +23,7 @@
                             @endforeach
                         </p>
                     @endif
-                    <span>{{$article->created_at->format('d.m.y')}}</span>
+                    <p>{{$article->created_at->format('d.m.y')}}</p>
                 </div>
                 <div class="post-header d-flex py-2">
                     <img class="d-none d-md-block mx-2" src="{{ asset('img/news.png') }}" alt=""
