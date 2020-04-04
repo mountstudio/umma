@@ -64,9 +64,9 @@
                         @if($comment->parent_id)
                             @continue
                         @endif
-                        <div class="media my-5 col-12" id="play">
-                            <div class="media-body  text-center text-md-left px-4">
-                                <h5 class="font-weight-bold mt-0 d-flex">
+                        <div class="media my-5 col-12 px-0" id="play">
+                            <div class="media-body text-md-left px-0">
+                                <h5 class="font-weight-bold my-0 d-flex ">
                                     <p class="pr-2">{{ $comment->full_name }}</p>
                                     @admin
                                     <a href="#" data-toggle="modal" data-target="#modalForComment"
@@ -75,7 +75,7 @@
                                     </a>
                                     @endadmin
                                 </h5>
-                                <h6 class="ml-3">{!! $comment->content !!}</h6>
+                                <h6 class="ml-3 font-weight-light">{!! $comment->content !!}</h6>
                                 @foreach($comment->children as $answer)
                                     <div class="media d-block d-md-flex mt-1">
                                         <div class="media-body text-center text-md-left ml-md-5 ml-0">
