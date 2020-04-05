@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Article;
 use App\Author;
 use App\Category;
-use App\hadith;
+use App\Hadith;
 use App\Http\Requests\StoreArticleRequest;
 use App\Http\Requests\UpdateArticleRequest;
 use App\Magazine;
