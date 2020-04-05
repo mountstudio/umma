@@ -245,7 +245,9 @@ class ArticleController extends Controller
         $magazines = Magazine::latest()->take(2)->get();
         $posters = Poster::latest()->take(4)->get();
 
-        $hadith->content = ContentCutting::cut_contents($hadith->content, 60, 370);
+        if ($hadith) {
+            $hadith->content = ContentCutting::cut_contents($hadith->content, 60, 370);
+        }
         foreach ($posters as $poster) {
             $content = strip_tags($poster->content);
             $poster->content = ContentCutting::cut_contents($content, 10, 42);
