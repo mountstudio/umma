@@ -6,6 +6,7 @@ use App\Article;
 use Illuminate\Pagination\LengthAwarePaginator;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Blade;
+use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -57,12 +58,14 @@ class AppServiceProvider extends ServiceProvider
             return false;
         });
 
-        $articles_for_subblock = Article::where('is_active', true)
-            ->where('type', 'article')->latest()->take(9)->get();
-        view()->composer('blocks.right-sidebar.new',
-            function ($view) use ($articles_for_subblock) {
-            $view->with('articles_for_subblock', $articles_for_subblock);
-        });
+        if (Schema::hasTable('articles')) {
+            $articles_for_subblock = Article::where('is_active', true)
+                ->where('type', 'article')->latest()->take(9)->get();
+            view()->composer('blocks.right-sidebar.new',
+                function ($view) use ($articles_for_subblock) {
+                    $view->with('articles_for_subblock', $articles_for_subblock);
+                });
+        }
         setlocale(LC_TIME, 'ru_RU.UTF-8');
 
     }
