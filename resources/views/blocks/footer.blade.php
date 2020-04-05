@@ -36,7 +36,7 @@
                                     <span aria-hidden="true">&times;</span>
                                 </button>
                             </div>
-                            <div class="modal-body">
+                            <div class="modal-body px-5">
                                 <form action="{{ route('user.subscriber.store') }}" method="POST">
                                     @csrf
                                     <div class="row">
@@ -52,7 +52,7 @@
                                         </div>
                                     </div>
                                 </form>
-                                <div class="row justify-content-center">
+                                <div class="row justify-content-center small">
                                     <p>Напишите свой email адресс, чтобы всегда быть вкурсе событий</p>
                                 </div>
                             </div>
