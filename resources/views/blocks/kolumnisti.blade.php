@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container bg-white">
     <hr style="background-color: black;color: black;">
     <div class="row justify-content-around">
         <div class="col-12 col-lg-7">

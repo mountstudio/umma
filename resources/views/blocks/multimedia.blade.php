@@ -1,4 +1,4 @@
-<div class="container px-5">
+<div class="container bg-white px-5">
     <h2 class="text-uppercase text-center">Мультимедиа</h2>
     <div class="row">
         <div class="col-12 p-4 bg-orange">

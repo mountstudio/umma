@@ -1,4 +1,4 @@
-<div class="container pt-3">
+<div class="container bg-white pt-3">
     <div class="col pr-3">
         <h2 class="text-uppercase"><a href="{{ route('all.posters') }}">Афиша</a></h2>
     </div>
