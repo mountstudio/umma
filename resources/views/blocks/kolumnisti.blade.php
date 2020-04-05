@@ -23,14 +23,16 @@
             <div class="col">
                 <a href="{{ route('all.hadiths') }}"><h2 class="text-uppercase text-dark">Хадис дня</h2></a>
             </div>
-            <div class="border border-4 border-orange rounded p-3">
-                <p>{!! $hadith->content !!}</p>
-                <div class="col-12 row">
-                    <a href="{{ route('all.hadiths') }}" class="text-left mr-auto" style="color: grey;">Все хадисы</a>
-                    <a href="{{ route('show.hadith', $hadith) }}" class="text-right ml-auto" style="color: grey;">Читать
-                        далее...</a>
+            @if($hadith)
+                <div class="border border-4 border-orange rounded p-3">
+                    <p>{!! $hadith->content !!}</p>
+                    <div class="col-12 row">
+                        <a href="{{ route('all.hadiths') }}" class="text-left mr-auto" style="color: grey;">Все хадисы</a>
+                        <a href="{{ route('show.hadith', $hadith) }}" class="text-right ml-auto" style="color: grey;">Читать
+                            далее...</a>
+                    </div>
                 </div>
-            </div>
+            @endif
         </div>
     </div>
 </div>
