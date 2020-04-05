@@ -28,4 +28,10 @@ class UpdateAuthorRequest extends FormRequest
             'photo' => 'nullable|image|max:2000|dimensions:ratio=1/1,min_width=500'
         ];
     }
+    public function messages()
+    {
+        return [
+            'photo.dimensions' => 'image width must be at least 500 pixels and 1 to 1 ratio',
+        ];
+    }
 }

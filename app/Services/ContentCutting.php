@@ -35,6 +35,6 @@ class ContentCutting
     }
 
     private static function htmlStrCounter($htmlStr){
-        return strlen(utf8_decode(html_entity_decode($htmlStr, ENT_COMPAT, 'utf-8')));
+        return iconv_strlen(utf8_decode(html_entity_decode($htmlStr, ENT_COMPAT, 'utf-8')));
     }
 }

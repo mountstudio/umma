@@ -42,9 +42,14 @@ class MagazineController extends Controller
     public function store(StoreMagazineRequest $request)
     {
         $request->validated();
-        $magazine = Magazine::create($request->all());
+        $magazine = Magazine::create($request->except('pdf', 'kg_pdf'));
         $magazine->image = ImageUploader::upload(request('image'), 'magazines', 'magazines', 40);
-        $magazine->pdf = PdfUploader::upload(request('pdf'), 'magazines', 'magazines');
+        if ($request->hasFile('pdf')) {
+            $magazine->pdf = PdfUploader::upload(request('pdf'), 'magazines', 'magazines');
+        }
+        if ($request->hasFile('kg_pdf')) {
+            $magazine->kg_pdf = PdfUploader::upload(request('kg_pdf'), 'magazines', 'magazines');
+        }
         $magazine->save();
         return redirect()->route('admin.magazine.datatable');
     }
@@ -66,6 +71,7 @@ class MagazineController extends Controller
 
         return view('admin.magazines.show', ['magazine' => $magazine]);
     }
+
     /**
      * Show the form for editing the specified resource.
      *
@@ -87,18 +93,22 @@ class MagazineController extends Controller
     public function update(UpdateMagazineRequest $request, Magazine $magazine)
     {
         $request->validated();
-        if($request->hasFile('image')){
+        if ($request->hasFile('image')) {
             Storage::disk('public')->delete("/large/" . $magazine->image);
             Storage::disk('public')->delete("/medium/" . $magazine->image);
             Storage::disk('public')->delete("/small/" . $magazine->image);
             $magazine->image = ImageUploader::upload(request('image'), 'authors', 'authors', 40);
         }
-        if ($request->hasFile('pdf')){
+        if ($request->hasFile('pdf')) {
             Storage::disk('public')->delete("/pdf/" . $magazine->pdf);
             $magazine->pdf = PdfUploader::upload(request('pdf'), 'magazines', 'magazines');
         }
+        if ($request->hasFile('kg_pdf')) {
+            Storage::disk('public')->delete("/pdf/" . $magazine->kg_pdf);
+            $magazine->kg_pdf = PdfUploader::upload(request('kg_pdf'), 'magazines', 'magazines');
+        }
         $magazine->save();
-        $magazine->update($request->except('image','pdf'));
+        $magazine->update($request->except('image', 'pdf','kg_pdf'));
         return redirect()->route('admin.magazine.datatable');
     }
 
