@@ -21,6 +21,14 @@
                     <input id="pdf_input" type="file" class="form-control" name="pdf" accept="application/pdf">
                 </div>
                 <div class="form-group">
+                    <label for="kg_pdf_input">pdf на кыргызском</label>
+                    <input id="kg_pdf_input" type="file" class="form-control" name="kg_pdf" accept="application/pdf">
+                </div>
+                <div class="form-group">
+                    <label for="status">Статус журнала</label>
+                    <input value="{{ $magazine->status }}" id="status" type="text" class="form-control" placeholder="Статус журнала" name="status">
+                </div>
+                <div class="form-group">
                     <label for="image_input">Картинка</label>
                     <input id="image_input" type="file" class="form-control" onchange="readURL(this);" name="image"
                            accept="image/*">
@@ -33,11 +41,6 @@
         </div>
     </div>
 @endsection
-
-@push('styles')
-    <link href="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/css/select2.min.css" rel="stylesheet"/>
-    <link rel="stylesheet" href="{{ asset('css/main.css') }}">
-@endpush
 @push('scripts')
     <script language="javascript">
         function readURL(input) {

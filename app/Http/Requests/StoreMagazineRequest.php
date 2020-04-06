@@ -27,7 +27,15 @@ class StoreMagazineRequest extends FormRequest
         return [
             'name' => 'required|max:255',
             'image' => ['required', 'image', 'max:2000', 'dimensions:min_width=500', new Journal_image],
-            'pdf' => 'required|mimes:pdf|max:50000'
+            'pdf' => 'nullable|mimes:pdf|max:50000',
+            'kg_pdf' => 'nullable|mimes:pdf|max:50000',
+            'status' => 'nullable|max:255',
+        ];
+    }
+    public function messages()
+    {
+        return [
+            'image.dimensions' => 'image width must be at least 500 pixels.',
         ];
     }
 }
