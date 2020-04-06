@@ -1,5 +1,5 @@
-<div class="container">
-    <hr style="background-color: black;color: black;">
+<div class="container bg-white px-3">
+{{--    <hr style="background-color: black;color: black;">--}}
     <div class="row justify-content-around">
         <div class="col-12 col-lg-7">
             <div class="col">

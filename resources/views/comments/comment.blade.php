@@ -1,5 +1,5 @@
 <section>
-    <div class="container">
+    <div class="container bg-white">
         <div class="col-12 row justify-content-center">
             <button type="button" class="button button--isi button--border-thick button--round-l button--size-s text-white modal-open" data-toggle="modal" data-target="#modalForComment">
                 Оставить отзыв
@@ -59,7 +59,7 @@
             </div>
             <div class="col-12">
                 <section class="my-5">
-                    <div class="card-header border-0 font-weight-bold">{{ $comments->count() }} comments</div>
+                    <div class="card-header border-0 font-weight-bold">{{ $comments->count() }} коментарий</div>
                     @foreach($comments as $comment)
                         @if($comment->parent_id)
                             @continue
