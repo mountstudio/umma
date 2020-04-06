@@ -1,4 +1,4 @@
-<div class="col-12 col-md-6 pb-4 px-1">
+<div class="col-6 col-lg-6 col-md-6 pb-4 px-1">
     <div class="card">
         <a href="{{ route('show.article', $article) }}" title="ссылка">
             <img src="{{ asset('storage/small/' . $article->logo) }}"

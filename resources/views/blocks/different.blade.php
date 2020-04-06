@@ -13,7 +13,7 @@
                                 <img src="{{ asset('img/hello_html_m4e1bf07b.png') }}" style="width: 36%" alt="Узор">
                                 <div class="row justify-content-center">
                                     <div class="col-12">
-                                        <h6 class="card-title text-uppercase desc-text-crop">{{ $article->name }}</h6>
+                                        <h6 class="card-title text-uppercase">{{ $article->name }}</h6>
                                     </div>
                                 </div>
                             </div>

@@ -21,7 +21,7 @@
 <section class="position-absolute d-none d-lg-block" style="bottom: -52px;height: 100px;width: 110%;left: -30px;filter: blur(15px);background: white;z-index: -1;">
 
 </section>
-    <div id="app" class="" style="padding-top: 200px">
+    <div id="app" class="">
             @include('blocks.header')
         <main class="">
             @yield('content')

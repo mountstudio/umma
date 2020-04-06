@@ -65,20 +65,20 @@
     </div>
     <div class="row mt-5 justify-content-around">
         <div class="col-12 col-md-6 col-lg-6 pt-2">
-            <p class="text-left">Информационно-просветительский сайт ummamag.kg.
+            <p class="text-lg-left text-center">Информационно-просветительский сайт ummamag.kg.
                 Вся информация, размещенная на данном веб-сайте, предназначена только для персонального
                 использования и не подлежит распространению без разрешения Ummamag.kg.
                 Редакция не несет ответственности за содержимое перепечатанных материалов
                 и высказывания отдельных лиц.</p>
         </div>
-        <div class="col-12 col-md-6 text-lg-right">
+        <div class="col-12 col-md-6 text-lg-right text-center">
             <p class="h4 font-weight-bold">Свяжитесь с нами:</p>
             <a href="tel:+996 777 505 005 "><p class="p-0 m-0 txt-for-black">Тел: +996 777 505 005</p></a>
             <a href="mailto:"><p class="p-0 m-0 txt-for-black"> Эл.адрес: ummamagkg@gmail.com</p></a>
             <p class="p-0 m-0 txt-for-black"> Почтовый адрес: г. Бишкек, ул. Грибоедова, 16</p>
         </div>
     </div>
-    <div class="row">
+    <div class="row py-4">
         <div class="col-12 text-center">
             <p>©Все права защищены “Umma 2019”</p>
         </div>

@@ -3,9 +3,11 @@
     <div class="row text-center">
         <div class="col-12">
             @foreach($projects as $project)
-                <a href="">
-                    <img src="{{ asset('storage/small/' . $project->image) }}" class="img-fluid mr-4" alt="Ishker Aim">
-                </a>
+                <div class="col-3">
+                    <a href="">
+                        <img src="{{ asset('storage/small/' . $project->image) }}" class="img-fluid mr-4" alt="Ishker Aim">
+                    </a>
+                </div>
             @endforeach
         </div>
     </div>

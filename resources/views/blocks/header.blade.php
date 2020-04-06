@@ -94,9 +94,12 @@
                 </div>
             </div>
         </nav>
-        <marquee behavior="alternate" direction="right" class="bg-for-middle-div">
-            <p class="h6 py-2">Трансляция: Текст, Видео, Галерея</p>
-        </marquee>
+        <div class="bg-for-middle-div col-12 px-0">
+            <marquee   behavior="scroll"  >
+                العَالِمُ بِلَا عَمَلٍ سَحَابٌ بِلَا مَطَرٍ
+            </marquee>
+        </div>
+
     </div>
 </div>
 
