@@ -14,7 +14,7 @@
                     @foreach($multimedia as $media)
                         <div class="col-12 col-lg-4 py-2">
                             <div class="card">
-                                <a href="{{ route('show.media', $media) }}" title="ссылка">
+                                <a class="fancybox-media" href="{{ route('show.media', $media) }}" title="ссылка">
                                     <img src="{{ asset('storage/medium/' . $media->url_photo ) }}"
                                          class="card-img-top"
                                          alt="...">
@@ -40,3 +40,18 @@
         </div>
     </div>
 @endsection
+@push('styles')
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css">
+@endpush
+@push('scripts')
+    <script src="{{asset('js/jquery.fancybox.min.js')}}"></script>
+    <script>
+        $('.fancybox-media').fancybox({
+            openEffect: 'none',
+            closeEffect: 'none',
+            helpers: {
+                media: {}
+            }
+        });
+    </script>
+@endpush

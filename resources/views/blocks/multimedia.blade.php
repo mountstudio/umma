@@ -5,7 +5,7 @@
             <div class="multimedia">
                 @foreach($multimedia as $media)
                     <div class="item  p-1 mr-1 position-relative">
-                        <a href="{{ $media->url_video }}">
+                        <a class="fancybox-media1" href="{{ $media->url_video }}">
                             <img class="border border-white img-fluid position-relative"
                                  src="{{ asset('storage/medium/' . $media->url_photo) }}" alt="" style="border-width: 5px!important;">
                             <img src="{{ asset('img/play-button.svg') }}" class="img-fluid position-absolute"
@@ -25,6 +25,7 @@
 {{--</a>--}}
 @push('styles')
     <link rel="stylesheet" href="{{ asset('css/slick.css') }}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css">
 @endpush
 
 @push('scripts')
@@ -67,6 +68,16 @@
 
             });
 
+        });
+    </script>
+    <script src="{{asset('js/jquery.fancybox.min.js')}}"></script>
+    <script>
+        $('.fancybox-media1').fancybox({
+            openEffect: 'none',
+            closeEffect: 'none',
+            helpers: {
+                media: {}
+            }
         });
     </script>
 @endpush
