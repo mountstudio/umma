@@ -10,29 +10,28 @@
             <div class="col-12 col-lg-8">
                 <nav aria-label="breadcrumb">
                 </nav>
-                <div class="author d-lg-flex d-md-flex d-block justify-content-between">
+                <div class="author d-lg-flex d-md-flex d-block justify-content-between small">
                     <p>Автор{{$article->authors->count()>1?'ы':'' }}:
                         @foreach($article->authors as $author)
                             <a href="{{ route('show.author', $author) }}">{{ $author->full_name . ($loop->last ? '' : ',') }} </a>
                         @endforeach
                     </p>
-                    @if($article->photographers->count())
-                        <p>Фотограф{{$article->photographers->count()>1?'ы':'' }}:
-                            @foreach($article->photographers as $photographer)
-                                <a>{{ $photographer->full_name . ($loop->last ? '' : ',') }} </a>
-                            @endforeach
-                        </p>
-                    @endif
+
                     <p>{{$article->created_at->format('d.m.y')}}</p>
                 </div>
                 <div class="post-header d-flex py-2">
-                    <img class="d-none d-md-block mx-2" src="{{ asset('img/news.png') }}" alt=""
-                         style="width: 60px;height: 60px;">
-                    <h2 class="title">
+                    <h4 class="title">
                         {{ __($article->name) }}
-                    </h2>
+                    </h4>
                 </div>
-                <div class="py-2">
+                @if($article->photographers->count())
+                    <p class="small my-0">Фотограф{{$article->photographers->count()>1?'ы':'' }}:
+                        @foreach($article->photographers as $photographer)
+                            <a>{{ $photographer->full_name . ($loop->last ? '' : ',') }} </a>
+                        @endforeach
+                    </p>
+                @endif
+                <div class="py-2 text-center">
                     <img class="img-fluid" src="{{ asset('storage/medium/' . $article->logo) }}" alt="">
                 </div>
                 <div>

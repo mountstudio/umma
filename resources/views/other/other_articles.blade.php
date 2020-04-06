@@ -23,7 +23,7 @@
                 </div>
             @endif
             <a href="" title="ссылка">
-                <h6 class="pl-3 text-left">{{ $otherArticle->name }}</h6>
+                <h6 class="pl-3 text-left desc-text-crop">{{ $otherArticle->name }}</h6>
             </a>
         </div>
         <div class="card-footer d-flex justify-content-end bg-white border-0 pt-0 m-0 p-0">
