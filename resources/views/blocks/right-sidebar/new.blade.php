@@ -7,7 +7,7 @@
             </div>
             <div class="col-7">
                 <a href="{{ route('show.article', $article) }}">
-                    <p class="mb-0 ">{{ $article->name }}</p>
+                    <p class="mb-0 text-crop">{{ $article->name }}</p>
                 </a>
             </div>
         </div>

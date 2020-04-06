@@ -43,7 +43,7 @@
     </div>
     <div class="row">
         <div class="col-12  text-center">
-            <a class="navbar-brand" href="{{ route('welcome') }}"><img src="{{ asset('img/umma_logo.png') }}" alt=""
+            <a class="navbar-brand" href="{{ route('welcome') }}"><img src="{{ asset('img/logo.svg') }}" alt=""
                                                                        class="img-fluid justify-content-center"></a>
         </div>
         <div class="col-12  text-center py-2">

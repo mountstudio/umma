@@ -20,7 +20,7 @@
                         {{ $poster->name }}
                     </h2>
                 </div>
-                <div class="py-2">
+                <div class="py-2 text-center">
                     <img class="img-fluid" src="{{ asset('storage/medium/' . $poster->main_photo) }}" alt="">
                 </div>
                 <div>

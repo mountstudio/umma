@@ -1,7 +1,7 @@
 <div class="container-fluid pt-5 bg-for-footer">
     <div class="row justify-content-around">
         <div class="col-12 col-lg-4 col-md-4">
-            <a href="{{ route('welcome') }}"><img src="{{ asset('img/umma_logo.png') }}" class="img-fluid" alt=""></a>
+            <a href="{{ route('welcome') }}"><img src="{{ asset('img/logo.svg') }}" class="img-fluid" alt=""></a>
         </div>
         <div class="col-12 col-md-7 pt-2 ">
             <div class="row align-items-center justify-content-center justify-content-lg-end">

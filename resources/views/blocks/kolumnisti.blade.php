@@ -14,7 +14,7 @@
                             <h3 class="font-weight-bold h5 pt-2"
                                 style="min-height: 56px;">{{ $kolumnist->full_name }}</h3>
                         </a>
-                        <p>{{ optional($kolumnist->articles->sortBy('updated_at')->first())->name }}</p>
+                        <p class="text-crop">{{ optional($kolumnist->articles->sortBy('updated_at')->first())->name }}</p>
                     </div>
                 @endforeach
             </div>
