@@ -29,4 +29,10 @@ class StoreProjectRequest extends FormRequest
             'description' => 'nullable',
         ];
     }
+    public function messages()
+    {
+        return [
+            'image.dimensions' => 'image width must be at least 500 pixels.',
+        ];
+    }
 }

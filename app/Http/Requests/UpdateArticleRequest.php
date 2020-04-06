@@ -35,4 +35,10 @@ class UpdateArticleRequest extends FormRequest
             'logo' => ['nullable','image','max:2000','dimensions:min_width=500', new Main_image],
         ];
     }
+    public function messages()
+    {
+        return [
+            'logo.dimensions' => 'image width must be at least 500 pixels.',
+        ];
+    }
 }

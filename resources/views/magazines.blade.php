@@ -18,10 +18,24 @@
                         @foreach($magazines as $magazine)
                             <div class="col-12 col-md-6">
                                 <div>
-                                    <img class="img-fluid" src="{{ asset('storage/medium/' . $magazine->image) }}" alt="журнал 2017">
+                                    <img class="img-fluid" src="{{ asset('storage/medium/' . $magazine->image) }}"
+                                         alt="журнал 2017">
                                     <p class="m-0">{{ $magazine->name }}</p>
-                                    <a href="{{ route('show.magazine', $magazine) }}">Просмотреть журнал в PDF</a>
-                                    <a href="{{ asset('storage/pdf/' . $magazine->pdf) }}" download><p>Скачать журнал</p></a>
+                                    @if($magazine->pdf or $magazine->kg_pdf)
+                                        <a href="{{ route('show.magazine', $magazine) }}">Просмотреть журнал в PDF</a>
+                                        @if($magazine->pdf)
+                                            <a href="{{ asset('storage/pdf/' . $magazine->pdf) }}" download><p>Скачать
+                                                    на
+                                                    русском</p></a>
+                                        @endif
+                                        @if($magazine->kg_pdf)
+                                            <a href="{{ asset('storage/pdf/' . $magazine->kg_pdf) }}" download><p>
+                                                    Скачать
+                                                    кыргызском</p></a>
+                                        @endif
+                                    @else
+                                        <p>{{ $magazine->status }}</p>
+                                    @endif
                                 </div>
                             </div>
                         @endforeach
