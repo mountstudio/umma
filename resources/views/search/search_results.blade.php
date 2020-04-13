@@ -14,7 +14,7 @@
                             @else
                                 <p class="h4">Дайджесты</p>
                             @endif
-                            @foreach($resultGroup as $article)
+                            @foreach($resultGroup->chunk(2) as $articleChunk)
                                 <div class="col">
                                     @include('articles.card')
                                 </div>

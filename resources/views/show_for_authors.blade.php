@@ -26,7 +26,7 @@
                     </div>
                 </div>
                 <div class="row">
-                    @foreach($articlesByAuthor as $article)
+                    @foreach($articlesByAuthor->chunk(2) as $articleChunk)
                         @include('articles.card')
                     @endforeach
                 </div>

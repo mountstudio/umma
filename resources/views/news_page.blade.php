@@ -13,7 +13,7 @@
             <div class="col-12 col-lg-8">
                 <h2 class="text-center">Новости</h2>
                 <div class="row">
-                    @foreach($articles as $article)
+                    @foreach($articles->chunk(2) as $articleChunk)
                         @include('articles.card')
                     @endforeach
                 </div>

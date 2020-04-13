@@ -8,6 +8,7 @@ use App\Poster;
 use App\PosterType;
 use App\Services\ContentCutting;
 use App\Services\ImageUploader;
+use Carbon\Carbon;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 use Yajra\DataTables\Facades\DataTables;
@@ -21,15 +22,15 @@ class PosterController extends Controller
      */
     public function index()
     {
-        $posters = Poster::orderBy('date_event','desc')->paginate(4);
+        $posters = Poster::orderBy('date_event', 'desc')->paginate(4);
         foreach ($posters as $poster) {
             $content = strip_tags($poster->content);
             $poster->content = ContentCutting::cut_contents($content, 10, 42);
         }
         return view('poster.index',
             [
-            'posters' => $posters,
-        ]);
+                'posters' => $posters,
+            ]);
     }
 
     /**
@@ -51,8 +52,8 @@ class PosterController extends Controller
     public function store(StorePosterRequest $request)
     {
         $request->validated();
+        $request->date_event = Carbon::parse($request->date_event)->toDateTimeString();
         $poster = Poster::create($request->all());
-        $poster->date_event = $request->date_event;
         $poster->main_photo = ImageUploader::upload(request('main_photo'), 'posters', 'posters', 40);
         $poster->save();
         return redirect()->route('admin.poster.datatable');
@@ -66,7 +67,7 @@ class PosterController extends Controller
      */
     public function show(Poster $poster)
     {
-        $otherPosters = Poster::where('type_id', $poster->type_id)->where('id','!=',$poster->id)->take(4)->get();
+        $otherPosters = Poster::where('type_id', $poster->type_id)->where('id', '!=', $poster->id)->take(4)->get();
         foreach ($otherPosters as $otherPoster) {
             $content = strip_tags($otherPoster->content);
             $otherPoster->content = ContentCutting::cut_contents($content, 10, 42);
@@ -116,8 +117,8 @@ class PosterController extends Controller
             Storage::disk('public')->delete("/small/" . $poster->main_photo);
             $poster->main_photo = ImageUploader::upload(request('main_photo'), 'posters', 'posters', 40);
         }
+        $request->date_event = Carbon::parse($request->date_event)->toDateTimeString();
         $poster->update($request->except('main_photo'));
-        $poster->date_event = $request->date_event;
         $poster->save();
         return redirect()->route('admin.poster.datatable');
     }
@@ -144,10 +145,9 @@ class PosterController extends Controller
                 return '<img src="' . asset('/storage/small/' . $poster->main_photo) . '" height="100">';
             })
             ->editColumn('type_id', function (Poster $poster) {
-                if ($poster->type->count()){
+                if ($poster->type->count()) {
                     return $poster->type->name;
-                }
-                else{
+                } else {
                     return null;
                 }
             })
