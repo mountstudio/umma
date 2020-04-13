@@ -41,7 +41,7 @@
                     <div class="d-flex align-items-center">
                         <i class="fas fa-eye text-orange"></i>&nbsp;<span
                             class="pr-3 small">{{ $article->impressions }}</span>
-                        <i class="fas fa-comments text-orange"></i><span
+                        <i class="fas fa-comments text-orange"></i>&nbsp;<span
                             class="pr-3 small">{{ $article->comments->count() }}</span>
                     </div>
                 </div>
