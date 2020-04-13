@@ -1,12 +1,12 @@
 <div class="container bg-white">
     <div class="row justify-content-center">
-        <div class="col-12 col-lg-5">
+        <div class="col-12 col-lg-4">
             @include('blocks.right-sidebar.new')
             <div class="pt-3">
                 @include('blocks.right-sidebar.animation')
             </div>
         </div>
-        <div class="col-12 col-lg-7">
+        <div class="col-12 col-lg-8">
             <div class="row">
                 <div class="col-12">
                     {{ \Illuminate\Support\Facades\App::getLocale() }}

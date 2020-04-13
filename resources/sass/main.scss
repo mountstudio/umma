@@ -133,6 +133,36 @@ body {
     text-overflow: ellipsis;
 }
 
+//card
+.date {
+    position: absolute;
+    top: -13px;
+    right: -9px;
+    z-index: 1;
+    background: #e74c3c;
+    width: 55px;
+    height: 55px;
+    padding: 8.5px 0;
+    -webkit-border-radius: 100%;
+    -moz-border-radius: 100%;
+    border-radius: 100%;
+    color: #FFFFFF;
+    font-weight: 700;
+    text-align: center;
+    -webkti-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+.date .day {
+    font-size: 14px;
+}
+.date .month {
+    font-size: 10px;
+    text-transform: uppercase;
+}
+
+
+//card end
 @media (max-width: 992px){
     .bg-login {
         display: none;
