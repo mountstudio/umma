@@ -12,7 +12,7 @@
                     <a href="{{ route('show.article', $article) }}" title="ссылка">
                         <img src="{{ asset('storage/medium/' . $article->logo) }}"
                              class="card-img-top"
-                             alt="...">
+                             alt="..." style="max-height: 200px; object-fit: cover;">
                     </a>
                     @if($article->tags->count())
                         <div class="row m-0 text-white position-absolute" style="bottom: 0;">
@@ -31,10 +31,10 @@
                 </div>
 
 
-                <div class="card-body px-0">
+                <div class="card-body pt-3 pb-1 px-0">
 
                     <a href="{{ route('show.article', $article) }}" title="ссылка">
-                        <h3 class="px-2 h4 text-left desc-text-crop font-weight-bold text-dark">{{ __($article->name) }}</h3>
+                        <h3 class="px-2 h6 text-left desc-text-crop font-weight-bold text-dark">{{ __($article->name) }}</h3>
                     </a>
                 </div>
                 <div class="card-footer d-flex  bg-white border-0 pt-0 ">
