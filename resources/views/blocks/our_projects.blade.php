@@ -4,7 +4,7 @@
         <div class="col-12">
             @foreach($projects as $project)
                     <a href="">
-                        <img src="{{ asset('storage/small/' . $project->image) }}" class="img-fluid mr-4" alt="Ishker Aim" style="height: 100px;">
+                        <img src="{{ asset('storage/small/' . $project->image) }}" class="img-fluid mr-4 pt-2" alt="Ishker Aim" style="height: 100px;">
                     </a>
             @endforeach
         </div>
