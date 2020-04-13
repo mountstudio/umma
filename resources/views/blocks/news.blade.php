@@ -30,21 +30,21 @@
                 <div class="tab-content col-12 py-4">
                     <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="home-tab">
                         <div class="row">
-                            @foreach($articlesLatest as $article)
+                            @foreach($articlesLatest->chunk(2) as $articleChunk)
                                 @include('articles.card')
                             @endforeach
                         </div>
                     </div>
                     <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="home-tab">
                         <div class="row">
-                            @foreach($articlesCommentLatest as $article)
+                            @foreach($articlesCommentLatest->chunk(2) as $articleChunk)
                                 @include('articles.card')
                             @endforeach
                         </div>
                     </div>
                     <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="home-tab">
                         <div class="row">
-                            @foreach($articlesDayTheme as $article)
+                            @foreach($articlesDayTheme->chunk(2) as $articleChunk)
                                 @include('articles.card')
                             @endforeach
                         </div>
