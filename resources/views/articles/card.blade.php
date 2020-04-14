@@ -1,9 +1,9 @@
-<div class="card mx-1 shadow">
+<div class="card mx-1 shadow shadow-on-hover transition-200">
     <div class="date">
         <div class="day">27</div>
         <div class="month">Mar</div>
     </div>
-    <div class="position-relative">
+    <div class="position-relative shadow-sm">
         <a href="{{ route('show.article', $article) }}" title="ссылка">
             <img src="{{ asset('storage/medium/' . $article->logo) }}"
                  class="card-img-top"
@@ -28,16 +28,16 @@
 
     <div class="card-body pt-3 pb-1 px-0">
 
-        <a href="{{ route('show.article', $article) }}" title="ссылка">
+        <a class="text-decoration-none" href="{{ route('show.article', $article) }}" title="ссылка">
             <h3 class="px-2 h6 text-left desc-text-crop font-weight-bold text-dark">{{ __($article->name) }}</h3>
         </a>
     </div>
-    <div class="card-footer d-flex  bg-white border-0 pt-0 ">
+    <a href="{{ route('show.article', $article) }}" class="card-footer text-dark text-decoration-none d-flex  bg-white border-0 pt-0 ">
         <div class="d-flex align-items-center">
             <i class="fas fa-eye text-orange"></i>&nbsp;<span
                 class="pr-3 small">{{ $article->impressions }}</span>
             <i class="fas fa-comments text-orange"></i>&nbsp;<span
                 class="pr-3 small">{{ $article->comments->count() }}</span>
         </div>
-    </div>
+    </a>
 </div>

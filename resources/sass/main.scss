@@ -153,6 +153,25 @@ body {
     -moz-box-sizing: border-box;
     box-sizing: border-box;
 }
+
+.transition-100 {
+    transition: .1s;
+}
+.transition-200 {
+    transition: .2s;
+}
+.transition-300 {
+    transition: .3s;
+}
+.transition-400 {
+    transition: .4s;
+}
+.transition-500 {
+    transition: .5s;
+}
+.transition-600 {
+    transition: .6s;
+}
 .date .day {
     font-size: 14px;
 }

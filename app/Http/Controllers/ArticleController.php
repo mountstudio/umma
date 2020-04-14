@@ -236,6 +236,10 @@ class ArticleController extends Controller
         $articlesCommentLatest = Article::has('comments')->orderBy('updated_at', 'DESC')->take(6)->get();
         $articlesLatest = Article::latest()->take(6)->get();
         $categories = self::get_categories();
+        $articlesCategories = $categories->map(function ($item) {
+            return $item->articles;
+        })->flatten();
+
 
         $kolumnisty = Author::has('articles')->where('view_main', true)->latest()->get();
         $hadith = Hadith::latest()->first();
@@ -262,7 +266,7 @@ class ArticleController extends Controller
             'articlesCommentLatest' => $articlesCommentLatest,
             'articlesDayTheme' => $articlesDayTheme,
             'kolumnisty' => $kolumnisty,
-            'articlesByCategory' => $categories,
+            'articlesByCategory' => $articlesCategories,
         ]);
     }
 

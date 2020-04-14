@@ -35,6 +35,15 @@
     <script>
         new UISearch( document.getElementById( 'sb-search' ) );
     </script>
+<script>
+    $('.shadow-on-hover').hover(e => {
+        $(e.currentTarget).removeClass('shadow');
+        $(e.currentTarget).addClass('shadow-sm');
+    }, e => {
+        $(e.currentTarget).removeClass('shadow-sm');
+        $(e.currentTarget).addClass('shadow');
+    })
+</script>
     <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
 
     @stack('scripts')
