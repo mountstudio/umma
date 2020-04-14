@@ -8,7 +8,7 @@
     </div>
     <div class="card-body py-2">
         <small
-            class="text-muted font-weight-bold py-3">{{ \Carbon\Carbon::make($article->created_at)->format('M d Y') }}</small>
+            class="text-muted font-weight-bold py-3">{{ \Carbon\Carbon::make($article->created_at)->formatLocalized('%b %d %Y') }}</small>
         <h3 class="h4 font-weight-bold card-title pt-3 m-0" style="display: -webkit-box;
     -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;

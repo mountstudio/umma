@@ -9,7 +9,7 @@
             <span class="small">{{ \Carbon\Carbon::make($poster->date_event)->formatLocalized('%b') }}</span></p>
         <p class="h4 mb-0 pb-2"></p>
         <p class="rounded-pill text-white mx-auto small mb-2 w-50"
-           style="background-color: #008500;">{{ \Carbon\Carbon::make($poster->date_event)->formatLocalized('%H:%m') }}</p>
+           style="background-color: #008500;">{{ \Carbon\Carbon::make($poster->date_event)->formatLocalized('%H:%M') }}</p>
     </div>
     <div class="card-footer pt-0 bg-white border-0 text-center">
         <p class="card-title small mb-1 text-secondary pt-2">{{ $poster->type->name }}</p>
