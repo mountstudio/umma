@@ -87,7 +87,7 @@ class ArticleController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Article $article
+     * @param \App\Article $article
      * @return \Illuminate\Http\Response
      */
     public function show(Article $article)
@@ -100,18 +100,17 @@ class ArticleController extends Controller
         $comments = $article->comments()->get();
         $otherArticles = Article::where('category_id', $article->category_id)->where('id', '!=', $article->id)->take(6)->get();
         $otherArticles = $otherArticles->chunk(ceil(3));
-        return view('show_for_news',
-            [
-                'article' => $article,
-                'comments' => $comments,
-                'otherArticles' => $otherArticles,
-            ]);
+        return view('articles.show', [
+            'article' => $article,
+            'comments' => $comments,
+            'otherArticles' => $otherArticles,
+        ]);
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Article $article
+     * @param \App\Article $article
      * @return \Illuminate\Http\Response
      */
     public function adminShow(Article $article)
@@ -122,7 +121,7 @@ class ArticleController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Article $article
+     * @param \App\Article $article
      * @return \Illuminate\Http\Response
      */
     public function edit(Article $article)
@@ -141,7 +140,7 @@ class ArticleController extends Controller
     /**
      * Update the specified resource in storage.
      * @param UpdateArticleRequest $request
-     * @param  \App\Article $article
+     * @param \App\Article $article
      * @return \Illuminate\Http\Response
      */
     public function update(UpdateArticleRequest $request, Article $article)
@@ -165,7 +164,7 @@ class ArticleController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Article $article
+     * @param \App\Article $article
      * @return \Illuminate\Http\Response
      */
     public function destroy(Article $article)
@@ -253,25 +252,25 @@ class ArticleController extends Controller
             $poster->content = ContentCutting::cut_contents($content, 10, 42);
         }
 
-        return view('welcome',
-            [
-                'posters' => $posters,
-                'multimedia' => $multimedia,
-                'hadith' => $hadith,
-                'projects' => $projects,
-                'magazines' => $magazines,
-                'articlesLatest' => $articlesLatest,
-                'articlesCommentLatest' => $articlesCommentLatest,
-                'articlesDayTheme' => $articlesDayTheme,
-                'kolumnisty' => $kolumnisty,
-                'articlesByCategory' => $categories,
-            ]);
+        return view('welcome', [
+            'posters' => $posters,
+            'multimedia' => $multimedia,
+            'hadith' => $hadith,
+            'projects' => $projects,
+            'magazines' => $magazines,
+            'articlesLatest' => $articlesLatest,
+            'articlesCommentLatest' => $articlesCommentLatest,
+            'articlesDayTheme' => $articlesDayTheme,
+            'kolumnisty' => $kolumnisty,
+            'articlesByCategory' => $categories,
+        ]);
     }
 
     public function showNews()
     {
         $articles = Article::all()->paginate(6);
-        return view('news_page', ['articles' => $articles]);
+
+        return view('articles.index', ['articles' => $articles]);
     }
 
     public function it_is_interesting()

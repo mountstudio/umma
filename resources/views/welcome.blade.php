@@ -2,13 +2,7 @@
 
 @section('content')
     <div class="">
-        <div class="container bg-white">
-            <div class="row">
-                <div class="col-12 p-0">
-                    {{ Breadcrumbs::render('home') }}
-                </div>
-            </div>
-        </div>
+        @include('partials.breadcrumbs', ['type' => 'home'])
         @include('blocks.news')
         @include('blocks.kolumnisti')
         @include('blocks.afisha')

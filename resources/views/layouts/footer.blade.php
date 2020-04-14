@@ -5,21 +5,21 @@
         </div>
         <div class="col-12 col-md-7 pt-2 ">
             <div class="row align-items-center justify-content-center justify-content-lg-end">
-                <a href="https://www.facebook.com/ummamag.kg"><i class="fab fa-facebook fa-lg text-white mr-3"></i></a>
+                <a href="https://www.facebook.com/ummamag.kg"><i class="fab fa-facebook fa-lg text-orange mr-3"></i></a>
                 <a href="https://www.instagram.com/ummamagkg/"><i
-                            class="fab fa-instagram fa-lg text-white mr-3"></i></a>
+                            class="fab fa-instagram fa-lg text-orange mr-3"></i></a>
                 <a href="https://www.youtube.com/watch?v=pfab0uXYDpY&feature=youtu.be"><i
-                            class="fab fa-youtube fa-lg text-white mr-3"></i></a>
-                <a href=""><i class="fas fa-rss fa-lg text-white mr-3"></i></a>
+                            class="fab fa-youtube fa-lg text-orange mr-3"></i></a>
+                <a href=""><i class="fas fa-rss fa-lg text-orange mr-3"></i></a>
                 <a href=""></a>
                 <ul class="nav ml-3">
-                    <li class="text-for-footer nav-item mr-4"><a class="text-white" href="{{ route('all.magazines') }}">О
+                    <li class="text-for-footer nav-item mr-4"><a class="text-orange" href="{{ route('all.magazines') }}">О
                             нас</a></li>
-                    <li class="text-for-footer nav-item mr-4"><a class="text-white" href="{{ route('vacancies') }}">Вакансии</a>
+                    <li class="text-for-footer nav-item mr-4"><a class="text-orange" href="{{ route('vacancies') }}">Вакансии</a>
                     </li>
-                    <li class="text-for-footer nav-item mr-4"><a class="text-white" href="{{ route('all.questions') }}">Задать
+                    <li class="text-for-footer nav-item mr-4"><a class="text-orange" href="{{ route('all.questions') }}">Задать
                             вопрос ученому</a></li>
-                    <li class="text-for-footer nav-item mr-4"><a class="text-white" href="{{ route('advertisers') }}">Рекламодателям</a>
+                    <li class="text-for-footer nav-item mr-4"><a class="text-orange" href="{{ route('advertisers') }}">Рекламодателям</a>
                     </li>
                     <li class="text-for-footer nav-item mr-4"><a class="text-orange" href="#" data-toggle="modal"
                                                                  data-target="#exampleModal">Подписка</a>

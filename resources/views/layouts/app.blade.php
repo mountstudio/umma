@@ -22,11 +22,11 @@
 
 </section>
     <div id="app" class="">
-            @include('blocks.header')
+            @include('layouts.header')
         <main class="">
             @yield('content')
         </main>
-        @include('blocks.footer')
+        @include('layouts.footer')
     </div>
     <script src="{{ asset('js/app.js') }}"></script>
     <script src="{{ asset('js/modernizr.custom.js') }}"></script>
