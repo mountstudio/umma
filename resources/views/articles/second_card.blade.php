@@ -15,6 +15,6 @@
     overflow: hidden;
     text-overflow: ellipsis;">{{ $article->name }}</h3>
         <p class="card-text small"
-           style="display: -webkit-box;-webkit-line-clamp: 3;-webkit-box-orient: vertical;overflow: hidden;text-overflow: ellipsis;">{!! $article->content !!}</p>
+           style="display: -webkit-box;-webkit-line-clamp: 3;-webkit-box-orient: vertical;overflow: hidden;text-overflow: ellipsis;">{!! strip_tags($article->content) !!}</p>
     </div>
 </div>
