@@ -6,7 +6,7 @@
         <p class="pt-2 h4 mb-0" style="line-height: 75%;">
             <span class="text-orange font-weight-bold h3" style="    text-shadow: 0 .1rem .2rem rgba(213, 126, 42,.35)!important;">{{ \Carbon\Carbon::make($poster->date_event)->formatLocalized('%d') }}</span>
             <br>
-            <span class="small">{{ \Carbon\Carbon::make($poster->date_event)->formatLocalized('%b') }}</span></p>
+            <span class="small text-capitalize">{{ \Carbon\Carbon::make($poster->date_event)->formatLocalized('%b') }}</span></p>
         <p class="h4 mb-0 pb-2"></p>
         <p class="rounded-pill text-white mx-auto small mb-2 w-50"
            style="background-color: #008500;">{{ \Carbon\Carbon::make($poster->date_event)->formatLocalized('%H:%M') }}</p>
