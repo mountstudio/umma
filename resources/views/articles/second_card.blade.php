@@ -15,8 +15,6 @@
     overflow: hidden;
     text-overflow: ellipsis;">{{ $article->name }}</h3>
         <p class="card-text small"
-           style="display: -webkit-box;-webkit-line-clamp: 3;-webkit-box-orient: vertical;overflow: hidden;text-overflow: ellipsis;">
-            This is a wider card with supporting text below as a natural lead-in to additional content. This content is
-            a little bit longer.</p>
+           style="display: -webkit-box;-webkit-line-clamp: 3;-webkit-box-orient: vertical;overflow: hidden;text-overflow: ellipsis;">{!! $article->content !!}</p>
     </div>
 </div>
