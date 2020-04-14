@@ -1,4 +1,4 @@
-<a href="{{ route('show.poster', $poster) }}" class="card text-dark border-0 shadow text-decoration-none shadow-on-hover transition-200">
+<a href="{{ route('show.poster', $poster) }}" class="card text-dark border-0 shadow text-decoration-none shadow-on-hover transition-200 h-100">
     <div class="position-relative shadow">
         <img src="{{ asset('storage/medium/' . $poster->main_photo) }}" class="card-img-top" style="object-fit: cover; min-height: 140px; max-height: 140px;" alt="...">
     </div>
