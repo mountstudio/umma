@@ -96,6 +96,19 @@ body {
     top: 50%;
     transform: translateY(-50%);
 }
+.afisha-carousel .icon-arrow-left {
+    left: -22px;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+.afisha-carousel .icon-arrow-right {
+    position: absolute;
+    right: -22px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
 .btn-orange {
     border-color: $text-orange !important;
     padding: 4px;

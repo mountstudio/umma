@@ -4,14 +4,15 @@
     </div>
     <div class="row">
         <div class="col-12">
-            <div class="row">
+            <div class="row afisha-carousel">
+
+                    @foreach($posters as $poster)
+                        <div class="col-12 col-md-6 col-lg-3 mb-2 mb-lg-0">
+                            @include('poster.card')
+                        </div>
+                    @endforeach
 
 
-                @foreach($posters as $poster)
-                    <div class="col-12 col-md-6 col-lg-3 mb-2 mb-lg-0">
-                        @include('poster.card')
-                    </div>
-                @endforeach
 
 
             </div>
@@ -27,16 +28,16 @@
     <script>
         $(document).ready(function () {
             // slick carousel
-            $('.multimedia').slick({
+            $('.afisha-carousel').slick({
                 autoplay: true,
                 autoplaySpeed: 30000,
-                slidesToShow: 3,
+                slidesToShow: 4,
                 slidesToScroll: 1,
 
                 responsive: [{
                     breakpoint: 1024,
                     settings: {
-                        slidesToShow: 3,
+                        slidesToShow: 4,
                         slidesToScroll: 1,
 
 
@@ -57,8 +58,8 @@
                     },
 
                 }],
-                nextArrow: '<i class="fas fa-chevron-right icon-arrow-right fa-2x text-white"></i>',
-                prevArrow: '<i class="fas fa-chevron-left icon-arrow-left fa-2x text-white"></i>'
+                nextArrow: '<i class="fas fa-chevron-right icon-arrow-right fa-2x"></i>',
+                prevArrow: '<i class="fas fa-chevron-left icon-arrow-left fa-2x"></i>'
 
             });
 
