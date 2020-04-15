@@ -18,7 +18,7 @@
             <h4 class="pl-3">Журналы</h4>
             @foreach($magazines as $magazine)
                 <a href="{{ route('show.magazine', $magazine) }}">
-                    <div class="card mb-3">
+                    <div class="card mb-3 shadow">
                         <img src="{{ asset('storage/small/'. $magazine->image) }}" class="card-img" alt="...">
                         <div class="card-img-overlay row m-0 align-items-end text-center ">
                             <div class="row justify-content-center">

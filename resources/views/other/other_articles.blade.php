@@ -1,7 +1,7 @@
 <div class="col-12 col-md-4 pb-4">
     <div class="card">
         <a href="" title="ссылка">
-            <img src="{{ asset('storage/small/' . $otherArticle->logo ) }}"
+            <img src="{{ asset('storage/medium/' . $otherArticle->logo ) }}"
                  class="card-img-top"
                  alt="...">
         </a>
