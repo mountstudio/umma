@@ -1,7 +1,5 @@
 <div class="col-12 col-lg-12 col-md-6 pb-4">
-
     <div class="card-deck">
-
         @foreach($articleChunk as $article)
             <div class="card mx-1 shadow">
                 <div class="date">
@@ -29,10 +27,7 @@
                         </div>
                     @endif
                 </div>
-
-
                 <div class="card-body pt-3 pb-1 px-0">
-
                     <a href="{{ route('show.article', $article) }}" title="ссылка">
                         <h3 class="px-2 h6 text-left desc-text-crop font-weight-bold text-dark">{{ __($article->name) }}</h3>
                     </a>
@@ -48,5 +43,4 @@
             </div>
         @endforeach
     </div>
-
 </div>

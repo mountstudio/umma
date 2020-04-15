@@ -5,8 +5,8 @@
     <div class="row">
         @foreach($posters as $poster)
             <div class="col-12 col-lg-3 col-md-6 px-1 py-2">
-                <div class="card">
 
+                <div class="card">
                     <img src="{{ asset('storage/medium/' . $poster->main_photo) }}" class="card-img-top p-2"
                          alt="...">
                     <div class="card-body pt-0 text-center">
@@ -35,3 +35,50 @@
         @endforeach
     </div>
 </div>
+@push('styles')
+    <link rel="stylesheet" href="{{ asset('css/slick.css') }}">
+@endpush
+
+@push('scripts')
+    <script src="{{ asset('js/slick.min.js') }}"></script>
+    <script>
+        $(document).ready(function () {
+            // slick carousel
+            $('.multimedia').slick({
+                autoplay: true,
+                autoplaySpeed: 30000,
+                slidesToShow: 3,
+                slidesToScroll: 1,
+
+                responsive: [{
+                    breakpoint: 1024,
+                    settings: {
+                        slidesToShow: 3,
+                        slidesToScroll: 1,
+
+
+                    }
+
+                }, {
+                    breakpoint: 600,
+                    settings: {
+                        slidesToShow: 2,
+                        slidesToScroll: 2,
+
+                    }
+                }, {
+                    breakpoint: 480,
+                    settings: {
+                        slidesToShow: 1,
+                        slidesToScroll: 1,
+                    },
+
+                }],
+                nextArrow: '<i class="fas fa-chevron-right icon-arrow-right fa-2x text-white"></i>',
+                prevArrow: '<i class="fas fa-chevron-left icon-arrow-left fa-2x text-white"></i>'
+
+            });
+
+        });
+    </script>
+@endpush
