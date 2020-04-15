@@ -8,7 +8,7 @@
 
 
                 @foreach($posters as $poster)
-                    <div class="col-3">
+                    <div class="col-12 col-md-6 col-lg-3 mb-2 mb-lg-0">
                         @include('poster.card')
                     </div>
                 @endforeach
