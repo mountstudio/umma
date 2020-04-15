@@ -246,7 +246,7 @@ class ArticleController extends Controller
         $multimedia = Multimedia::latest()->take(10)->get();
         $projects = Project::latest()->get();
         $magazines = Magazine::latest()->take(2)->get();
-        $posters = Poster::latest()->take(4)->get();
+        $posters = Poster::where('date_event', '>', now())->get()->sortByDesc('date_event');
 
         if ($hadith) {
             $hadith->content = ContentCutting::cut_contents($hadith->content, 60, 370);
