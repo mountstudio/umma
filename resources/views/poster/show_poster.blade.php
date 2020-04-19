@@ -9,6 +9,7 @@
     </div>
     <div class="container bg-white">
         <div class="row">
+            @include('partials.sidebar')
             <div class="col-12 col-lg-8">
                 <div>
                     <p>Дата события: 26.04.2020</p>
@@ -55,14 +56,7 @@
                     </div>
                 @endif
             </div>
-            <div class="col-12 col-lg-4 pb-3">
-                @include('blocks.right-sidebar.new')
-                <div class="pt-3">
-                    @include('partials.pray')
-                </div>
-                <h2 class="text-center py-2">Статьи</h2>
-                @include('blocks.right-sidebar.new')
-            </div>
+
         </div>
     </div>
 @endsection

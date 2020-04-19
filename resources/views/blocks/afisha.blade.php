@@ -33,7 +33,7 @@
                 autoplaySpeed: 30000,
                 slidesToShow: 4,
                 slidesToScroll: 1,
-
+                infinite:false,
                 responsive: [{
                     breakpoint: 1024,
                     settings: {
