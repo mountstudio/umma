@@ -16,21 +16,26 @@
                            placeholder="Наименование" name="name" required>
                 </div>
                 <div class="form-group">
+                    <label for="pdf_input">pdf</label>
+                    <input id="pdf_input" type="file" class="form-control" name="pdf" accept="application/pdf">
+                </div>
+                <div class="form-group">
+                    <label for="kg_pdf_input">pdf на кыргызском</label>
+                    <input id="kg_pdf_input" type="file" class="form-control" name="kg_pdf" accept="application/pdf">
+                </div>
+                <div class="form-group">
+                    <label for="status">Статус журнала</label>
+                    <input id="status" type="text" class="form-control"
+                           placeholder="Статус журнала" name="status">
+                </div>
+                <div class="form-group">
                     <label for="image_input">Картинка</label>
                     <input id="image_input" type="file" class="form-control" name="image" accept="image/*" required>
                 </div>
-                <div class="form-group">
-                    <label for="pdf_input">pdf</label>
-                    <input id="pdf_input" type="file" class="form-control" name="pdf" accept="application/pdf" required>
-                </div>
-                <button type="submit" title="{{ __('Добавить') }}" class="btn n btn-success">{{ __('Добавить') }}</button>
+                <button type="submit" title="{{ __('Добавить') }}"
+                        class="btn n btn-success">{{ __('Добавить') }}</button>
             </form>
         </div>
     </div>
 @endsection
-
-@push('styles')
-    <link href="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/css/select2.min.css" rel="stylesheet"/>
-    <link rel="stylesheet" href="{{ asset('css/main.css') }}">
-@endpush
 

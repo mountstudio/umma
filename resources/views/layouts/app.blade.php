@@ -14,29 +14,36 @@
     <link rel="stylesheet" type="text/css" href="{{asset('css/buttons.css')}}"/>
     @stack('styles')
 </head>
-<body>
-<a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('frm-logout').submit();">
-    Logout
-</a>
-<form id="frm-logout" action="{{ route('logout') }}" method="POST" style="display: none;">
-    {{ csrf_field() }}
-</form>
+<body style="overflow-x: hidden;">
+<section class="position-absolute " style="z-index: -1;background: url('{{ asset('img/example-2.jpg') }}') no-repeat;background-size: cover;background-position: center;height: 100vh;width: 100%;">
+
+</section>
+<section class="position-absolute d-none d-lg-block" style="bottom: -52px;height: 100px;width: 110%;left: -30px;filter: blur(15px);background: white;z-index: -1;">
+
+</section>
     <div id="app" class="">
-            @include('blocks.header')
+            @include('layouts.header')
         <main class="">
             @yield('content')
         </main>
-        @include('blocks.footer')
+        @include('layouts.footer')
     </div>
     <script src="{{ asset('js/app.js') }}"></script>
     <script src="{{ asset('js/modernizr.custom.js') }}"></script>
     <script src="{{ asset('js/classie.js') }}"></script>
     <script src="{{ asset('js/uisearch.js') }}"></script>
-    {{--<script src="{{ asset('js/editor-conf.js') }}"></script>--}}
     <script>
         new UISearch( document.getElementById( 'sb-search' ) );
     </script>
-    <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+<script>
+    $('.shadow-on-hover').hover(e => {
+        $(e.currentTarget).removeClass('shadow');
+        $(e.currentTarget).addClass('shadow-sm');
+    }, e => {
+        $(e.currentTarget).removeClass('shadow-sm');
+        $(e.currentTarget).addClass('shadow');
+    })
+</script>
 
     @stack('scripts')
 </body>

@@ -27,8 +27,7 @@ class UpdateQuestionRequest extends FormRequest
             'name' => 'required|max:255',
             'category_id' => 'required|numeric',
             'content' => 'required',
-            'full_name' => 'required|max:255',
-            'phone' => 'required',
+            'full_name' => 'max:255',
         ];
     }
 }

@@ -23,7 +23,8 @@
                 <div class="form-group">
                     <label for="image_input">Главное фото:<span class="text-danger">*</span></label>
                     <input id="image_input" type="file" onchange="readURL(this);" class="form-control" name="image" accept="image/*">
-                    <img  id="photo" src="{{ asset('storage/medium/' . $project->image) }}">
+                    <br>
+                    <img  id="photo" src="{{ asset('storage/medium/' . $project->image) }}" width="750"/>
                 </div>
                 <button type="submit" title="{{ __('Изменить') }}" class="btn n btn-success">{{ __('Изменить') }}</button>
             </form>
@@ -48,6 +49,7 @@
                         .attr('src', e.target.result);
                 };
                 reader.readAsDataURL(input.files[0]);
+                $('#photo').width = 750;
             }
         }
     </script>

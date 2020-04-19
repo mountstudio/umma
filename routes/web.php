@@ -1,11 +1,26 @@
 <?php
-
-
-Route::get('/', 'ArticleController@welcome')->name('welcome');
+use Illuminate\Support\Facades\Route;
 
 Auth::routes();
 
+Route::feeds();
+
+Route::get('/', 'ArticleController@welcome')->name('welcome');
+
+Route::get('/it_is_interesting', 'ArticleController@it_is_interesting')->name('it_is_interesting');
+
+Route::get('/need_to_know', 'ArticleController@need_to_know')->name('need_to_know');
+
+Route::get('/interview', 'ArticleController@interview')->name('interview');
+
+Route::get('/about_sore', 'ArticleController@about_sore')->name('about_sore');
+
+Route::get('/education', 'ArticleController@education')->name('education');
+
+
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/set-language/{lang}', 'LanguageController@switch')->name('language.switch');
 
 
 Route::get('/show_hadith/{hadith}', 'HadithController@show')->name('show.hadith');
@@ -20,6 +35,11 @@ Route::get('/show_media/{multimedia}', 'MultimediaController@show')->name('show.
 
 Route::get('/show_magazines/{magazine}', 'MagazineController@show')->name('show.magazine');
 
+Route::get('/show_poster/{poster}', 'PosterController@show')->name('show.poster');
+
+Route::get('/show_question/{question}', 'QuestionController@show')->name('show.question');
+
+
 
 Route::get('/hadiths', 'HadithController@showHadiths')->name('all.hadiths');
 
@@ -31,45 +51,38 @@ Route::get('/multimedia', 'MultimediaController@showMultimedia')->name('all.medi
 
 Route::get('/authors', 'AuthorController@showAuthors')->name('all.authors');
 
-Route::get('/poster_index', 'PosterController@index')->name('all.posters');
+Route::get('/posters', 'PosterController@index')->name('all.posters');
+
+Route::get('/questions', 'QuestionController@scientists')->name('all.questions');
 
 
-Route::get('/it_is_interesting', 'ArticleController@it_is_interesting')->name('it_is_interesting');
 
-Route::get('/need_to_know', 'ArticleController@need_to_know')->name('need_to_know');
 
-Route::get('/interview', 'ArticleController@interview')->name('interview');
 
-Route::get('/about_sore', 'ArticleController@about_sore')->name('about_sore');
 
-Route::get('/education', 'ArticleController@education')->name('education');
+//OTHER
+Route::post('/create_subscriber', 'SubscriberController@userStore')->name('user.subscriber.store');
+
+Route::post('/create_question', 'QuestionController@userStore')->name('user.question.store');
 
 Route::post('/create_comment', 'CommentController@userStore')->name('user.comment.store');
 
 
-Route::get('/show_poster/{poster}', 'PosterController@show')->name('show.poster');
-
-
-Route::get('/show_search', function () {
-    return view('search.show_search');
-})->name('show_search');
-
-Route::get('/scientists', 'QuestionController@scientists')->name('scientists');
-
-
 Route::get('/search_results', 'ArticleController@searchArticles')->name('search');
-Route::post('/image-upload', 'ContentController@upload')->name('content.upload');
-
 
 Route::get('/prayer_time_for_monthly', 'TimePrayersController@prayerForMonthly')->name('monthly.time.prayer');
 
-Route::get('/questions_show', function () {
-    return view('questions.show');
-})->name('questions_show');
 
-Route::get('/questions_index', function () {
-    return view('questions.index');
-})->name('questions_index');
+//AJAX
+Route::post('/image-upload', 'ContentController@upload')->name('content.upload');
+
+Route::get('/time_prayer', 'TimePrayersController@prayerForToday')->name('time.prayer');
+
+Route::get('chart_count_registered', 'ChartController@registeredUsers')->name('chart.count.registered');
+
+Route::get('chart_count_views', 'ChartController@articleTypeViews')->name('chart.count.views');
+
+
 
 Route::get('/vacancies', function () {
     return view('vacancies');
@@ -78,11 +91,6 @@ Route::get('/vacancies', function () {
 Route::get('/advertisers', function () {
     return view('advertisers');
 })->name('advertisers');
-
-//for ajax query
-Route::get('/time_prayer', 'TimePrayersController@prayerForToday')->name('time.prayer');
-
-
 
 //ADMINKA
 Route::prefix('admin')->name('admin.')/*->middleware('admin')*/
@@ -175,5 +183,11 @@ Route::prefix('admin')->name('admin.')/*->middleware('admin')*/
     Route::get('/comment/datatable', 'CommentController@datatableData')->name('comment.datatable.data');
     Route::get('/comment/{comment}', 'CommentController@adminShow')->name('comment.show');
     Route::resource('comments', 'CommentController')->except(['index', 'show']);
+
+    //CRUD for comments
+    Route::get('/subscriber', 'SubscriberController@datatable')->name('subscriber.datatable');
+    Route::get('/subscriber/datatable', 'SubscriberController@datatableData')->name('subscriber.datatable.data');
+    Route::get('/subscriber/{subscriber}', 'SubscriberController@adminShow')->name('subscriber.show');
+    Route::resource('subscribers', 'SubscriberController')->except(['index', 'show']);
 });
 

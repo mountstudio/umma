@@ -20,7 +20,8 @@
                     <label for="photo_input">Выберите фото:</label>
                     <input id="photo_input" class="form-control" onchange="readURL(this);" type="file"
                            name="photo" accept="image/jpeg, image/png">
-                    <img id="photo" src="{{ asset('storage/medium/' . $photographer->photo) }}"/>
+                    <br>
+                    <img id="photo" src="{{ asset('storage/medium/' . $photographer->photo) }}" width="750"/>
                 </div>
                 <button type="submit" title="{{ __('Изменить') }}" class="btn n btn-success">{{ __('Изменить') }}</button>
             </form>
@@ -39,10 +40,10 @@
                 let reader = new FileReader();
 
                 reader.onload = function (e) {
-                    $('#photo')
-                        .attr('src', e.target.result);
+                    $('#photo').attr('src', e.target.result);
                 };
                 reader.readAsDataURL(input.files[0]);
+                $('#photo').width = 750;
             }
         }
     </script>

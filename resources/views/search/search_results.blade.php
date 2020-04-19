@@ -1,37 +1,31 @@
 @extends('layouts.app')
 @section('content')
-    <div class="container">
+    <div class="container bg-white">
         <div class="row">
+            <div class="col-4"></div>
             <div class="col-12 col-lg-8">
                 <h2 class="text-center">Результаты поиска</h2>
+            </div>
+        </div>
+        <div class="row">
+            @include('partials.sidebar')
+            <div class="col-12 col-lg-8">
                 @if($searchResults->count())
                     @foreach($searchResults as $type=>$resultGroup)
                         <div>
                             @if($type == 'longread')
-                                <p>Лонгриды</p>
+                                <p class="h4">Лонгриды</p>
                             @elseif($type == 'article')
-                                <p>Статьи</p>
+                                <p class="h4">Статьи</p>
                             @else
-                                <p>Дайджесты</p>
+                                <p class="h4">Дайджесты</p>
                             @endif
-                            @foreach($resultGroup as $article)
-                                <div class="col">
-                                    @include('articles.card')
-                                </div>
-                            @endforeach
+                            @include('articles.list', ['articles' => $resultGroup])
                         </div>
                     @endforeach
                 @else
                     <h3>Ничего не найдено!</h3>
                 @endif
-            </div>
-            <div class="col-12 col-lg-4 pb-3">
-                @include('blocks.right-sidebar.new')
-                <div class="pt-3">
-                    @include('blocks.right-sidebar.animation')
-                </div>
-                <h2 class="text-center py-2">Статьи</h2>
-                @include('blocks.right-sidebar.new')
             </div>
         </div>
     </div>

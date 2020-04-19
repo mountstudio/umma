@@ -30,7 +30,14 @@ class StorePosterRequest extends FormRequest
             'content' => 'required',
             'phone' => 'required',
             'mail' => 'required|email',
-            'type_id' =>'required|numeric',
+            'date_event' => 'required|date',
+                'type_id' =>'required|numeric',
+        ];
+    }
+    public function messages()
+    {
+        return [
+            'main_photo.dimensions' => 'image width must be at least 500 pixels.',
         ];
     }
 }

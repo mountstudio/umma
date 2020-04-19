@@ -1,13 +1,13 @@
 @extends('layouts.app')
 @section('content')
-    <div class="container">
+    <div class="container bg-white">
         <div class="row">
             <div class="col-12 p-0">
                 {{ Breadcrumbs::render('prayer_time') }}
             </div>
         </div>
     </div>
-    <div class="container">
+    <div class="container bg-white">
         <div class="row">
             <div class="col-12 col-lg-8">
                 <h2 class="text-center">Время намаза</h2>
@@ -33,12 +33,12 @@
                            aria-controls="batken" aria-selected="false" href="#batken">Баткен</a>
                     </div>
                 </div>
-                <div class="tab-content" id="myTabContent">
+                <div class="tab-content pt-3" id="myTabContent">
                     @foreach($table as $key=>$city)
                         <div class="tab-pane fade {{$loop->index == 0 ? 'show active':''}}" id="{{ $key }}"
                              role="tabpanel"
                              aria-labelledby="{{ $key }}-tab">
-                            <h3>{{ $cities[$loop->index] }}</h3>
+                            <h3 class="text-center">{{ $cities[$loop->index] }}</h3>
                             <table class="table table-striped table-responsive-sm">
                                 <thead>
                                 <tr>
@@ -71,7 +71,7 @@
             <div class="col-12 col-lg-4 pb-3">
                 @include('blocks.right-sidebar.new')
                 <div class="pt-3">
-                    @include('blocks.right-sidebar.animation')
+                    @include('partials.pray')
                 </div>
                 <h2 class="text-center py-2">Статьи</h2>
                 @include('blocks.right-sidebar.new')

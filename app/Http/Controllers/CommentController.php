@@ -44,6 +44,7 @@ class CommentController extends Controller
      */
     public function store(StoreCommentRequest $request)
     {
+        $request->validated();
         if ($request->user_id == 0) {
             Comment::create($request->except('user_id'));
         } else {
@@ -101,8 +102,21 @@ class CommentController extends Controller
      */
     public function update(UpdateCommentRequest $request, Comment $comment)
     {
+        $request->validated();
+        if ($request->user_id == 0) {
+            $comment->update($request->except('user_id'));
+            $comment->user_id = null;
+        } else {
+            $user = User::find($request->user_id);
+            $comment->full_name = $user->name;
+            $comment->phone = $user->phone;
+            $comment->mail = $user->email;
 
-        $comment->update($request->only('content'));
+            $comment->article_id = $request->input('article_id');
+            $comment->user_id = $request->input('user_id');
+            $comment->content = $request->input('content');
+        }
+        $comment->save();
         return redirect()->route('admin.comment.datatable');
     }
 
@@ -127,8 +141,8 @@ class CommentController extends Controller
             ->editColumn('article_id', function (Comment $comment) {
                 return $comment->article->name;
             })
-            ->addColumn('user', function (Comment $comment) {
-                if ($comment->user != null) {
+            ->editColumn('user_id', function (Comment $comment) {
+                if ($comment->user) {
                     return '<i class="fas fa-check fa-lg"></i>';
                 } else {
                     return '<i class="fas fa-ban fa-lg"></i>';
@@ -140,7 +154,7 @@ class CommentController extends Controller
                     'model' => $comment
                 ]);
             })
-            ->rawColumns(['id', 'user'])
+            ->rawColumns(['id', 'user_id'])
             ->make(true);
     }
 
@@ -149,9 +163,9 @@ class CommentController extends Controller
         return view('admin.comments.index');
     }
 
-    public function userStore(Request $request)
+    public function userStore(StoreCommentRequest $request)
     {
-//        dd($request);
+        $request->validated();
         if ($request->user_id == 0) {
             Comment::create($request->except('user_id'));
         } else {

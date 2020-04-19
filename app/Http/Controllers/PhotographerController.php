@@ -83,16 +83,14 @@ class PhotographerController extends Controller
     public function update(UpdatePhotographerRequest $request, Photographer $photographer)
     {
         $request->validated();
-        if (!$request->hasFile('photo')) {
-            $photographer->update($request->all());
-        } else {
+        if ($request->hasFile('photo')) {
             Storage::disk('public')->delete("/large/" . $photographer->photo);
             Storage::disk('public')->delete("/medium/" . $photographer->photo);
             Storage::disk('public')->delete("/small/" . $photographer->photo);
-            $photographer->update($request->all());
             $photographer->photo = ImageUploader::upload(request('photo'), 'photographers', 'photographers', 40);
             $photographer->save();
         }
+        $photographer->update($request->except('photo'));
         return redirect()->route('admin.photographer.datatable');
     }
 

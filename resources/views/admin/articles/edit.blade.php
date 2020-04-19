@@ -75,7 +75,8 @@
                     <label for="photo_input">Выберите фото:</label>
                     <input id="photo_input" class="form-control" onchange="readURL(this);" type="file"
                            name="logo" accept="image/jpeg, image/png">
-                    <img id="logo" src="{{ asset('storage/medium/' . $article->logo) }}"/>
+                    <br>
+                    <img id="logo" src="{{ asset('storage/medium/' . $article->logo) }}" width="750"/>
                 </div>
                 <button type="submit" title="{{ __('Изменить') }}" class="btn n btn-success">{{ __('Изменить') }}</button>
             </form>
@@ -93,7 +94,7 @@
     <script src="{{ asset('js/tinyMCE.js') }}"></script>
     <script>
         $(document).ready(function () {
-            $('.js-example-basic-multiple').select2();
+            $('.js-example-basic-multiple').select2({ width: '100%' });
 
         });
     </script>
@@ -107,6 +108,7 @@
                         .attr('src', e.target.result);
                 };
                 reader.readAsDataURL(input.files[0]);
+                $('#logo').width = 750;
             }
         }
     </script>

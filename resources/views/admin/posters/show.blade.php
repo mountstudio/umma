@@ -20,10 +20,12 @@
                             <th> Контент:</th>
                             <td scope="row">{!! $poster->content  !!}</td>
                         </tr>
-                        <tr>
-                            <th> Тип:</th>
-                            <td scope="row">{{ $poster->type_id }}</td>
-                        </tr>
+                        @if($poster->type->count())
+                            <tr>
+                                <th> Тип:</th>
+                                <td scope="row">{{ $poster->type->name }}</td>
+                            </tr>
+                        @endif
                         <tr>
                             <th> Телефон:</th>
                             <td scope="row">{{ $poster->phone }}</td>
@@ -31,6 +33,10 @@
                         <tr>
                             <th> mail:</th>
                             <td scope="row">{{ $poster->mail }}</td>
+                        </tr>
+                        <tr>
+                            <th> Дата события:</th>
+                            <td scope="row">{{ $poster->date_event }}</td>
                         </tr>
                         <tr>
                             <th> Главное фото:</th>
@@ -46,23 +52,7 @@
                         </tr>
                         </tbody>
                     </table>
-{{--                    <label>id:</label>--}}
-{{--                    <p>{{ $poster->id }}</p>--}}
-{{--                    <label>Наименование:</label>--}}
-{{--                    <p>{{ $poster->name }}</p>--}}
-{{--                    <label>контент</label>--}}
-{{--                    {!! $poster->content  !!}--}}
-{{--                    <label>тип:</label>--}}
-{{--                    <p>{{ $poster->type_id }}</p>--}}
-{{--                    <label>телефон</label>--}}
-{{--                    <p>{{ $poster->phone }}</p>--}}
-{{--                    <label>mail</label>--}}
-{{--                    <p>{{ $poster->mail }}</p>--}}
-{{--                    <label>Главное фото</label>--}}
                 </div>
-{{--                <img src="{{ asset('storage/medium/' . $poster->main_photo) }}">--}}
-{{--                <p>{{ $poster->created_at }}</p>--}}
-{{--                <p>{{ $poster->updated_at }}</p>--}}
             </div>
         </div>
     </div>

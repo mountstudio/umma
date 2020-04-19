@@ -1,15 +1,15 @@
-<div class="container-fluid px-5">
-    <h2 class="text-uppercase">Мультимедиа</h2>
+<div class="container bg-white px-5">
+    <h2 class="text-uppercase text-center">Мультимедиа</h2>
     <div class="row">
         <div class="col-12 p-4 bg-orange">
             <div class="multimedia">
                 @foreach($multimedia as $media)
-                    <div class="item border bg-for-image p-1 mr-1 position-relative">
-                        <a href="{{ $media->url_video }}">
-                            <img class="img-fluid position-relative"
-                                 src="{{ asset('storage/medium/' . $media->url_photo) }}" alt="">
-                            <img src="{{ asset('img/ui.png') }}" class="img-fluid position-absolute"
-                                 style="left: 50%; top: 50%; transform: translate(-50%, -50%);" alt="">
+                    <div class="item  p-1 mr-1 position-relative">
+                        <a class="fancybox-media1" href="{{ $media->url_video }}">
+                            <img class="border border-white img-fluid position-relative"
+                                 src="{{ asset('storage/medium/' . $media->url_photo) }}" alt="" style="border-width: 5px!important;">
+                            <img src="{{ asset('img/play-button.svg') }}" class="img-fluid position-absolute"
+                                 style="left: 50%; top: 50%; transform: translate(-50%, -50%);width: 27%;height: 27%;" alt="">
                         </a>
                     </div>
                 @endforeach
@@ -25,6 +25,7 @@
 {{--</a>--}}
 @push('styles')
     <link rel="stylesheet" href="{{ asset('css/slick.css') }}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css">
 @endpush
 
 @push('scripts')
@@ -62,11 +63,21 @@
                     },
 
                 }],
-                nextArrow: '<i class="fas fa-chevron-right icon-arrow-right fa-2x"></i>',
-                prevArrow: '<i class="fas fa-chevron-left icon-arrow-left fa-2x"></i>'
+                nextArrow: '<i class="fas fa-chevron-right icon-arrow-right fa-2x text-white"></i>',
+                prevArrow: '<i class="fas fa-chevron-left icon-arrow-left fa-2x text-white"></i>'
 
             });
 
+        });
+    </script>
+    <script src="{{asset('js/jquery.fancybox.min.js')}}"></script>
+    <script>
+        $('.fancybox-media1').fancybox({
+            openEffect: 'none',
+            closeEffect: 'none',
+            helpers: {
+                media: {}
+            }
         });
     </script>
 @endpush

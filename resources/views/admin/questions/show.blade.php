@@ -17,17 +17,23 @@
                             <td scope="row">{{ $question->name }}</td>
                         </tr>
                         <tr>
-                            <th> Контент:</th>
+                            <th> Вопрос:</th>
                             <td scope="row">{!! $question->content  !!}</td>
+                        </tr>
+                        <tr>
+                            <th> Ответ:</th>
+                            <td scope="row">{!! $question->answer  !!}</td>
                         </tr>
                         <tr>
                             <th> Телефон:</th>
                             <td scope="row">{{ $question->phone }}</td>
                         </tr>
+                        @if($question->category)
                         <tr>
-                            <th> Id категории:</th>
-                            <td scope="row">{{ $question->category_id }}</td>
+                            <th>категория:</th>
+                            <td scope="row">{{ $question->category->name }}</td>
                         </tr>
+                        @endif
                         <tr>
                             <th> ФИО:</th>
                             <td scope="row">{{ $question->full_name }}</td>
@@ -42,21 +48,7 @@
                         </tr>
                         </tbody>
                     </table>
-{{--                    <label>id:</label>--}}
-{{--                    <p>{{ $question->id }}</p>--}}
-{{--                    <label>Наименование:</label>--}}
-{{--                    <p>{{ $question->name }}</p>--}}
-{{--                    <label>контент</label>--}}
-{{--                    {!! $question->content  !!}--}}
-{{--                    <label>телефон</label>--}}
-{{--                    <p>{{ $question->phone }}</p>--}}
-{{--                    <label>id категории</label>--}}
-{{--                    <p>{{ $question->category_id }}</p>--}}
-{{--                    <label>ФИО</label>--}}
-{{--                    <p>{{ $question->full_name }}</p>--}}
                 </div>
-{{--                <p>{{ $question->created_at }}</p>--}}
-{{--                <p>{{ $question->updated_at }}</p>--}}
             </div>
         </div>
     </div>

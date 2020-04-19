@@ -44,7 +44,7 @@
                     {data: 'phone', name: 'phone'},
                     {data: 'mail', name: 'mail'},
                     {data: 'article_id', name: 'article'},
-                    {data: 'user', name: 'registered', className: "dt-body-center", searchable: false, orderable: false },
+                    {data: 'user_id', name: 'user_id', className: "dt-body-center", searchable: false, orderable: false },
                     {data: 'parent_id', name: 'parent_id'},
                     {data: 'created_at', name: 'created_at'},
                     {data: 'updated_at', name: 'updated_at'},

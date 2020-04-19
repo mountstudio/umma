@@ -42,8 +42,6 @@
                         @endforeach
                     </select>
                 </div>
-{{--                <label for="content_area">Контент:<span class="text-danger">*</span></label>--}}
-{{--                <div id="editorjs" class="border"></div>--}}
                 <div class="form-group pt-2">
                     <label for="content_area">Контент:<span class="text-danger">*</span></label>
                     <textarea id="content_area" class="form-control richTextBox is-invalid"
@@ -88,7 +86,7 @@
     <script src="{{ asset('js/tinyMCE.js') }}"></script>
     <script>
         $(document).ready(function () {
-            $('.js-example-basic-multiple').select2();
+            $('.js-example-basic-multiple').select2({ width: '100%' });
 
         });
     </script>

@@ -20,7 +20,8 @@
                     <label for="photo_input">Выберите фото:</label>
                     <input id="photo_input" class="form-control" onchange="readURL(this);" type="file"
                            name="photo" accept="image/jpeg, image/png">
-                    <img id="photo" src="{{ asset('storage/medium/' . $author->photo) }}"/>
+                    <br>
+                    <img id="photo" src="{{ asset('storage/medium/' . $author->photo) }}" width="750"/>
                 </div>
                 <div class="form-check">
                     <input {{ $author->view_main ? 'checked' : '' }} type="checkbox" name="view_main"
@@ -49,6 +50,7 @@
                         .attr('src', e.target.result);
                 };
                 reader.readAsDataURL(input.files[0]);
+                $('#photo').width = 750;
             }
         }
     </script>

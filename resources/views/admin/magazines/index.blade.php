@@ -12,6 +12,7 @@
             <th>id</th>
             <th>name</th>
             <th>image</th>
+            <th>status</th>
             <th>created_at</th>
             <th>updated_at</th>
             <th>actions</th>
@@ -35,6 +36,7 @@
                     {data: 'id', name: 'id'},
                     {data: 'name', name: 'name'},
                     {data: 'image', name: 'image'},
+                    {data: 'status', name: 'status'},
                     {data: 'created_at', name: 'created_at'},
                     {data: 'updated_at', name: 'updated_at'},
                     {data: 'actions', name: 'actions', searchable: false, orderable: false},

@@ -1,32 +1,38 @@
-<div class="container">
+<div class="container bg-white">
     <div class="row">
-        <div class="col-12 col-lg-6 pt-3 text-center">
-            <div class="row pt-2 ">
-                <h5 class="mr-2 text-orange">RU</h5>
-                <h5 class="text-orange">KG</h5>
-                <div class="mx-auto">
+        <div class="col-12 col-lg-6 pt-3 text-center order-1">
+            <div class="row justify-content-center justify-content-lg-end mb-4">
+                <div class="">
                     @if(Auth::user())
-                        <form id="frm-logout" action="{{ route('logout') }}" method="POST">
+
+                        <a href="{{ route('logout') }}"
+                           onclick="event.preventDefault(); document.getElementById('logout-form').submit();"
+                           class="text-orange">
+                            {{ __('Выйти') }}
+                        </a>
+
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                             {{ csrf_field() }}
-                            <button type="submit" class="btn btn-orange text-orange"> {{ __('Выйти') }}</button>
                         </form>
                     @else
-                        <a href="{{ route('login') }}" class="btn btn-orange text-orange">
+                        <a href="{{ route('login') }}" class="text-orange  mx-3">
                             {{ __('Войти') }}
                         </a>
-                        <a href="{{ route('register') }}" class="btn btn-orange text-orange">
+                        <a href="{{ route('register') }}" class="text-orange">
                             {{ __('Регистрация') }}
                         </a>
                     @endif
                 </div>
+                <div class="d-flex px-4">
+                    <a href="{{ route('language.switch', 'en') }}"><p class="mr-2 text-orange small mb-0">EN</p></a>
+                    <a href="{{ route('language.switch', 'ru') }}"><p class="text-orange small mb-0">RU</p></a>
+                </div>
             </div>
-
         </div>
-        <div class="col-12 col-lg-6 pt-3 text-center">
-
-            <div id="sb-search" class="sb-search col-12 col-lg-8">
+        <div class="col-12 col-lg-6  text-center order-0 ">
+            <div id="sb-search" class="sb-search col-12 col-lg-8 float-left">
                 <form action="{{ route('search') }}" method="GET">
-                    <input class="sb-search-input" placeholder="Enter your search term..." type="text" value=""
+                    <input class="sb-search-input" placeholder="Введите поисковый запрос..." type="text" value=""
                            name="search"
                            id="search">
                     <input class="sb-search-submit" type="submit">
@@ -34,25 +40,28 @@
                 </form>
             </div>
         </div>
-        <div class="col-12 col-lg-7 text-right pr-0">
-            <a class="navbar-brand" href="{{ route('welcome') }}"><img src="{{ asset('img/umma_logo.png') }}" alt=""
+    </div>
+    <div class="row">
+        <div class="col-12  text-center">
+            <a class="navbar-brand" href="{{ route('welcome') }}"><img src="{{ asset('img/logo.svg') }}" alt=""
                                                                        class="img-fluid justify-content-center"></a>
         </div>
-        <div class="col-lg-5 m-0 p-0 justify-content-center justify-content-lg-end">
+        <div class="col-12  text-center py-2">
             <a href="https://www.facebook.com/ummamag.kg"><i class="fab fa-facebook fa-lg text-orange mr-3"></i></a>
             <a href="https://www.instagram.com/ummamagkg/"><i class="fab fa-instagram fa-lg text-orange mr-3"></i></a>
             <a href="https://www.youtube.com/watch?v=pfab0uXYDpY&feature=youtu.be"><i
                         class="fab fa-youtube fa-lg text-orange mr-3"></i></a>
-            <a href=""><i class="fas fa-rss fa-lg text-orange"></i></a>
+            <a href="{{ route('feeds.main') }}"><i class="fas fa-rss fa-lg text-orange"></i></a>
         </div>
-        <nav class="navbar navbar-expand-lg mx-0 mx-lg-auto">
-            <button class="navbar-toggler " type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+        <nav class="navbar navbar-expand-lg mx-0 mx-lg-auto col-12">
+            <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse"
+                    data-target="#navbarSupportedContent"
                     aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="fas fa-bars"></span>
             </button>
             <div class="col-12">
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav mr-auto">
+                    <ul class="navbar-nav mx-auto">
                         <li class="nav-item active">
                             <a class="nav-link text-dark text-menu pl-0" href="{{ route('need_to_know') }}" title=""
                                style="">Надо знать</a>
@@ -85,6 +94,12 @@
                 </div>
             </div>
         </nav>
+        <div class="bg-for-middle-div col-12 px-0">
+            <marquee   behavior="scroll"  >
+                العَالِمُ بِلَا عَمَلٍ سَحَابٌ بِلَا مَطَرٍ
+            </marquee>
+        </div>
+
     </div>
 </div>
 

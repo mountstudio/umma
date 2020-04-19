@@ -62,7 +62,15 @@ Breadcrumbs::register('posters', function ($breadcrumbs) {
     $breadcrumbs->parent('home');
     $breadcrumbs->push('Афишы', route('all.posters'));
 });
+Breadcrumbs::register('questions', function ($breadcrumbs) {
+    $breadcrumbs->parent('home');
+    $breadcrumbs->push('Вопросы', route('all.questions'));
+});
 
+Breadcrumbs::register('question', function ($breadcrumbs, $question){
+    $breadcrumbs->parent('questions');
+    $breadcrumbs->push($question->name, route('show.question', $question));
+});
 
 Breadcrumbs::register('poster', function ($breadcrumbs, $poster){
     $breadcrumbs->parent('posters');

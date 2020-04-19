@@ -17,7 +17,11 @@
                             <td scope="row">{{ $magazine->name }}</td>
                         </tr>
                         <tr>
-                            <th> Ссылка к видео:</th>
+                            <th> Статус журнала:</th>
+                            <td scope="row">{{ $magazine->status }}</td>
+                        </tr>
+                        <tr>
+                            <th> Картинка:</th>
                             <td><img src="{{ asset('storage/medium/' . $magazine->image) }}"></td>
                         </tr>
                         <tr>
