@@ -20,9 +20,7 @@
                     </h2>
                 </div>
                 <div class="row">
-                    @foreach($articlesByTag->chunk(2) as $articleChunk)
-                        @include('articles.card')
-                    @endforeach
+                    @include('articles.list',['articles' => $articlesByTag])
                 </div>
                 @if($articlesByTag instanceof \Illuminate\Pagination\LengthAwarePaginator)
                     <div class="row justify-content-center mt-5">
@@ -50,7 +48,6 @@
             let btn = $(e.currentTarget);
             let social = btn.data('social');
             let url = btn.data('url');
-            let text = btn.data('text');
 
             if (social == 'facebook') {
                 url = 'https://facebook.com/sharer/sharer.php?u=' + url;
@@ -60,9 +57,7 @@
                 url = 'https://vk.com/share.php?url=' + url;
                 window.open(url, "popupWindow", "width=600,height=600,scrollbars=yes");
             }
-            // if (social == 'instagram') {
-            //     window.open($(this).attr("href", 'https://vk.com/share.php?url=' + url), "popupWindow", "width=600,height=600,scrollbars=yes");
-            // }
+
         })
     </script>
 @endpush

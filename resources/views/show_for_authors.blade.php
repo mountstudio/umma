@@ -26,9 +26,7 @@
                     </div>
                 </div>
                 <div class="row">
-                    @foreach($articlesByAuthor->chunk(2) as $articleChunk)
-                        @include('articles.card')
-                    @endforeach
+                    @include('articles.list',['articles' => $articlesByAuthor])
                 </div>
 
                 @if($articlesByAuthor instanceof \Illuminate\Pagination\LengthAwarePaginator)
