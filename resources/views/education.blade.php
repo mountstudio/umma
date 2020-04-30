@@ -11,9 +11,7 @@
         <div class="row">
             <div class="col-12 col-lg-8">
                 <h2 class="text-center">Просвещение</h2>
-                @foreach($articles->chunk(2) as $articleChunk)
-                    @include('articles.card')
-                @endforeach
+                @include('articles.list')
             </div>
             @if($articles instanceof \Illuminate\Pagination\LengthAwarePaginator)
                 <div class="row justify-content-center mt-5">

@@ -11,7 +11,7 @@
         <tr>
             <th>id</th>
             <th>name</th>
-            <th>category_id</th>
+            <th>category</th>
             <th>is_active</th>
             <th>view_main</th>
             <th>impressions</th>
