@@ -20,7 +20,7 @@
                     <img class="d-none d-md-block mx-2" src="{{ asset('img/video.png') }}" alt=""
                          style="width: 60px;height: 60px;">
                     <h2 class="title">
-                        sdfsdfsdfsdf
+                        {{ $media->title }}
                     </h2>
                 </div>
                 <div class=" bg-img pb-5">

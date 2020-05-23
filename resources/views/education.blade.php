@@ -11,15 +11,13 @@
         <div class="row">
             <div class="col-12 col-lg-8">
                 <h2 class="text-center">Просвещение</h2>
-                @foreach($articles->chunk(2) as $articleChunk)
-                    @include('articles.card')
-                @endforeach
-            </div>
+                @include('articles.list')
             @if($articles instanceof \Illuminate\Pagination\LengthAwarePaginator)
                 <div class="row justify-content-center mt-5">
                     {{ $articles->appends(request()->query())->links() }}
                 </div>
             @endif
+            </div>
             <div class="col-12 col-lg-4 pb-3">
                 @include('blocks.right-sidebar.new')
                 <div class="pt-3">
