@@ -28,9 +28,9 @@
                         @endforeach
                     </p>
                 @endif
-                <div class="py-2 text-center">
-                    <img class="img-fluid" src="{{ asset('storage/medium/' . $article->logo) }}" alt="">
-                </div>
+{{--                <div class="py-2 text-center">--}}
+{{--                    <img class="img-fluid" src="{{ asset('storage/medium/' . $article->logo) }}" alt="">--}}
+{{--                </div>--}}
                 <div>
                     <p>{!! $article->content !!}</p>
                 </div>
