@@ -36,12 +36,12 @@
 {{--        </div>--}}
 {{--    </div>--}}
 {{--</div>--}}
-<div class="col-12 col-md-4 pb-4">
+<div class="col-12 col-md-4 pb-4 px-0">
 <div class="card mx-1 shadow shadow-on-hover transition-200">
-    <div class="date">
-        <div class="day">27</div>
-        <div class="month">Mar</div>
-    </div>
+{{--    <div class="date">--}}
+{{--        <div class="day">27</div>--}}
+{{--        <div class="month">Mar</div>--}}
+{{--    </div>--}}
     <div class="position-relative shadow-sm">
         <a href="{{ route('show.article', $otherArticle) }}" title="ссылка">
             <img src="{{ asset('storage/medium/' . $otherArticle->logo ) }}"

@@ -1,43 +1,37 @@
-<div class="card mx-1 shadow shadow-on-hover transition-200">
-    <div class="date">
-        <div class="day">27</div>
-        <div class="month">Mar</div>
-    </div>
-    <div class="position-relative shadow-sm">
-        <a href="{{ route('show.article', $article) }}" title="ссылка">
-            <img src="{{ asset('storage/medium/' . $article->logo) }}"
-                 class="card-img-top"
-                 alt="..." style="max-height: 200px; object-fit: cover;">
-        </a>
-        @if($article->tags->count())
-            <div class="row m-0 text-white position-absolute" style="bottom: 0;">
-                <p class="col-auto m-0 bg-orange font-weight-bold" style="background-color: #008500;">
-                    @foreach($article->tags as $tag)
-                        @if($loop->index == 1)
-                            <a href="{{ route('show.tag', $tag) }}" class="text-white">{{ $tag->name }} </a>
-                            @break
-                        @endif
-                        <a href="{{ route('show.tag', $tag) }}"
-                           class="text-white">{{ $tag->name . ($loop->last ? '' : ', ') }} </a>
-                    @endforeach
-                </p>
-            </div>
-        @endif
-    </div>
+<div class="col-12 col-lg-4  px-2 py-1 ">
+    <div class="shadow shadow-on-hover transition-200">
+        <div class="position-relative shadow-sm">
+            <a href="{{ route('show.article', $article) }}" title="ссылка">
+                <div class="d-flex align-items-end hover-card"
+                     style="height: 200px;background-image: url({{ asset('storage/medium/' . $article->logo) }});background-size: cover;background-position: center;">
+                    <div class="col-12 px-0" style="background: rgba(0,0,0,0.5);">
+                        <div class="card-body pt-3 pb-1 px-0">
+                            <p class="px-2 mb-0 text-orange">
+                                {{ $article->category->name }}
+                            </p>
+                            <h2 class="px-2  text-left desc-text-crop font-weight-bold  text-white h5 mb-0">{{ __($article->name) }}</h2>
+                        </div>
+                        <div class="description-article-card text-white"
+                             style="margin-top: 5px;display:none;line-height: 17px;font-weight: normal;">
 
+                            <p class="px-2 small">ASDASKJDHAKLSHDLKSHALDJALSKJD</p>
+                        </div>
+                        <div class="d-flex align-items-center text-white px-2">
+                            <i class="fas fa-eye text-orange"></i>&nbsp;<span
+                                class="pr-3 small">{{ $article->impressions }}</span>
+                            <i class="fas fa-comments text-orange"></i>&nbsp;<span
+                                class="pr-3 small">{{ $article->comments->count() }}</span>
+                        </div>
+                    </div>
+                </div>
+                {{--            <img src="{{ asset('storage/medium/' . $article->logo) }}"--}}
+                {{--                 class="card-img-top"--}}
+                {{--                 alt="..." style="max-height: 200px; object-fit: cover;">--}}
+            </a>
 
-    <div class="card-body pt-3 pb-1 px-0">
-
-        <a class="text-decoration-none" href="{{ route('show.article', $article) }}" title="ссылка">
-            <h3 class="px-2 h6 text-left desc-text-crop font-weight-bold text-dark">{{ __($article->name) }}</h3>
-        </a>
-    </div>
-    <a href="{{ route('show.article', $article) }}" class="card-footer text-dark text-decoration-none d-flex  bg-white border-0 pt-0 ">
-        <div class="d-flex align-items-center">
-            <i class="fas fa-eye text-orange"></i>&nbsp;<span
-                class="pr-3 small">{{ $article->impressions }}</span>
-            <i class="fas fa-comments text-orange"></i>&nbsp;<span
-                class="pr-3 small">{{ $article->comments->count() }}</span>
         </div>
-    </a>
+
+
+    </div>
+
 </div>

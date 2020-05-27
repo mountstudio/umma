@@ -10,7 +10,7 @@
     </div>
     <div class="container bg-white">
         <div class="row">
-            <div class="col-12 col-lg-8">
+            <div class="col-12 col-lg-9">
                 <h2 class="text-center">Интервью</h2>
                 @include('articles.list')
             @if($articles instanceof \Illuminate\Pagination\LengthAwarePaginator)
@@ -19,7 +19,7 @@
                 </div>
             @endif
             </div>
-            <div class="col-12 col-lg-4 pb-3">
+            <div class="col-12 col-lg-3 pb-3">
                 @include('blocks.right-sidebar.new')
                 <div class="pt-3">
                     @include('partials.pray')
