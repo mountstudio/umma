@@ -17,12 +17,6 @@
         </div>
     </div>
 </div>
-{{--<a class="fancybox-media" href="https://www.youtube.com/watch?time_continue=3&v=xTYkmWnwLvg">--}}
-{{--    <div class="position-relative">--}}
-{{--        <img src="" data-src="{{ asset('img/video.png') }}" class="img-fluid div-lazy w-100 position-relative" alt="">--}}
-{{--        <img src="" data-src="{{asset('img/youtube(2).png')}}" class="youtube div-lazy  position-absolute" style="left: 50%; top: 50%; transform: translate(-50%, -50%); " alt="">--}}
-{{--    </div>--}}
-{{--</a>--}}
 @push('styles')
     <link rel="stylesheet" href="{{ asset('css/slick.css') }}">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css">
