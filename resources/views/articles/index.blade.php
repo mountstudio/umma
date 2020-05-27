@@ -10,8 +10,7 @@
     </div>
     <div class="container bg-white">
         <div class="row">
-            @include('partials.sidebar')
-            <div class="col-12 col-lg-8">
+            <div class="col-12 col-lg-9">
                 <h2 class="text-center">Новости</h2>
                 <div class="row">
                     @include('articles.list')
@@ -22,6 +21,8 @@
                     </div>
                 @endif
             </div>
+            @include('partials.sidebar')
+
         </div>
     </div>
 @endsection

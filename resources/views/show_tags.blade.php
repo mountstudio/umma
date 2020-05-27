@@ -10,11 +10,11 @@
     </div>
     <div class="container bg-white">
         <div class="row">
-            <div class="col-12 col-lg-8">
-                <div class="author d-flex justify-content-between">
-                    <p class="text-dark">Тег: {{ $tag->name }}</p>
-                </div>
-                <div class="post-header d-flex">
+            <div class="col-12 col-lg-9">
+{{--                <div class="author d-flex justify-content-between">--}}
+{{--                    <p class="text-dark">Тег: {{ $tag->name }}</p>--}}
+{{--                </div>--}}
+                <div class="post-header d-flex justify-content-center">
                     <h2 class="title">
                         Все статьи данного тега
                     </h2>
@@ -30,7 +30,7 @@
                 @include('subscription.subscribe')
                 @include('share.share_buttons')
             </div>
-            <div class="col-12 col-lg-4 pb-3">
+            <div class="col-12 col-lg-3 pb-3">
                 @include('blocks.right-sidebar.new')
                 <div class="pt-3">
                     @include('partials.pray')

@@ -43,9 +43,11 @@
                 @endif
                 @foreach($otherPosters as $posterGroup)
                     <div id="{{ !$loop->first ? 'more':'basic' }}" class="row{{ !$loop->first ? ' collapse':'' }}">
-                        @foreach($posterGroup as $poster)
-                            @include('poster.card')
-                        @endforeach
+                            @foreach($posterGroup as $poster)
+                            <div class="col-12 col-lg-4 px-1">
+                                @include('poster.card')
+                            </div>
+                            @endforeach
                     </div>
                 @endforeach
                 @if($otherPosters->count()>1)
