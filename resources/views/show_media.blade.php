@@ -36,8 +36,7 @@
                 @include('share.share_buttons')
             </div>
             <div class="col-12 col-lg-4 pb-3">
-                @include('blocks.right-sidebar.new')
-                <div class="pt-3">
+                <div class="py-3">
                     @include('partials.pray')
                 </div>
                 <h2 class="text-center py-2">Статьи</h2>

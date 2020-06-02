@@ -15,17 +15,17 @@
                             {{ csrf_field() }}
                         </form>
                     @else
-                        <a href="{{ route('login') }}" class="text-orange  mx-3">
+                        <a href="{{ route('login') }}" class="text-orange  mx-3 text-decoration-none">
                             {{ __('Войти') }}
                         </a>
-                        <a href="{{ route('register') }}" class="text-orange">
+                        <a href="{{ route('register') }}" class="text-orange text-decoration-none">
                             {{ __('Регистрация') }}
                         </a>
                     @endif
                 </div>
                 <div class="d-flex px-4">
-                    <a href="{{ route('language.switch', 'en') }}"><p class="mr-2 text-orange small mb-0">EN</p></a>
-                    <a href="{{ route('language.switch', 'ru') }}"><p class="text-orange small mb-0">RU</p></a>
+                    <a class="text-decoration-none" href="{{ route('language.switch', 'en') }}"><p class="mr-2 text-orange small mb-0">EN</p></a>
+                    <a class="text-decoration-none" href="{{ route('language.switch', 'ru') }}"><p class="text-orange small mb-0">RU</p></a>
                 </div>
             </div>
         </div>

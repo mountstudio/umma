@@ -14,7 +14,7 @@
         </div>
         <div class="card-footer pt-0 bg-white border-0 text-center">
             <p class="card-title small mb-1 text-secondary pt-2">{{ $poster->type->name }}</p>
-            <h3 class="h5 font-weight-bold card-text">{{ $poster->name }}</h3>
+            <h3 class="h5 font-weight-bold card-text text-crop" style="line-height: 120%;">{{ $poster->name }}</h3>
         </div>
     </a>
 

@@ -1,7 +1,7 @@
 <div class="col-12 col-lg-4  px-2 py-1 ">
     <div class="shadow shadow-on-hover transition-200">
         <div class="position-relative shadow-sm">
-            <a href="{{ route('show.article', $article) }}" title="ссылка">
+            <a class="text-decoration-none" href="{{ route('show.article', $article) }}" title="ссылка">
                 <div class="d-flex align-items-end hover-card"
                      style="height: 200px;background-image: url({{ asset('storage/medium/' . $article->logo) }});background-size: cover;background-position: center;">
                     <div class="col-12 px-0" style="background: rgba(0,0,0,0.5);">
@@ -28,10 +28,6 @@
                 {{--                 class="card-img-top"--}}
                 {{--                 alt="..." style="max-height: 200px; object-fit: cover;">--}}
             </a>
-
         </div>
-
-
     </div>
-
 </div>

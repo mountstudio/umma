@@ -6,7 +6,7 @@
 
 {{--            </div>--}}
             <div class="col-12">
-                <a href="{{ route('show.article', $article) }}">
+                <a class="text-decoration-none" href="{{ route('show.article', $article) }}">
                     <p class="text-dark d-flex justify-content-between" style="line-height: 110%;">{{ $article->name }} <span class="small">{{ $article->created_at->format('d.m') }}</span></p>
 {{--                    <p class="mb-0 small">{{ $article->created_at->format('d.m') }}</p>--}}
                 </a>
@@ -14,6 +14,6 @@
         </div>
     @endforeach
     <div class="row justify-content-end no-gutters">
-        <a href="{{ route('all.news') }}" class="text-dark">aрхив...</a>
+        <a href="{{ route('all.news') }}" class="text-dark text-decoration-none">все новости...</a>
     </div>
 </div>
