@@ -12,14 +12,13 @@
             <div class="col-12 col-lg-8">
                 <div class="row">
                     @foreach($multimedia as $media)
-                        <div class="col-12 col-lg-4 py-2">
+                        <div class="col-12 col-lg-6 py-2">
                             <div class="card">
                                 <a class="fancybox-media" href="{{ $media->url_video }}" title="ссылка">
                                     <img src="{{ asset('storage/medium/' . $media->url_photo ) }}"
                                          class="card-img-top"
                                          alt="...">
                                 </a>
-                                <div class="card-body ">
                                     <a href="{{ route('show.media', $media) }}" title="ссылка">
                                         <h6 class="text-left">{{ $media->title }}</h6>
                                     </a>

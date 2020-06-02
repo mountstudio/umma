@@ -2,18 +2,34 @@
 @section('content')
     @include('partials.breadcrumbs', ['type' => 'article', 'value' => $article])
     <div class="container bg-white">
-        <div class="row">
-            @include('partials.sidebar')
-            <div class="col-12 col-lg-8">
-                <nav aria-label="breadcrumb">
+        <div class="row justify-content-center">
+            <div class="col-12 col-lg-9 pt-0">
+                <div class="row justify-content-center">
+                    <img class="img-fluid" src="{{ asset('img/example-2.jpg') }}" alt="">
+                </div>
+                <div class="title-article col-12 col-lg-7 px-0">
+                    <h1 class="title-for-article">{{ __($article->name) }}</h1>
+                </div>
+            </div>
+
+            <div class="col-12 col-lg-9 pt-3">
+                <nav aria-label="breadcrumb ">
                 </nav>
+
+
                 <div class="author d-lg-flex d-md-flex d-block justify-content-between small">
-                    <p>Автор{{$article->authors->count()>1?'ы':'' }}:
+                    <p class="my-0">Автор{{$article->authors->count()>1?'ы':'' }}:
                         @foreach($article->authors as $author)
                             <a href="{{ route('show.author', $author) }}">{{ $author->full_name . ($loop->last ? '' : ',') }} </a>
                         @endforeach
                     </p>
-
+                    @if($article->photographers->count())
+                        <p class=" my-0">Фотограф{{$article->photographers->count()>1?'ы':'' }}:
+                            @foreach($article->photographers as $photographer)
+                                <a>{{ $photographer->full_name . ($loop->last ? '' : ',') }} </a>
+                            @endforeach
+                        </p>
+                    @endif
                     <p>{{$article->created_at->format('d.m.y')}}</p>
                 </div>
                 <div class="post-header d-flex py-2">
@@ -21,17 +37,11 @@
                         {{ __($article->name) }}
                     </h4>
                 </div>
-                @if($article->photographers->count())
-                    <p class="small my-0">Фотограф{{$article->photographers->count()>1?'ы':'' }}:
-                        @foreach($article->photographers as $photographer)
-                            <a>{{ $photographer->full_name . ($loop->last ? '' : ',') }} </a>
-                        @endforeach
-                    </p>
-                @endif
-                <div class="py-2 text-center">
-                    <img class="img-fluid" src="{{ asset('storage/medium/' . $article->logo) }}" alt="">
-                </div>
-                <div>
+
+                {{--                <div class="py-2 text-center">--}}
+                {{--                    <img class="img-fluid" src="{{ asset('storage/medium/' . $article->logo) }}" alt="">--}}
+                {{--                </div>--}}
+                <div id="post-content">
                     <p>{!! $article->content !!}</p>
                 </div>
                 <div class="tags">
@@ -67,7 +77,7 @@
                     @include('comments.comment')
                 </section>
             </div>
-
+            @include('partials.sidebar')
         </div>
     </div>
 @endsection
