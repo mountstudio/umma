@@ -12,7 +12,7 @@
                 </div>
             </div>
 
-            <div class="col-12 col-lg-9 pt-3">
+            <div class="col-12 col-lg-9 pt-5">
                 <nav aria-label="breadcrumb ">
                 </nav>
                 <div class="author d-lg-flex d-md-flex d-block justify-content-between small">
