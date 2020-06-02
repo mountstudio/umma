@@ -8,15 +8,13 @@
         </div>
     </div>
     <div class="container bg-white">
-        <div class="row">
-            @include('partials.sidebar')
-            <div class="col-12 col-lg-8">
+        <div class="row justify-content-center">
+            <div class="col-12 col-lg-9 col-md-10">
                 <div>
                     <p>Дата события: 26.04.2020</p>
                 </div>
                 <div class="post-header d-flex py-2">
-                    <img class="d-none d-md-block mx-2" src="{{ asset('img/news.png') }}" alt=""
-                         style="width: 60px;height: 60px;">
+
                     <h2 class="title">
                         {{ $poster->name }}
                     </h2>
@@ -36,20 +34,22 @@
                 @include('share.share_buttons')
                 @if($otherPosters->count())
                     <div class="row">
-                        <div class="col-12 text-center pb-5">
+                        <div class="col-12 text-center pb-2">
                             <h3>Другие статьи</h3>
                         </div>
                     </div>
                 @endif
-                @foreach($otherPosters as $posterGroup)
-                    <div id="{{ !$loop->first ? 'more':'basic' }}" class="row{{ !$loop->first ? ' collapse':'' }}">
+                <div class="py-3">
+                    @foreach($otherPosters as $posterGroup)
+                        <div  id="{{ !$loop->first ? 'more':'basic' }}" class=" row{{ !$loop->first ? ' collapse':'' }}">
                             @foreach($posterGroup as $poster)
-                            <div class="col-12 col-lg-4 px-1">
-                                @include('poster.card')
-                            </div>
+                                <div class="col-12 py-4 col-lg-4 px-1">
+                                    @include('poster.card')
+                                </div>
                             @endforeach
-                    </div>
-                @endforeach
+                        </div>
+                    @endforeach
+                </div>
                 @if($otherPosters->count()>1)
                     <div class="col-12 row justify-content-center   ">
                         <button class="button button--winona button--border-thin button--round-s"
@@ -58,6 +58,7 @@
                     </div>
                 @endif
             </div>
+            @include('partials.sidebar')
 
         </div>
     </div>

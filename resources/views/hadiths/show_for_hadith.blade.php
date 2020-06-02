@@ -9,7 +9,7 @@
     </div>
     <div class="container bg-white">
         <div class="row">
-            <div class="col-12 col-lg-8">
+            <div class="col-12 col-lg-9">
                 <div class="post-header d-flex">
                     <img class="d-none d-md-block mx-2" src="{{ asset('img/moon (1).png') }}" alt="">
                     <h1 class="title">
@@ -23,14 +23,7 @@
                 @include('subscription.subscribe')
                 @include('share.share_buttons')
             </div>
-            <div class="col-12 col-lg-4 pb-3">
-                @include('blocks.right-sidebar.new')
-                <div class="pt-3">
-                    @include('partials.pray')
-                </div>
-                <h2 class="text-center py-2">Статьи</h2>
-                @include('blocks.right-sidebar.new')
-            </div>
+            @include('partials.sidebar')
         </div>
     </div>
 @endsection

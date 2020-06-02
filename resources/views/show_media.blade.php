@@ -9,8 +9,8 @@
         </div>
     </div>
     <div class="container bg-white">
-        <div class="row">
-            <div class="col-12 col-lg-8">
+        <div class="row justify-content-center">
+            <div class="col-12 col-lg-9 col-md-10">
                 <nav aria-label="breadcrumb">
                 </nav>
                 <div class="author d-flex justify-content-between">
@@ -35,7 +35,7 @@
                 @include('subscription.subscribe')
                 @include('share.share_buttons')
             </div>
-            <div class="col-12 col-lg-4 pb-3">
+            <div class="col-12 col-lg-3 pb-3">
                 <div class="py-3">
                     @include('partials.pray')
                 </div>

@@ -15,22 +15,20 @@
             <div class="col-12 col-lg-9 pt-3">
                 <nav aria-label="breadcrumb ">
                 </nav>
-
-
                 <div class="author d-lg-flex d-md-flex d-block justify-content-between small">
                     <p class="my-0">Автор{{$article->authors->count()>1?'ы':'' }}:
                         @foreach($article->authors as $author)
-                            <a href="{{ route('show.author', $author) }}">{{ $author->full_name . ($loop->last ? '' : ',') }} </a>
+                            <a class="text-decoration-none text-orange" href="{{ route('show.author', $author) }}">{{ $author->full_name . ($loop->last ? '' : ',') }} </a>
                         @endforeach
                     </p>
                     @if($article->photographers->count())
                         <p class=" my-0">Фотограф{{$article->photographers->count()>1?'ы':'' }}:
                             @foreach($article->photographers as $photographer)
-                                <a>{{ $photographer->full_name . ($loop->last ? '' : ',') }} </a>
+                                <a class="">{{ $photographer->full_name . ($loop->last ? '' : ',') }} </a>
                             @endforeach
                         </p>
                     @endif
-                    <p>{{$article->created_at->format('d.m.y')}}</p>
+                    <p class="text-orange">{{$article->created_at->format('d.m.y')}}</p>
                 </div>
                 <div class="post-header d-flex py-2">
                     <h4 class="title">
@@ -44,10 +42,10 @@
                 <div id="post-content">
                     <p>{!! $article->content !!}</p>
                 </div>
-                <div class="tags">
-                    <h5 class="widget-title">Теги:</h5>
+                <div class="tags d-flex">
+                    <h5 class="widget-title pr-2">Теги:</h5>
                     @foreach($article->tags as $tag)
-                        <a href="{{ route('show.tag', $tag) }}">{{  $tag->name . ($loop->last ? '' : ',') }} </a>
+                        <p><a class="text-decoration-none text-orange" href="{{ route('show.tag', $tag) }}">{{  $tag->name . ($loop->last ? '' : ',') }} </a></p>
                     @endforeach
                 </div>
                 @include('subscription.subscribe')

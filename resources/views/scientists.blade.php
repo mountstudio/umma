@@ -5,7 +5,7 @@
             <div class="col-12 p-0">
                 {{ Breadcrumbs::render('questions') }}
             </div>
-            <div class="col-12 col-lg-8">
+            <div class="col-12 col-lg-9">
                 <h2 class="text-center">Ученые</h2>
                 <hr style="background-color: black;color: black;">
                 <h4 class="text-center">Задайте свой вопрос</h4>
@@ -93,7 +93,7 @@
                     @endif
                 </div>
             </div>
-            <div class="col-12 col-lg-4 pb-3">
+            <div class="col-12 col-lg-3 pb-3">
                 @include('blocks.right-sidebar.new')
                 <div class="py-3">
                     @include('partials.pray')

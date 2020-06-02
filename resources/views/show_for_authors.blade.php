@@ -9,8 +9,8 @@
         </div>
     </div>
     <div class="container bg-white">
-        <div class="row">
-            <div class="col-12 col-lg-8">
+        <div class="row justify-content-center">
+            <div class="col-12 col-lg-9 col-md-10">
                 <div class="post-header d-flex">
                     <h2 class="title">
                         Все статьи автора

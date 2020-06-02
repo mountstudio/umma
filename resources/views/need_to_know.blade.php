@@ -8,8 +8,8 @@
         </div>
     </div>
     <div class="container bg-white">
-        <div class="row">
-            <div class="col-12 col-lg-9">
+        <div class="row justify-content-center">
+            <div class="col-12 col-lg-9 col-md-10">
                 <h2 class="text-center">Надо знать</h2>
                 @include('articles.list')
             @if($articles instanceof \Illuminate\Pagination\LengthAwarePaginator)

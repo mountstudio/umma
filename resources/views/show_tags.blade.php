@@ -9,8 +9,8 @@
         </div>
     </div>
     <div class="container bg-white">
-        <div class="row">
-            <div class="col-12 col-lg-9">
+        <div class="row justify-content-center">
+            <div class="col-12 col-lg-9 col-md-10">
 {{--                <div class="author d-flex justify-content-between">--}}
 {{--                    <p class="text-dark">Тег: {{ $tag->name }}</p>--}}
 {{--                </div>--}}
