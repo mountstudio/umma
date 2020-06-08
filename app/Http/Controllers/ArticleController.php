@@ -46,8 +46,10 @@ class ArticleController extends Controller
             $type = 'article';
         } else if (request()->route()->named('admin.longreads.create')) {
             $type = 'longread';
-        } else {
+        } else if (request()->route()->named('admin.digest.create')) {
             $type = 'digest';
+        } else {
+            $type = 'new';
         }
         return view('admin.articles.create',
             [
@@ -92,7 +94,6 @@ class ArticleController extends Controller
      */
     public function show(Article $article)
     {
-
         if (!Article::getArticleViews($article->id)) {
             $article->impressions++;
             $article->save();
@@ -126,7 +127,6 @@ class ArticleController extends Controller
      */
     public function edit(Article $article)
     {
-
         return view('admin.articles.edit',
             [
                 'article' => $article,
@@ -180,8 +180,10 @@ class ArticleController extends Controller
             $type = 'article';
         } else if (request()->route()->named('admin.longread.datatable.data')) {
             $type = 'longread';
-        } else {
+        } else if (request()->route()->named('admin.digest.datatable.data')) {
             $type = 'digest';
+        } else {
+            $type = 'new';
         }
         return DataTables::of(Article::where('type', $type))
             ->editColumn('name', function (Article $article) use ($type) {
@@ -224,8 +226,10 @@ class ArticleController extends Controller
             return view('admin.articles.index', ['type' => 'article']);
         } else if (request()->route()->named('admin.longread.datatable')) {
             return view('admin.articles.index', ['type' => 'longread']);
-        } else {
+        } else if (request()->route()->named('admin.digest.datatable')) {
             return view('admin.articles.index', ['type' => 'digest']);
+        } else {
+            return view('admin.articles.index', ['type' => 'new']);
         }
     }
 
@@ -237,10 +241,8 @@ class ArticleController extends Controller
         $articlesLatest = Article::latest()->take(6)->get();
         $categories = self::get_categories();
         $articlesCategories = $categories->map(function ($item) {
-            return $item->articles;
+            return $item->articles->take(3);
         })->flatten();
-
-
         $kolumnisty = Author::has('articles')->where('view_main', true)->latest()->get();
         $hadith = Hadith::latest()->first();
         $multimedia = Multimedia::latest()->take(10)->get();
@@ -276,32 +278,36 @@ class ArticleController extends Controller
 
         return view('articles.index', ['articles' => $articles]);
     }
+
     public function about_sore()
     {
         $articles = Article::where('category_id', 1)->paginate(6);
         return view('about_sore', ['articles' => $articles]);
     }
+
     public function need_to_know()
     {
         $articles = Article::where('category_id', 2)->paginate(6);
         return view('need_to_know', ['articles' => $articles]);
     }
+
     public function it_is_interesting()
     {
         $articles = Article::where('category_id', 3)->paginate(6);
         return view('it_is_interesting', ['articles' => $articles]);
     }
+
     public function education()
     {
         $articles = Article::where('category_id', 4)->paginate(6);
         return view('education', ['articles' => $articles]);
     }
+
     public function interview()
     {
         $articles = Article::where('category_id', 5)->paginate(6);
         return view('interview', ['articles' => $articles]);
     }
-
 
 
     public function searchArticles(Request $request)

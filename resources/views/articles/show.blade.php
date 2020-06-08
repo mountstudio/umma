@@ -18,11 +18,13 @@
 
 
                 <div class="author d-lg-flex d-md-flex d-block justify-content-between small">
+                    @if($article->authors->count())
                     <p class="my-0">Автор{{$article->authors->count()>1?'ы':'' }}:
                         @foreach($article->authors as $author)
                             <a href="{{ route('show.author', $author) }}">{{ $author->full_name . ($loop->last ? '' : ',') }} </a>
                         @endforeach
                     </p>
+                    @endif
                     @if($article->photographers->count())
                         <p class=" my-0">Фотограф{{$article->photographers->count()>1?'ы':'' }}:
                             @foreach($article->photographers as $photographer)

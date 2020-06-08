@@ -11,6 +11,7 @@
         <tr>
             <th>id</th>
             <th>name</th>
+            <th>description</th>
             <th>category</th>
             <th>is_active</th>
             <th>view_main</th>
@@ -39,6 +40,7 @@
                 columns: [
                     {data: 'id', name: 'id'},
                     {data: 'name', name: 'name'},
+                    {data: 'desc', name: 'description'},
                     {data: 'category_id', name: 'category_id'},
                     {data: 'is_active', name: 'is_active', className: "dt-body-center", searchable: false, orderable: false },
                     {data: 'view_main', name: 'view_main', className: "dt-body-center", searchable: false, orderable: false },
