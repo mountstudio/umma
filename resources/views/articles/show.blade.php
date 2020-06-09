@@ -5,7 +5,7 @@
         <div class="row justify-content-center">
             <div class="col-12 col-lg-9 pt-0">
                 <div class="row justify-content-center">
-                    <img class="img-fluid" src="{{ asset('img/example-2.jpg') }}" alt="">
+                    <img class="img-fluid" src="{{ asset('storage/large/' . $article->logo) }}" alt="">
                 </div>
                 <div class="title-article col-12 col-lg-7 px-0">
                     <h1 class="title-for-article">{{ __($article->name) }}</h1>
