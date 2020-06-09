@@ -6,9 +6,11 @@
                      style="height: 200px;background-image: url({{ asset('storage/medium/' . $article->logo) }});background-size: cover;background-position: center;">
                     <div class="col-12 px-0" style="background: rgba(0,0,0,0.5);">
                         <div class="card-body pt-3 pb-1 px-0">
-                            <p class="px-2 mb-0 text-for-orange">
+                            @if($article->category)
+                            <p class="px-2 mb-0 text-orange">
                                 {{ $article->category->name }}
                             </p>
+                            @endif
                             <h2 class="px-2  text-left desc-text-crop font-weight-bold  text-white h5 mb-0">{{ __($article->name) }}</h2>
                         </div>
                         <div class="description-article-card text-white"

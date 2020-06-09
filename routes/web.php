@@ -118,6 +118,13 @@ Route::prefix('admin')->name('admin.')/*->middleware('admin')*/
     Route::resource('digests', 'ArticleController')->except(['index', 'show'])->parameters([
         'digests' => 'article'
     ]);
+    //CRUD for digest
+    Route::get('/new', 'ArticleController@datatable')->name('new.datatable');
+    Route::get('/new/datatable', 'ArticleController@datatableData')->name('new.datatable.data');
+    Route::get('/new/{article}', 'ArticleController@adminShow')->name('new.show');
+    Route::resource('news', 'ArticleController')->except(['index', 'show'])->parameters([
+        'news' => 'article'
+    ]);
 //CRUD for authors
     Route::get('/author', 'AuthorController@datatable')->name('author.datatable');
     Route::get('/author/datatable', 'AuthorController@datatableData')->name('author.datatable.data');
