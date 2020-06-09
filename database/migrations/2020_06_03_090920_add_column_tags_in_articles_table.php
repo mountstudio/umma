@@ -14,7 +14,7 @@ class AddColumnTagsInArticlesTable extends Migration
     public function up()
     {
         Schema::table('articles', function (Blueprint $table) {
-            $table->string('tags')->nullable();
+            $table->string('tagss')->nullable();
         });
     }
 
@@ -26,7 +26,7 @@ class AddColumnTagsInArticlesTable extends Migration
     public function down()
     {
         Schema::table('articles', function (Blueprint $table) {
-            $table->dropColumn('tags');
+            $table->dropColumn('tagss');
         });
     }
 }
