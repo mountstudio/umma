@@ -2,26 +2,37 @@
 @section('content')
     @include('partials.breadcrumbs', ['type' => 'article', 'value' => $article])
     <div class="container bg-white">
-        <div class="row justify-content-center">
-            <div class="col-12 col-lg-9 pt-0">
-                <div class="row justify-content-center">
-                    <img class="img-fluid" src="{{ asset('storage/large/' . $article->logo) }}" alt="">
+        @if(is_null($article->banner))
+            <div class="row justify-content-center">
+                <div class="col-12 col-lg-9 pt-0">
+                    <div class="title-article col-12 col-lg-7 px-0">
+                        <h1 class="title-for-article">{{ __($article->name) }}</h1>
+                    </div>
                 </div>
-                <div class="title-article col-12 col-lg-7 px-0">
-                    <h1 class="title-for-article">{{ __($article->name) }}</h1>
+        @else
+            <div class="row justify-content-center">
+                <div class="col-12 col-lg-9 pt-0">
+                    <div class="row justify-content-center">
+                        <img class="img-fluid" src="{{ asset('storage/large/' . $article->logo) }}" alt="">
+                    </div>
+                    <div class="title-article col-12 col-lg-7 px-0">
+                        <h1 class="title-for-article">{{ __($article->name) }}</h1>
+                    </div>
                 </div>
-            </div>
+        @endif
+
 
             <div class="col-12 col-lg-9 pt-5">
                 <nav aria-label="breadcrumb ">
                 </nav>
                 <div class="author d-lg-flex d-md-flex d-block justify-content-between small">
                     @if($article->authors->count())
-                    <p class="my-0">Автор{{$article->authors->count()>1?'ы':'' }}:
-                        @foreach($article->authors as $author)
-                            <a class="text-decoration-none text-orange" href="{{ route('show.author', $author) }}">{{ $author->full_name . ($loop->last ? '' : ',') }} </a>
-                        @endforeach
-                    </p>
+                        <p class="my-0">Автор{{$article->authors->count()>1?'ы':'' }}:
+                            @foreach($article->authors as $author)
+                                <a class="text-decoration-none text-orange"
+                                   href="{{ route('show.author', $author) }}">{{ $author->full_name . ($loop->last ? '' : ',') }} </a>
+                            @endforeach
+                        </p>
                     @endif
                     @if($article->photographers->count())
                         <p class=" my-0">Фотограф{{$article->photographers->count()>1?'ы':'' }}:
@@ -47,7 +58,8 @@
                 <div class="tags d-flex">
                     <h5 class="widget-title pr-2">Теги:</h5>
                     @foreach($article->tags as $tag)
-                        <p><a class="text-decoration-none text-orange" href="{{ route('show.tag', $tag) }}">{{  $tag->name . ($loop->last ? '' : ',') }} </a></p>
+                        <p><a class="text-decoration-none text-orange"
+                              href="{{ route('show.tag', $tag) }}">{{  $tag->name . ($loop->last ? '' : ',') }} </a></p>
                     @endforeach
                 </div>
                 @include('subscription.subscribe')
