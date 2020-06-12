@@ -5,7 +5,7 @@
             <div class="col-12 p-0">
                 {{ Breadcrumbs::render('question', $question) }}
             </div>
-            <div class="col-12 col-lg-8">
+            <div class="col-12 col-lg-9">
                 <div class="text-right">
                     <span class="text-orange   font-weight-bold">{{ $question->is_anonim ? 'Анонимно' : $question->full_name }} / {{\Carbon\Carbon::make($question->created_at)->formatLocalized('%d %B %Y') }}</span>
                 </div>
@@ -20,14 +20,7 @@
                     <span class="text-orange text-right  font-weight-bold">Кадыр маликов</span>
                 </div>
             </div>
-            <div class="col-12 col-lg-4 pb-3">
-                @include('blocks.right-sidebar.new')
-                <div class="pt-3">
-                    @include('partials.pray')
-                </div>
-                <h2 class="text-center py-2">Статьи</h2>
-                @include('blocks.right-sidebar.new')
-            </div>
+            @include('partials.sidebar')
         </div>
     </div>
 @endsection

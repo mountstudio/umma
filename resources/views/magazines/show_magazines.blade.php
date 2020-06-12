@@ -10,7 +10,7 @@
     <div class="container bg-white">
         <div class="row">
             @if($magazine->pdf and $magazine->kg_pdf)
-                <div class="col-12 col-lg-8">
+                <div class="col-12 col-lg-9">
                     <button id="btn_switch" class="btn btn-primary" type="button">
                         Читать на русском
                     </button>
@@ -34,14 +34,7 @@
                     <iframe src="{{ asset('storage/pdf/' . $magazine->kg_pdf) }}" height="700" width="700"></iframe>
                 </div>
             @endif
-            <div class="col-12 col-lg-4 pb-3">
-                @include('blocks.right-sidebar.new')
-                <div class="pt-3">
-                    @include('partials.pray')
-                </div>
-                <h2 class="text-center py-2">Статьи</h2>
-                @include('blocks.right-sidebar.new')
-            </div>
+            @include('partials.sidebar')
         </div>
     </div>
 @endsection

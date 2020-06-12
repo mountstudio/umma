@@ -13,15 +13,15 @@
                 <a href=""><i class="fas fa-rss fa-lg text-orange mr-3"></i></a>
                 <a href=""></a>
                 <ul class="nav ml-3">
-                    <li class="text-for-footer nav-item mr-4"><a class="text-orange" href="{{ route('all.magazines') }}">О
+                    <li class="text-for-footer nav-item mr-4"><a class="text-orange text-decoration-none" href="{{ route('all.magazines') }}">О
                             нас</a></li>
-                    <li class="text-for-footer nav-item mr-4"><a class="text-orange" href="{{ route('vacancies') }}">Вакансии</a>
+                    <li class="text-for-footer nav-item mr-4"><a class="text-orange text-decoration-none" href="{{ route('vacancies') }}">Вакансии</a>
                     </li>
-                    <li class="text-for-footer nav-item mr-4"><a class="text-orange" href="{{ route('all.questions') }}">Задать
+                    <li class="text-for-footer nav-item mr-4"><a class="text-orange text-decoration-none" href="{{ route('all.questions') }}">Задать
                             вопрос ученому</a></li>
-                    <li class="text-for-footer nav-item mr-4"><a class="text-orange" href="{{ route('advertisers') }}">Рекламодателям</a>
+                    <li class="text-for-footer nav-item mr-4"><a class="text-orange text-decoration-none" href="{{ route('advertisers') }}">Рекламодателям</a>
                     </li>
-                    <li class="text-for-footer nav-item mr-4"><a class="text-orange" href="#" data-toggle="modal"
+                    <li class="text-for-footer nav-item mr-4"><a class="text-orange text-decoration-none" href="#" data-toggle="modal"
                                                                  data-target="#exampleModal">Подписка</a>
                     </li>
                 </ul>

@@ -3,6 +3,7 @@
     <a href="{{ route('admin.article.datatable') }}" class="list-group-item list-group-item-action {{ request()->is('admin/article*') ? 'active' : '' }}">{{ __('Статьи') }}</a>
     <a href="{{ route('admin.longread.datatable') }}" class="list-group-item list-group-item-action {{ request()->is('admin/longread*') ? 'active' : '' }}">{{ __('Лонгрид') }}</a>
     <a href="{{ route('admin.digest.datatable') }}" class="list-group-item list-group-item-action {{ request()->is('admin/digest*') ? 'active' : '' }}">{{ __('Дайджест') }}</a>
+    <a href="{{ route('admin.new.datatable') }}" class="list-group-item list-group-item-action {{ request()->is('admin/new*') ? 'active' : '' }}">{{ __('Новости') }}</a>
     <a href="{{ route('admin.multimedia.datatable') }}" class="list-group-item list-group-item-action {{ request()->is('admin/multimedia*') || request()->is('admin/media*') ?  'active' : '' }}">{{ __('Мультимедиа') }}</a>
     <a href="{{ route('admin.category.datatable') }}" class="list-group-item list-group-item-action {{ request()->is('admin/category*') ? 'active' : '' }}">{{ __('Категории статьи') }}</a>
     <a href="{{ route('admin.author.datatable') }}" class="list-group-item list-group-item-action {{ request()->is('admin/author*') ? 'active' : '' }}">{{ __('Авторы') }}</a>

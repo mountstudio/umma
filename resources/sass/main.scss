@@ -20,11 +20,16 @@ body {
 .text-menu {
     font-weight: bold;
 }
+
+.text-for-orange {
+    color: #f7961d;
+}
+
 .text-orange {
     color: $text-orange;
 }
 .bg-orange {
-    background: $text-orange!important;
+    background: #f7961d!important;
 }
 
 .namaz-tabs {
@@ -216,6 +221,12 @@ body {
     word-spacing: 3px;
     box-decoration-break: clone;
 }
+
+.page-item.active .page-link{
+    background-color: #f7961d!important;
+    border-color: #f7961d!important;
+}
+
 //card end
 @media (max-width: 992px){
     .bg-login {

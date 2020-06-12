@@ -17,6 +17,10 @@
                             <th> Заголовок:</th>
                             <td scope="row">{{ $article->name }}</td>
                         </tr>
+                        <tr>
+                            <th> Описание:</th>
+                            <td scope="row">{{ $article->desc }}</td>
+                        </tr>
                         @if($article->category->count())
                             <tr>
                                 <th> Категория:</th>

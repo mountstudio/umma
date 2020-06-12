@@ -17,7 +17,11 @@
                     <input value="{{ $article->name }}" type="text" class="form-control" id="title_input" name="name"
                            required>
                 </div>
-                <div id="categories">
+                <div class="form-group">
+                    <label for="title_input">Описание<span class="text-danger">*</span></label>
+                    <input value="{{ $article->desc }}" type="text" class="form-control" id="title_input" name="desc" required>
+                </div>
+                <div class="form-group">
                     <label for="category">Выберите категорию:<span class="text-danger">*</span></label>
                     <br>
                     <select id="category" name="category_id">
