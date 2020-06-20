@@ -277,20 +277,7 @@ body {
     border-radius: .2rem;
     margin-bottom: 10px;
 }
-.button, select{
-    height: calc(1.8125rem + 2px);
-    padding-top: .25rem;
-    padding-bottom: .25rem;
-    padding-left: .5rem;
-    font-size: .875rem;
-    background-color: #fff;
-    border: 1px solid #ced4da;
-    border-radius: .25rem;
-    font-weight: 400;
-    line-height: 1.5;
-    color: #495057;
-    vertical-align: middle;
-}
+
 .bg-form{
      box-shadow: 0 2px 5px 0 rgba(0,0,0,.16), 0 2px 10px 0 rgba(0,0,0,.12);
      border: 0;
