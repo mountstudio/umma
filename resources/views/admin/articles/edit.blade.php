@@ -2,7 +2,7 @@
 
 @section('dashboard_content')
     <div class="row">
-        <div class="col-12 col-sm-10 col-lg-10 col-md-10">
+        <div class="col-12 col-sm-10 col-lg-10 col-md-10 card-body-admin py-4">
             <form action="{{ route('admin.'.$article->type.'s.update', $article) }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 @method('PUT')
@@ -11,7 +11,10 @@
                         <li>{{ $error }}</li>
                     @endforeach
                 </ul>
-                <label>{{  $article->type }}</label>
+{{--                <label>{{  $article->type }}</label>--}}
+                <div class="row justify-content-center">
+                    <p class="font-weight-bold h2">Редактирование Статьи</p>
+                </div>
                 <div class="form-group">
                     <label for="title_input">Заголовок<span class="text-danger">*</span></label>
                     <input value="{{ $article->name }}" type="text" class="form-control" id="title_input" name="name"

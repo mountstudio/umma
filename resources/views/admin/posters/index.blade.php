@@ -1,27 +1,32 @@
 @extends('admin.dashboard')
 @section('dashboard_content')
-    <div class="row justify-content-end mb-4">
-        <div class="col-auto">
-            <a href="{{ route('admin.posters.create') }}" class="btn btn-success">{{ __('Создать') }}</a>
+    <div class="p-3 bg-form card-body-admin">
+        <div class="row justify-content-end mb-4">
+            <div class="col-auto">
+                <a href="{{ route('admin.posters.create') }}" class="btn btn-success">{{ __('Создать') }}</a>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12 table-responsive">
+                <table class="table table-bordered" id="posters-table">
+                    <thead>
+                    <tr>
+                        <th scope="col">id</th>
+                        <th scope="col">name</th>
+                        <th scope="col">main_photo</th>
+                        <th scope="col">phone</th>
+                        <th scope="col">mail</th>
+                        <th scope="col">date_event</th>
+                        <th scope="col">type</th>
+                        <th scope="col">created_at</th>
+                        <th scope="col">updated_at</th>
+                        <th scope="col">actions</th>
+                    </tr>
+                    </thead>
+                </table>
+            </div>
         </div>
     </div>
-    <table class="table table-bordered" id="posters-table">
-        <thead>
-        <tr>
-            <th>id</th>
-            <th>name</th>
-            <th>main_photo</th>
-            <th>phone</th>
-            <th>mail</th>
-            <th>date_event</th>
-            <th>type</th>
-            <th>created_at</th>
-            <th>updated_at</th>
-            <th>actions</th>
-        </tr>
-        </thead>
-    </table>
-
 @endsection
 
 @push('styles')

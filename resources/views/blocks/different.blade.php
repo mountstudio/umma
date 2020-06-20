@@ -1,7 +1,5 @@
 <div class="container bg-white pt-5">
     <div class="row">
-
-
         <div class="col-12 col-lg-9">
             <div class="row">
                 @foreach($articlesByCategory as $article)
