@@ -21,6 +21,25 @@
                     </div>
                     @endif
 
+                {{--                <div class="py-2 text-center">--}}
+                {{--                    <img class="img-fluid" src="{{ asset('storage/medium/' . $article->logo) }}" alt="">--}}
+                {{--                </div>--}}
+                <div id="post-content">
+                    <p>{!! $article->content !!}</p>
+                </div>
+                <div class="tags d-flex">
+                    <h5 class="widget-title pr-2">Теги:</h5>
+                    @foreach($article->tags as $tag)
+                        <p><a class="text-decoration-none text-orange"
+                              href="{{ route('show.tag', $tag) }}">{{  $tag->name . ($loop->last ? '' : ',') }} </a></p>
+                    @endforeach
+                </div>
+                @include('subscription.subscribe')
+                @include('share.share_buttons')
+                @if($otherArticles->count())
+                    <div class="row">
+                        <div class="col-12 text-center pb-5">
+                            <h3>Другие статьи</h3>
                     <div class="col-12 col-lg-9 pt-5">
                         <nav aria-label="breadcrumb ">
                         </nav>
