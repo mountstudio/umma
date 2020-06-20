@@ -15,7 +15,6 @@
                         </div>
                         <div class="description-article-card text-white"
                              style="margin-top: 5px;display:none;line-height: 17px;font-weight: normal;">
-
                             <p class="px-2 small">ASDASKJDHAKLSHDLKSHALDJALSKJD</p>
                         </div>
                         <div class="d-flex align-items-center text-white px-2">

@@ -1,8 +1,8 @@
 @extends('admin.dashboard')
 
 @section('dashboard_content')
-    <div class="row">
-        <div class="col-12 col-sm-10 col-lg-10 col-md-10">
+    <div class="row ">
+        <div class="col-12 col-sm-10 col-lg-11 col-md-10 bg-form card-body-admin py-4">
             <form action="{{ route('admin.'.$type.'s.store') }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 <ul>
@@ -10,7 +10,10 @@
                         <li>{{ $error }}</li>
                     @endforeach
                 </ul>
-                <label>{{  $type }}</label>
+{{--                <label>{{  $type }}</label>--}}
+                <div class="row justify-content-center">
+                    <p class="font-weight-bold h2">Добавление Статьи</p>
+                </div>
                 <div class="form-group">
                     <label for="title_input">Заголовок<span class="text-danger">*</span></label>
                     <input type="text" class="form-control" id="title_input" name="name" required>
@@ -30,7 +33,7 @@
                 </div>
                 <br>
                 <div class="form-group">
-                    <label for="add_authors">авторы:</label>
+                    <label for="add_authors">Авторы:</label>
                     <select id="add_authors" class="js-example-basic-multiple" name="authors[]" multiple="multiple" required>
                         @foreach($authors as $author)
                             <option value="{{ $author->id }}">{{ $author->full_name }}</option>
@@ -38,7 +41,7 @@
                     </select>
                 </div>
                 <div class="form-group">
-                    <label for="add_photographers">фотографы:</label>
+                    <label for="add_photographers">Фотографы:</label>
                     <select id="add_photographers" class="js-example-basic-multiple" name="photographers[]"
                             multiple="multiple">
                         @foreach($photographers as $photographer)
@@ -52,7 +55,7 @@
                               name="content"></textarea>
                 </div>
                 <div class="form-group">
-                    <label for="add_tegs">теги:</label>
+                    <label for="add_tegs">Теги:</label>
                     <select id="add_tegs" class="js-example-basic-multiple" name="tags[]" multiple="multiple">
                         @foreach($tags as $tag)
                             <option value="{{ $tag->id }}">{{ $tag->name }}</option>
@@ -70,11 +73,11 @@
                     <input type="checkbox" name="is_active" class="form-check-input" id="isActive_check">
                     <label class="form-check-label" for="isActive_check">Активен</label>
                 </div>
-                <div class="form-check">
+                <div class="form-check pb-2">
                     <input type="checkbox" name="view_main" class="form-check-input" id="viewMain_check">
                     <label class="form-check-label" for="viewMain_check">На главный экран</label>
                 </div>
-                <button type="submit" title="{{ __('Добавить') }}" class="btn n btn-success">{{ __('Добавить') }}</button>
+                <button type="submit" title="{{ __('Добавить') }}" class="btn n btn-success ">{{ __('Добавить') }}</button>
             </form>
         </div>
     </div>
