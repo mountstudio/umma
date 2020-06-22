@@ -235,7 +235,6 @@ class ArticleController extends Controller
 
     public function welcome()
     {
-
         $articlesDayTheme = Article::where('view_main', true)->latest()->take(6)->get();
         $articlesCommentLatest = Article::has('comments')->orderBy('updated_at', 'DESC')->take(6)->get();
         $articlesLatest = Article::latest()->take(6)->get();
