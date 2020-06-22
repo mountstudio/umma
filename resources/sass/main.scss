@@ -430,6 +430,104 @@ div.dataTables_wrapper div.dataTables_paginate ul.pagination {
     font-size: .9rem;
 
 }
+//default-block
+.default-block {
+    position: relative;
+    background: #f7f7f7;
+    border-radius: 4px;
+}
+.default-header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0 20px;
+    height: 50px;
+    border-bottom: 1px solid #d5dddf;
+}
+.default-block__header-title{
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    color: #505c66;
+    text-transform: uppercase;
+    white-space: nowrap;
+    letter-spacing: 1px;
+    font-weight: 500;
+    font-size: 13px;
+    line-height: 50px;
+    margin: 0;
+}
+.default-block__content {
+    overflow: hidden;
+    padding: 0 20px;
+}
+.content-list_most-read {
+    margin: 0 0 10px;
+}
+.content-list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+.post-info {
+    padding: 9px 0 16px;
+}
+.content-list__item_devided {
+    border-bottom: 1px solid #eaeeef;
+}
+.content-list__item {
+    position: relative;
+    box-sizing: border-box;
+    padding: 10px 0 14px;
+}
+.post-info__title {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    display: inline-block;
+    width: 100%;
+    color: #444;
+    vertical-align: top;
+    white-space: normal;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 21px;
+    margin: 0;
+    word-break: break-word;
+}
+.post-info__meta {
+    display: flex;
+    align-items: center;
+    margin: 9px 0 2px;
+}
+.post-info__meta-item {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+a.post-info__meta-item {
+    text-decoration: none;
+}
+.post-info__meta-item {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+.post-info__meta-counter {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    width: 62px;
+    flex: 1 0 auto;
+    max-width: 100%;
+    color: #82a3b1;
+    font-weight: 700;
+    font-size: 13px;
+}
+.bg-tags{
+    padding: 5px 5px 5px 5px;
+    background: #f7f7f7;
+    border-radius: 3px;
+    color: #000000;
+}
+
 @media (max-width: 992px) {
     .bg-login {
         display: none;

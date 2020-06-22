@@ -10,6 +10,7 @@
     "require": {
         "php": "^7.2",
         "barryvdh/laravel-translation-manager": "^0.5.8",
+        "chriskonnertz/open-graph": "^2.0",
         "cviebrock/eloquent-sluggable": "^6.0",
         "davejamesmiller/laravel-breadcrumbs": "^5.3",
         "doctrine/dbal": "^2.10",

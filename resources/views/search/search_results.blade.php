@@ -8,8 +8,7 @@
             </div>
         </div>
         <div class="row">
-            @include('partials.sidebar')
-            <div class="col-12 col-lg-8">
+            <div class="col-12 col-lg-9">
                 @if($searchResults->count())
                     @foreach($searchResults as $type=>$resultGroup)
                         <div>
@@ -27,6 +26,7 @@
                     <h3>Ничего не найдено!</h3>
                 @endif
             </div>
+            @include('partials.sidebar')
         </div>
     </div>
 @endsection
