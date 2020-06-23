@@ -10,7 +10,6 @@
                         <li>{{ $error }}</li>
                     @endforeach
                 </ul>
-{{--                <label>{{  $type }}</label>--}}
                 <div class="row justify-content-center">
                     <p class="font-weight-bold h2">Добавление Статьи</p>
                 </div>
@@ -19,8 +18,8 @@
                     <input type="text" class="form-control" id="title_input" name="name" required>
                 </div>
                 <div class="form-group">
-                    <label for="title_input">Описание<span class="text-danger">*</span></label>
-                    <input type="text" class="form-control" id="title_input" name="desc" required>
+                    <label for="desc_input">Описание<span class="text-danger">*</span></label>
+                    <textarea type="text" class="form-control" id="desc_input" name="desc" required></textarea>
                 </div>
                 <div id="categories">
                     <label for="category">Выберите категорию:<span class="text-danger">*</span></label>
@@ -34,7 +33,8 @@
                 <br>
                 <div class="form-group">
                     <label for="add_authors">Авторы:</label>
-                    <select id="add_authors" class="js-example-basic-multiple" name="authors[]" multiple="multiple" required>
+                    <select id="add_authors" class="js-example-basic-multiple" name="authors[]" multiple="multiple"
+                            required>
                         @foreach($authors as $author)
                             <option value="{{ $author->id }}">{{ $author->full_name }}</option>
                         @endforeach
@@ -54,6 +54,19 @@
                     <textarea id="content_area" class="form-control richTextBox is-invalid"
                               name="content"></textarea>
                 </div>
+                <div>
+                    <label for="lang">Выберите язык:<span class="text-danger">*</span></label>
+                    <br>
+                    <select id="lang" name="lang">
+                        <option value="ru">ru</option>
+                        <option value="kg">kg</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="keywords-area">Напишите ключевые слов(через запятую):</label>
+                    <textarea class="form-control"
+                              name="keywords" id="keywords-area"></textarea>
+                </div>
                 <div class="form-group">
                     <label for="add_tegs">Теги:</label>
                     <select id="add_tegs" class="js-example-basic-multiple" name="tags[]" multiple="multiple">
@@ -62,22 +75,35 @@
                         @endforeach
                     </select>
                 </div>
-                <div class="form-group">
-                    <label for="main_photo">Выберите картинку:</label>
-                    <input type="file" class="form-control" id="main_photo" name="logo" accept="image/*" required>
-                </div>
-                <div class="form-group">
-                    <input value="{{ $type }}" type="hidden" id="type" name="type" >
-                </div>
                 <div class="form-check">
                     <input type="checkbox" name="is_active" class="form-check-input" id="isActive_check">
                     <label class="form-check-label" for="isActive_check">Активен</label>
                 </div>
+
                 <div class="form-check pb-2">
                     <input type="checkbox" name="view_main" class="form-check-input" id="viewMain_check">
                     <label class="form-check-label" for="viewMain_check">На главный экран</label>
                 </div>
-                <button type="submit" title="{{ __('Добавить') }}" class="btn n btn-success ">{{ __('Добавить') }}</button>
+                <div class="form-group">
+                    <label for="main_photo">Выберите изображение для превью:<span class="text-danger">*</span></label>
+                    <input type="file" onchange="readURL(this);" class="form-control" id="main-photo" name="logo" accept="image/*" required>
+                    <img id="logo" src="" class="d-none" width="100%"/>
+                </div>
+                <div class="form-group">
+                    <label for="banner-photo">Выберите баннер изображение:</label>
+                    <input type="file" onchange="readBannerURL(this);" class="form-control" id="banner-photo" name="banner" accept="image/*">
+                    <img id="banner" src="" class="d-none" width="100%"/>
+                </div>
+                <div class="form-group">
+                    <label for="og-photo">Выберите open graph изображение:</label>
+                    <input type="file" onchange="readOg_imageURL(this);" class="form-control" id="og-photo" name="og_image" accept="image/*">
+                    <img id="og_image" src="" class="d-none" width="100%"/>
+                </div>
+                <div class="form-group">
+                    <input value="{{ $type }}" type="hidden" id="type" name="type">
+                </div>
+                <button type="submit" title="{{ __('Добавить') }}"
+                        class="btn n btn-success ">{{ __('Добавить') }}</button>
             </form>
         </div>
     </div>
@@ -93,10 +119,52 @@
     <script src="{{ asset('js/tinyMCE.js') }}"></script>
     <script>
         $(document).ready(function () {
-            $('.js-example-basic-multiple').select2({ width: '100%' });
+            $('.js-example-basic-multiple').select2({width: '100%'});
 
         });
     </script>
-
+    <script>
+        function readURL(input) {
+            if (input.files && input.files[0]) {
+                let reader = new FileReader();
+                let image = $('#logo');
+                reader.onload = function (e) {
+                    image.attr('src', e.target.result);
+                };
+                reader.readAsDataURL(input.files[0]);
+                image = image.removeClass('d-none');
+                image.width = '100%';
+            }
+        }
+    </script>
+    <script>
+        function readBannerURL(input) {
+            if (input.files && input.files[0]) {
+                let reader = new FileReader();
+                let image = $('#banner');
+                reader.onload = function (e) {
+                    image.attr('src', e.target.result);
+                };
+                reader.readAsDataURL(input.files[0]);
+                image = image.removeClass('d-none');
+                image.width = '100%';
+            }
+        }
+    </script>
+    <script>
+        function readOg_imageURL(input) {
+            console.log('og_image');
+            if (input.files && input.files[0]) {
+                let reader = new FileReader();
+                let image = $('#og_image');
+                reader.onload = function (e) {
+                    image.attr('src', e.target.result);
+                };
+                reader.readAsDataURL(input.files[0]);
+                image.removeClass('d-none');
+                image.width = '100%';
+            }
+        }
+    </script>
 @endpush
 

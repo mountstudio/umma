@@ -21,42 +21,54 @@
                             <th> Описание:</th>
                             <td scope="row">{{ $article->desc }}</td>
                         </tr>
-                        @if($article->category->count())
+                        @if(!is_null($article->category))
                             <tr>
                                 <th> Категория:</th>
                                 <td scope="row">{{ $article->category->name }}</td>
                             </tr>
                         @endif
                         <tr>
+                            <th> Ключевые слова:</th>
+                            <td scope="row">{{ $article->keywords }}</td>
+                        </tr>
+                        <tr>
                             <th> Просмотры:</th>
                             <td scope="row">{{ $article->impressions }}</td>
                         </tr>
-                        @if($article->authors->count())
+                        @if(!is_null($article->authors))
                             <tr>
                                 <th>Авторы:</th>
                                 <td scope="row">{{ $article->authors->implode('full_name', ',') }}</td>
                             </tr>
                         @endif
-                        @if($article->photographers->count())
+                        @if(!is_null($article->photographers))
                             <tr>
-                                <th>Авторы:</th>
+                                <th>Фотографы:</th>
                                 <td scope="row">{{ $article->photographers->implode('full_name', ',') }}</td>
                             </tr>
                         @endif
-                        @if($article->tags->count())
+                        @if(!is_null($article->tags))
                             <tr>
-                                <th>Авторы:</th>
+                                <th>Теги:</th>
                                 <td scope="row">{{ $article->tags->implode('name', ', ') }}</td>
+                            </tr>
+                        @endif
+                        @if(!is_null($article->type))
+                            <tr>
+                                <th>Тип:</th>
+                                <td scope="row">{{ $article->type }}</td>
                             </tr>
                         @endif
                         <tr>
                             <th> Комментарии:</th>
-                            <td scope="row">{{ $article->comments->count() }}</td>
+                            <td scope="row">{{ !is_null($article->comments) ? $article->comments->count():0 }}</td>
                         </tr>
-                        <tr>
-                            <th> Главное фото:</th>
-                            <td scope="row"><img src="{{ asset('storage/medium/' .$article->logo) }}"></td>
-                        </tr>
+                        @if($article->logo)
+                            <tr>
+                                <th> Превью:</th>
+                                <td scope="row"><img src="{{ asset('storage/medium/' .$article->logo) }}"></td>
+                            </tr>
+                        @endif
                         <tr>
                             <th> контент:</th>
                             <td scope="row">{!! $article->content  !!}</td>
