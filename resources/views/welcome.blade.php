@@ -20,3 +20,4 @@
 @push('scripts')
 
 @endpush
+

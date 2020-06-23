@@ -14,7 +14,6 @@
                     <tr>
                         <th scope="col" style="display: none!important;">id</th>
                         <th scope="col">Название</th>
-                        <th scope="col">Описание</th>
                         <th scope="col">Категория</th>
                         <th scope="col">Активен_ли?</th>
                         <th scope="col">view_main</th>
@@ -46,7 +45,6 @@
                 columns: [
                     // {data: 'id', name: 'id'},
                     {data: 'name', name: 'name'},
-                    {data: 'desc', name: 'description'},
                     {data: 'category_id', name: 'category_id'},
                     {data: 'is_active', name: 'is_active', className: "dt-body-center", searchable: false, orderable: false },
                     {data: 'view_main', name: 'view_main', className: "dt-body-center", searchable: false, orderable: false },

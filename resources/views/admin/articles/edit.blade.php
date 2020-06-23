@@ -3,7 +3,8 @@
 @section('dashboard_content')
     <div class="row">
         <div class="col-12 col-sm-10 col-lg-10 col-md-10 card-body-admin py-4">
-            <form action="{{ route('admin.'.$article->type.'s.update', $article) }}" method="POST" enctype="multipart/form-data">
+            <form action="{{ route('admin.'.$article->type.'s.update', $article) }}" method="POST"
+                  enctype="multipart/form-data">
                 @csrf
                 @method('PUT')
                 <ul>
@@ -11,7 +12,6 @@
                         <li>{{ $error }}</li>
                     @endforeach
                 </ul>
-{{--                <label>{{  $article->type }}</label>--}}
                 <div class="row justify-content-center">
                     <p class="font-weight-bold h2">Редактирование Статьи</p>
                 </div>
@@ -21,8 +21,9 @@
                            required>
                 </div>
                 <div class="form-group">
-                    <label for="title_input">Описание<span class="text-danger">*</span></label>
-                    <input value="{{ $article->desc }}" type="text" class="form-control" id="title_input" name="desc" required>
+                    <label for="desc_input">Описание<span class="text-danger">*</span></label>
+                    <input value="{{ $article->desc }}" type="text" class="form-control" id="desc_input" name="desc"
+                           required>
                 </div>
                 <div class="form-group">
                     <label for="category">Выберите категорию:<span class="text-danger">*</span></label>
@@ -57,6 +58,19 @@
                     <textarea id="content_area" class="form-control richTextBox is-invalid"
                               name="content">{{ $article->content }}</textarea>
                 </div>
+                <div>
+                    <label for="lang">Выберите язык:<span class="text-danger">*</span></label>
+                    <br>
+                    <select id="lang" name="lang">
+                        <option value="ru"{{ $article->lang=='ru'? 'selected': ''}}>ru</option>
+                        <option value="kg"{{ $article->lang=='kg'? 'selected': ''}}>kg</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="keywords-area">Напишите ключевые слов(через запятую):</label>
+                    <textarea class="form-control"
+                              name="keywords" id="keywords-area">{{ $article->keywords }}</textarea>
+                </div>
                 <div class="form-group">
                     <label for="add_tegs">теги:</label>
                     <select id="add_tegs" class="js-example-basic-multiple" name="tags[]" multiple="multiple">
@@ -83,9 +97,36 @@
                     <input id="photo_input" class="form-control" onchange="readURL(this);" type="file"
                            name="logo" accept="image/jpeg, image/png">
                     <br>
-                    <img id="logo" src="{{ asset('storage/medium/' . $article->logo) }}" width="750"/>
+                    @if(!is_null($article->logo))
+                        <img id="logo" src="{{ asset('storage/medium/' . $article->logo) }}" width="100%"/>
+                    @endif
                 </div>
-                <button type="submit" title="{{ __('Изменить') }}" class="btn n btn-success">{{ __('Изменить') }}</button>
+                <div class="form-group">
+                    <label for="banner-photo">Выберите баннер изображение:</label>
+                    <input id="banner-photo" class="form-control" onchange="readBannerURL(this);" type="file"
+                           name="banner" accept="image/jpeg, image/png">
+                    @if(!is_null($article->banner))
+                        <img id="banner"
+                             src="{{ asset('storage/medium/' . $article->banner) }}"/>
+                    @else
+                        <img id="banner" class="d-none"
+                             src=""/>
+                    @endif
+                </div>
+                <div class="form-group">
+                    <label for="og-photo">Выберите open graph изображение:</label>
+                    <input id="og-photo" class="form-control" onchange="readOg_imageURL(this);" type="file"
+                           name="og_image" accept="image/jpeg, image/png">
+                    @if(!is_null($article->og_image))
+                        <img id="og_image"
+                             src="{{ asset('storage/medium/' . $article->og_image) }}" />
+                    @else
+                        <img id="og_image" class="d-none"
+                             src=""/>
+                    @endif
+                </div>
+                <button type="submit" title="{{ __('Изменить') }}"
+                        class="btn n btn-success">{{ __('Изменить') }}</button>
             </form>
         </div>
     </div>
@@ -101,21 +142,47 @@
     <script src="{{ asset('js/tinyMCE.js') }}"></script>
     <script>
         $(document).ready(function () {
-            $('.js-example-basic-multiple').select2({ width: '100%' });
+            $('.js-example-basic-multiple').select2({width: '100%'});
 
         });
     </script>
-    <script language="javascript">
+    <script>
         function readURL(input) {
             if (input.files && input.files[0]) {
                 let reader = new FileReader();
-
                 reader.onload = function (e) {
-                    $('#logo')
-                        .attr('src', e.target.result);
+                    $('#logo').attr('src', e.target.result);
                 };
                 reader.readAsDataURL(input.files[0]);
-                $('#logo').width = 750;
+                $('#logo').width = '100%';
+            }
+        }
+    </script>
+    <script>
+        function readBannerURL(input) {
+            if (input.files && input.files[0]) {
+                let reader = new FileReader();
+                let image = $('#banner');
+                reader.onload = function (e) {
+                    image.attr('src', e.target.result);
+                };
+                reader.readAsDataURL(input.files[0]);
+                image = image.removeClass('d-none');
+                image.width = '100%';
+            }
+        }
+    </script>
+    <script>
+        function readOg_imageURL(input) {
+            if (input.files && input.files[0]) {
+                let reader = new FileReader();
+                let image = $('#og_image');
+                reader.onload = function (e) {
+                    image.attr('src', e.target.result);
+                };
+                reader.readAsDataURL(input.files[0]);
+                image.removeClass('d-none');
+                image.width = '100%';
             }
         }
     </script>

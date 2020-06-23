@@ -75,14 +75,19 @@ class ArticleController extends Controller
         $article->view_main = $request->exists('view_main');
 
         $article->logo = ImageUploader::upload(request('logo'), 'articles', 'articles', 40);
-        $article->save();
+        if ($request->hasFile('banner')) {
+            $article->banner = ImageUploader::upload(request('banner'), 'banner', 'banner', 40);
+        }
+        if ($request->hasFile('og_image')) {
+            $article->og_image = ImageUploader::upload(request('og_image'), 'og', 'og', 40);
+        }
         $article->authors()->attach($request->authors);
         $article->photographers()->attach($request->photographers);
         $article->tags()->attach($request->tags);
+        $article->save();
 
-        $article->content = ContentCutting::cut_contents($article->content, 15, 65);
-        MailSender::send($article);
-
+//        $article->content = ContentCutting::cut_contents($article->content, 15, 65);
+//        MailSender::send($article);
         return redirect()->route('admin.' . $request->type . '.datatable');
     }
 
@@ -143,15 +148,28 @@ class ArticleController extends Controller
      * @param \App\Article $article
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateArticleRequest $request, Article $article)
+    public function update(Request $request, Article $article)
     {
+//        dd($request);
         if ($request->hasFile('logo')) {
             Storage::disk('public')->delete("/large/" . $article->logo);
             Storage::disk('public')->delete("/medium/" . $article->logo);
             Storage::disk('public')->delete("/small/" . $article->logo);
             $article->logo = ImageUploader::upload(request('logo'), 'articles', 'articles', 40);
         }
-        $article->update($request->except(['is_active', 'view_main', 'logo']));
+        if ($request->hasFile('banner')) {
+            Storage::disk('public')->delete("/large/" . $article->banner);
+            Storage::disk('public')->delete("/medium/" . $article->banner);
+            Storage::disk('public')->delete("/small/" . $article->banner);
+            $article->banner = ImageUploader::upload(request('banner'), 'banner', 'banner', 40);
+        }
+        if ($request->hasFile('og_image')) {
+            Storage::disk('public')->delete("/large/" . $article->og_image);
+            Storage::disk('public')->delete("/medium/" . $article->og_image);
+            Storage::disk('public')->delete("/small/" . $article->og_image);
+            $article->og_image = ImageUploader::upload(request('og_image'), 'og_image', 'og_image', 40);
+        }
+        $article->update($request->except(['is_active', 'view_main', 'logo', 'og_image', 'banner']));
         $article->is_active = $request->exists('is_active');
         $article->view_main = $request->exists('view_main');
         $article->save();
@@ -187,6 +205,7 @@ class ArticleController extends Controller
         }
         return DataTables::of(Article::where('type', $type))
             ->editColumn('name', function (Article $article) use ($type) {
+
                 return '<a href="' . route('admin.' . $type . '.show', $article) . '">' . $article->name . '</a>';
             })
             ->editColumn('view_main', function (Article $article) {
@@ -204,7 +223,8 @@ class ArticleController extends Controller
                 }
             })
             ->editColumn('category_id', function (Article $article) {
-                if ($article->category->count()) {
+
+                if (!is_null($article->category)) {
                     return $article->category->name;
                 } else {
                     return null;
@@ -242,7 +262,7 @@ class ArticleController extends Controller
         $articlesCategories = $categories->map(function ($item) {
             return $item->articles->take(3);
         })->flatten();
-        $kolumnisty = Author::has('articles')->where('view_main', true)->latest()->get();
+        $kolumnisty = Author::all()->random(4);
         $hadith = Hadith::latest()->first();
         $multimedia = Multimedia::latest()->take(10)->get();
         $projects = Project::latest()->get();

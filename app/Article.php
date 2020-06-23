@@ -20,6 +20,8 @@ class Article extends Model implements Searchable, Feedable
     protected $fillable = [
         'name',
         'slug',
+        'banner',
+        'og_image',
         'category_id',
         'logo',
         'is_active',
