@@ -31,7 +31,7 @@
         </div>
         <div class="col-12 row justify-content-center text-center  py-4">
             <a href="{{ route('all.news') }}" class="button button--winona button--border-thin button--round-s"
-               data-text="Читать еще"><span>Читать еще</span>
+               data-text="Читать еще"><span>{{__('main.read_more')}}</span>
             </a>
         </div>
     </div>
