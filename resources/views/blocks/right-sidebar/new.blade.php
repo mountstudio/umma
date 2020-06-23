@@ -28,7 +28,6 @@
         </ul>
     </div>
 
-
     <div class="row justify-content-end no-gutters p-3 ">
         <a href="{{ route('all.news') }}" class="pl-1 post-info__meta-counter post-info__meta-counter_small">{{ __('main.all_news') }}
             ...</a>
