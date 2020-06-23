@@ -262,7 +262,8 @@ class ArticleController extends Controller
         $articlesCategories = $categories->map(function ($item) {
             return $item->articles->take(3);
         })->flatten();
-        $kolumnisty = Author::all()->random(4);
+        $kolumnisty = Author::all()->shuffle()->take(4);
+//        $kolumnisty = Author::all()->random(4);
         $hadith = Hadith::latest()->first();
         $multimedia = Multimedia::latest()->take(10)->get();
         $projects = Project::latest()->get();

@@ -3,7 +3,7 @@
     <div class="container bg-white">
         <div class="row">
             <div class="col-4"></div>
-            <div class="col-12 col-lg-8">
+            <div class="col-12 ">
                 <h2 class="text-center">Результаты поиска</h2>
             </div>
         </div>
