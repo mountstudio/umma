@@ -1,4 +1,4 @@
-@extends('layouts.app')
+ @extends('layouts.app')
 @section('content')
     <div class="container bg-white">
         <div class="row">
@@ -11,7 +11,7 @@
     <div class="container bg-white">
         <div class="row">
             <div class="col-12 col-lg-9">
-                <h2 class="text-center">Новости</h2>
+                <h2 class="text-center">{{__('main.news')}}</h2>
                 <div class="row">
                     @include('articles.list')
                 </div>

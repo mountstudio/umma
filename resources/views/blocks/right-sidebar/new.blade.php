@@ -4,6 +4,7 @@
 {{--            --}}{{--            <div class="col-5 pr-0">--}}
 {{--            --}}{{--                <p class="mb-0 font-weight-bold">{{ $article->category->name }}</p>--}}
 
+<<<<<<< Updated upstream
 {{--            --}}{{--            </div>--}}
 {{--            <div class="col-9">--}}
 {{--                <a class="text-decoration-none " href="{{ route('show.article', $article) }}"><p--}}
@@ -50,5 +51,22 @@
     </div>
     <div class="row justify-content-end no-gutters py-3">
         <a href="{{ route('all.news') }}" class="pl-2 post-info__meta-counter post-info__meta-counter_small text-decoration-none">все новости...</a>
+=======
+            {{--            </div>--}}
+            <div class="col-9">
+                <a class="text-decoration-none " href="{{ route('show.article', $article) }}"><p
+                        class="text-dark text-crop mb-0" style="line-height: 110%;">{{ $article->name }} </p></a>
+            </div>
+            <div class="col-3 d-flex align-items-end">
+                <a class="text-decoration-none " href="{{ route('show.article', $article) }}">
+                    <span class="small text-orange">{{ $article->created_at->format('d.m') }}</span>
+                    {{--                    <p class="mb-0 small">{{ $article->created_at->format('d.m') }}</p>--}}
+                </a>
+            </div>
+        </div>
+    @endforeach
+    <div class="row justify-content-end no-gutters">
+        <a href="{{ route('all.news') }}" class="text-orange text-decoration-none small">{{ __('main.all_news') }}...</a>
+>>>>>>> Stashed changes
     </div>
 </div>

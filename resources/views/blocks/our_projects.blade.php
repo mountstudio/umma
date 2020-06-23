@@ -1,5 +1,5 @@
 <div class="container bg-white pb-5 pt-4">
-    <h2 class="text-uppercase">Наши проекты</h2>
+    <h2 class="text-uppercase">{{ __('main.all_projects') }}</h2>
     <div class="row text-center">
         <div class="col-12">
             @foreach($projects as $project)

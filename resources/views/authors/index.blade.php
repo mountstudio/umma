@@ -5,7 +5,7 @@
         <div class="row">
             @include('partials.sidebar')
             <div class="col-12 col-lg-8">
-                <h2 class="text-center">Спикок всех авторов</h2>
+                <h2 class="text-center">{{ __('main.author_list') }}</h2>
                 <div class="row text-center">
                     @include('authors.list')
                 </div>
