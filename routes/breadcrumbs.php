@@ -67,6 +67,8 @@ Breadcrumbs::register('questions', function ($breadcrumbs) {
     $breadcrumbs->push('Вопросы', route('all.questions'));
 });
 
+
+
 Breadcrumbs::register('question', function ($breadcrumbs, $question){
     $breadcrumbs->parent('questions');
     $breadcrumbs->push($question->name, route('show.question', $question));

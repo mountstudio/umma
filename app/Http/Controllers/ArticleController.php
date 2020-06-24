@@ -15,13 +15,10 @@ use App\Poster;
 use App\Project;
 use App\Services\ContentCutting;
 use App\Services\ImageUploader;
-use App\Services\MailSender;
 use App\Tag;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Storage;
-use Illuminate\Support\Str;
-use Spatie\Searchable\Search;
 use Yajra\DataTables\Facades\DataTables;
 
 class ArticleController extends Controller
@@ -257,6 +254,7 @@ class ArticleController extends Controller
 
     public function welcome()
     {
+//        dd(App::isLocale('ru'));
         if (App::isLocale('ru')) {
             $articlesDayTheme = Article::where('lang', 'ru')->where('view_main', true)->latest()->take(6)->get();
             $articlesCommentLatest = Article::where('lang', 'ru')->has('comments')->orderBy('updated_at', 'DESC')->take(6)->get();
@@ -278,7 +276,7 @@ class ArticleController extends Controller
 
         $categories = self::get_categories();
         $articlesCategories = $categories->map(function ($item) {
-            return $item->articles->take(3);
+            return $item->articles->where('lang', App::isLocale('') ? 'ru':'kg')->take(3);
         })->flatten();
         if ($hadith) {
             $hadith->content = ContentCutting::cut_contents($hadith->content, 60, 370);

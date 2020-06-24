@@ -1,6 +1,6 @@
 <div class="col-12 col-md-6 pb-4">
     <div class="card">
-        <a href="#"><img src="{{ asset('img/example-2.jpg') }}" class="card-img-top p-2" alt="..."></a>
+        <a href="{{ route('show.poster', $poster) }}"><img src="{{ asset('storage/large' . $poster->main_photo) }}" class="card-img-top p-2" alt="..."></a>
         <div class="card-body pt-0 text-center">
             <div class="row justify-content-center" style="margin-top: -4rem;">
                 <div class="col-4 border  rounded border-1  bg-white">
