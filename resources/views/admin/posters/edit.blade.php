@@ -60,6 +60,14 @@
                         <br>
                         <img id="photo" src="{{ asset('storage/medium/' . $poster->main_photo) }}" width="750"/>
                     </div>
+                    <div>
+                        <label for="lang">Выберите язык:<span class="text-danger">*</span></label>
+                        <br>
+                        <select id="lang" name="lang">
+                            <option value="ru"{{ $poster->lang=='ru'? 'selected': ''}}>ru</option>
+                            <option value="kg"{{ $poster->lang=='kg'? 'selected': ''}}>kg</option>
+                        </select>
+                    </div>
                     <button type="submit" title="{{ __('Изменить') }}"
                             class="btn n btn-success">{{ __('Изменить') }}</button>
                 </form>

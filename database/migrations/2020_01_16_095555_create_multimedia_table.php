@@ -17,6 +17,7 @@ class CreateMultimediaTable extends Migration
             $table->bigIncrements('id');
             $table->string('url_photo');
             $table->string('url_video');
+            $table->string('lang');
             $table->timestamps();
         });
     }

@@ -24,6 +24,14 @@
                         <textarea id="content_area" class="form-control richTextBox is-invalid"
                                   name="content"></textarea>
                     </div>
+                    <div>
+                        <label for="lang">Выберите язык:<span class="text-danger">*</span></label>
+                        <br>
+                        <select id="lang" name="lang">
+                            <option value="ru">ru</option>
+                            <option value="kg">kg</option>
+                        </select>
+                    </div>
                     <button type="submit" title="{{ __('Добавить') }}"
                             class="btn n btn-success">{{ __('Добавить') }}</button>
                 </form>

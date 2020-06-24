@@ -33,6 +33,14 @@
                         <br>
                         <img id="image" src="{{ asset('storage/medium/' . $multimedia->url_photo) }}" width="750"/>
                     </div>
+                    <div>
+                        <label for="lang">Выберите язык:<span class="text-danger">*</span></label>
+                        <br>
+                        <select id="lang" name="lang">
+                            <option value="ru"{{ $multimedia->lang=='ru'? 'selected': ''}}>ru</option>
+                            <option value="kg"{{ $multimedia->lang=='kg'? 'selected': ''}}>kg</option>
+                        </select>
+                    </div>
                     <button type="submit" title="{{ __('Изменить') }}"
                             class="btn n btn-success">{{ __('Изменить') }}</button>
                 </form>

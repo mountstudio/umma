@@ -29,8 +29,9 @@
             <div class="tags d-flex">
                 <h5 class="widget-title pr-2">Теги:</h5>
                 @foreach($article->tags as $tag)
-                    <p><a class="text-decoration-none text-orange"
-                          href="{{ route('show.tag', $tag) }}">{{  $tag->name . ($loop->last ? '' : ', ') }} </a>
+                    <p>
+                        <a class="text-decoration-none text-orange"
+                           href="{{ route('show.tag', $tag) }}">{{  App::isLocale('ru')?$tag->name:$tag->name_kg . ($loop->last ? '' : ', ') }} </a>
                     </p>
                 @endforeach
             </div>

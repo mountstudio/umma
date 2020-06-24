@@ -11,7 +11,7 @@ class Tag extends Model
     use Sluggable;
     use SoftDeletes;
 
-    protected $fillable = ['name', 'slug'];
+    protected $fillable = ['name','name_kg', 'slug'];
 
     public function articles()
     {

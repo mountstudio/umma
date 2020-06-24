@@ -18,6 +18,7 @@ class CreateHadithsTable extends Migration
             $table->string('name');
             $table->string('slug');
             $table->longText('content');
+            $table->string('lang');
             $table->timestamps();
             $table->softDeletes();
         });

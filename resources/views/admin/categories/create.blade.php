@@ -18,7 +18,10 @@
                         <label for="name_field">Название категории</label>
                         <input id="name_field" type="text" class="form-control" name="name" required>
                     </div>
-
+                    <div class="form-group">
+                        <label for="name_field">Название категории на кыргызском</label>
+                        <input id="name_field" type="text" class="form-control" name="name_kg" required>
+                    </div>
                     <button type="submit" title="{{ __('Добавить') }}"
                             class="btn n btn-success">{{ __('Добавить') }}</button>
                 </form>
