@@ -18,6 +18,7 @@ use App\Services\ImageUploader;
 use App\Services\MailSender;
 use App\Tag;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 use Spatie\Searchable\Search;
@@ -150,7 +151,6 @@ class ArticleController extends Controller
      */
     public function update(Request $request, Article $article)
     {
-//        dd($request);
         if ($request->hasFile('logo')) {
             Storage::disk('public')->delete("/large/" . $article->logo);
             Storage::disk('public')->delete("/medium/" . $article->logo);
@@ -169,6 +169,8 @@ class ArticleController extends Controller
             Storage::disk('public')->delete("/small/" . $article->og_image);
             $article->og_image = ImageUploader::upload(request('og_image'), 'og_image', 'og_image', 40);
         }
+
+
         $article->update($request->except(['is_active', 'view_main', 'logo', 'og_image', 'banner']));
         $article->is_active = $request->exists('is_active');
         $article->view_main = $request->exists('view_main');
@@ -255,21 +257,29 @@ class ArticleController extends Controller
 
     public function welcome()
     {
-        $articlesDayTheme = Article::where('view_main', true)->latest()->take(6)->get();
-        $articlesCommentLatest = Article::has('comments')->orderBy('updated_at', 'DESC')->take(6)->get();
-        $articlesLatest = Article::latest()->take(6)->get();
+        if (App::isLocale('ru')) {
+            $articlesDayTheme = Article::where('lang', 'ru')->where('view_main', true)->latest()->take(6)->get();
+            $articlesCommentLatest = Article::where('lang', 'ru')->has('comments')->orderBy('updated_at', 'DESC')->take(6)->get();
+            $articlesLatest = Article::where('lang', 'ru')->latest()->take(6)->get();
+            $hadith = Hadith::where('lang', 'ru')->latest()->first();
+            $multimedia = Multimedia::where('lang', 'ru')->latest()->take(10)->get();
+            $posters = Poster::where('lang', 'ru')->where('date_event', '>', now())->get()->sortBy('date_event');
+        } else {
+            $articlesDayTheme = Article::where('lang', 'kg')->where('view_main', true)->latest()->take(6)->get();
+            $articlesCommentLatest = Article::where('lang', 'kg')->has('comments')->orderBy('updated_at', 'DESC')->take(6)->get();
+            $articlesLatest = Article::where('lang', 'kg')->latest()->take(6)->get();
+            $hadith = Hadith::where('lang', 'kg')->latest()->first();
+            $multimedia = Multimedia::where('lang', 'kg')->latest()->take(10)->get();
+            $posters = Poster::where('lang', 'kg')->where('date_event', '>', now())->get()->sortBy('date_event');
+        }
+        $kolumnisty = Author::all()->shuffle()->take(4);
+        $magazines = Magazine::latest()->take(2)->get();
+        $projects = Project::latest()->get();
+
         $categories = self::get_categories();
         $articlesCategories = $categories->map(function ($item) {
             return $item->articles->take(3);
         })->flatten();
-        $kolumnisty = Author::all()->shuffle()->take(4);
-//        $kolumnisty = Author::all()->random(4);
-        $hadith = Hadith::latest()->first();
-        $multimedia = Multimedia::latest()->take(10)->get();
-        $projects = Project::latest()->get();
-        $magazines = Magazine::latest()->take(2)->get();
-        $posters = Poster::where('date_event', '>', now())->get()->sortBy('date_event');
-
         if ($hadith) {
             $hadith->content = ContentCutting::cut_contents($hadith->content, 60, 370);
         }
@@ -294,50 +304,73 @@ class ArticleController extends Controller
 
     public function showNews()
     {
-        $articles = Article::all()->paginate(6);
+        if (App::isLocale('ru')) {
+            $articles = Article::where('lang', 'ru')->paginate(6);
+        } else {
+            $articles = Article::where('lang', 'kg')->paginate(6);
+        }
 
         return view('articles.index', ['articles' => $articles]);
     }
 
     public function about_sore()
     {
-        $articles = Article::where('category_id', 1)->paginate(6);
+        if (App::isLocale('ru')) {
+            $articles = Article::where('category_id', 1)->where('lang', 'ru')->paginate(6);
+        } else {
+            $articles = Article::where('category_id', 1)->where('lang', 'kg')->paginate(6);
+        }
         return view('about_sore', ['articles' => $articles]);
     }
 
     public function need_to_know()
     {
-        $articles = Article::where('category_id', 2)->paginate(6);
+        if (App::isLocale('ru')) {
+            $articles = Article::where('category_id', 2)->where('lang', 'ru')->paginate(6);
+        } else {
+            $articles = Article::where('category_id', 2)->where('lang', 'kg')->paginate(6);
+        }
         return view('need_to_know', ['articles' => $articles]);
     }
 
     public function it_is_interesting()
     {
-        $articles = Article::where('category_id', 3)->paginate(6);
+        if (App::isLocale('ru')) {
+            $articles = Article::where('category_id', 3)->where('lang', 'ru')->paginate(6);
+        } else {
+            $articles = Article::where('category_id', 3)->where('lang', 'kg')->paginate(6);
+        }
         return view('it_is_interesting', ['articles' => $articles]);
     }
 
     public function education()
     {
-        $articles = Article::where('category_id', 4)->paginate(6);
+        if (App::isLocale('ru')) {
+            $articles = Article::where('category_id', 4)->where('lang', 'ru')->paginate(6);
+        } else {
+            $articles = Article::where('category_id', 4)->where('lang', 'kg')->paginate(6);
+        }
         return view('education', ['articles' => $articles]);
     }
 
     public function interview()
     {
-        $articles = Article::where('category_id', 5)->paginate(6);
+        if (App::isLocale('ru')) {
+            $articles = Article::where('category_id', 5)->where('lang', 'ru')->paginate(6);
+        } else {
+            $articles = Article::where('category_id', 5)->where('lang', 'kg')->paginate(6);
+        }
         return view('interview', ['articles' => $articles]);
     }
 
 
     public function searchArticles(Request $request)
     {
-        $searchResults = (new Search())
-            ->registerModel(Article::class, 'name', 'content')
-            ->search($request->search);
-        $articles = Array();
+        $searchResults = Article::where('name', 'like', '%' . $request->search . '%')->get();
+        $articles = array();
+
         foreach ($searchResults as $result) {
-            array_push($articles, $result->searchable);
+            array_push($articles, $result);
         }
         $articles = collect($articles)->groupBy('type');
         return view('search.search_results', ['searchResults' => $articles]);

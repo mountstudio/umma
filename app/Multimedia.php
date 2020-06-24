@@ -11,7 +11,7 @@ class Multimedia extends Model
     use Sluggable;
     use SoftDeletes;
 
-    protected $fillable = ['title', 'slug', 'url_video', 'url_photo'];
+    protected $fillable = ['title','lang', 'slug', 'url_video', 'url_photo'];
 
     /**
      * Return the sluggable configuration array for this model.

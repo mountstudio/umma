@@ -27,6 +27,14 @@
                         <input type="file" class="form-control" id="photo_input" name="url_photo"
                                accept="image/jpeg, image/png" required>
                     </div>
+                    <div>
+                        <label for="lang">Выберите язык:<span class="text-danger">*</span></label>
+                        <br>
+                        <select id="lang" name="lang">
+                            <option value="ru">ru</option>
+                            <option value="kg">kg</option>
+                        </select>
+                    </div>
 
                     <button type="submit" title="{{ __('Добавить') }}"
                             class="btn n btn-success">{{ __('Добавить') }}</button>

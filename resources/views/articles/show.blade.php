@@ -24,7 +24,7 @@
                 @endif
 
 
-                <div id="post-content">
+    <div id="post-content">
                     <p>{!! $article->content !!}</p>
                 </div>
                 <div class="tags d-flex">
@@ -70,6 +70,7 @@
             @include('partials.sidebar')
         </div>
 
+    </div>
 
         @endsection
 

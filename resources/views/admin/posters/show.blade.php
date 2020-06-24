@@ -17,6 +17,10 @@
                             <td scope="row">{{ $poster->name }}</td>
                         </tr>
                         <tr>
+                            <th> Язык:</th>
+                            <td scope="row">{{ $poster->lang  }}</td>
+                        </tr>
+                        <tr>
                             <th> Контент:</th>
                             <td scope="row">{!! $poster->content  !!}</td>
                         </tr>

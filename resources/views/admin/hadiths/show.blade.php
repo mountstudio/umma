@@ -18,6 +18,10 @@
                             <td scope="row">{{ $hadith->name }}</td>
                         </tr>
                         <tr>
+                            <th> Язык:</th>
+                            <td scope="row">{{ $hadith->lang }}</td>
+                        </tr>
+                        <tr>
                             <th> Контент:</th>
                             <td scope="row">{!! $hadith->content  !!}</td>
                         </tr>

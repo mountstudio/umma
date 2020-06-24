@@ -16,6 +16,8 @@
                                 <p class="h4">Лонгриды</p>
                             @elseif($type == 'article')
                                 <p class="h4">Статьи</p>
+                            @elseif($type == 'new')
+                                <p class="h4">Новости</p>
                             @else
                                 <p class="h4">Дайджесты</p>
                             @endif

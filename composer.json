@@ -22,7 +22,6 @@
         "laravel/tinker": "^2.0",
         "nesbot/carbon": "^2.31",
         "spatie/laravel-feed": "^2.6",
-        "spatie/laravel-searchable": "^1.6",
         "yajra/laravel-datatables-oracle": "^9.0"
     },
     "require-dev": {
