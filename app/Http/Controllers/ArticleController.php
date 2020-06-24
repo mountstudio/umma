@@ -280,8 +280,6 @@ class ArticleController extends Controller
         $articlesCategories = $categories->map(function ($item) {
             return $item->articles->take(3);
         })->flatten();
-
-
         if ($hadith) {
             $hadith->content = ContentCutting::cut_contents($hadith->content, 60, 370);
         }
