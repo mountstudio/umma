@@ -11,7 +11,7 @@ class PosterType extends Model
     use Sluggable;
     use SoftDeletes;
 
-    protected $fillable = ['name', 'slug'];
+    protected $fillable = ['name','name_kg', 'slug'];
     public function posters()
     {
         return $this->hasMany(Poster::class, 'type_id');

@@ -22,8 +22,7 @@
                 </div>
                 <div class="form-group">
                     <label for="desc_input">Описание<span class="text-danger">*</span></label>
-                    <input value="{{ $article->desc }}" type="text" class="form-control" id="desc_input" name="desc"
-                           required>
+                    <textarea type="text" class="form-control" id="desc_input" name="desc" required>{{ $article->desc }}</textarea>
                 </div>
                 <div class="form-group">
                     <label for="category">Выберите категорию:<span class="text-danger">*</span></label>

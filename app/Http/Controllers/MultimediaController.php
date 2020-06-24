@@ -6,6 +6,7 @@ use App\Http\Requests\StoreMultimediaRequest;
 use App\Http\Requests\UpdateMultimediaRequest;
 use App\Multimedia;
 use App\Services\ImageUploader;
+use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Storage;
 use Yajra\DataTables\Facades\DataTables;
 
@@ -133,6 +134,11 @@ class MultimediaController extends Controller
 
     public function showMultimedia()
     {
-        return view('multimedia', ['multimedia' => Multimedia::latest()->take(12)->get()]);
+        if(App::isLocale('ru')){
+            $multimedia = Multimedia::where('lang', 'ru')->latest()->paginate(12);
+        } else {
+            $multimedia = Multimedia::where('lang', 'kg')->latest()->paginate(12);
+        }
+        return view('multimedia', ['multimedia' => $multimedia]);
     }
 }

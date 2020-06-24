@@ -25,6 +25,14 @@
                         <textarea id="content_area" class="form-control richTextBox is-invalid"
                                   name="content">{{ $hadith->content }}</textarea>
                     </div>
+                    <div>
+                        <label for="lang">Выберите язык:<span class="text-danger">*</span></label>
+                        <br>
+                        <select id="lang" name="lang">
+                            <option value="ru"{{ $hadith->lang=='ru'? 'selected': ''}}>ru</option>
+                            <option value="kg"{{ $hadith->lang=='kg'? 'selected': ''}}>kg</option>
+                        </select>
+                    </div>
                     <button type="submit" title="{{ __('Изменить') }}"
                             class="btn n btn-success">{{ __('Изменить') }}</button>
                 </form>

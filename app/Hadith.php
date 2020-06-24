@@ -10,7 +10,7 @@ class Hadith extends Model
 {
     use SoftDeletes;
     use Sluggable;
-    protected $fillable = ['name', 'slug', 'content'];
+    protected $fillable = ['name','lang', 'slug', 'content'];
 
     public function sluggable():array
     {
