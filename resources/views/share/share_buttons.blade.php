@@ -1,7 +1,7 @@
 <div class="post-share py-2 ">
     <div class="text d-flex">
         <img class="d-none d-lg-block p-2" src="{{ asset('img/reading (1).png') }}" alt="">
-        <p>Материал принес пользу? Поделитесь ссылкой с друзьями в социальных сетях.</p>
+        <p>{{ __('main.social_media') }} </p>
         <a href="https://www.facebook.com/sharer/sharer.php?u={{ request()->fullUrl() }}"><i
                 class="fab fa-facebook fa-lg text-orange mr-3"></i></a>
 

@@ -1,6 +1,6 @@
 <div class="default-block pt-2">
     <div class="default-header" style="">
-        <h3 class="default-block__header-title" style="">Список новостей</h3>
+        <h3 class="default-block__header-title" style="">{{ __('main.list_of_news') }}</h3>
     </div>
     <div class="default-block__content default-block__content_most-read">
         <ul class="content-list content-list_most-read">

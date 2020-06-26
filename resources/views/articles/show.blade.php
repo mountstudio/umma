@@ -51,7 +51,7 @@
                 @if($otherArticles->count())
                     <div class="row">
                         <div class="col-12 text-center pb-5">
-                            <h3>Другие статьи</h3>
+                            <h3>{{ __('main.another_articles') }}</h3>
                         </div>
                     </div>
                 @endif
@@ -68,8 +68,8 @@
                 @if($otherArticles->count()>1)
                     <div class="col-12 row justify-content-center">
                         <button class="button button--winona button--border-thin button--round-s"
-                                data-toggle="collapse" data-target="#more" data-text="Показать еще">
-                            <span>Показать еще</span></button>
+                                data-toggle="collapse" data-target="#more" data-text="{{ __('main.look_more') }}">
+                            <span>{{ __('main.look_more') }}</span></button>
                     </div>
                 @endif
 
