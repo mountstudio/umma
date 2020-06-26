@@ -1,10 +1,17 @@
 <div class="card border-0 shadow  shadow-on-hover transition-200 h-100">
     <div class="position-relative">
-        <img src="{{ asset('storage/large/' . $article->logo) }}"
+        <img src="{{ asset('storage/medium/' . $article->logo) }}"
              style="min-height: 150px; max-height: 150px; object-fit: cover;filter: brightness(80%);"
              class="card-img-top" alt="...">
-        <p class="position-absolute text-white font-weight-bold"
-           style="top: 10px; left: 10px;">{{ $article->category->name }}</p>
+        @if($article->category)
+            @if(App::isLocale('ru'))
+                <p class="position-absolute text-white font-weight-bold"
+                   style="top: 10px; left: 10px;">{{ $article->category->name }}</p>
+            @else
+                <p class="position-absolute text-white font-weight-bold"
+                   style="top: 10px; left: 10px;">{{ $article->category->name_kg }}</p>
+            @endif
+        @endif
     </div>
     <div class="card-body py-2">
         <small

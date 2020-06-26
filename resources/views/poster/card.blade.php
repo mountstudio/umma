@@ -12,7 +12,7 @@
                style="background-color: #008500;">{{ \Carbon\Carbon::make($poster->date_event)->formatLocalized('%H:%M') }}</p>
         </div>
         <div class="card-footer pt-0 bg-white border-0 text-center">
-            <p class="card-title small mb-1 text-secondary pt-2">{{ $poster->type->name }}</p>
+            <p class="card-title small mb-1 text-secondary pt-2">{{ App::isLocale('ru') ? $poster->name:$poster->name_kg }}</p>
             <h3 class="h5 font-weight-bold card-text text-crop" style="line-height: 120%;">{{ $poster->name }}</h3>
         </div>
     </a>

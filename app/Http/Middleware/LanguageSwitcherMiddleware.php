@@ -9,14 +9,15 @@ class LanguageSwitcherMiddleware
     /**
      * Handle an incoming request.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \Closure  $next
+     * @param \Illuminate\Http\Request $request
+     * @param \Closure $next
      * @return mixed
      */
     public function handle($request, Closure $next)
     {
-        \App::setLocale(session('applocale') ?? 'en');
+            \App::setLocale(session('applocale') ?? 'ru');
 
-        return $next($request);
+            return $next($request);
+
     }
 }

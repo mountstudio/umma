@@ -16,16 +16,15 @@
                         </form>
                     @else
                         <a href="{{ route('login') }}" class="text-orange  mx-3 text-decoration-none">
-                            {{ __('Войти') }}
+                            {{ __('main.login') }}
                         </a>
                         <a href="{{ route('register') }}" class="text-orange text-decoration-none">
-                            {{ __('Регистрация') }}
+                            {{ __('main.register') }}
                         </a>
                     @endif
                 </div>
                 <div class="d-flex px-4">
-                    <a class="text-decoration-none" href="{{ route('language.switch', 'en') }}"><p class="mr-2 text-orange small mb-0">EN</p></a>
-                    <a class="text-decoration-none" href="{{ route('language.switch', 'ru') }}"><p class="text-orange small mb-0">RU</p></a>
+                    <a class="text-decoration-none" href="{{ route('language.switch', App::isLocale('kg') ? 'ru' : 'kg') }}"><p class="mr-2 text-orange small mb-0">{{ strtoupper(App::isLocale('kg') ? 'ru' : 'kg') }}</p></a>
                 </div>
             </div>
         </div>
@@ -64,31 +63,30 @@
                     <ul class="navbar-nav mx-auto">
                         <li class="nav-item active">
                             <a class="nav-link text-dark text-menu pl-0" href="{{ route('need_to_know') }}" title=""
-                               style="">Надо знать</a>
+                               style="">{{ __('main.must_know') }}</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link text-dark text-menu" href="{{ route('it_is_interesting') }}" title=""
-                               style="">Это интересно</a>
+                               style="">{{ __('main.its_interesting') }}</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark text-menu" href="{{ route('education') }}" title="" style="">Просвещение</a>
+                            <a class="nav-link text-dark text-menu" href="{{ route('education') }}" title="" style="">{{ __('main.education') }}</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark text-menu" href="{{ route('about_sore') }}" title="" style="">О
-                                наболевшем</a>
+                            <a class="nav-link text-dark text-menu" href="{{ route('about_sore') }}" title="" style="">{{ __('main.sore') }}</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark text-menu" href="{{ route('interview') }}" title="" style="">Интервью</a>
+                            <a class="nav-link text-dark text-menu" href="{{ route('interview') }}" title="" style="">{{ __('main.interview') }}</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark text-menu" href="{{ route('all.media') }}" title="" style="">Медиа</a>
+                            <a class="nav-link text-dark text-menu" href="{{ route('all.media') }}" title="" style="">{{ __('main.media') }}</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark text-menu" href="{{ route('all.news') }}" title="" style="">Новости</a>
+                            <a class="nav-link text-dark text-menu" href="{{ route('all.news') }}" title="" style="">{{ __('main.news') }}</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link text-dark text-menu" href="{{ route('all.magazines') }}" title=""
-                               style="">Журнал</a>
+                               style="">{{ __('main.journal') }}</a>
                         </li>
                     </ul>
                 </div>

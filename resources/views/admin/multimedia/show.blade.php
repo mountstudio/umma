@@ -1,6 +1,6 @@
 @extends('admin.dashboard')
 @section('dashboard_content')
-    <div class="container">
+    <div class="container bg-form card-body-admin py-4">
         <div class="row">
             <div class="col-12 col-lg-8">
                 <div class="col-8 px-0">
@@ -15,6 +15,10 @@
                         <tr>
                             <th> Заголовок:</th>
                             <td scope="row">{{ $multimedia->title }}</td>
+                        </tr>
+                        <tr>
+                            <th> Язык:</th>
+                            <td scope="row">{{ $multimedia->lang }}</td>
                         </tr>
                         <tr>
                             <th> Ссылка к видео:</th>

@@ -1,27 +1,33 @@
 @extends('admin.dashboard')
 
 @section('dashboard_content')
-    <div class="row justify-content-end mb-4">
-        <div class="col-auto">
-            <a href="{{ route('admin.'.$type.'s.create') }}" class="btn btn-success">{{ __('Создать') }}</a>
+    <div class="p-3 bg-form card-body-admin">
+        <div class="row justify-content-end mb-4">
+            <div class="col-auto">
+                <a href="{{ route('admin.'.$type.'s.create') }}" class="btn btn-success">{{ __('Создать') }}</a>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12 table-responsive">
+                <table class="table table-striped  table-hover" id="articles-table" >
+                    <thead>
+                    <tr>
+                        <th scope="col" style="display: none!important;">id</th>
+                        <th scope="col">Название</th>
+                        <th scope="col">Категория</th>
+                        <th scope="col">Активен ли</th>
+                        <th scope="col">Показывать на главном</th>
+                        <th scope="col">Превью</th>
+                        <th scope="col">Просмотры</th>
+                        <th scope="col">created_at</th>
+                        <th scope="col">updated_at</th>
+                        <th scope="col">actions</th>
+                    </tr>
+                    </thead>
+                </table>
+            </div>
         </div>
     </div>
-    <table class="table table-bordered" id="articles-table">
-        <thead>
-        <tr>
-            <th>id</th>
-            <th>name</th>
-            <th>description</th>
-            <th>category</th>
-            <th>is_active</th>
-            <th>view_main</th>
-            <th>impressions</th>
-            <th>created_at</th>
-            <th>updated_at</th>
-            <th>actions</th>
-        </tr>
-        </thead>
-    </table>
 
 @endsection
 
@@ -38,12 +44,12 @@
                 serverSide: true,
                 ajax: '{!! route('admin.'.$type.'.datatable.data') !!}',
                 columns: [
-                    {data: 'id', name: 'id'},
+                    // {data: 'id', name: 'id'},
                     {data: 'name', name: 'name'},
-                    {data: 'desc', name: 'description'},
                     {data: 'category_id', name: 'category_id'},
                     {data: 'is_active', name: 'is_active', className: "dt-body-center", searchable: false, orderable: false },
                     {data: 'view_main', name: 'view_main', className: "dt-body-center", searchable: false, orderable: false },
+                    {data: 'logo', name: 'logo', className: "dt-body-center", searchable: false, orderable: false },
                     {data: 'impressions', name: 'impressions'},
                     {data: 'created_at', name: 'created_at'},
                     {data: 'updated_at', name: 'updated_at'},

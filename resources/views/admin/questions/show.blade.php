@@ -1,6 +1,6 @@
 @extends('admin.dashboard')
 @section('dashboard_content')
-    <div class="container">
+    <div class="container bg-form card-body-admin py-4">
         <div class="row">
             <div class="col-12 col-lg-8">
                 <div class="col-8 px-0">
@@ -28,7 +28,7 @@
                             <th> Телефон:</th>
                             <td scope="row">{{ $question->phone }}</td>
                         </tr>
-                        @if($question->category)
+                        @if(!is_null($question->category))
                         <tr>
                             <th>категория:</th>
                             <td scope="row">{{ $question->category->name }}</td>

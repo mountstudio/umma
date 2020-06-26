@@ -1,6 +1,6 @@
 @extends('admin.dashboard')
 @section('dashboard_content')
-    <div class="container">
+    <div class="container bg-form card-body-admin py-4">
         <div class="row">
             <div class="col-12 col-lg-8">
                 <div class="col-8 px-0">
@@ -15,6 +15,10 @@
                         <tr>
                             <th> Наименование:</th>
                             <td scope="row">{{ $posterType->name }}</td>
+                        </tr>
+                        <tr>
+                            <th> Наименование на кыргызском:</th>
+                            <td scope="row">{{ $posterType->name_kg }}</td>
                         </tr>
                         <tr>
                             <th>Дата создания:</th>

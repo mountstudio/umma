@@ -2,7 +2,7 @@
     <div class="container bg-white">
         <div class="col-12 row justify-content-center">
             <button type="button" class="button button--isi button--border-thick button--round-l button--size-s text-white modal-open" data-toggle="modal" data-target="#modalForComment">
-                Оставить отзыв
+                {{ __('main.leave_review') }}
             </button>
         </div>
         <div class="row">
@@ -12,7 +12,7 @@
                     <div class="modal-dialog" role="document">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalLabel">Заполнить форму чтобы оставить отзыв</h5>
+                                <h5 class="modal-title" id="exampleModalLabel">{{ __('main.leave_review_form') }}</h5>
                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                     <span aria-hidden="true">&times;</span>
                                 </button>

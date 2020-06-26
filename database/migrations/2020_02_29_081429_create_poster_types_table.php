@@ -16,6 +16,7 @@ class CreatePosterTypesTable extends Migration
         Schema::create('poster_types', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('name');
+            $table->string('name_kg');
             $table->timestamps();
             $table->softDeletes();
         });

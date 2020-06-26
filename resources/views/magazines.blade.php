@@ -1,5 +1,12 @@
 @extends('layouts.app')
 @section('content')
+    @push('metas')
+        <meta property="og:title" content="Журнал" />
+        <meta property="og:type" content="article">
+        <meta property="og:url" content="{{ request()->fullUrl() }}" />
+        <meta property="og:image" content="{{ asset('img/logo.svg') }}">
+        <meta property="og:site_name" content="Ummamag">
+    @endpush
     <div class="container bg-white">
         <div class="row">
             <div class="col-12 p-0">
@@ -22,16 +29,13 @@
                                          alt="журнал 2017">
                                     <p class="m-0">{{ $magazine->name }}</p>
                                     @if($magazine->pdf or $magazine->kg_pdf)
-                                        <a href="{{ route('show.magazine', $magazine) }}">Просмотреть журнал в PDF</a>
+                                        <a href="{{ route('show.magazine', $magazine) }}">{{ __('main.view magazine') }} в PDF</a>
                                         @if($magazine->pdf)
-                                            <a href="{{ asset('storage/pdf/' . $magazine->pdf) }}" download><p>Скачать
-                                                    на
-                                                    русском</p></a>
+                                            <a href="{{ asset('storage/pdf/' . $magazine->pdf) }}" download><p>{{ __('main.download_on_russian') }}</p></a>
                                         @endif
                                         @if($magazine->kg_pdf)
                                             <a href="{{ asset('storage/pdf/' . $magazine->kg_pdf) }}" download><p>
-                                                    Скачать
-                                                    кыргызском</p></a>
+                                                    {{ __('main.download_on_kyrgyz') }}</p></a>
                                         @endif
                                     @else
                                         <p>{{ $magazine->status }}</p>
@@ -42,7 +46,7 @@
                     </div>
                 </div>
                 <div>
-                    <h3>О журнале</h3>
+                    <h3 class="justify-content-center row">{{ __('main.about_magazine') }}</h3>
                     <hr style="background-color: black;color: black;">
                     <div class="row">
                         <div class="col-12 col-md-6  text-left">
