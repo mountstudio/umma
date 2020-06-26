@@ -11,8 +11,7 @@
                 <table class="table table-bordered" id="subscribers-table">
                     <thead>
                     <tr>
-                        <th>id</th>
-                        <th>email</th>
+                        <th>Почта</th>
                         <th>created_at</th>
                         <th>updated_at</th>
                         <th>actions</th>
@@ -37,7 +36,6 @@
                 serverSide: true,
                 ajax: '{!! route('admin.subscriber.datatable.data') !!}',
                 columns: [
-                    {data: 'id', name: 'id'},
                     {data: 'email', name: 'email'},
                     {data: 'created_at', name: 'created_at'},
                     {data: 'updated_at', name: 'updated_at'},

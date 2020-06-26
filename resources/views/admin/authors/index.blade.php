@@ -13,9 +13,9 @@
                     <thead>
                     <tr>
                         <th>id</th>
-                        <th>full_name</th>
-                        <th>photo</th>
-                        <th>view_main</th>
+                        <th>ФИО</th>
+                        <th>фото</th>
+                        <th>Показывать на главном</th>
                         <th>created_at</th>
                         <th>updated_at</th>
                         <th>actions</th>

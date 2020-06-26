@@ -14,8 +14,12 @@
                         </thead>
                         <tbody>
                         <tr>
-                            <th> Заголовок:</th>
+                            <th> Наименование:</th>
                             <td scope="row">{{ $category->name }}</td>
+                        </tr>
+                        <tr>
+                            <th> Наименование на кыргызском:</th>
+                            <td scope="row">{{ $category->name_kg }}</td>
                         </tr>
                         <tr>
                             <th>Дата создания:</th>
@@ -27,11 +31,7 @@
                         </tr>
                         </tbody>
                     </table>
-{{--                    <h1>{{ $category->id }}</h1>--}}
-{{--                    <h2>{{ $category->name }}</h2>--}}
                 </div>
-{{--                <p>{{ $category->created_at }}</p>--}}
-{{--                <p>{{ $category->updated_at }}</p>--}}
             </div>
         </div>
     </div>

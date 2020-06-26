@@ -11,16 +11,17 @@
                 <table class="table table-bordered" id="posters-table">
                     <thead>
                     <tr>
-                        <th scope="col">id</th>
-                        <th scope="col">name</th>
-                        <th scope="col">main_photo</th>
-                        <th scope="col">phone</th>
-                        <th scope="col">mail</th>
-                        <th scope="col">date_event</th>
-                        <th scope="col">type</th>
-                        <th scope="col">created_at</th>
-                        <th scope="col">updated_at</th>
-                        <th scope="col">actions</th>
+                        <th>id</th>
+                        <th>Наименование</th>
+                        <th>Главное фото</th>
+                        <th>Телефон</th>
+                        <th>Язык</th>
+                        <th>Почта</th>
+                        <th>Дата события</th>
+                        <th>Тип</th>
+                        <th>created_at</th>
+                        <th>updated_at</th>
+                        <th>actions</th>
                     </tr>
                     </thead>
                 </table>
@@ -46,6 +47,7 @@
                     {data: 'name', name: 'name'},
                     {data: 'main_photo', name: 'main_photo'},
                     {data: 'phone', name: 'phone'},
+                    {data: 'lang', name: 'lang'},
                     {data: 'mail', name: 'mail'},
                     {data: 'date_event', name: 'date_event'},
                     {data: 'type_id', name: 'type_id'},

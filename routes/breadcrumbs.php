@@ -1,6 +1,7 @@
 <?php
 
 use DaveJamesMiller\Breadcrumbs\Facades\Breadcrumbs;
+use Illuminate\Support\Facades\App;
 
 //Static register
 Breadcrumbs::register('home', function ($breadcrumbs) {
@@ -68,13 +69,12 @@ Breadcrumbs::register('questions', function ($breadcrumbs) {
 });
 
 
-
-Breadcrumbs::register('question', function ($breadcrumbs, $question){
+Breadcrumbs::register('question', function ($breadcrumbs, $question) {
     $breadcrumbs->parent('questions');
     $breadcrumbs->push($question->name, route('show.question', $question));
 });
 
-Breadcrumbs::register('poster', function ($breadcrumbs, $poster){
+Breadcrumbs::register('poster', function ($breadcrumbs, $poster) {
     $breadcrumbs->parent('posters');
     $breadcrumbs->push($poster->name, route('show.poster', $poster));
 });
@@ -105,5 +105,5 @@ Breadcrumbs::register('hadith', function ($breadcrumbs, $hadith) {
 
 Breadcrumbs::register('tag', function ($breadcrumbs, $tag) {
     $breadcrumbs->parent('home');
-    $breadcrumbs->push($tag->name, route('show.tag', $tag));
+    $breadcrumbs->push(App::isLocale('ru') ? $tag->name : $tag->name_kg, route('show.tag', $tag));
 });

@@ -13,9 +13,9 @@
                     <thead>
                     <tr>
                         <th>id</th>
-                        <th>name</th>
-                        <th>image</th>
-                        <th>status</th>
+                        <th>Наименование</th>
+                        <th>Изображение</th>
+                        <th>Статус</th>
                         <th>created_at</th>
                         <th>updated_at</th>
                         <th>actions</th>

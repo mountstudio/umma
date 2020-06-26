@@ -214,6 +214,11 @@ class ArticleController extends Controller
                     return '<i class="fas fa-ban fa-lg"></i>';
                 }
             })
+            ->editColumn('logo', function (Article $article) {
+                if (!is_null($article->view_main)) {
+                    return '<img src="' . asset('/storage/small/' . $article->logo) . '">';
+                }
+            })
             ->editColumn('is_active', function (Article $article) {
                 if ($article->is_active) {
                     return '<i class="fas fa-check fa-lg"></i>';
@@ -235,7 +240,7 @@ class ArticleController extends Controller
                     'model' => $article
                 ]);
             })
-            ->rawColumns(['name', 'view_main', 'is_active'])
+            ->rawColumns(['name', 'view_main', 'is_active', 'logo'])
             ->make(true);
     }
 
@@ -254,7 +259,6 @@ class ArticleController extends Controller
 
     public function welcome()
     {
-//        dd(App::isLocale('ru'));
         if (App::isLocale('ru')) {
             $articlesDayTheme = Article::where('lang', 'ru')->where('view_main', true)->latest()->take(6)->get();
             $articlesCommentLatest = Article::where('lang', 'ru')->has('comments')->orderBy('updated_at', 'DESC')->take(6)->get();
@@ -270,10 +274,9 @@ class ArticleController extends Controller
             $multimedia = Multimedia::where('lang', 'kg')->latest()->take(10)->get();
             $posters = Poster::where('lang', 'kg')->where('date_event', '>', now())->get()->sortBy('date_event');
         }
-        $kolumnisty = Author::all()->shuffle()->take(4);
+        $kolumnisty = Author::all()->where('view_main', true)->shuffle()->take(4);
         $magazines = Magazine::latest()->take(2)->get();
         $projects = Project::latest()->get();
-
         $categories = self::get_categories();
         $articlesCategories = $categories->map(function ($item) {
             return $item->articles->where('lang', App::isLocale('') ? 'ru':'kg')->take(3);

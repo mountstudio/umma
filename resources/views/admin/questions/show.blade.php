@@ -28,7 +28,7 @@
                             <th> Телефон:</th>
                             <td scope="row">{{ $question->phone }}</td>
                         </tr>
-                        @if($question->category)
+                        @if(!is_null($question->category))
                         <tr>
                             <th>категория:</th>
                             <td scope="row">{{ $question->category->name }}</td>

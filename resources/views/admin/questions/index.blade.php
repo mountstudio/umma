@@ -12,14 +12,14 @@
                     <thead>
                     <tr>
                         <th>id</th>
-                        <th>name</th>
-                        <th>category</th>
-                        <th>full_name</th>
-                        <th>mail</th>
-                        <th>phone</th>
-                        <th>registered</th>
-                        <th>is_anonim</th>
-                        <th>is_solved</th>
+                        <th>Коротко о вопросе</th>
+                        <th>Категория</th>
+                        <th>ФИО</th>
+                        <th>Почта</th>
+                        <th>Телефон</th>
+                        <th>Регистрация</th>
+                        <th>Анонимно</th>
+                        <th>Отвечено</th>
                         <th>created_at</th>
                         <th>updated_at</th>
                         <th>actions</th>

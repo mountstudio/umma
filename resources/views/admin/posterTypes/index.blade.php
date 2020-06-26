@@ -12,7 +12,8 @@
                     <thead>
                     <tr>
                         <th>id</th>
-                        <th>name</th>
+                        <th>наименование</th>
+                        <th>наименование на кыргызском</th>
                         <th>created_at</th>
                         <th>updated_at</th>
                         <th>actions</th>
@@ -39,6 +40,7 @@
                 columns: [
                     {data: 'id', name: 'id'},
                     {data: 'name', name: 'name'},
+                    {data: 'name_kg', name: 'name_kg'},
                     {data: 'created_at', name: 'created_at'},
                     {data: 'updated_at', name: 'updated_at'},
                     {data: 'actions', name: 'actions', searchable: false, orderable: false},

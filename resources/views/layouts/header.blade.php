@@ -25,7 +25,6 @@
                 </div>
                 <div class="d-flex px-4">
                     <a class="text-decoration-none" href="{{ route('language.switch', App::isLocale('kg') ? 'ru' : 'kg') }}"><p class="mr-2 text-orange small mb-0">{{ strtoupper(App::isLocale('kg') ? 'ru' : 'kg') }}</p></a>
-{{--                    <a class="text-decoration-none" href="{{ route('language.switch', 'ru') }}"><p class="text-orange small mb-0">RU</p></a>--}}
                 </div>
             </div>
         </div>

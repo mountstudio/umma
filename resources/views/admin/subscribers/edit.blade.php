@@ -17,7 +17,7 @@
                         <p class="font-weight-bold h2">Редактирование подписчика</p>
                     </div>
                     <div class="form-group">
-                        <label for="mail_input">E-mail:<span class="text-danger">*</span></label>
+                        <label for="mail_input">Почта:<span class="text-danger">*</span></label>
                         <input id="mail_input" value="{{ $subscriber->email }}" type="text" class="form-control"
                                name="email" required>
                     </div>

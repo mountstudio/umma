@@ -24,7 +24,6 @@
                     mouths.push(key);
                     numbers.push(response[key]);
                 }
-                // numbers = [100, 1];
                 let chartForRegistered = document.getElementById("myChart").getContext('2d');
                 new Chart(chartForRegistered, {
                     type: 'bar',

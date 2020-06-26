@@ -34,17 +34,7 @@
                         </tr>
                         </tbody>
                     </table>
-{{--                    <label>id:</label>--}}
-{{--                    <p>{{ $project->id }}</p>--}}
-{{--                    <label>Наименование:</label>--}}
-{{--                    <p>{{ $project->name }}</p>--}}
-{{--                    <label>контент</label>--}}
-{{--                    {!! $project->description  !!}--}}
-{{--                    <label>Главное фото</label>--}}
                 </div>
-{{--                <img src="{{ asset('storage/medium/' . $project->image) }}">--}}
-{{--                <p>{{ $project->created_at }}</p>--}}
-{{--                <p>{{ $project->updated_at }}</p>--}}
             </div>
         </div>
     </div>

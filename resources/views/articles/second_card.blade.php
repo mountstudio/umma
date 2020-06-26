@@ -1,6 +1,6 @@
 <div class="card border-0 shadow  shadow-on-hover transition-200 h-100">
     <div class="position-relative">
-        <img src="{{ asset('storage/large/' . $article->logo) }}"
+        <img src="{{ asset('storage/medium/' . $article->logo) }}"
              style="min-height: 150px; max-height: 150px; object-fit: cover;filter: brightness(80%);"
              class="card-img-top" alt="...">
         @if($article->category)

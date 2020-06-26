@@ -1,5 +1,12 @@
 @extends('layouts.app')
 @section('content')
+    @push('metas')
+        <meta property="og:title" content="{{ $media->title }}">
+        <meta property="og:image" content="{{ $media->url_photo }}">
+        <meta property="og:url" content="{{ request()->fullUrl() }}" />
+        <meta property="og:type" content="article">
+        <meta property="og:site_name" content="Ummamag">
+    @endpush
     <div class="container bg-white">
         <div class="row">
             <div class="col-12 p-0">
@@ -26,7 +33,7 @@
                 <div class=" bg-img pb-5">
                     <a class="fancybox-media" href="{{ $media->url_video }}">
                         <div class="position-relative">
-                            <img src="{{ asset('storage/large/' . $media->url_photo) }}" class="img-fluid  w-100 position-relative" alt="">
+                            <img src="{{ asset('storage/medium/' . $media->url_photo) }}" class="img-fluid  w-100 position-relative" alt="">
                             <img src="{{asset('img/youtube (3).png')}}" class="youtube  position-absolute"
                                  style="left: 50%; top: 50%; transform: translate(-50%, -50%); " alt="">
                         </div>

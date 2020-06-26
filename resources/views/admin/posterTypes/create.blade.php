@@ -13,6 +13,10 @@
                         <label for="name_field">Наименование типа<span class="text-danger">*</span></label>
                         <input id="name_field" type="text" class="form-control" name="name" required>
                     </div>
+                    <div class="form-group">
+                        <label for="name_field">Наименование типа на кыргызском<span class="text-danger">*</span></label>
+                        <input id="name_field" type="text" class="form-control" name="name_kg" required>
+                    </div>
                     <ul>
                         @foreach($errors->all() as $error)
                             <li>{{ $error }}</li>

@@ -15,9 +15,10 @@
                         <th scope="col" style="display: none!important;">id</th>
                         <th scope="col">Название</th>
                         <th scope="col">Категория</th>
-                        <th scope="col">Активен_ли?</th>
-                        <th scope="col">view_main</th>
-                        <th scope="col">impressions</th>
+                        <th scope="col">Активен ли</th>
+                        <th scope="col">Показывать на главном</th>
+                        <th scope="col">Превью</th>
+                        <th scope="col">Просмотры</th>
                         <th scope="col">created_at</th>
                         <th scope="col">updated_at</th>
                         <th scope="col">actions</th>
@@ -48,6 +49,7 @@
                     {data: 'category_id', name: 'category_id'},
                     {data: 'is_active', name: 'is_active', className: "dt-body-center", searchable: false, orderable: false },
                     {data: 'view_main', name: 'view_main', className: "dt-body-center", searchable: false, orderable: false },
+                    {data: 'logo', name: 'logo', className: "dt-body-center", searchable: false, orderable: false },
                     {data: 'impressions', name: 'impressions'},
                     {data: 'created_at', name: 'created_at'},
                     {data: 'updated_at', name: 'updated_at'},

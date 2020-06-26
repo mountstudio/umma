@@ -31,7 +31,7 @@
     </div>
     <div>
         <a href="{{ route('admin.category.datatable') }}"
-           class="list-group-item list-group-item-action {{ request()->is('admin/category*') ? 'active' : '' }}"><i
+           class="list-group-item list-group-item-action {{ request()->is('admin/categor*') ? 'active' : '' }}"><i
                 class="fas fa-bars pr-3"></i>{{ __('Категории статьи') }}</a>
     </div>
     <div>

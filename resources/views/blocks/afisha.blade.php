@@ -6,7 +6,7 @@
         <div class="col-12">
             <div class="px-5 row afisha-carousel">
                 @foreach($posters as $poster)
-                    <div class="col-12 col-md-6 col-lg-3 mb-2">
+                    <div class="mb-2">
                         @include('poster.card')
                     </div>
                 @endforeach
@@ -39,10 +39,17 @@
                     }
 
                 }, {
-                    breakpoint: 600,
+                    breakpoint: 990,
+                    settings: {
+                        slidesToShow: 3,
+                        slidesToScroll: 1,
+
+                    }
+                }, {
+                    breakpoint: 767,
                     settings: {
                         slidesToShow: 2,
-                        slidesToScroll: 2,
+                        slidesToScroll: 1,
 
                     }
                 }, {

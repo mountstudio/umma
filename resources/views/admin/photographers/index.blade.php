@@ -11,9 +11,8 @@
                 <table class="table table-bordered" id="photographers-table">
                     <thead>
                     <tr>
-                        <th>id</th>
-                        <th>full_name</th>
-                        <th>photo</th>
+                        <th>ФИО</th>
+                        <th>Фото</th>
                         <th>created_at</th>
                         <th>updated_at</th>
                         <th>actions</th>
@@ -38,7 +37,6 @@
                 serverSide: true,
                 ajax: '{!! route('admin.photographer.datatable.data') !!}',
                 columns: [
-                    {data: 'id', name: 'id'},
                     {data: 'full_name', name: 'full_name'},
                     {data: 'photo', name: 'photo'},
                     {data: 'created_at', name: 'created_at'},
