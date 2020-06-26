@@ -1,5 +1,17 @@
 @extends('layouts.app')
 @section('content')
+    @push('metas')
+        <meta property="og:title" content="{{ $article->name }}">
+        <meta property="og:type" content="article">
+        <meta property="og:url" content="{{ request()->fullUrl() }}"/>
+        @if(!is_null($article->og_image))
+            <meta property="og:image" content="{{ $article->og_image }}">
+        @else
+            <meta property="og:image" content="{{ asset('img/logo.svg') }}">
+        @endif
+        <meta property="og:site_name" content="Ummamag">
+        <meta property="og:description" content="{{ $article->desc }}">
+    @endpush
     @include('partials.breadcrumbs', ['type' => 'article', 'value' => $article])
     <div class="container bg-white">
         <div class="row justify-content-center">
@@ -22,9 +34,7 @@
                         </div>
                     </div>
                 @endif
-
-
-    <div id="post-content">
+                <div id="post-content">
                     <p>{!! $article->content !!}</p>
                 </div>
                 <div class="tags d-flex">
@@ -72,23 +82,31 @@
 
     </div>
 
-        @endsection
+@endsection
 
-        @push('scripts')
-            <script>
-                $('.social-share-btn').click(e => {
-                    let btn = $(e.currentTarget);
-                    let social = btn.data('social');
-                    let url = btn.data('url');
+@push('styles')
+    <style>
+        #post-content img {
+            width: 100%;
+        }
+    </style>
+@endpush
 
-                    if (social == 'facebook') {
-                        url = 'https://facebook.com/sharer/sharer.php?u=' + url;
-                        window.open(url, "popupWindow", "width=600,height=600,scrollbars=yes");
-                    }
-                    if (social == 'vk') {
-                        url = 'https://vk.com/share.php?url=' + url;
-                        window.open(url, "popupWindow", "width=600,height=600,scrollbars=yes");
-                    }
-                })
-            </script>
-    @endpush
+@push('scripts')
+    <script>
+        $('.social-share-btn').click(e => {
+            let btn = $(e.currentTarget);
+            let social = btn.data('social');
+            let url = btn.data('url');
+
+            if (social == 'facebook') {
+                url = 'https://facebook.com/sharer/sharer.php?u=' + url;
+                window.open(url, "popupWindow", "width=600,height=600,scrollbars=yes");
+            }
+            if (social == 'vk') {
+                url = 'https://vk.com/share.php?url=' + url;
+                window.open(url, "popupWindow", "width=600,height=600,scrollbars=yes");
+            }
+        })
+    </script>
+@endpush

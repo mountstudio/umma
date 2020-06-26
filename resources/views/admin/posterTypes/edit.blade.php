@@ -19,6 +19,11 @@
                         <input id="name_field" type="text" class="form-control" value="{{ $posterType->name }}"
                                name="name" required>
                     </div>
+                    <div class="form-group">
+                        <label for="name_field">Наименование типа на кыргызском<span class="text-danger">*</span></label>
+                        <input id="name_field" type="text" class="form-control" value="{{ $posterType->name_kg }}"
+                               name="name_kg" required>
+                    </div>
                     <button type="submit" title="{{ __('Изменить') }}"
                             class="btn n btn-success">{{ __('Изменить') }}</button>
                 </form>

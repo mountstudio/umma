@@ -6,10 +6,12 @@
                 @foreach($multimedia as $media)
                     <div class="item  p-1 mr-1 position-relative">
                         <a class="fancybox-media1" href="{{ $media->url_video }}">
-                            <img class="border border-white img-fluid position-relative"
-                                 src="{{ asset('storage/medium/' . $media->url_photo) }}" alt="" style="border-width: 5px!important;">
+                            <img class="border border-white  img-multimedia  position-relative"
+                                 src="{{ asset('storage/medium/' . $media->url_photo) }}" alt=""
+                                 style="border-width: 5px!important;">
                             <img src="{{ asset('img/play-button.svg') }}" class="img-fluid position-absolute"
-                                 style="left: 50%; top: 50%; transform: translate(-50%, -50%);width: 27%;height: 27%;" alt="">
+                                 style="left: 50%; top: 50%; transform: translate(-50%, -50%);width: 27%;height: 27%;"
+                                 alt="">
                         </a>
                     </div>
                 @endforeach
@@ -18,8 +20,43 @@
     </div>
 </div>
 @push('styles')
+
     <link rel="stylesheet" href="{{ asset('css/slick.css') }}">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css">
+    <style>
+        .img-multimedia {
+            width: 100%;
+            height: 140px;
+        }
+
+        @media (min-width: 574px) {
+            .img-multimedia {
+                width: 100%;
+                height: 100px;
+            }
+        }
+
+        @media (min-width: 767px) {
+            .img-multimedia {
+                width: 100%;
+                height: 110px;
+            }
+        }
+
+        @media (min-width: 990px) {
+            .img-multimedia {
+                width: 100%;
+                height: 150px;
+            }
+        }
+
+        @media (min-width: 1200px) {
+            .img-multimedia {
+                width: 100%;
+                height: 190px;
+            }
+        }
+    </style>
 @endpush
 
 @push('scripts')
@@ -38,8 +75,6 @@
                     settings: {
                         slidesToShow: 3,
                         slidesToScroll: 1,
-
-
                     }
 
                 }, {

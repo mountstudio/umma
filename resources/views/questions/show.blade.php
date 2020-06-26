@@ -1,5 +1,11 @@
 @extends('layouts.app')
 @section('content')
+    @push('metas')
+        <meta property="og:title" content="{{ App::isLocale('ru') ? 'UMMA – мусульманский журнал, посвященный просвещению верующей молодежи.' : '' }}" />
+        <meta property="og:type" content="article">
+        <meta property="og:url" content="{{ request()->fullUrl() }}" />
+        <meta property="og:image" content="{{ asset('img/logo.svg') }}">
+    @endpush
     <div class="container bg-white">
         <div class="row">
             <div class="col-12 p-0">

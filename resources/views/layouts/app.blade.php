@@ -1,14 +1,14 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" prefix="og: http://ogp.me/ns#">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- CSRF Token -->
-
     <meta name="csrf-token" content="{{ csrf_token() }}">
-
+    @stack('metas')
     <title>{{ config('app.name', 'Laravel') }}</title>
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+{{--    <link rel="stylesheet" href="{{ asset('css/fontawesome.css') }}">--}}
     <link href="{{ asset('css/main.css') }}" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="{{ asset('css/component.css') }}"/>
     <link rel="stylesheet" type="text/css" href="{{asset('css/buttons.css')}}"/>

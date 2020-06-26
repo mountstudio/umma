@@ -1,5 +1,12 @@
 @extends('layouts.app')
 @section('content')
+    @push('metas')
+        <meta property="og:title" content="{{ App::isLocale('ru') ? $tag->name : $tag->name_kg }}">
+        <meta property="og:type" content="article">
+        <meta property="og:url" content="{{ request()->fullUrl() }}"/>
+        <meta property="og:image" content="{{ asset('img/logo.svg') }}">
+        <meta property="og:site_name" content="Ummamag">
+    @endpush
     <div class="container bg-white">
         <div class="row">
             <div class="col-12 p-0">
@@ -11,9 +18,6 @@
     <div class="container bg-white">
         <div class="row justify-content-center">
             <div class="col-12 col-lg-9 col-md-10">
-{{--                <div class="author d-flex justify-content-between">--}}
-{{--                    <p class="text-dark">Тег: {{ $tag->name }}</p>--}}
-{{--                </div>--}}
                 <div class="post-header d-flex justify-content-center">
                     <h2 class="title">
                         Все статьи данного тега

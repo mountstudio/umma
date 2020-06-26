@@ -1,5 +1,12 @@
 @extends('layouts.app')
 @section('content')
+    @push('metas')
+        <meta property="og:title" content="{{ App::isLocale('ru') ? 'Время намазов ' : 'Намаз убактылары'}}">
+        <meta property="og:image" content="{{ asset('img/logo.svg') }}">
+        <meta property="og:url" content="{{ request()->fullUrl() }}">
+        <meta property="og:type" content="article">
+        <meta property="og:site_name" content="Ummamag">
+    @endpush
     <div class="container bg-white">
         <div class="row">
             <div class="col-12 p-0">
@@ -42,6 +49,7 @@
                             <table class="table table-striped table-responsive-sm">
                                 <thead>
                                 <tr>
+                                    <th scope="col">{{ strftime('%B') }}</th>
                                     <th scope="col">Д/н</th>
                                     <th scope="col">{{ strftime('%b') }}</th>
                                     <th scope="col">Фаджр</th>

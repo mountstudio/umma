@@ -17,6 +17,10 @@
                             <td scope="row">{{ $posterType->name }}</td>
                         </tr>
                         <tr>
+                            <th> Наименование на кыргызском:</th>
+                            <td scope="row">{{ $posterType->name_kg }}</td>
+                        </tr>
+                        <tr>
                             <th>Дата создания:</th>
                             <td>{{ $posterType->created_at }}</td>
                         </tr>

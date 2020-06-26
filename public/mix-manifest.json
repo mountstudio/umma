@@ -1,8 +1,4 @@
 {
-    "/js/Chart.js": "/js/Chart.js",
-    "/css/app.css": "/css/app.css",
-    "/css/main.css": "/css/main.css",
     "/js/app.js": "/js/app.js",
-    "/js/editor.js": "/js/editor.js",
-    "/js/editor-conf.js": "/js/editor-conf.js"
+    "/css/app.css": "/css/app.css"
 }

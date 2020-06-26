@@ -1,3 +1,4 @@
+
 <div class="container bg-white px-3">
 {{--    <hr style="background-color: black;color: black;">--}}
     <div class="row justify-content-around">
@@ -9,7 +10,6 @@
                 @foreach($kolumnisty as $kolumnist)
                     <div class="col-12 col-lg-3 col-md-12">
                         @include('authors.card', ['author' => $kolumnist])
-{{--                        <p class="text-crop">{{ optional($kolumnist->articles->sortBy('updated_at')->first())->name }}</p>--}}
                     </div>
                 @endforeach
             </div>

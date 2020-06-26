@@ -15,7 +15,7 @@
                 <form action="{{ route('admin.subscribers.store') }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     <div class="form-group">
-                        <label for="full_name_field">E-mail:<span class="text-danger">*</span></label>
+                        <label for="full_name_field">Почта:<span class="text-danger">*</span></label>
                         <input id="mail_input" type="text" class="form-control"
                                name="email" required>
                     </div>

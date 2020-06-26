@@ -13,9 +13,9 @@
                     <thead>
                     <tr>
                         <th>id</th>
-                        <th>title</th>
-                        <th>url_photo</th>
-                        <th>url_video</th>
+                        <th>Заголовок</th>
+                        <th>Фото</th>
+                        <th>Ссылка на видео</th>
                         <th>created_at</th>
                         <th>updated_at</th>
                         <th>actions</th>
