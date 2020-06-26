@@ -4,7 +4,7 @@
         <div class="row">
             <div class="col-4"></div>
             <div class="col-12 ">
-                <h2 class="text-center">Результаты поиска</h2>
+                <h2 class="text-center">{{ __('main.searching_results') }}</h2>
             </div>
         </div>
         <div class="row">
@@ -25,7 +25,7 @@
                         </div>
                     @endforeach
                 @else
-                    <h3>Ничего не найдено!</h3>
+                    <h3>{{ __('main.not_find') }}</h3>
                 @endif
             </div>
             @include('partials.sidebar')

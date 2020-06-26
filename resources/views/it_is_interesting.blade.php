@@ -10,7 +10,7 @@
     <div class="container bg-white">
         <div class="row justify-content-center">
             <div class="col-12 col-lg-9 col-md-10">
-                <h2 class="text-center">Это интересно</h2>
+                <h2 class="text-center">{{ __('main.its_interesting') }}</h2>
                 @include('articles.list')
             @if($articles instanceof \Illuminate\Pagination\LengthAwarePaginator)
                 <div class="row justify-content-center mt-5">

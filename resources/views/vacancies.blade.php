@@ -11,7 +11,7 @@
     <div class="container bg-white">
         <div class="row justify-content-center">
             <div class="col-12 col-lg-9 col-md-10">
-                <h2 class="text-center">Вакансии</h2>
+                <h2 class="text-center">{{ __('main.vacancies') }}</h2>
             </div>
             @include('partials.sidebar')
         </div>

@@ -10,7 +10,7 @@
     <div class="container bg-white">
         <div class="row justify-content-center">
             <div class="col-12 col-lg-9 col-md-10">
-                <h2 class="text-center">Время намаза</h2>
+                <h2 class="text-center">{{ __('main.prayer_time') }}</h2>
                 <button id="btnGroupDrop1" type="button" class="btn btn-secondary dropdown-toggle  "
                         data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Выбрать город
@@ -42,8 +42,8 @@
                             <table class="table table-striped table-responsive-sm">
                                 <thead>
                                 <tr>
-                                    <th scope="col">{{ strftime('%b') }}</th>
                                     <th scope="col">Д/н</th>
+                                    <th scope="col">{{ strftime('%b') }}</th>
                                     <th scope="col">Фаджр</th>
                                     <th scope="col">Шурук</th>
                                     <th scope="col">Зухр</th>
@@ -73,8 +73,6 @@
                 <div class="py-3">
                     @include('partials.pray')
                 </div>
-                <h2 class="text-center py-2">Статьи</h2>
-                @include('blocks.right-sidebar.new')
             </div>
         </div>
     </div>

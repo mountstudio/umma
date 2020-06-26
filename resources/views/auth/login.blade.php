@@ -6,7 +6,7 @@
             <div class="col-12 col-lg-7 mx-0 px-0 bg-login">
             </div>
             <div class="col-12 col-lg-5 pb-4 text-center">
-                <h3 class="py-4">Авторизация</h3>
+                <h3 class="py-4">{{ __('main.authorization') }}</h3>
                 <form action="{{ route('login') }}" method="POST">
                     @csrf
                     <div class="form-group">
@@ -31,8 +31,8 @@
                         </span>
                         @enderror
                     </div>
-                    <button type="submit" class="btn btn-success btn-sm rounded-pill ">Войти</button>
-                    <a href="{{ route('register') }}" class="btn btn-danger btn-sm rounded-pill ">Создать аккаунт</a>
+                    <button type="submit" class="btn btn-success btn-sm rounded-pill ">{{ __('main.login_account') }}</button>
+                    <a href="{{ route('register') }}" class="btn btn-danger btn-sm rounded-pill ">{{ __('main.create_account') }}</a>
                 </form>
             </div>
         </div>
