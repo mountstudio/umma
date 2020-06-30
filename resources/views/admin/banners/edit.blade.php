@@ -1,33 +1,30 @@
 @extends('admin.dashboard')
-
 @section('dashboard_content')
     <div class="p-3 bg-form card-body-admin">
         <div class="row">
             <div class="col-12 col-sm-10 col-lg-10 col-md-10">
-                <ul>
-                    @foreach($errors->all() as $error)
-                        <li>{{ $error }}</li>
-                    @endforeach
-                </ul>
-                <form action="{{ route('admin.photographers.update', $photographer) }}" method="POST"
-                      enctype="multipart/form-data">
+                <form action="{{ route('admin.banners.update', $banner) }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     @method('PUT')
+                    <ul>
+                        @foreach($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
                     <div class="row justify-content-center">
-                        <p class="font-weight-bold h2">Редактирование фотографа</p>
+                        <p class="font-weight-bold h2">Редактирование баннера</p>
                     </div>
                     <div class="form-group">
-                        <label for="full_name_field">ФИО фотографа<span class="text-danger">*</span></label>
-                        <input id="full_name_field" value="{{  old('full_name',$photographer->full_name) }}" type="text"
-                               class="form-control"
-                               name="full_name" accept="image/jpeg, image/png" required>
+                        <label for="name_field">Номер<span class="text-danger">*</span></label>
+                        <input id="name_field" type="number" class="form-control" value="{{ old('number', $banner->number)}}" name="number"
+                               required>
                     </div>
                     <div class="form-group">
                         <label for="photo_input">Выберите фото:</label>
                         <input id="photo_input" class="form-control" onchange="readURL(this);" type="file"
-                               name="photo" accept="image/jpeg, image/png">
+                               name="image" accept="image/jpeg, image/png">
                         <br>
-                        <img id="photo" src="{{ asset('storage/medium/' . $photographer->photo) }}" width="750"/>
+                        <img id="photo" src="{{ asset('storage/medium/' . $banner->image) }}" width="750"/>
                     </div>
                     <button type="submit" title="{{ __('Изменить') }}"
                             class="btn n btn-success">{{ __('Изменить') }}</button>
@@ -37,9 +34,7 @@
     </div>
 @endsection
 
-@push('styles')
-    <link rel="stylesheet" href="{{ asset('css/main.css') }}">
-@endpush
+
 @push('scripts')
     <script language="javascript">
         function readURL(input) {

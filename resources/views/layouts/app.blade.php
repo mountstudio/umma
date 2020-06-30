@@ -12,6 +12,7 @@
     <link href="{{ asset('css/main.css') }}" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="{{ asset('css/component.css') }}"/>
     <link rel="stylesheet" type="text/css" href="{{asset('css/buttons.css')}}"/>
+
     @stack('styles')
 </head>
 <body style="overflow-x: hidden;">

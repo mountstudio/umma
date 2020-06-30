@@ -17,7 +17,7 @@
                     <div class="form-group">
                         <label for="name_field">Наименование<span class="text-danger">*</span></label>
                         <input id="name_field" type="text" class="form-control"
-                               placeholder="Наименование" name="name" required>
+                               placeholder="Наименование" name="name" value="{{ old('name') }}" required>
                     </div>
                     <div class="form-group">
                         <label for="pdf_input">pdf</label>
@@ -31,7 +31,7 @@
                     <div class="form-group">
                         <label for="status">Статус журнала</label>
                         <input id="status" type="text" class="form-control"
-                               placeholder="Статус журнала" name="status">
+                               placeholder="Статус журнала" value="{{ old('status') }}" name="status">
                     </div>
                     <div class="form-group">
                         <label for="image_input">Картинка</label>

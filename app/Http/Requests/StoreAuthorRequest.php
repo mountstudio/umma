@@ -31,7 +31,7 @@ class StoreAuthorRequest extends FormRequest
     public function messages()
     {
         return [
-            'photo.dimensions' => 'image width must be at least 500 pixels and 1 to 1 ratio',
+            'photo.dimensions' => 'Ширина изображения должна быть не менее 500 пикселей и соотношение 1 к 1',
         ];
     }
 }

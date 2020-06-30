@@ -16,19 +16,19 @@
                     </div>
                     <div class="form-group">
                         <label for="name_field">Наименование<span class="text-danger">*</span></label>
-                        <input id="name_field" type="text" class="form-control" name="name" required>
+                        <input id="name_field" type="text" class="form-control" name="name" value="{{ old('name') }}" required>
                     </div>
                     <div class="form-group pt-2">
                         <label for="content_area">Описание:<span class="text-danger">*</span></label>
                         <textarea id="content_area" class="form-control richTextBox is-invalid"
-                                  name="content"></textarea>
+                                  name="content">{{ old('content') }}</textarea>
                     </div>
                     <div id="form-group">
                         <label for="type">Выберите тип:<span class="text-danger">*</span></label>
                         <br>
                         <select id="type" name="type_id">
                             @foreach($types as $type)
-                                <option value="{{ $type->id }}">{{ $type->name }}</option>
+                                <option value="{{ $type->id }}"{{ old('type_id')==$type->id ? 'selected':'' }}>{{ $type->name }}</option>
                             @endforeach
                         </select>
                     </div>
@@ -36,15 +36,15 @@
                     <div class="form-group">
                         <label for="date_event_field">Дата события:<span class="text-danger">*</span></label>
                         <br>
-                        <input type="datetime-local" id="date_event_field" name="date_event">
+                        <input type="datetime-local" id="date_event_field" name="date_event" value="{{ old('date_event') }}" required>
                     </div>
                     <div class="form-group">
                         <label for="phone_field">Телефон:<span class="text-danger">*</span></label>
-                        <input id="phone_field" type="text" class="form-control" name="phone" required>
+                        <input id="phone_field" type="text" class="form-control" name="phone" value="{{ old('phone') }}" required>
                     </div>
                     <div class="form-group">
                         <label for="mail_field">mail:<span class="text-danger">*</span></label>
-                        <input id="mail_field" type="text" class="form-control" name="mail" required>
+                        <input id="mail_field" type="text" class="form-control" name="mail" value="{{ old('mail') }}" required >
                     </div>
                     <div class="form-group">
                         <label for="main_photo_input">Главное фото:<span class="text-danger">*</span></label>
@@ -55,8 +55,8 @@
                         <label for="lang">Выберите язык:<span class="text-danger">*</span></label>
                         <br>
                         <select id="lang" name="lang">
-                            <option value="ru">ru</option>
-                            <option value="kg">kg</option>
+                            <option value="ru"{{ old('lang')=='ru' ? 'selected':'' }}>ru</option>
+                            <option value="kg"{{ old('lang')=='kg' ? 'selected':'' }}>kg</option>
                         </select>
                     </div>
                     <button type="submit" title="{{ __('Добавить') }}"

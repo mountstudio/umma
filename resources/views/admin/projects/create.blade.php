@@ -16,12 +16,12 @@
                     </div>
                     <div class="form-group">
                         <label for="name">Наименование<span class="text-danger">*</span></label>
-                        <input type="text" class="form-control" name="name" required>
+                        <input type="text" class="form-control" name="name" value="{{ old('name') }}" required>
                     </div>
                     <div class="form-group pt-2">
                         <label for="content_area">Описание:<span class="text-danger">*</span></label>
                         <textarea id="content_area" class="form-control richTextBox is-invalid"
-                                  name="description"></textarea>
+                                  name="description">{{ old('description') }}</textarea>
                     </div>
                     <div class="form-group">
                         <label for="main_photo_input">Главное фото:<span class="text-danger">*</span></label>

@@ -16,7 +16,7 @@
                 </div>
                 <div class="form-group">
                     <label for="full_name_field">ФИО автора<span class="text-danger">*</span></label>
-                    <input id="full_name_field" value="{{ $author->full_name }}" type="text" class="form-control"
+                    <input id="full_name_field" value="{{ old('full_name', $author->full_name) }}" type="text" class="form-control"
                            name="full_name" required>
                 </div>
                 <div class="form-group">
