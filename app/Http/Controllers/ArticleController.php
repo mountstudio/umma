@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Article;
 use App\Author;
+use App\Banner;
 use App\Category;
 use App\Hadith;
 use App\Http\Requests\StoreArticleRequest;
@@ -15,6 +16,7 @@ use App\Poster;
 use App\Project;
 use App\Services\ContentCutting;
 use App\Services\ImageUploader;
+use App\SiteText;
 use App\Tag;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
@@ -275,6 +277,8 @@ class ArticleController extends Controller
             $multimedia = Multimedia::where('lang', 'kg')->latest()->take(10)->get();
             $posters = Poster::where('lang', 'kg')->where('date_event', '>', now())->get()->sortBy('date_event');
         }
+        $mainText = SiteText::find(1);
+        $banners = Banner::all();
         $kolumnisty = Author::all()->where('view_main', true)->shuffle()->take(4);
         $magazines = Magazine::latest()->take(2)->get();
         $projects = Project::latest()->get();
@@ -301,6 +305,8 @@ class ArticleController extends Controller
             'articlesDayTheme' => $articlesDayTheme,
             'kolumnisty' => $kolumnisty,
             'articlesByCategory' => $articlesCategories,
+            'banners'=>$banners,
+            'mainText'=>$mainText,
         ]);
     }
 

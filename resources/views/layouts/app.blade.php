@@ -16,7 +16,10 @@
     @stack('styles')
 </head>
 <body style="overflow-x: hidden;">
-<section class="position-absolute " style="z-index: -1;background: url('{{ asset('img/example-2.jpg') }}') no-repeat;background-size: cover;background-position: center;height: 100vh;width: 100%;">
+<?php
+    $banner = \App\Banner::all()->first();
+?>
+<section class="position-absolute " style="z-index: -1;background: url('{{ asset('storage/large/' .$banner->image) }}') no-repeat;background-size: cover;background-position: center;height: 100vh;width: 100%;">
 
 </section>
 <section class="position-absolute d-none d-lg-block" style="bottom: -52px;height: 100px;width: 110%;left: -30px;filter: blur(15px);background: white;z-index: -1;">
