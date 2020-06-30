@@ -16,14 +16,14 @@
                 <div class="form-group">
                     <label for="full_name_field">ФИО автора<span class="text-danger">*</span></label>
                     <input id="full_name_field" type="text" class="form-control"
-                           name="full_name" required>
+                           name="full_name" value="{{ old('full_name') }}" required>
                 </div>
                 <div class="form-group">
                     <label for="photo_input">Фотография</label>
                     <input id="photo_input" type="file" class="form-control" name="photo" accept="image/jpeg, image/png" required>
                 </div>
                 <div class="form-check">
-                    <input type="checkbox" name="view_main" class="form-check-input" id="viewMain_check">
+                    <input type="checkbox" name="view_main" class="form-check-input" id="viewMain_check" {{ old('view_main') ? 'checked':'' }}>
                     <label class="form-check-label" for="viewMain_check">На главный экран</label>
                 </div>
                 <button type="submit" title="{{ __('Добавить') }}" class="btn n btn-success">{{ __('Добавить') }}</button>

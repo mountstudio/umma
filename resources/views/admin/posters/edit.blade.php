@@ -17,13 +17,13 @@
                     </div>
                     <div class="form-group">
                         <label for="name_filed">Наименование<span class="text-danger">*</span></label>
-                        <input id="name_filed" value="{{ $poster->name }}" type="text" class="form-control" name="name"
+                        <input id="name_filed" value="{{ old('name', $poster->name) }}" type="text" class="form-control" name="name"
                                placeholder="" required>
                     </div>
                     <div class="form-group pt-2">
                         <label for="content_area">Описание:<span class="text-danger">*</span></label>
                         <textarea id="content_area" class="form-control richTextBox is-invalid"
-                                  name="content">{{ $poster->content }}</textarea>
+                                  name="content">{{ old('content', $poster->content) }}</textarea>
                     </div>
                     <div id="form-group">
                         <label for="type">Выберите тип:<span class="text-danger">*</span></label>
@@ -31,7 +31,7 @@
                         <select id="type" name="type_id">
                             @foreach($types as $type)
                                 <option
-                                    {{ $type->id == $poster->type_id ? 'selected' : '' }} value="{{ $type->id }}">{{ $type->name }}</option>
+                                    {{ old('type_id', $type->id) == $poster->type_id ? 'selected' : '' }} value="{{ $type->id }}">{{ $type->name }}</option>
                             @endforeach
                         </select>
                     </div>
@@ -39,18 +39,18 @@
                     <div class="form-group">
                         <label for="date_event_field">Дата события:<span class="text-danger">*</span></label>
                         <br>
-                        <input value="{{ date('Y-m-d\TH:i', strtotime($poster->date_event)) }}" type="datetime-local"
+                        <input value="{{ date('Y-m-d\TH:i', strtotime(old('date_event', $poster->date_event))) }}" type="datetime-local"
                                id="date_event_field" name="date_event" required>
                     </div>
                     <div class="form-group">
                         <label for="phone_field">Телефон:<span class="text-danger">*</span></label>
-                        <input id="phone_field" value="{{ $poster->phone }}" type="text" class="form-control"
+                        <input id="phone_field" value="{{ old('phone', $poster->phone) }}" type="text" class="form-control"
                                name="phone"
                                required>
                     </div>
                     <div class="form-group">
                         <label for="mail_field">mail:<span class="text-danger">*</span></label>
-                        <input id="mail_field" value="{{ $poster->mail }}" type="text" class="form-control" name="mail"
+                        <input id="mail_field" value="{{ old('mail', $poster->mail) }}" type="text" class="form-control" name="mail"
                                required>
                     </div>
                     <div class="form-group">
@@ -64,8 +64,8 @@
                         <label for="lang">Выберите язык:<span class="text-danger">*</span></label>
                         <br>
                         <select id="lang" name="lang">
-                            <option value="ru"{{ $poster->lang=='ru'? 'selected': ''}}>ru</option>
-                            <option value="kg"{{ $poster->lang=='kg'? 'selected': ''}}>kg</option>
+                            <option value="ru"{{ old('lang',$multimedia->lang) == 'ru'? 'selected': ''}}>ru</option>
+                            <option value="kg"{{ old('lang',$multimedia->lang) == 'kg'? 'selected': ''}}>kg</option>
                         </select>
                     </div>
                     <button type="submit" title="{{ __('Изменить') }}"

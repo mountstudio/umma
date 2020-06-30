@@ -18,12 +18,14 @@
                     </div>
                     <div class="form-group">
                         <label for="title_field">Название мультимедии</label>
-                        <input id="title_field" value="{{ $multimedia->title }}" type="text" class="form-control"
+                        <input id="title_field" value="{{ old('title', $multimedia->title) }}" type="text"
+                               class="form-control"
                                name="title" required>
                     </div>
                     <div class="form-group">
                         <label for="video_input">Ссылка на видео</label>
-                        <input id="video_input" value="{{ $multimedia->url_video }}" type="text" class="form-control"
+                        <input id="video_input" value="{{ old('url_video', $multimedia->url_video) }}" type="text"
+                               class="form-control"
                                name="url_video" required>
                     </div>
                     <div class="form-group">
@@ -37,8 +39,8 @@
                         <label for="lang">Выберите язык:<span class="text-danger">*</span></label>
                         <br>
                         <select id="lang" name="lang">
-                            <option value="ru"{{ $multimedia->lang=='ru'? 'selected': ''}}>ru</option>
-                            <option value="kg"{{ $multimedia->lang=='kg'? 'selected': ''}}>kg</option>
+                            <option value="ru"{{ old('lang',$multimedia->lang) == 'ru'? 'selected': ''}}>ru</option>
+                            <option value="kg"{{ old('lang',$multimedia->lang) == 'kg'? 'selected': ''}}>kg</option>
                         </select>
                     </div>
                     <button type="submit" title="{{ __('Изменить') }}"

@@ -29,6 +29,7 @@ class UpdateArticleRequest extends FormRequest
             'category_id' => 'required|numeric',
             'content' => 'required',
             'authors'=>'required',
+            'lang'=>'required',
             'photographers'=>'nullable',
             'keywords'=>'nullable',
             'tags'=>'nullable',
@@ -43,6 +44,7 @@ class UpdateArticleRequest extends FormRequest
         return [
             'logo.dimensions' => 'image width must be at least 500 pixels.',
             'banner.dimensions' => 'image width must be at least 500 pixels.',
+            'og_image.dimensions' => 'image width must be at least 500 pixels.',
         ];
     }
 }

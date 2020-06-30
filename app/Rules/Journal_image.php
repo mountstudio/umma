@@ -37,6 +37,6 @@ class Journal_image implements Rule
      */
     public function message()
     {
-        return 'The height of the image must be greater than the width.';
+        return 'Высота изображения должна быть больше ширины.';
     }
 }

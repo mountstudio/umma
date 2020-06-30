@@ -95,6 +95,16 @@
             <i class="fas fa-plus-circle pr-3"></i>{{ __('Подписчики') }}</a>
     </div>
     <div>
+        <a href="{{ route('admin.banner.datatable') }}"
+           class="list-group-item list-group-item-action {{ request()->is('admin/banner*') ? 'active' : '' }}">
+           {{ __('Баннеры') }}</a>
+    </div>
+    <div>
+        <a href="{{ route('admin.siteText.datatable') }}"
+           class="list-group-item list-group-item-action {{ request()->is('admin/siteText*') ? 'active' : '' }}">
+            {{ __('Тексты сайта') }}</a>
+    </div>
+    <div>
         <a href="#" onclick="event.preventDefault();$('.logout-form').submit();"
            class="list-group-item list-group-item-action text-danger">
             <i class="far fa-times-circle pr-3"></i>{{ __('Выход') }}</a>

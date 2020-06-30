@@ -5,9 +5,9 @@
         <div class="col-12 col-sm-10 col-lg-11 col-md-10 bg-form card-body-admin py-4">
             <form action="{{ route('admin.'.$type.'s.store') }}" method="POST" enctype="multipart/form-data">
                 @csrf
-                <ul class="list-unstyled">
+                <ul>
                     @foreach($errors->all() as $error)
-                        <li class="text-danger">{{ $error }}</li>
+                        <li>{{ $error }}</li>
                     @endforeach
                 </ul>
                 <div class="row justify-content-center">

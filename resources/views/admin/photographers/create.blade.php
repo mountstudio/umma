@@ -17,7 +17,7 @@
                     <div class="form-group">
                         <label for="full_name_field">ФИО фотографа<span class="text-danger">*</span></label>
                         <input id="full_name_field" type="text" class="form-control"
-                               placeholder="ФИО" name="full_name" required>
+                               placeholder="ФИО" name="full_name" value="{{ old('full_name') }}" required>
                     </div>
                     <div class="form-group">
                         <label for="photo_input">Фотография</label>

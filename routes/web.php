@@ -125,6 +125,8 @@ Route::prefix('admin')->name('admin.')/*->middleware('admin')*/
     Route::resource('news', 'ArticleController')->except(['index', 'show'])->parameters([
         'news' => 'article'
     ]);
+
+
 //CRUD for authors
     Route::get('/author', 'AuthorController@datatable')->name('author.datatable');
     Route::get('/author/datatable', 'AuthorController@datatableData')->name('author.datatable.data');
@@ -196,5 +198,15 @@ Route::prefix('admin')->name('admin.')/*->middleware('admin')*/
     Route::get('/subscriber/datatable', 'SubscriberController@datatableData')->name('subscriber.datatable.data');
     Route::get('/subscriber/{subscriber}', 'SubscriberController@adminShow')->name('subscriber.show');
     Route::resource('subscribers', 'SubscriberController')->except(['index', 'show']);
+
+    //CRUD for banners
+    Route::get('/banner', 'BannerController@datatable')->name('banner.datatable');
+    Route::get('/banner/datatable', 'BannerController@datatableData')->name('banner.datatable.data');
+    Route::get('/banner/{banner}', 'BannerController@adminShow')->name('banner.show');
+    Route::resource('banners', 'BannerController')->except(['index', 'show']);
+
+    Route::get('/siteText', 'SiteTextController@datatable')->name('siteText.datatable');
+    Route::get('/siteText/datatable', 'SiteTextController@datatableData')->name('siteText.datatable.data');
+    Route::resource('siteTexts', 'SiteTextController')->except(['index', 'show', 'delete', 'create']);
 });
 
