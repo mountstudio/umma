@@ -57,4 +57,10 @@
         });
     </script>
 @endpush
-
+@push('metas')
+    <meta property="og:title" content="{{  __('main.all_hadis') }}">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="{{ request()->fullUrl() }}"/>
+    <meta property="og:image" content="{{ asset('img/logo.svg') }}">
+    <meta property="og:site_name" content="Ummamag">
+@endpush

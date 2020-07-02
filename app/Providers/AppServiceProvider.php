@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use App\Article;
+use Illuminate\Database\Schema\Builder;
 use Illuminate\Pagination\LengthAwarePaginator;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\App;
@@ -29,6 +30,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+        Builder::defaultStringLength(191);
         /**
          * Paginate a standard Laravel Collection.
          *
