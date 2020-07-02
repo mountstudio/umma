@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Article;
 use App\Author;
+use App\Banner;
 use App\Category;
 use App\Hadith;
 use App\Http\Requests\StoreArticleRequest;
@@ -15,6 +16,7 @@ use App\Poster;
 use App\Project;
 use App\Services\ContentCutting;
 use App\Services\ImageUploader;
+use App\SiteText;
 use App\Tag;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
@@ -146,25 +148,26 @@ class ArticleController extends Controller
      * @param \App\Article $article
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Article $article)
+    public function update(UpdateArticleRequest $request, Article $article)
     {
+        $request->validated();
         if ($request->hasFile('logo')) {
             Storage::disk('public')->delete("/large/" . $article->logo);
             Storage::disk('public')->delete("/medium/" . $article->logo);
             Storage::disk('public')->delete("/small/" . $article->logo);
-            $article->logo = ImageUploader::upload(request('logo'), 'articles', 'articles', 40);
+        $article->logo = ImageUploader::upload(request('logo'), 'articles', 'articles', 90);
         }
         if ($request->hasFile('banner')) {
             Storage::disk('public')->delete("/large/" . $article->banner);
             Storage::disk('public')->delete("/medium/" . $article->banner);
             Storage::disk('public')->delete("/small/" . $article->banner);
-            $article->banner = ImageUploader::upload(request('banner'), 'banner', 'banner', 40);
+            $article->banner = ImageUploader::upload(request('banner'), 'banner', 'banner', 90);
         }
         if ($request->hasFile('og_image')) {
             Storage::disk('public')->delete("/large/" . $article->og_image);
             Storage::disk('public')->delete("/medium/" . $article->og_image);
             Storage::disk('public')->delete("/small/" . $article->og_image);
-            $article->og_image = ImageUploader::upload(request('og_image'), 'og_image', 'og_image', 40);
+            $article->og_image = ImageUploader::upload(request('og_image'), 'og_image', 'og_image', 90);
         }
 
 
@@ -274,6 +277,8 @@ class ArticleController extends Controller
             $multimedia = Multimedia::where('lang', 'kg')->latest()->take(10)->get();
             $posters = Poster::where('lang', 'kg')->where('date_event', '>', now())->get()->sortBy('date_event');
         }
+        $mainText = SiteText::find(1);
+        $banners = Banner::all();
         $kolumnisty = Author::all()->where('view_main', true)->shuffle()->take(4);
         $magazines = Magazine::latest()->take(2)->get();
         $projects = Project::latest()->get();
@@ -300,6 +305,8 @@ class ArticleController extends Controller
             'articlesDayTheme' => $articlesDayTheme,
             'kolumnisty' => $kolumnisty,
             'articlesByCategory' => $articlesCategories,
+            'banners'=>$banners,
+            'mainText'=>$mainText,
         ]);
     }
 

@@ -18,7 +18,7 @@
                     </div>
                     <div class="form-group">
                         <label for="name_field">Наименование<span class="text-danger">*</span></label>
-                        <input value="{{ $magazine->name }}" type="text" class="form-control" name="name"
+                        <input value="{{ old('name', $magazine->name) }}" type="text" class="form-control" name="name"
                                id="name_field"
                                required>
                     </div>
@@ -33,7 +33,7 @@
                     </div>
                     <div class="form-group">
                         <label for="status">Статус журнала</label>
-                        <input value="{{ $magazine->status }}" id="status" type="text" class="form-control"
+                        <input value="{{ old('status', $magazine->status) }}" id="status" type="text" class="form-control"
                                placeholder="Статус журнала" name="status">
                     </div>
                     <div class="form-group">

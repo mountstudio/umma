@@ -42,9 +42,9 @@ class StoreArticleRequest extends FormRequest
     public function messages()
     {
         return [
-            'logo.dimensions' => 'image width must be at least 500 pixels.',
-            'banner.dimensions' => 'image width must be at least 500 pixels.',
-            'og.dimensions' => 'image width must be at least 500 pixels.',
+            'logo.dimensions' => 'Ширина превью изображения должна быть не менее 500 пикселей.',
+            'banner.dimensions' => 'Ширина баннера изображения должна быть не менее 500 пикселей.',
+            'og_image.dimensions' => 'Ширина open graph изображения должна быть не менее 500 пикселей.',
         ];
     }
 }

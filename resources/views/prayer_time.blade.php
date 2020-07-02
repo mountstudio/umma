@@ -1,5 +1,9 @@
 @extends('layouts.app')
 @section('content')
+    @php
+        $ru_week = ['Понедельник','Вторник','Среда','Четверг','Пятница','Суббота','Воскресение'];
+        $kg_week = ['Дүйшөмбү','Шейшемби','Шаршемби','Бейшемби','Жума','Ишемби','Жекшемби'];
+    @endphp
     @push('metas')
         <meta property="og:title" content="{{ App::isLocale('ru') ? 'Время намазов ' : 'Намаз убактылары'}}">
         <meta property="og:image" content="{{ asset('img/logo.svg') }}">
@@ -49,9 +53,8 @@
                             <table class="table table-striped table-responsive-sm">
                                 <thead>
                                 <tr>
-                                    <th scope="col">{{ strftime('%B') }}</th>
+                                    <th scope="col" style="text-transform: capitalize">{{ \Carbon\Carbon::now()->locale('ru')->shortMonthName }}</th>
                                     <th scope="col">Д/н</th>
-                                    <th scope="col">{{ strftime('%b') }}</th>
                                     <th scope="col">Фаджр</th>
                                     <th scope="col">Шурук</th>
                                     <th scope="col">Зухр</th>
@@ -64,7 +67,11 @@
                                 @foreach($city as $key => $day)
                                     <tr>
                                         <th scope="row">{{ $key+1 }}</th>
-                                        <td>{{ strftime('%A', strtotime(date('Y-m-' . ($key + 1)))) }}</td>
+                                        @if(App::isLocale('ru'))
+                                            <td> {{ $ru_week[date('N', strtotime(date('Y-m-' . ($key + 1))))-1] }}</td>
+                                        @else
+                                            <td> {{ $kg_week[date('N', strtotime(date('Y-m-' . ($key + 1))))-1] }}</td>
+                                        @endif
                                         @foreach($day as $time)
                                             <td>{{ $time }}</td>
                                         @endforeach

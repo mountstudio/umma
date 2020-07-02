@@ -37,7 +37,7 @@ class StorePosterRequest extends FormRequest
     public function messages()
     {
         return [
-            'main_photo.dimensions' => 'image width must be at least 500 pixels.',
+            'main_photo.dimensions' => 'Ширина изображения должна быть не менее 500 пикселей',
         ];
     }
 }

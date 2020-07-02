@@ -69,7 +69,5 @@ class AppServiceProvider extends ServiceProvider
                     $view->with('articles_for_subblock', $articles_for_subblock);
                 });
         }
-        setlocale(LC_TIME, 'kg_KG.UTF-8');
-
     }
 }

@@ -31,14 +31,4 @@
         </tr>
         </tbody>
     </table>
-    {{--                    <label>id:</label>--}}
-    {{--                    <p>{{ $hadith->id }}</p>--}}
-    {{--                    <label>Наименование:</label>--}}
-    {{--                    <p>{{ $hadith->name }}</p>--}}
-    {{--                    <label>контент</label>--}}
-    {{--                    {!! $hadith->content  !!}--}}
-    {{--                    <div>--}}
-    {{--                        <p>{{ $hadith->created_at }}</p>--}}
-    {{--                        <p>{{ $hadith->updated_at }}</p>--}}
-    {{--                    </div>--}}
 @endsection

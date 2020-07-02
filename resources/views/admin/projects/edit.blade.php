@@ -15,13 +15,13 @@
                     </ul>
                     <div class="form-group">
                         <label for="name_field">Наименование<span class="text-danger">*</span></label>
-                        <input id="name_field" value="{{ $project->name }}" type="text" class="form-control"
+                        <input id="name_field" value="{{ old('name', $project->name) }}" type="text" class="form-control"
                                name="name">
                     </div>
                     <div class="form-group pt-2">
                         <label for="content_area">Описание:<span class="text-danger">*</span></label>
                         <textarea id="content_area" class="form-control richTextBox is-invalid"
-                                  name="description">{{ $project->description }}</textarea>
+                                  name="description">{{ old('description', $project->description) }}</textarea>
                     </div>
                     <div class="form-group">
                         <label for="image_input">Главное фото:<span class="text-danger">*</span></label>
