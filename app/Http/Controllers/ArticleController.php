@@ -263,16 +263,16 @@ class ArticleController extends Controller
     public function welcome()
     {
         if (App::isLocale('ru')) {
-            $articlesDayTheme = Article::where('lang', 'ru')->where('view_main', true)->latest()->take(6)->get();
-            $articlesCommentLatest = Article::where('lang', 'ru')->has('comments')->orderBy('updated_at', 'DESC')->take(6)->get();
-            $articlesLatest = Article::where('lang', 'ru')->latest()->take(6)->get();
+            $articlesDayTheme = Article::where('lang', 'ru')->where('view_main', true)->latest()->take(18)->get();
+            $articlesCommentLatest = Article::where('lang', 'ru')->has('comments')->orderBy('updated_at', 'DESC')->take(18)->get();
+            $articlesLatest = Article::where('lang', 'ru')->latest()->take(18)->get();
             $hadith = Hadith::where('lang', 'ru')->latest()->first();
             $multimedia = Multimedia::where('lang', 'ru')->latest()->take(10)->get();
             $posters = Poster::where('lang', 'ru')->where('date_event', '>', now())->get()->sortBy('date_event');
         } else {
-            $articlesDayTheme = Article::where('lang', 'kg')->where('view_main', true)->latest()->take(6)->get();
-            $articlesCommentLatest = Article::where('lang', 'kg')->has('comments')->orderBy('updated_at', 'DESC')->take(6)->get();
-            $articlesLatest = Article::where('lang', 'kg')->latest()->take(6)->get();
+            $articlesDayTheme = Article::where('lang', 'kg')->where('view_main', true)->latest()->take(18)->get();
+            $articlesCommentLatest = Article::where('lang', 'kg')->has('comments')->orderBy('updated_at', 'DESC')->take(18)->get();
+            $articlesLatest = Article::where('lang', 'kg')->latest()->take(18)->get();
             $hadith = Hadith::where('lang', 'kg')->latest()->first();
             $multimedia = Multimedia::where('lang', 'kg')->latest()->take(10)->get();
             $posters = Poster::where('lang', 'kg')->where('date_event', '>', now())->get()->sortBy('date_event');

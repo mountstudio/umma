@@ -1,9 +1,4 @@
 @extends('layouts.app')
-<meta property="og:title" content="{{ App::isLocale('ru') ?  }}" />
-<meta property="og:type" content="article">
-<meta property="og:url" content="{{ request()->fullUrl() }}" />
-<meta property="og:image" content="{{ asset('img/logo.svg') }}">
-<meta property="og:site_name" content="Ummamag">
 @section('content')
     <div class="container bg-white">
         <div class="row">
