@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('content')
     @push('metas')
-        <meta property="og:title" content="{{ App::isLocale('ru') ? 'Надо знать' : 'Билүү керек' }}" />
+        <meta property="og:title" content="{{ __('main.must_know') }}" />
         <meta property="og:type" content="article">
         <meta property="og:url" content="{{ request()->fullUrl() }}" />
         <meta property="og:image" content="{{ asset('img/logo.svg') }}">

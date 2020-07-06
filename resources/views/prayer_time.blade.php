@@ -5,10 +5,10 @@
         $kg_week = ['Дүйшөмбү','Шейшемби','Шаршемби','Бейшемби','Жума','Ишемби','Жекшемби'];
     @endphp
     @push('metas')
-        <meta property="og:title" content="{{ App::isLocale('ru') ? 'Время намазов ' : 'Намаз убактылары'}}">
-        <meta property="og:image" content="{{ asset('img/logo.svg') }}">
-        <meta property="og:url" content="{{ request()->fullUrl() }}">
+        <meta property="og:title" content="{{ __('main.prayer_time') }}" />
         <meta property="og:type" content="article">
+        <meta property="og:url" content="{{ request()->fullUrl() }}" />
+        <meta property="og:image" content="{{ asset('img/logo.svg') }}">
         <meta property="og:site_name" content="Ummamag">
     @endpush
     <div class="container bg-white">
@@ -24,7 +24,7 @@
                 <h2 class="text-center">{{ __('main.prayer_time') }}</h2>
                 <button id="btnGroupDrop1" type="button" class="btn btn-secondary dropdown-toggle  "
                         data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Выбрать город
+                    {{ __('main.select_city') }}
                 </button>
                 <div class="dropdown-menu pb-0 py-2" aria-labelledby="btnGroupDrop1">
                     <div class="nav nav-tabs" id="myTab">

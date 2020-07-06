@@ -8,7 +8,6 @@
     @stack('metas')
     <title>{{ config('app.name', 'Laravel') }}</title>
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-{{--    <link rel="stylesheet" href="{{ asset('css/fontawesome.css') }}">--}}
     <link href="{{ asset('css/main.css') }}" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="{{ asset('css/component.css') }}"/>
     <link rel="stylesheet" type="text/css" href="{{asset('css/buttons.css')}}"/>

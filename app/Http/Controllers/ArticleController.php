@@ -155,7 +155,7 @@ class ArticleController extends Controller
             Storage::disk('public')->delete("/large/" . $article->logo);
             Storage::disk('public')->delete("/medium/" . $article->logo);
             Storage::disk('public')->delete("/small/" . $article->logo);
-        $article->logo = ImageUploader::upload(request('logo'), 'articles', 'articles', 90);
+            $article->logo = ImageUploader::upload(request('logo'), 'articles', 'articles', 90);
         }
         if ($request->hasFile('banner')) {
             Storage::disk('public')->delete("/large/" . $article->banner);
@@ -277,14 +277,13 @@ class ArticleController extends Controller
             $multimedia = Multimedia::where('lang', 'kg')->latest()->take(10)->get();
             $posters = Poster::where('lang', 'kg')->where('date_event', '>', now())->get()->sortBy('date_event');
         }
-        $mainText = SiteText::find(1);
         $banners = Banner::all();
         $kolumnisty = Author::all()->where('view_main', true)->shuffle()->take(4);
         $magazines = Magazine::latest()->take(2)->get();
         $projects = Project::latest()->get();
         $categories = self::get_categories();
         $articlesCategories = $categories->map(function ($item) {
-            return $item->articles->where('lang', App::isLocale('') ? 'ru':'kg')->take(3);
+            return $item->articles->where('lang', App::isLocale('') ? 'ru' : 'kg')->take(3);
         })->flatten();
         if ($hadith) {
             $hadith->content = ContentCutting::cut_contents($hadith->content, 60, 370);
@@ -305,8 +304,7 @@ class ArticleController extends Controller
             'articlesDayTheme' => $articlesDayTheme,
             'kolumnisty' => $kolumnisty,
             'articlesByCategory' => $articlesCategories,
-            'banners'=>$banners,
-            'mainText'=>$mainText,
+            'banners' => $banners,
         ]);
     }
 

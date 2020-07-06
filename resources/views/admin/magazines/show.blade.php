@@ -16,10 +16,18 @@
                             <th> Заголовок:</th>
                             <td scope="row">{{ $magazine->name }}</td>
                         </tr>
+                        @if(!is_null($magazine->status))
                         <tr>
                             <th> Статус журнала:</th>
                             <td scope="row">{{ $magazine->status }}</td>
                         </tr>
+                        @endif
+                        @if(!is_null($magazine->kg_status))
+                        <tr>
+                            <th> Статус журнала на кыргызском:</th>
+                            <td scope="row">{{ $magazine->kg_status }}</td>
+                        </tr>
+                        @endif
                         <tr>
                             <th> Картинка:</th>
                             <td><img src="{{ asset('storage/medium/' . $magazine->image) }}"></td>

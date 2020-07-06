@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('content')
     @push('metas')
-        <meta property="og:title" content="Журнал" />
+        <meta property="og:title" content="{{ __('main.journals') }}" />
         <meta property="og:type" content="article">
         <meta property="og:url" content="{{ request()->fullUrl() }}" />
         <meta property="og:image" content="{{ asset('img/logo.svg') }}">
@@ -19,7 +19,7 @@
         <div class="row justify-content-center">
             <div class="col-12 col-lg-9 col-md-10">
                 <div>
-                    <h2 class="text-center">Журналы</h2>
+                    <h2 class="text-center">{{ __('main.journals') }}</h2>
                     <hr style="background-color: black;color: black;">
                     <div class="row text-center">
                         @foreach($magazines as $magazine)
@@ -38,7 +38,7 @@
                                                     {{ __('main.download_on_kyrgyz') }}</p></a>
                                         @endif
                                     @else
-                                        <p>{{ $magazine->status }}</p>
+                                        <p>{{ App::isLocale('ru') ? $magazine->status:$magazine->kg_status }}</p>
                                     @endif
                                 </div>
                             </div>

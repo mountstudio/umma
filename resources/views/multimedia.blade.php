@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('content')
     @push('metas')
-        <meta property="og:title" content="Медиа" />
+        <meta property="og:title" content="{{ __('main.multimedia') }}" />
         <meta property="og:type" content="article">
         <meta property="og:url" content="{{ request()->fullUrl() }}" />
         <meta property="og:image" content="{{ asset('img/logo.svg') }}">

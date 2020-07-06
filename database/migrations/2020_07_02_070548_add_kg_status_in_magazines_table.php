@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddColumnKgPdfInMagazines extends Migration
+class AddKgStatusInMagazinesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -14,9 +14,7 @@ class AddColumnKgPdfInMagazines extends Migration
     public function up()
     {
         Schema::table('magazines', function (Blueprint $table) {
-            $table->string('kg_pdf')->nullable();
-            $table->string('pdf')->nullable()->change();
-            $table->text('status')->nullable();
+            $table->text('kg_status')->nullable();
         });
     }
 
@@ -28,9 +26,7 @@ class AddColumnKgPdfInMagazines extends Migration
     public function down()
     {
         Schema::table('magazines', function (Blueprint $table) {
-            $table->dropColumn('kg_pdf');
-            $table->string('pdf')->change();
-            $table->dropColumn('status');
+            $table->dropColumn('kg_status');
         });
     }
 }
