@@ -34,6 +34,11 @@
                                placeholder="Статус журнала" value="{{ old('status') }}" name="status">
                     </div>
                     <div class="form-group">
+                        <label for="status">Статус журнала на кыргызском</label>
+                        <input value="{{ old('kg_status') }}" id="status" type="text" class="form-control"
+                               placeholder="Статус журнала на кыргызском" name="kg_status">
+                    </div>
+                    <div class="form-group">
                         <label for="image_input">Картинка</label>
                         <input id="image_input" type="file" class="form-control" name="image" accept="image/*" required>
                     </div>

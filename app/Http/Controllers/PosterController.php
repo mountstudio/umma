@@ -22,7 +22,7 @@ class PosterController extends Controller
      */
     public function index()
     {
-        $posters = Poster::orderBy('date_event', 'desc')->paginate(4);
+        $posters = Poster::orderBy('date_event', 'desc')->paginate(6);
         foreach ($posters as $poster) {
             $content = strip_tags($poster->content);
             $poster->content = ContentCutting::cut_contents($content, 10, 42);
@@ -72,7 +72,7 @@ class PosterController extends Controller
             $content = strip_tags($otherPoster->content);
             $otherPoster->content = ContentCutting::cut_contents($content, 10, 42);
         }
-        $otherPosters = $otherPosters->chunk(ceil(2));
+        $otherPosters = $otherPosters->chunk(ceil(3));
         return view('poster.show_poster',
             [
                 'poster' => $poster,

@@ -5,67 +5,67 @@ use Illuminate\Support\Facades\App;
 
 //Static register
 Breadcrumbs::register('home', function ($breadcrumbs) {
-    $breadcrumbs->push('Главное', route('welcome'));
+    $breadcrumbs->push(__('main.main_page'), route('welcome'));
 });
 Breadcrumbs::register('articles', function ($breadcrumbs) {
     $breadcrumbs->parent('home');
-    $breadcrumbs->push('Новости', route('all.news'));
+    $breadcrumbs->push(__('main.news'), route('all.news'));
 });
 Breadcrumbs::register('magazines', function ($breadcrumbs) {
     $breadcrumbs->parent('home');
-    $breadcrumbs->push('Журналы', route('all.magazines'));
+    $breadcrumbs->push(__('main.journals'), route('all.magazines'));
 });
 Breadcrumbs::register('multimedia', function ($breadcrumbs) {
     $breadcrumbs->parent('home');
-    $breadcrumbs->push('Мультимедия', route('all.media'));
+    $breadcrumbs->push(__('main.multimedia'), route('all.media'));
 });
 Breadcrumbs::register('hadiths', function ($breadcrumbs) {
     $breadcrumbs->parent('home');
-    $breadcrumbs->push('Хадисы', route('all.hadiths'));
+    $breadcrumbs->push(__('main.hadiths'), route('all.hadiths'));
 });
 Breadcrumbs::register('prayer_time', function ($breadcrumbs) {
     $breadcrumbs->parent('home');
-    $breadcrumbs->push('Время намаза', route('monthly.time.prayer'));
+    $breadcrumbs->push(__('main.prayer_time'), route('monthly.time.prayer'));
 });
 Breadcrumbs::register('advertisers', function ($breadcrumbs) {
     $breadcrumbs->parent('home');
-    $breadcrumbs->push('Рекламодателям', route('advertisers'));
+    $breadcrumbs->push(__('main.for_advertisers'), route('advertisers'));
 });
 Breadcrumbs::register('vacancies', function ($breadcrumbs) {
     $breadcrumbs->parent('home');
-    $breadcrumbs->push('Вакансии', route('vacancies'));
+    $breadcrumbs->push(__('main.vacancies'), route('vacancies'));
 });
 Breadcrumbs::register('interview', function ($breadcrumbs) {
     $breadcrumbs->parent('home');
-    $breadcrumbs->push('Интервью', route('interview'));
+    $breadcrumbs->push(__('main.interview'), route('interview'));
 });
 Breadcrumbs::register('need_to_know', function ($breadcrumbs) {
     $breadcrumbs->parent('home');
-    $breadcrumbs->push('Надо знать', route('need_to_know'));
+    $breadcrumbs->push(__('main.must_know'), route('need_to_know'));
 });
 Breadcrumbs::register('it_is_interesting', function ($breadcrumbs) {
     $breadcrumbs->parent('home');
-    $breadcrumbs->push('Это интерестно', route('it_is_interesting'));
+    $breadcrumbs->push(__('main.its_interesting'), route('it_is_interesting'));
 });
 Breadcrumbs::register('education', function ($breadcrumbs) {
     $breadcrumbs->parent('home');
-    $breadcrumbs->push('Просвящение', route('education'));
+    $breadcrumbs->push(__('main.education'), route('education'));
 });
 Breadcrumbs::register('about_sore', function ($breadcrumbs) {
     $breadcrumbs->parent('home');
-    $breadcrumbs->push('О наболевшем', route('about_sore'));
+    $breadcrumbs->push(__('main.sore'), route('about_sore'));
 });
 Breadcrumbs::register('authors', function ($breadcrumbs) {
     $breadcrumbs->parent('home');
-    $breadcrumbs->push('Авторы', route('all.authors'));
+    $breadcrumbs->push(__('main.authors'), route('all.authors'));
 });
 Breadcrumbs::register('posters', function ($breadcrumbs) {
     $breadcrumbs->parent('home');
-    $breadcrumbs->push('Афишы', route('all.posters'));
+    $breadcrumbs->push(__('main.posters'), route('all.posters'));
 });
 Breadcrumbs::register('questions', function ($breadcrumbs) {
     $breadcrumbs->parent('home');
-    $breadcrumbs->push('Вопросы', route('all.questions'));
+    $breadcrumbs->push(__('main.questions'), route('all.questions'));
 });
 
 

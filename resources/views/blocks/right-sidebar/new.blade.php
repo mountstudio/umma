@@ -4,6 +4,9 @@
     </div>
     <div class="default-block__content default-block__content_most-read">
         <ul class="content-list content-list_most-read">
+            @php
+                    $articles_for_subblock = App::isLocale('ru')? $subblock : $subblock_kg
+            @endphp
             @foreach($articles_for_subblock as $key=>$article)
                 <li class="content-list__item content-list__item_devided post-info">
                     <a href="{{ route('show.article', $article) }}"
@@ -29,7 +32,8 @@
     </div>
 
     <div class="row justify-content-end no-gutters p-3 ">
-        <a href="{{ route('all.news') }}" class="pl-1 post-info__meta-counter post-info__meta-counter_small">{{ __('main.all_news') }}
+        <a href="{{ route('all.news') }}"
+           class="pl-1 post-info__meta-counter post-info__meta-counter_small">{{ __('main.all_news') }}
             ...</a>
     </div>
 </div>

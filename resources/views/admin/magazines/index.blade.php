@@ -12,12 +12,10 @@
                 <table class="table table-bordered" id="magazines-table">
                     <thead>
                     <tr>
-                        <th>id</th>
                         <th>Наименование</th>
                         <th>Изображение</th>
                         <th>Статус</th>
-                        <th>created_at</th>
-                        <th>updated_at</th>
+                        <th>Статус на кыргызском</th>
                         <th>actions</th>
                     </tr>
                     </thead>
@@ -39,12 +37,10 @@
                 serverSide: true,
                 ajax: '{!! route('admin.magazine.datatable.data') !!}',
                 columns: [
-                    {data: 'id', name: 'id'},
                     {data: 'name', name: 'name'},
-                    {data: 'image', name: 'image'},
+                    {data: 'image', name: 'image', searchable: false, orderable: false},
                     {data: 'status', name: 'status'},
-                    {data: 'created_at', name: 'created_at'},
-                    {data: 'updated_at', name: 'updated_at'},
+                    {data: 'kg_status', name: 'kg_status'},
                     {data: 'actions', name: 'actions', searchable: false, orderable: false},
                 ]
             });

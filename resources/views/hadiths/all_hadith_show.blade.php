@@ -10,7 +10,7 @@
     <div class="container bg-white">
         <div class="row">
             <div class="col-12 col-lg-8">
-                <h2 class="text-center">Хадисы</h2>
+                <h2 class="text-center">{{ __('main.hadiths') }}</h2>
                 <div class="row">
                     @foreach($hadiths as $hadith)
                         <div class="col-12">
@@ -34,7 +34,7 @@
                 <div class="pt-3">
                     @include('partials.pray')
                 </div>
-                <h2 class="text-center py-2">Статьи</h2>
+                <h2 class="text-center py-2">{{ __('main.article') }}</h2>
                 @include('blocks.right-sidebar.new')
             </div>
         </div>

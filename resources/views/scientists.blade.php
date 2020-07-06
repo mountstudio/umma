@@ -1,12 +1,11 @@
 @extends('layouts.app')
 @section('content')
     @push('metas')
-        <meta property="og:title" content="{{ App::isLocale('ru') ? 'Вопрос ученому' : 'Адис жооп берет' }}">
-        <meta property="og:image" content="{{ asset('img/logo.svg') }}">
-        <meta property="og:url" content="{{ request()->fullUrl() }}" />
+        <meta property="og:title" content="{{ __('main.question_to_the_scientist') }}" />
         <meta property="og:type" content="article">
+        <meta property="og:url" content="{{ request()->fullUrl() }}" />
+        <meta property="og:image" content="{{ asset('img/logo.svg') }}">
         <meta property="og:site_name" content="Ummamag">
-
     @endpush
     <div class="container bg-white">
         <div class="row">
