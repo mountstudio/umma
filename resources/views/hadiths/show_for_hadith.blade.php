@@ -35,7 +35,6 @@
             let btn = $(e.currentTarget);
             let social = btn.data('social');
             let url = btn.data('url');
-            let text = btn.data('text');
 
             if (social == 'facebook') {
                 url = 'https://facebook.com/sharer/sharer.php?u=' + url;
@@ -45,9 +44,6 @@
                 url = 'https://vk.com/share.php?url=' + url;
                 window.open(url, "popupWindow", "width=600,height=600,scrollbars=yes");
             }
-            // if (social == 'instagram') {
-            //     window.open($(this).attr("href", 'https://vk.com/share.php?url=' + url), "popupWindow", "width=600,height=600,scrollbars=yes");
-            // }
         })
     </script>
 @endpush

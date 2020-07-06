@@ -10,7 +10,7 @@ class Magazine extends Model
 {
     use Sluggable;
     use SoftDeletes;
-    protected $fillable =['name', 'slug', 'image', 'pdf', 'kg_pdf', 'status'];
+    protected $fillable =['name', 'slug', 'image', 'pdf', 'kg_pdf', 'status', 'kg_status'];
 
     public function sluggable(): array
     {

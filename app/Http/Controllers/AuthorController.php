@@ -147,6 +147,6 @@ class AuthorController extends Controller
 
     public function showAuthors()
     {
-        return view('authors.index', ['authors' => Author::paginate(5)]);
+        return view('authors.index', ['authors' => Author::paginate(8)]);
     }
 }

@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use App\Article;
+use App\SiteText;
 use Illuminate\Database\Schema\Builder;
 use Illuminate\Pagination\LengthAwarePaginator;
 use Illuminate\Support\Collection;
@@ -40,6 +41,7 @@ class AppServiceProvider extends ServiceProvider
          * @param string $pageName
          * @return array
          */
+        setlocale(LC_TIME, 'ru_RU.UTF-8');
         Collection::macro('paginate', function ($perPage, $total = null, $page = null, $pageName = 'page') {
             $page = $page ?: LengthAwarePaginator::resolveCurrentPage($pageName);
             return new LengthAwarePaginator(
@@ -62,11 +64,19 @@ class AppServiceProvider extends ServiceProvider
         });
 
         if (Schema::hasTable('articles')) {
-            $articles_for_subblock = Article::where('lang', App::isLocale('ru') ? 'kg' : 'ru')->where('is_active', true)
-                ->where('type', 'article')->latest()->take(9)->get();
+            $subblock = Article::where('lang', 'ru')->where('is_active', true)->where('type', 'article')->latest()->take(3)->get();
+            $subblock_kg = Article::where('lang', 'kg')->where('is_active', true)->where('type', 'article')->latest()->take(3)->get();
             view()->composer('blocks.right-sidebar.new',
-                function ($view) use ($articles_for_subblock) {
-                    $view->with('articles_for_subblock', $articles_for_subblock);
+                function ($view) use ($subblock, $subblock_kg) {
+                    $view->with(['subblock' => $subblock,
+                        'subblock_kg' => $subblock_kg]);
+                });
+        }
+        if (Schema::hasTable('site_texts')) {
+            $mainText = SiteText::find(1);
+            view()->composer('layouts.header',
+                function ($view) use ($mainText) {
+                    $view->with('mainText', $mainText);
                 });
         }
     }

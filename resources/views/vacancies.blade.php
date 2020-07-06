@@ -1,9 +1,11 @@
 @extends('layouts.app')
-<meta property="og:title" content="{{ App::isLocale('ru') ? 'Вакансия' : '' }}" />
+@push('metas')
+<meta property="og:title" content="{{ __('main.vacancies')}}" />
 <meta property="og:type" content="article">
 <meta property="og:url" content="{{ request()->fullUrl() }}" />
 <meta property="og:image" content="{{ asset('img/logo.svg') }}">
 <meta property="og:site_name" content="Ummamag">
+@endpush
 @section('content')
     <div class="container bg-white">
         <div class="row">

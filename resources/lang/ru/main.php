@@ -2,6 +2,7 @@
 
 return [
 //header
+    'title'=>'UMMA – мусульманский журнал, посвященный просвещению верующей молодежи.',
     'login' => 'Вход',
     'register' => 'Регистрация',
     'must_know' => 'Надо знать',
@@ -53,6 +54,8 @@ return [
 
     //prayer_time_for_monthly
     'prayer_time' => 'Время намаза',
+    //sidebar
+    'article' => 'Статьи',
 
     //show
     'social_media' => 'Материал принес пользу? Поделитесь ссылкой с друзьями в социальных сетях.',
@@ -62,6 +65,7 @@ return [
     'give_feedback' => 'оставить отзыв',
     'send' => 'отправить',
     'another_articles' => 'Другие статьи',
+    'another_posters' => 'Другие афиши',
     'look_more' => 'Показать еще',
 
     //magazines
@@ -69,6 +73,8 @@ return [
     'download_on_kyrgyz' => 'скачать журнал на кыргызском',
     'view magazine' => 'просмотреть журнал',
     'about_magazine' => 'О журнале',
+    'read_ru'=>'Орусча оку',
+    'read_kg'=>'Кыргызча окуу',
 
     //login and registration
     'create_account' => 'Создать аккаунт',
@@ -79,4 +85,31 @@ return [
     //search
     'searching_results' => 'Результаты поиска',
     'not_find' => 'Ничего не найдено!',
+
+    //addition to breadcrumbs
+    'main_page'=>'Главное',
+    'journals'=>'Журналы',
+    'multimedia'=>'Мултимедиа',
+    'hadiths'=>'Хадисы',
+    'authors'=>'Авторы',
+    'posters'=>'Афиши',
+    'questions'=>'Вопросы',
+
+    //tags
+    'tags'=>'Тeги',
+
+    //show for author
+    'all_articles_by_author'=>'Все статьи автора',
+    //show by tag
+    'all_articles_by_tag'=>'Все статьи данного тега',
+
+    //comment info
+    'full_name'=>'ФИО',
+    'phone_number'=>'Телефон номер',
+    'comments'=>'комментарии',
+    'a_comment_func'=>'коментарий',
+
+    //other
+    'date_event'=>'Дата события',
+    'select_city'=>'Выбрать город',
 ];

@@ -1,4 +1,15 @@
 @extends('layouts.app')
+@push('metas')
+    <meta property="og:title" content="{{ $magazine->name }}"/>
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="{{ request()->fullUrl() }}"/>
+    @if(!is_null($magazine->image))
+        <meta property="og:image" content="{{ asset('storage/small/' . $magazine->image) }}">
+    @else
+        <meta property="og:image" content="{{ asset('img/logo.svg') }}">
+    @endif
+    <meta property="og:site_name" content="Ummamag">
+@endpush
 @section('content')
     <div class="container bg-white">
         <div class="row">
@@ -12,7 +23,7 @@
             @if($magazine->pdf and $magazine->kg_pdf)
                 <div class="col-12 col-lg-9">
                     <button id="btn_switch" class="btn btn-primary" type="button">
-                        Читать на русском
+                        {{ __('main.read_ru') }}
                     </button>
                 </div>
                 <div id="div_kg" class="col-12 col-lg-8">
@@ -44,12 +55,12 @@
         $('#btn_switch').click(function () {
             let $this = $(this);
             if (btnObserver) {
-                $this.text("Читать на кыргызском");
+                $this.text("{{ __('main.read_kg') }}");
                 $('#div_ru').removeClass('d-none');
                 $('#div_kg').addClass('d-none');
                 btnObserver = !btnObserver;
             } else {
-                $this.text("Читать на русском");
+                $this.text("{{ __('main.read_ru') }}");
                 $('#div_ru').addClass('d-none');
                 $('#div_kg').removeClass('d-none');
                 btnObserver = !btnObserver;

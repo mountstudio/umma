@@ -1,4 +1,15 @@
 @extends('layouts.app')
+@push('metas')
+    <meta property="og:title" content="{{ $poster->name }}"/>
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="{{ request()->fullUrl() }}"/>
+    @if(!is_null($poster->main_photo))
+        <meta property="og:image" content="{{ asset('storage/small/'. $poster->main_photo) }}">
+    @else
+        <meta property="og:image" content="{{ asset('img/logo.svg') }}">
+    @endif
+    <meta property="og:site_name" content="Ummamag">
+@endpush
 @section('content')
     <div class="container bg-white">
         <div class="row">
@@ -11,7 +22,7 @@
         <div class="row justify-content-center">
             <div class="col-12 col-lg-9 col-md-10">
                 <div>
-                    <p>Дата события: 26.04.2020</p>
+                    <p>{{ __('main.date_event').': ' . \Carbon\Carbon::make($poster->date_event)->format('d.m.Y') }}</p>
                 </div>
                 <div class="post-header d-flex py-2">
 
@@ -35,13 +46,13 @@
                 @if($otherPosters->count())
                     <div class="row">
                         <div class="col-12 text-center pb-2">
-                            <h3>Другие статьи</h3>
+                            <h3>{{ __('main.another_posters') }}</h3>
                         </div>
                     </div>
                 @endif
                 <div class="py-3">
                     @foreach($otherPosters as $posterGroup)
-                        <div  id="{{ !$loop->first ? 'more':'basic' }}" class=" row{{ !$loop->first ? ' collapse':'' }}">
+                        <div id="{{ !$loop->first ? 'more':'basic' }}" class=" row{{ !$loop->first ? ' collapse':'' }}">
                             @foreach($posterGroup as $poster)
                                 <div class="col-12 py-4 col-lg-4 px-1">
                                     @include('poster.card')
@@ -53,8 +64,8 @@
                 @if($otherPosters->count()>1)
                     <div class="col-12 row justify-content-center   ">
                         <button class="button button--winona button--border-thin button--round-s"
-                                data-text="Показать еще" data-toggle="collapse" data-target="#more">
-                            <span>Показать еще</span></button>
+                                data-text="{{ __('main.look_more') }}" data-toggle="collapse" data-target="#more">
+                            <span>{{ __('main.look_more') }}</span></button>
                     </div>
                 @endif
             </div>
