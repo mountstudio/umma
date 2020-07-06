@@ -6,6 +6,7 @@ use App\Hadith;
 use App\Http\Requests\StoreHadithRequest;
 use App\Http\Requests\UpdateHadithRequest;
 use App\Services\ContentCutting;
+use Illuminate\Support\Facades\App;
 use Illuminate\Support\Str;
 use Yajra\DataTables\Facades\DataTables;
 
@@ -119,7 +120,7 @@ class HadithController extends Controller
 
     public function showHadiths()
     {
-        $hadiths = Hadith::all()->paginate(6);
+        $hadiths = Hadith::where('lang', App::isLocale('ru') ? 'ru':'kg')->paginate(6);
         foreach ($hadiths as $hadith) {
             $hadith->content = strip_tags($hadith->content);
             $hadith->content = ContentCutting::cut_contents($hadith->content, 20, 103);

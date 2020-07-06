@@ -1,5 +1,16 @@
 @extends('layouts.app')
 @section('content')
+    @php
+        $ru_week = ['Понедельник','Вторник','Среда','Четверг','Пятница','Суббота','Воскресение'];
+        $kg_week = ['Дүйшөмбү','Шейшемби','Шаршемби','Бейшемби','Жума','Ишемби','Жекшемби'];
+    @endphp
+    @push('metas')
+        <meta property="og:title" content="{{ __('main.prayer_time') }}" />
+        <meta property="og:type" content="article">
+        <meta property="og:url" content="{{ request()->fullUrl() }}" />
+        <meta property="og:image" content="{{ asset('img/logo.svg') }}">
+        <meta property="og:site_name" content="Ummamag">
+    @endpush
     <div class="container bg-white">
         <div class="row">
             <div class="col-12 p-0">
@@ -10,10 +21,10 @@
     <div class="container bg-white">
         <div class="row justify-content-center">
             <div class="col-12 col-lg-9 col-md-10">
-                <h2 class="text-center">Время намаза</h2>
+                <h2 class="text-center">{{ __('main.prayer_time') }}</h2>
                 <button id="btnGroupDrop1" type="button" class="btn btn-secondary dropdown-toggle  "
                         data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Выбрать город
+                    {{ __('main.select_city') }}
                 </button>
                 <div class="dropdown-menu pb-0 py-2" aria-labelledby="btnGroupDrop1">
                     <div class="nav nav-tabs" id="myTab">
@@ -42,7 +53,7 @@
                             <table class="table table-striped table-responsive-sm">
                                 <thead>
                                 <tr>
-                                    <th scope="col">{{ strftime('%b') }}</th>
+                                    <th scope="col" style="text-transform: capitalize">{{ \Carbon\Carbon::now()->locale('ru')->shortMonthName }}</th>
                                     <th scope="col">Д/н</th>
                                     <th scope="col">Фаджр</th>
                                     <th scope="col">Шурук</th>
@@ -56,7 +67,11 @@
                                 @foreach($city as $key => $day)
                                     <tr>
                                         <th scope="row">{{ $key+1 }}</th>
-                                        <td>{{ strftime('%A', strtotime(date('Y-m-' . ($key + 1)))) }}</td>
+                                        @if(App::isLocale('ru'))
+                                            <td> {{ $ru_week[date('N', strtotime(date('Y-m-' . ($key + 1))))-1] }}</td>
+                                        @else
+                                            <td> {{ $kg_week[date('N', strtotime(date('Y-m-' . ($key + 1))))-1] }}</td>
+                                        @endif
                                         @foreach($day as $time)
                                             <td>{{ $time }}</td>
                                         @endforeach
@@ -73,8 +88,6 @@
                 <div class="py-3">
                     @include('partials.pray')
                 </div>
-                <h2 class="text-center py-2">Статьи</h2>
-                @include('blocks.right-sidebar.new')
             </div>
         </div>
     </div>

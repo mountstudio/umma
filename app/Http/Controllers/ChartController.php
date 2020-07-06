@@ -41,7 +41,7 @@ class ChartController extends Controller
             }
             switch ($key) {
                 case 'article':
-                    $result[' Статьи'] = $sum;
+                    $result['Статьи'] = $sum;
                     break;
                 case 'longread':
                     $result['Лонгриды'] = $sum;
@@ -49,11 +49,15 @@ class ChartController extends Controller
                 case 'digest':
                     $result['Дайджест'] = $sum;
                     break;
+                case 'new':
+                    $result['Новости'] = $sum;
+                    break;
                 default:
                     $result[$key] = $sum;
                     break;
             }
         }
+//        dd($result);
         asort($result);
         return response()->json($result);
     }

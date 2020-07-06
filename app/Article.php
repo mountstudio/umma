@@ -9,22 +9,24 @@ use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Session;
 use Spatie\Feed\Feedable;
 use Spatie\Feed\FeedItem;
-use Spatie\Searchable\Searchable;
-use Spatie\Searchable\SearchResult;
 
-class Article extends Model implements Searchable, Feedable
+class Article extends Model implements Feedable
 {
     use SoftDeletes;
     use Sluggable;
 
     protected $fillable = [
         'name',
+        'desc',
         'slug',
+        'banner',
+        'og_image',
         'category_id',
         'logo',
         'is_active',
         'view_main',
         'content',
+        'lang',
         'type'
     ];
 
@@ -67,16 +69,6 @@ class Article extends Model implements Searchable, Feedable
         return 'slug';
     }
 
-    public function getSearchResult(): SearchResult
-    {
-        $url = route('show.article', $this);
-
-        return new \Spatie\Searchable\SearchResult(
-            $this,
-            $this->name,
-            $url
-        );
-    }
 
     public static function getArticleViews($id)
     {

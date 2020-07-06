@@ -22,6 +22,11 @@ class CreateArticlesTable extends Migration
             $table->boolean('is_active')->default(false);
             $table->boolean('view_main')->default(false);
             $table->longText('content')->nullable();
+            $table->longText('keywords')->nullable();
+            $table->string('og_image')->nullable();
+            $table->string('banner')->nullable();
+            $table->string('lang')->nullable();
+
             $table->timestamps();
         });
     }

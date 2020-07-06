@@ -1,4 +1,11 @@
 @extends('layouts.app')
+@push('metas')
+    <meta property="og:title" content="{{ __('main.posters') }}" />
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="{{ request()->fullUrl() }}" />
+    <meta property="og:image" content="{{ asset('img/logo.svg') }}">
+    <meta property="og:site_name" content="Ummamag">
+@endpush
 @section('content')
     <div class="container bg-white">
         <div class="row">
@@ -9,16 +16,15 @@
     </div>
     <div class="container bg-white">
         <div class="row">
-            <div class="col-4"></div>
-            <div class="col-12 col-lg-8">
+            <div class="col-12 row justify-content-center ">
                 <h2>Список всех постов</h2>
             </div>
         </div>
         <div class="row">
-            @include('partials.sidebar')
-            <div class="col-12 col-lg-8 justify-content-between row">
+
+            <div class="col-12 col-lg-9 justify-content-between row">
                 @foreach($posters as $poster)
-                    <div class="col-6 mb-3">
+                    <div class="col-4 mb-3">
                         @include('poster.card')
                     </div>
                 @endforeach
@@ -30,7 +36,7 @@
                     @endif
                 </div>
             </div>
-
+            @include('partials.sidebar')
         </div>
     </div>
 @endsection

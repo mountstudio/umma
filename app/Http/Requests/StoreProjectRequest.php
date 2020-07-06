@@ -32,7 +32,7 @@ class StoreProjectRequest extends FormRequest
     public function messages()
     {
         return [
-            'image.dimensions' => 'image width must be at least 500 pixels.',
+            'image.dimensions' => 'Ширина изображения должна быть не менее 500 пикселей.',
         ];
     }
 }

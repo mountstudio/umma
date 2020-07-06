@@ -21,6 +21,7 @@ class CreatePostersTable extends Migration
             $table->longText('content');
             $table->string('phone');
             $table->string('mail');
+            $table->string('lang');
             $table->timestamps();
         });
     }

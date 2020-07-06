@@ -1,21 +1,24 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" prefix="og: http://ogp.me/ns#">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- CSRF Token -->
-
     <meta name="csrf-token" content="{{ csrf_token() }}">
-
+    @stack('metas')
     <title>{{ config('app.name', 'Laravel') }}</title>
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/main.css') }}" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="{{ asset('css/component.css') }}"/>
     <link rel="stylesheet" type="text/css" href="{{asset('css/buttons.css')}}"/>
+
     @stack('styles')
 </head>
 <body style="overflow-x: hidden;">
-<section class="position-absolute " style="z-index: -1;background: url('{{ asset('img/example-2.jpg') }}') no-repeat;background-size: cover;background-position: center;height: 100vh;width: 100%;">
+<?php
+    $banner = \App\Banner::all()->first();
+?>
+<section class="position-absolute " style="z-index: -1;background: url('{{ asset('storage/large/' .$banner->image) }}') no-repeat;background-size: cover;background-position: center;height: 100vh;width: 100%;">
 
 </section>
 <section class="position-absolute d-none d-lg-block" style="bottom: -52px;height: 100px;width: 110%;left: -30px;filter: blur(15px);background: white;z-index: -1;">

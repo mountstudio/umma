@@ -3,18 +3,17 @@
 @section('dashboard_content')
     <div class="container">
         <div class="row">
-            <div class="col-6">
-                <canvas id="myChart" width="300" height="300"></canvas>
+            <div class="col-12 col-lg-6">
+                <canvas class="p-3 card-body-admin" id="myChart" width="300" height="300"></canvas>
             </div>
-            <div class="col-6">
-                <canvas id="myChart2" width="300" height="300"></canvas>
+            <div class="col-12 col-lg-6">
+                <canvas class="p-3 card-body-admin" id="myChart2" width="300" height="300"></canvas>
             </div>
         </div>
     </div>
 @endsection
 @push('scripts')
     <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
-    {{--first chart for registered--}}
     <script>
         $(document).ready(function () {
             let url = "{{ route('chart.count.registered') }}";
@@ -57,10 +56,9 @@
                         scales: {
                             yAxes: [{
                                 ticks: {
-                                    beginAtZero: true,
-                                    stepSize: 1,
+                                    suggestedMin: 5,
                                 }
-                            }]
+                            }],
                         },
                         legend: {
                             display: false
@@ -75,11 +73,11 @@
         $(document).ready(function () {
             let url = "{{ route('chart.count.views') }}";
             let types = [];
-            let numbers = [];
+            let values = [];
             $.get(url, function (response) {
                 for (key in response) {
                     types.push(key);
-                    numbers.push(response[key]);
+                    values.push(response[key]);
                 }
                 let chartForViews = document.getElementById('myChart2').getContext('2d');
                 new Chart(chartForViews, {
@@ -87,15 +85,22 @@
                     data: {
                         labels: types,
                         datasets: [{
-                            data: numbers,
+                            data: values,
                             backgroundColor:
-                                ['#49a9ea', '#36caab', '#ac5353'],
+                                ['#eaab2c', '#49a9ea', '#36caab', '#ac5353'],
                         }]
                     },
                     options: {
                         title: {
                             text: "Количество просмотров за послений месяц",
                             display: true
+                        },
+                        scales: {
+                            yAxes: [{
+                                ticks: {
+                                    suggestedMin: 5,
+                                }
+                            }],
                         },
                         legend: {
                             display: false

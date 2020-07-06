@@ -1,12 +1,18 @@
 @extends('layouts.app')
-
+@push('metas')
+    <meta property="og:title" content="{{ __('main.title') }}" />
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="{{ request()->fullUrl() }}" />
+    <meta property="og:image" content="{{ asset('img/logo.svg') }}">
+    <meta property="og:site_name" content="Ummamag">
+@endpush
 @section('content')
     <div class="container bg-white ">
         <div class="row justify-content-center align-items-center">
             <div class="col-12 col-lg-7 mx-0 px-0 bg-register">
             </div>
             <div class="col-12 col-lg-5  text-center pb-4">
-                <h3 class="py-4">Регистрация</h3>
+                <h3 class="py-4">{{ __('main.registration') }}</h3>
                 <form method="POST" action="{{ route('register') }}">
                     @csrf
                     <div class="form-group">
@@ -55,8 +61,8 @@
                         <input type="password" class="form-control rounded-pill small form-control-sm"
                                placeholder="Повторите пароль" id="password-confirm" name="password_confirmation" required autocomplete="new-password">
                     </div>
-                    <button type="submit" class="btn btn-success btn-sm rounded-pill ">Создать аккаунт</button>
-                    <a href="{{ route('login') }}" class="btn btn-danger btn-sm rounded-pill ">Войти</a>
+                    <button type="submit" class="btn btn-success btn-sm rounded-pill ">{{ __('main.create_account') }}</button>
+                    <a href="{{ route('login') }}" class="btn btn-danger btn-sm rounded-pill ">{{ __('main.login_account') }}</a>
                 </form>
 
 

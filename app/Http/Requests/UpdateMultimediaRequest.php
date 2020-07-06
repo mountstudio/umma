@@ -33,7 +33,7 @@ class UpdateMultimediaRequest extends FormRequest
     public function messages()
     {
         return [
-            'url_photo.dimensions' => 'image width must be at least 500 pixels.',
+            'url_photo.dimensions' => 'Ширина изображения должна быть не менее 500 пикселей',
         ];
     }
 }

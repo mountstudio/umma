@@ -3,16 +3,16 @@
         <li class="nav-item">
             <a class="nav-link rounded-0 active bg-white border-right text-dark" id="pills-home-tab"
                data-toggle="pill"
-               href="#pills-home" role="tab" aria-controls="pills-home" aria-selected="true">{{ __('Свежее') }}</a>
+               href="#pills-home" role="tab" aria-controls="pills-home" aria-selected="true">{{ __('main.fresh') }}</a>
         </li>
         <li class="nav-item">
             <a class="nav-link rounded-0 bg-white text-dark border-right" id="pills-profile-tab"
                data-toggle="pill"
-               href="#pills-profile" role="tab" aria-controls="pills-profile" aria-selected="false">{{ __('Актуальное') }}</a>
+               href="#pills-profile" role="tab" aria-controls="pills-profile" aria-selected="false">{{ __('main.relevant') }}</a>
         </li>
         <li class="nav-item">
             <a class="nav-link rounded-0 bg-white text-dark" id="pills-contact-tab" data-toggle="pill"
-               href="#pills-contact" role="tab" aria-controls="pills-contact" aria-selected="false">{{ __('Тема дня') }}</a>
+               href="#pills-contact" role="tab" aria-controls="pills-contact" aria-selected="false">{{ __('main.theme_day') }}</a>
         </li>
     </ul>
 </div>

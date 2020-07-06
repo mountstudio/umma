@@ -37,6 +37,6 @@ class main_image implements Rule
      */
     public function message()
     {
-        return 'The width of the image must be greater than the height.';
+        return 'Ширина изображения должна быть больше, чем высота.';
     }
 }

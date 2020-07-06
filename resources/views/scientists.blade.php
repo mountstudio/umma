@@ -1,5 +1,12 @@
 @extends('layouts.app')
 @section('content')
+    @push('metas')
+        <meta property="og:title" content="{{ __('main.question_to_the_scientist') }}" />
+        <meta property="og:type" content="article">
+        <meta property="og:url" content="{{ request()->fullUrl() }}" />
+        <meta property="og:image" content="{{ asset('img/logo.svg') }}">
+        <meta property="og:site_name" content="Ummamag">
+    @endpush
     <div class="container bg-white">
         <div class="row">
             <div class="col-12 p-0">
@@ -49,7 +56,7 @@
                         <label for="category_select">Категория вопроса:</label>
                         <select id="category_select" class="form-control" name="category_id">
                             @foreach($categories as $category)
-                                <option value="{{ $category->id }}">{{ $category->name }}</option>
+                                <option value="{{ $category->id }}">{{ App::isLocale('ru') ? $category->name:$category->name_kg }}</option>
                             @endforeach
                         </select>
                     </div>
@@ -70,7 +77,7 @@
                         <a href="{{ route('show.question', $question) }}" style="text-decoration:none;">
                             <div class="p-3 border my-4">
                                 <div class="text-left">
-                                    <span class="text-orange  font-weight-bold">Категория вопроса: {{ $question->category->name }}</span>
+                                    <span class="text-orange  font-weight-bold">Категория вопроса: {{ App::isLocale('ru') ? $question->category->name:$question->category->name_kg }}</span>
                                 </div>
                                 <p class="text-dark"><span class="pr-2 h5">В:</span>{{ $question->content }}</p>
                                 <div class="text-center">

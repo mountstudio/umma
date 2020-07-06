@@ -10,7 +10,7 @@ class Poster extends Model
 {
     use Sluggable;
     use SoftDeletes;
-    protected $fillable = ['name', 'slug', 'main_photo', 'content', 'phone', 'mail', 'type_id', 'date_event'];
+    protected $fillable = ['name','lang', 'slug', 'main_photo', 'content', 'phone', 'mail', 'type_id', 'date_event'];
 
     /**
      * Return the sluggable configuration array for this model.

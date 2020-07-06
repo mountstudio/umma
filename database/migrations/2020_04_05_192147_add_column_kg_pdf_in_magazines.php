@@ -16,7 +16,7 @@ class AddColumnKgPdfInMagazines extends Migration
         Schema::table('magazines', function (Blueprint $table) {
             $table->string('kg_pdf')->nullable();
             $table->string('pdf')->nullable()->change();
-            $table->string('status')->nullable();
+            $table->text('status')->nullable();
         });
     }
 

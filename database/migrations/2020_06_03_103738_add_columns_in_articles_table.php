@@ -16,9 +16,6 @@ class AddColumnsInArticlesTable extends Migration
         Schema::table('articles', function (Blueprint $table) {
             $table->boolean('lock')->default(0);
             $table->integer('time_public')->nullable();
-            $table->string('lang')->nullable();
-            $table->string('og_image')->nullable();
-            $table->text('keywords')->nullable();
         });
     }
 
@@ -33,9 +30,6 @@ class AddColumnsInArticlesTable extends Migration
             $table->dropColumn([
                 'lock',
                 'time_public',
-                'lang',
-                'og_image',
-                'keywords',
                 ]);
         });
     }

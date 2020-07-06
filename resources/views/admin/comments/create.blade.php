@@ -1,51 +1,56 @@
 @extends('admin.dashboard')
 
 @section('dashboard_content')
-    <div class="row">
-        <div class="col-12 col-sm-10 col-lg-10 col-md-10">
-            <form action="{{ route('admin.comments.store') }}" method="POST">
-                @csrf
-                <ul>
-                    @foreach($errors->all() as $error)
-                        <li>{{ $error }}</li>
-                    @endforeach
-                </ul>
-                <div class="form-group">
-                    <label for="article">Выберите статью:<span class="text-danger">*</span></label>
-                    <br>
-                    <select id="article" name="article_id">
-                        @foreach($articles as $article)
-                            <option value="{{ $article->id }}">{{ $article->name }}</option>
+    <div class="p-3 bg-form card-body-admin">
+        <div class="row">
+            <div class="col-12 col-sm-10 col-lg-10 col-md-10">
+                <form action="{{ route('admin.comments.store') }}" method="POST">
+                    @csrf
+                    <ul>
+                        @foreach($errors->all() as $error)
+                            <li>{{ $error }}</li>
                         @endforeach
-                    </select>
-                </div>
-                <br>
-                <div class="form-group">
-                    <label for="user_select">выберите пользователя:</label>
+                    </ul>
+                    <div class="row justify-content-center">
+                        <p class="font-weight-bold h2">Добавление комментария</p>
+                    </div>
+                    <div class="form-group">
+                        <label for="article">Выберите статью:<span class="text-danger">*</span></label>
+                        <br>
+                        <select id="article" name="article_id">
+                            @foreach($articles as $article)
+                                <option value="{{ $article->id }}">{{ $article->name }}</option>
+                            @endforeach
+                        </select>
+                    </div>
                     <br>
-                    <select id="user_select" name="user_id">
-                        <option value="0">Не зарегистрированный пользователь</option>
-                        @foreach($users as $user)
-                            <option value="{{ $user->id }}">{{ $user->name }}</option>
-                        @endforeach
-                    </select>
-                </div>
-                <div class="form-group" id="user_form_div">
-                    <label for="full_name_input">Полной имя:<span class="text-danger">*</span></label>
-                    <input type="text" class="form-control" id="full_name_input" name="full_name" required>
-                    <label for="phone_input">Телефон:<span class="text-danger">*</span></label>
-                    <input type="text" class="form-control" id="phone_input" name="phone" required>
-                    <label for="mail_input">Почта:<span class="text-danger">*</span></label>
-                    <input type="text" class="form-control" id="mail_input" name="mail" required>
-                </div>
-                <div class="form-group pt-2">
-                    <label for="Content_area">Контент:<span class="text-danger">*</span></label>
-                    <textarea id="Content_area" class="form-control"
-                              name="content"></textarea>
-                </div>
-                <button type="submit" title="{{ __('Добавить') }}"
-                        class="btn n btn-success">{{ __('Добавить') }}</button>
-            </form>
+                    <div class="form-group">
+                        <label for="user_select">выберите пользователя:</label>
+                        <br>
+                        <select id="user_select" name="user_id">
+                            <option value="0">Не зарегистрированный пользователь</option>
+                            @foreach($users as $user)
+                                <option value="{{ $user->id }}">{{ $user->name }}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                    <div class="form-group" id="user_form_div">
+                        <label for="full_name_input">Полной имя:<span class="text-danger">*</span></label>
+                        <input type="text" class="form-control" id="full_name_input" name="full_name" required>
+                        <label for="phone_input">Телефон:<span class="text-danger">*</span></label>
+                        <input type="text" class="form-control" id="phone_input" name="phone" required>
+                        <label for="mail_input">Почта:<span class="text-danger">*</span></label>
+                        <input type="text" class="form-control" id="mail_input" name="mail" required>
+                    </div>
+                    <div class="form-group pt-2">
+                        <label for="Content_area">Контент:<span class="text-danger">*</span></label>
+                        <textarea id="Content_area" class="form-control"
+                                  name="content"></textarea>
+                    </div>
+                    <button type="submit" title="{{ __('Добавить') }}"
+                            class="btn n btn-success">{{ __('Добавить') }}</button>
+                </form>
+            </div>
         </div>
     </div>
 @endsection
