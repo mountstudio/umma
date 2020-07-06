@@ -1,4 +1,4 @@
-<div class="col-12 col-lg-4  px-2 py-1 ">
+<div class="col-12 col-md-4  my-2 px-2 ">
     <div class="shadow shadow-on-hover transition-200">
         <div class="position-relative shadow-sm">
             <a class="text-decoration-none" href="{{ route('show.article', $article) }}" title="ссылка">

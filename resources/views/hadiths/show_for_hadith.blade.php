@@ -1,5 +1,6 @@
 @extends('layouts.app')
 @section('content')
+
     <div class="container bg-white">
         <div class="row">
             <div class="col-12 p-0">
@@ -45,4 +46,11 @@
             }
         })
     </script>
+@endpush
+@push('metas')
+    <meta property="og:title" content="{{ $hadith->name }}">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="{{ request()->fullUrl() }}"/>
+    <meta property="og:image" content="{{ asset('img/logo.svg') }}">
+    <meta property="og:site_name" content="Ummamag">
 @endpush
