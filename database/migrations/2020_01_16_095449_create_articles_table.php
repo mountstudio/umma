@@ -25,7 +25,7 @@ class CreateArticlesTable extends Migration
             $table->longText('keywords')->nullable();
             $table->string('og_image')->nullable();
             $table->string('banner')->nullable();
-            $table->string('lang');
+            $table->string('lang')->nullable();
 
             $table->timestamps();
         });

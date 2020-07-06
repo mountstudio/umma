@@ -1,17 +1,6 @@
 @extends('layouts.app')
 @section('content')
-    @push('metas')
-        <meta property="og:title" content="{{ $article->name }}">
-        <meta property="og:type" content="article">
-        <meta property="og:url" content="{{ request()->fullUrl() }}"/>
-        @if(!is_null($article->og_image))
-            <meta property="og:image" content="{{ $article->og_image }}">
-        @else
-            <meta property="og:image" content="{{ asset('img/logo.svg') }}">
-        @endif
-        <meta property="og:site_name" content="Ummamag">
-        <meta property="og:description" content="{{ $article->desc }}">
-    @endpush
+
     @include('partials.breadcrumbs', ['type' => 'article', 'value' => $article])
     <div class="container bg-white">
         <div class="row justify-content-center">
@@ -109,4 +98,16 @@
             }
         })
     </script>
+@endpush
+@push('metas')
+    <meta property="og:title" content="{{ $article->name }}">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="{{ request()->fullUrl() }}"/>
+    @if(!is_null($article->og_image))
+        <meta property="og:image" content="{{ $article->og_image }}">
+    @else
+        <meta property="og:image" content="{{ asset('img/logo.svg') }}">
+    @endif
+    <meta property="og:site_name" content="Ummamag">
+    <meta property="og:description" content="{{ $article->desc }}">
 @endpush

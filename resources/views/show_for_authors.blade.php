@@ -16,18 +16,17 @@
         </div>
     </div>
     <div class="container bg-white">
-        <div class="row justify-content-center">
-            <div class="col-12 col-lg-9 col-md-10">
+        <div class="row">
+            <div class="col-12 col-lg-8 col-md-10">
                 <div class="post-header d-flex">
                     <h2 class="title">
                         {{ __('main.all_articles_by_author') }}
                     </h2>
                 </div>
-                <div class="row">
-                    @include('articles.list',['articles' => $articlesByAuthor])
-                </div>
+                @include('articles.list',['articles' => $articlesByAuthor])
 
-                @if($articlesByAuthor instanceof \Illuminate\Pagination\LengthAwarePaginator)
+
+            @if($articlesByAuthor instanceof \Illuminate\Pagination\LengthAwarePaginator)
                     <div class="row justify-content-center mt-5">
                         {{ $articlesByAuthor->appends(request()->query())->links() }}
                     </div>

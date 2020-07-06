@@ -1,5 +1,4 @@
 @extends('layouts.app')
-
 @push('metas')
     <meta property="og:title" content="{{ __('main.its_interesting') }}" />
     <meta property="og:type" content="article">
