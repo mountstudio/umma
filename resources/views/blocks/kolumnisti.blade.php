@@ -20,8 +20,8 @@
             </div>
             @if($hadith)
                 <div class="border border-4 border-orange rounded p-4">
-                    <p style="display: -webkit-box;-webkit-line-clamp: 3;-webkit-box-orient: vertical;overflow: hidden;text-overflow: ellipsis;">{!! $hadith->content !!}</p>
-                    <div class="col-12 row">
+                    <p style="display: -webkit-box;-webkit-line-clamp: 4;-webkit-box-orient: vertical;overflow: hidden;text-overflow: ellipsis;">{!! $hadith->content !!}</p>
+                    <div class="col-12 row small">
                         <a href="{{ route('all.hadiths') }}" class="text-left mr-auto text-decoration-none" style="color: grey;">{{ __('main.all_hadis') }}</a>
                         <a href="{{ route('show.hadith', $hadith) }}" class="text-right ml-auto text-decoration-none" style="color: grey;">{{ __('main.read_more') }}...</a>
                     </div>

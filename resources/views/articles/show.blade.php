@@ -1,5 +1,12 @@
 @extends('layouts.app')
 @section('content')
+    @push('style')
+        <style>
+            #post-content{
+                font-size: 25px!important;
+            }
+        </style>
+    @endpush
     @push('metas')
         <meta property="og:title" content="{{ $article->name }}">
         <meta property="og:type" content="article">
@@ -34,8 +41,8 @@
                         </div>
                     </div>
                 @endif
-                <div id="post-content">
-                    <p>{!! $article->content !!}</p>
+                <div id="post-content" style="font-size: 20px;">
+                    {!! $article->content !!}
                 </div>
                 <div class="tags d-flex">
                     <h5 class="widget-title pr-2">Теги:</h5>

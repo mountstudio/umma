@@ -93,9 +93,13 @@
             </div>
         </nav>
         <div class="bg-for-middle-div col-12 px-0">
+            <?php
+            $mainText=\App\SiteText::all()->first();
+            ?>
             <marquee   behavior="scroll"  >
-         {{ App::isLocale('ru') ? $mainText->text : $mainText->kg_text }}
+         {!!   App::isLocale('ru') ? $mainText->text : $mainText->kg_text !!}
             </marquee>
+
         </div>
 
     </div>
