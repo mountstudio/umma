@@ -1,4 +1,7 @@
 @extends('layouts.app')
+@section('title')
+    {{ $author->full_name }}
+@endsection
 @section('content')
     @push('metas')
         <meta property="og:title" content="{{ $author->full_name }}" />

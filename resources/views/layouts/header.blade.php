@@ -42,7 +42,7 @@
     </div>
     <div class="row">
         <div class="col-12  text-center">
-            <a class="navbar-brand" href="{{ route('welcome') }}"><img src="{{ asset('img/logo.svg') }}" alt=""
+            <a class="navbar-brand" href="{{ route('welcome') }}"><img src="{{ asset('img/logo.svg') }}" alt="logo"
                                                                        class="img-fluid justify-content-center"></a>
         </div>
         <div class="col-12  text-center py-2">

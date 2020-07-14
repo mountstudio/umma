@@ -1,5 +1,9 @@
 @extends('layouts.app')
+@section('title')
+    {{ $poster->name }}
+@endsection
 @push('metas')
+    <meta name="description" content="{!! $poster->content !!}">
     <meta property="og:title" content="{{ $poster->name }}"/>
     <meta property="og:type" content="article">
     <meta property="og:url" content="{{ request()->fullUrl() }}"/>
@@ -31,7 +35,7 @@
                     </h2>
                 </div>
                 <div class="py-2 text-center">
-                    <img class="img-fluid" src="{{ asset('storage/medium/' . $poster->main_photo) }}" alt="">
+                    <img class="img-fluid" src="{{ asset('storage/medium/' . $poster->main_photo) }}" alt="main_photo">
                 </div>
                 <div>
                     <p>{!! $poster->content !!}</p>

@@ -7,11 +7,11 @@
                     <div class="item  p-1 mr-1 position-relative">
                         <a class="fancybox-media1" href="{{ $media->url_video }}">
                             <img class="border border-white  img-multimedia  position-relative"
-                                 src="{{ asset('storage/medium/' . $media->url_photo) }}" alt=""
+                                 src="{{ asset('storage/medium/' . $media->url_photo) }}" alt="url_photo"
                                  style="border-width: 5px!important;">
                             <img src="{{ asset('img/play-button.svg') }}" class="img-fluid position-absolute"
                                  style="left: 50%; top: 50%; transform: translate(-50%, -50%);width: 27%;height: 27%;"
-                                 alt="">
+                                 alt="play_btn">
                         </a>
                     </div>
                 @endforeach

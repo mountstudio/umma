@@ -1,7 +1,7 @@
 <a href="{{ route('show.poster', $poster) }}" class="card text-dark border-0 shadow-sm text-decoration-none h-100 mb-2">
     <div class="position-relative shadow">
         <img src="{{ asset('storage/medium/' . $poster->main_photo) }}" class="card-img-top"
-             style="object-fit: cover; min-height: 140px; max-height: 140px;" alt="...">
+             style="object-fit: cover; min-height: 140px; max-height: 140px;" alt="main_photo">
     </div>
     <div class="card-body shadow-sm border border-orange p-0 w-50 bg-white text-center rounded"
          style="transform: translateX(50%); margin-top: -25px;">

@@ -1,4 +1,7 @@
 @extends('layouts.app')
+@section('title')
+    {{ __('main.prayer_time') }}
+@endsection
 @section('content')
     @php
         $ru_week = ['Понедельник','Вторник','Среда','Четверг','Пятница','Суббота','Воскресение'];

@@ -1,4 +1,7 @@
 @extends('layouts.app')
+@section('title')
+    {{ __('main.must_know') }}
+@endsection
 @section('content')
     @push('metas')
         <meta property="og:title" content="{{ __('main.must_know') }}" />

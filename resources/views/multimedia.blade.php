@@ -1,4 +1,7 @@
 @extends('layouts.app')
+@section('title')
+    {{ __('main.multimedia') }}
+@endsection
 @section('content')
     @push('metas')
         <meta property="og:title" content="{{ __('main.multimedia') }}" />
@@ -25,7 +28,7 @@
                                 <a class="fancybox-media" href="{{ $media->url_video }}" title="ссылка">
                                     <img src="{{ asset('storage/medium/' . $media->url_photo ) }}"
                                          class="card-img-top"
-                                         alt="...">
+                                         alt="url_photo_media">
                                 </a>
                                 <a class="p-3" href="{{ route('show.media', $media) }}" title="ссылка">
                                     <h6 class="text-left">{{ $media->title }}</h6>

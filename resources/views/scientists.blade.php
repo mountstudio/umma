@@ -1,4 +1,7 @@
 @extends('layouts.app')
+@section('title')
+    {{ __('main.question_to_the_scientist') }}
+@endsection
 @section('content')
     @push('metas')
         <meta property="og:title" content="{{ __('main.question_to_the_scientist') }}" />

@@ -17,7 +17,7 @@
             @foreach($magazines as $magazine)
                 <a href="{{ route('show.magazine', $magazine) }}">
                     <div class="card mb-3 shadow">
-                        <img src="{{ asset('storage/small/'. $magazine->image) }}" class="card-img" alt="...">
+                        <img src="{{ asset('storage/small/'. $magazine->image) }}" class="card-img" alt="image_magazine">
                         <div class="card-img-overlay row m-0 align-items-end text-center ">
                             <div class="row justify-content-center">
                                 <div class="col-12 rounded bg-black-50 py-3 text-white">
