@@ -9,6 +9,8 @@
     <title>{{ config('app.name', 'Laravel') }}</title>
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/main.css') }}" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css">
     <link rel="stylesheet" type="text/css" href="{{ asset('css/component.css') }}"/>
     <link rel="stylesheet" type="text/css" href="{{asset('css/buttons.css')}}"/>
 
