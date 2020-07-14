@@ -97,13 +97,13 @@
     <div>
         <a href="{{ route('admin.banner.datatable') }}"
            class="list-group-item list-group-item-action {{ request()->is('admin/banner*') ? 'active' : '' }}">
-            <i class="fas fa-ad"></i>
+            <i class="fas fa-ad pr-3"></i>
            {{ __('Баннеры') }}</a>
     </div>
     <div>
         <a href="{{ route('admin.siteText.datatable') }}"
            class="list-group-item list-group-item-action {{ request()->is('admin/siteText*') ? 'active' : '' }}">
-            <i class="fas fa-quote-right"></i>{{ __('Тексты сайта') }}</a>
+            <i class="fas fa-quote-right pr-3" ></i>{{ __('Тексты сайта') }}</a>
     </div>
     <div>
         <a href="#" onclick="event.preventDefault();$('.logout-form').submit();"
