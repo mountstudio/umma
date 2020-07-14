@@ -1,12 +1,16 @@
 @if(isset($value))
-<!--    --><?php
-//        $value1=$value;
-//    $value1->name = \Illuminate\Support\Str::limit($value1->name,30,'...');
-//    ?>
+    <?php
+    $temp = $value->name;
+    $value->name = \Illuminate\Support\Str::limit($value->name,30,'...');
+    ?>
+
     <div class="container bg-white ">
         <div class="row">
             <div class="col-12 p-0" style="margin-bottom: 0!important;">
                 {{ Breadcrumbs::render($type, $value) }}
+                <?php
+                $value->name = $temp;
+                ?>
             </div>
         </div>
     </div>
