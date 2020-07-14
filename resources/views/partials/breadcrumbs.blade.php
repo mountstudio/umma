@@ -1,7 +1,7 @@
 @if(isset($value))
     <?php
     $temp = $value->name;
-    $value->name = \Illuminate\Support\Str::limit($value->name,30,'...');
+    $value->name = ' ';
     ?>
 
     <div class="container bg-white ">
