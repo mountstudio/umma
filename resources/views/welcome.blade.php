@@ -1,4 +1,7 @@
 @extends('layouts.app')
+@section('title')
+    UMMA – мусульманский журнал, посвященный просвещению верующей молодежи.
+@endsection
 @push('metas')
     <meta property="og:title" content="{{ __('main.title') }}" />
     <meta property="og:type" content="article">

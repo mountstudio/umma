@@ -2,7 +2,7 @@
     <div class="position-relative">
         <img src="{{ asset('storage/medium/' . $article->logo) }}"
              style="min-height: 150px; max-height: 150px; object-fit: cover;filter: brightness(80%);"
-             class="card-img-top" alt="...">
+             class="card-img-top" alt="article_logo">
         @if($article->category)
             @if(App::isLocale('ru'))
                 <p class="position-absolute text-white font-weight-bold"

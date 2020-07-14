@@ -1,4 +1,7 @@
 @extends('layouts.app')
+@section('title')
+    {{ App::isLocale('ru') ? $tag->name : $tag->name_kg }}
+@endsection
 @section('content')
     @push('metas')
         <meta property="og:title" content="{{ App::isLocale('ru') ? $tag->name : $tag->name_kg }}">

@@ -12,7 +12,7 @@
         <div class="row">
             <div class="col-12 col-lg-9">
                 <div class="post-header d-flex">
-                    <img class="d-none d-md-block mx-2" src="{{ asset('img/moon (1).png') }}" alt="">
+                    <img class="d-none d-md-block mx-2" src="{{ asset('img/moon (1).png') }}" alt="photo_moon_hadith">
                     <h1 class="title">
                         {{ $hadith->name }}
                     </h1>

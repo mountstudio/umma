@@ -1,4 +1,7 @@
 @extends('layouts.app')
+@section('title')
+    {{ $media->title }}
+@endsection
 @section('content')
     @push('metas')
         <meta property="og:title" content="{{ $media->title }}">
@@ -24,7 +27,7 @@
                     <span>{{ $media->created_at->format('d.m.y') }}</span>
                 </div>
                 <div class="post-header d-flex py-2">
-                    <img class="d-none d-md-block mx-2" src="{{ asset('img/video.png') }}" alt=""
+                    <img class="d-none d-md-block mx-2" src="{{ asset('img/video.png') }}" alt="video"
                          style="width: 60px;height: 60px;">
                     <h2 class="title">
                         {{ $media->title }}
@@ -33,9 +36,9 @@
                 <div class=" bg-img pb-5">
                     <a class="fancybox-media" href="{{ $media->url_video }}">
                         <div class="position-relative">
-                            <img src="{{ asset('storage/medium/' . $media->url_photo) }}" class="img-fluid  w-100 position-relative" alt="">
+                            <img src="{{ asset('storage/medium/' . $media->url_photo) }}" class="img-fluid  w-100 position-relative" alt="photo_url">
                             <img src="{{asset('img/youtube (3).png')}}" class="youtube  position-absolute"
-                                 style="left: 50%; top: 50%; transform: translate(-50%, -50%); " alt="">
+                                 style="left: 50%; top: 50%; transform: translate(-50%, -50%); " alt="icon_youtube">
                         </div>
                     </a>
                 </div>

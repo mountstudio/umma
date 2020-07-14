@@ -1,4 +1,7 @@
 @extends('layouts.app')
+@section('title')
+    {{ __('main.sore') }}
+@endsection
 @push('metas')
     <meta property="og:title" content="{{ __('main.sore') }}" />
     <meta property="og:type" content="article">

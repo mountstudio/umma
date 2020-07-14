@@ -1,4 +1,7 @@
 @extends('layouts.app')
+@section('title')
+    {{ __('main.interview') }}
+@endsection
 @push('metas')
     <meta property="og:title" content="{{ __('main.interview') }}" />
     <meta property="og:type" content="article">

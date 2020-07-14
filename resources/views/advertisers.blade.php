@@ -1,4 +1,7 @@
 @extends('layouts.app')
+@section('title')
+    {{ __('main.for_advertisers') }}
+@endsection
 @push('metas')
     <meta property="og:title" content="{{ __('main.for_advertisers') }}" />
     <meta property="og:type" content="article">

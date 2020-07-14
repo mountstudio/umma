@@ -1,4 +1,7 @@
 @extends('layouts.app')
+@section('title')
+    {{ $article->name }}
+@endsection
 @section('content')
     @push('style')
         <style>
@@ -7,7 +10,9 @@
             }
         </style>
     @endpush
+
     @push('metas')
+        <meta name="description" content="{{ $article->desc }}">
         <meta property="og:title" content="{{ $article->name }}">
         <meta property="og:type" content="article">
         <meta property="og:url" content="{{ request()->fullUrl() }}"/>
@@ -33,7 +38,7 @@
                     <div class="row justify-content-center">
                         <div class="col-12 col-lg-9 pt-0">
                             <div class="row justify-content-center">
-                                <img class="img-fluid" src="{{ asset('storage/large/' . $article->banner) }}" alt="">
+                                <img class="img-fluid" src="{{ asset('storage/large/' . $article->banner) }}" alt="banner">
                             </div>
                             <div class="title-article col-12 col-lg-7 px-0">
                                 <h1 class="title-for-article">{{ __($article->name) }}</h1>
