@@ -1,6 +1,24 @@
 @extends('layouts.app')
 @section('content')
-
+    @push('style')
+        <style>
+            #post-content{
+                font-size: 25px!important;
+            }
+        </style>
+    @endpush
+    @push('metas')
+        <meta property="og:title" content="{{ $article->name }}">
+        <meta property="og:type" content="article">
+        <meta property="og:url" content="{{ request()->fullUrl() }}"/>
+        @if(!is_null($article->og_image))
+            <meta property="og:image" content="{{ $article->og_image }}">
+        @else
+            <meta property="og:image" content="{{ asset('img/logo.svg') }}">
+        @endif
+        <meta property="og:site_name" content="Ummamag">
+        <meta property="og:description" content="{{ $article->desc }}">
+    @endpush
     @include('partials.breadcrumbs', ['type' => 'article', 'value' => $article])
     <div class="container bg-white">
         <div class="row justify-content-center">
@@ -23,11 +41,11 @@
                         </div>
                     </div>
                 @endif
-                <div id="post-content">
-                    <p>{!! $article->content !!}</p>
+                <div id="post-content" style="font-size: 20px;">
+                    {!! $article->content !!}
                 </div>
                 <div class="tags d-flex">
-                    <h5 class="widget-title pr-2">{{ __('main.tags') }}:</h5>
+                    <h5 class="widget-title pr-2">Теги:</h5>
                     @foreach($article->tags as $tag)
                         <p><a class="text-decoration-none text-orange"
                               href="{{ route('show.tag', $tag) }}">{{  $tag->name . ($loop->last ? '' : ', ') }} </a>
@@ -98,16 +116,4 @@
             }
         })
     </script>
-@endpush
-@push('metas')
-    <meta property="og:title" content="{{ $article->name }}">
-    <meta property="og:type" content="article">
-    <meta property="og:url" content="{{ request()->fullUrl() }}"/>
-    @if(!is_null($article->og_image))
-        <meta property="og:image" content="{{ $article->og_image }}">
-    @else
-        <meta property="og:image" content="{{ asset('img/logo.svg') }}">
-    @endif
-    <meta property="og:site_name" content="Ummamag">
-    <meta property="og:description" content="{{ $article->desc }}">
 @endpush
