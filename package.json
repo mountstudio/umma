@@ -28,7 +28,7 @@
         "@editorjs/table": "^1.2.2",
         "@editorjs/warning": "^1.1.1",
         "@fortawesome/fontawesome-free": "^5.13.1",
-        "axios": "^0.19.2",
+        "axios": "^0.21.1",
         "bootstrap": "^4.5.0",
         "browser-sync": "^2.26.7",
         "browser-sync-webpack-plugin": "^2.2.2",
